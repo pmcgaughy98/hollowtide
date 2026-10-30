@@ -1,0 +1,16 @@
+{
+  "west_woody_entry_rows": [
+    72,
+    110
+  ],
+  "west_woody_cross_section_px": 39,
+  "west_turf_rows": [
+    111,
+    119
+  ],
+  "upper_join_and_secondary_leg_rgba_exact": true,
+  "protected_region": "all pixels outside x0..55,y52..119",
+  "footing_stone_removed": "visual review",
+  "baseline": 119,
+  "old_reference_mask_intentionally_revised": true
+}

@@ -1,0 +1,70 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		8,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "town",
+	"brief": "The hoist basket hung from its rope by the top middle: a wicker basket on two rope slings, carrying an oilcloth parcel when full. No outer outline (the game rims it). wayline_tower palette.",
+	"census": "WT18",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": [
+		"top"
+	],
+	"file": "res://assets/slots/town/prop/hall_basket.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.hall.basket",
+	"kind": "prop",
+	"lane": "T",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "order 19; rides the hoist rope, about 10 s a round trip (Grok's set)",
+	"outline": "runtime_rim",
+	"owner": "grok",
+	"palette": {
+		"family": "wayline_tower",
+		"lock": true,
+		"max": 24,
+		"source": "res://assets/slots/palettes/wayline_tower.png"
+	},
+	"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+	"rows": 2,
+	"sheet_size": [
+		16,
+		32
+	],
+	"size": [
+		16,
+		16
+	],
+	"slot_file": "town_tower",
+	"states": {
+		"empty": [
+			1,
+			0
+		],
+		"full": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

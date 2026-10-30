@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.waymark_card.png",
+ "out": "docs/art/slot-candidates/gb-01-street/town.prop.waymark/raw.png",
+ "cost_usd": 0.06481556,
+ "turns": 4,
+ "text": "I'll read the style reference and the Imagine skill first, then generate the waymark once from what I actually see.The style sheet is chunky pixel art: warm chestnut timber, cream arrow boards, hard dark outlines, and light from the upper left. I\u2019ll generate the waymark once in that look.The generator saved a JPEG. I\u2019ll convert it to `raw.png` in this folder and check the pixel size so I can say whether 1:2 actually landed.Saved at `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_afbs2osh\\raw.png` (704\u00d71408, exactly 1:2): a timber crossroads waymark with blank arrow boards on flat magenta, generated from the style sheet\u2019s warm wood, cream boards, hard pixel edges, and upper-left light. I did not reopen the pixels after generation, so I cannot confirm the boards stayed blank, the background is",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_afbs2osh"
+}

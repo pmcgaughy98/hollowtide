@@ -74,23 +74,60 @@ func _run() -> void:
 	var dg: Node = current_scene
 	_ok("The arch opens the Hollow Mouth (%s)" % (dg.get("dungeon") if dg != null else "nothing"), dg != null and dg.get("dungeon") == "mouth")
 
-	# 3. The last stairs clear it, no boss.
+	# 3. The last floor's stairs lead down into the Warden's pond garden, and the garden's stairs clear it, no boss
+	# (2026-10-28, docs/design/mouth-garden-2026-10-28/PLAN.md slice 1).
 	if dg != null and dg.get("dungeon") == "mouth":
 		dg.return_to_town = false   # stay here so the check can read the result
+		# Halfway across B2F the flood catches up and washes the team down to B4F (slice 3). The leader is set on the
+		# stairs (no walk left at all) and rests one turn.
+		dg.floor_n = dg.SWEEP_FLOOR
+		dg._build_floor(false)
+		_ok("B2F waits for the flood (the walk across is %d steps)" % dg._sweep_from, dg._sweep_from > 0)
+		dg.ents[0]["pos"] = dg.data["stairs"]
+		dg._place(dg.ents[0])
+		dg.act_rest()
+		var saw3 := false
+		var dazed := false
+		for k in 1500:
+			await process_frame
+			saw3 = saw3 or dg.floor_n == 3
+			dazed = dazed or dg.intro.get("dazed", false)
+			if not dg.talk.is_empty() and k % 2 == 0:
+				dg.talk.pop_front()
+			if dg.story.get("swept", false) and dg.floor_n == dg.SWEEP_TO and not dg.cutscene and not dg.busy and dg.talk.is_empty():
+				break
+		_ok("The flood sweeps the team from B2F down to B4F, past B3F (floor %d, B3F seen %s, swept %s, dazed on arrival %s, free to move %s)" % [dg.floor_n, str(saw3), str(dg.story.get("swept", false)), str(dazed), str(not dg.cutscene and not dg.busy)],
+			dg.floor_n == 4 and not saw3 and dg.story.get("swept", false) and dazed and not dg.cutscene and not dg.busy)
 		dg.floor_n = dg.floors()
 		dg.ents[0]["pos"] = dg.data["stairs"]
 		dg._place(dg.ents[0])
-		dg.act_stairs()   # the Mouth's way out talks first (the rumble, the parcel); read through it
-		for k in 400:
+		dg.act_stairs()
+		var t_down := Time.get_ticks_msec()
+		while (dg.floor_kind() != "garden" or dg.busy) and Time.get_ticks_msec() - t_down < 8000:
 			await process_frame
-			if not dg.talk.is_empty():
-				dg.talk.pop_front()
-			if not dg.cutscene and dg.talk.is_empty() and k > 5:
-				break
+		_ok("The last floor's stairs lead down into the garden (floor kind %s, pond %s)" % [dg.floor_kind(), str(dg.pond.size)],
+			dg.floor_kind() == "garden" and dg.pond.size != Vector2i.ZERO)
+		var wilds: int = dg.ents.filter(func(e: Dictionary) -> bool: return e["team"] != 0).size()
+		_ok("The garden holds no wild creatures (%d) and the parcel beat waits for its way out (parcel '%s')" % [wilds, dg.story.get("parcel", "")],
+			wilds == 0 and dg.story.get("parcel", "") == "")
+		await _read_through(dg)
+		_ok("The team finds the garden in its own scene (garden_found %s)" % str(dg.story.get("garden_found", false)), dg.story.get("garden_found", false))
+		dg.ents[0]["pos"] = dg.data["stairs"]
+		dg._place(dg.ents[0])
+		dg.act_stairs()   # the garden's way out talks first (the rumble, the parcel); read through it
+		await _read_through(dg)
 		_ok("At the way out the partner shows the parcel (story parcel %s)" % dg.story.get("parcel", ""), dg.story.get("parcel", "") == "saved")
 		var t1 := Time.get_ticks_msec()
-		while not "mouth" in dg.beaten and Time.get_ticks_msec() - t1 < 8000:
+		var eyes_peak := 0.0
+		var shadow_peak := 0.0
+		var lights_out := false   # read while it plays: the clear resets the scene's state
+		while not "mouth" in dg.beaten and Time.get_ticks_msec() - t1 < 40000:
 			await process_frame
+			eyes_peak = maxf(eyes_peak, float(dg.intro.get("eyes", 0.0)))
+			shadow_peak = maxf(shadow_peak, float(dg.intro.get("pond_shadow", 0.0)))
+			lights_out = lights_out or dg.intro.has("lights_out_at")
+		_ok("After they leave, the Warden's eyes open under the pond (eyes peak %.2f, shadow peak %.2f, fireflies out %s, once %s)" % [eyes_peak, shadow_peak, str(lights_out), str(dg.story.get("garden_eyes", false))],
+			eyes_peak > 0.95 and shadow_peak > 0.8 and lights_out and dg.story.get("garden_eyes", false))
 		_ok("The last stairs clear the Hollow Mouth with no boss floor (beaten %s)" % str(dg.beaten), "mouth" in dg.beaten)
 		TeamState.data["beaten"] = dg.beaten.duplicate()
 
@@ -106,3 +143,13 @@ func _run() -> void:
 	_ok("After the Mouth, no second rise (%s)" % rose_again, not rose_again)
 	print("FLOOD OPENING: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))
 	quit(1 if fails else 0)
+
+
+## Read a scene through: one line a frame until the scene lets go.
+func _read_through(dg) -> void:
+	for k in 400:
+		await process_frame
+		if not dg.talk.is_empty():
+			dg.talk.pop_front()
+		if not dg.cutscene and dg.talk.is_empty() and k > 5:
+			break

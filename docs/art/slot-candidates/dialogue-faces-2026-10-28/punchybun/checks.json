@@ -1,0 +1,26 @@
+{
+  "pass": true,
+  "checks": {
+    "size_40x40": true,
+    "binary_alpha": true,
+    "source_palette_only": true,
+    "cut_inside": true,
+    "cut_coverage_at_least_45_percent": true,
+    "small_size_48x48": true
+  },
+  "FACE_AT_proposal": [
+    14,
+    22
+  ],
+  "small_cut": [
+    2,
+    10,
+    24,
+    24
+  ],
+  "small_opaque_coverage": 0.9583333333333334,
+  "generation": false,
+  "slot_validation": "not applicable: creature face not in ArtSlots registry",
+  "approval": "pending",
+  "installed": false
+}

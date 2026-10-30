@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-28",
+  "batch": "cx-16-item-shop",
+  "slot": "town.building.shop",
+  "tool": "image_gen.imagegen (built-in)",
+  "intent": "reference-guided generation",
+  "references": [
+    "docs/design/placeholder-factory-2026-10-26/refs/town.building.shop.png",
+    "docs/design/placeholder-factory-2026-10-26/refs/town.building.shop_card.png"
+  ],
+  "source_generated_path": "C:/Users/pmcga/.codex/generated_images/01a12b4b-7982-7b32-b405-2a584762f412/exec-64722d59-a1ac-4fbd-8cf0-55badc6b070a.png",
+  "cost": null,
+  "cost_note": "Built-in tool did not report a monetary or credit cost. No external paid generator used.",
+  "raw_untouched": true,
+  "raw_size": [
+    1493,
+    1054
+  ],
+  "native_size": [
+    204,
+    144
+  ],
+  "cleanup_authorization": "Preston explicitly approved Python pixel cleanup earlier in this chat.",
+  "preparation": "prepare_native.py creates native-input.png; unchanged prepare_slot.py produces prepared.png; unchanged validate_slot.py checks it.",
+  "registry_sha256": "61d45c560e968facec637c8c3630160606c719293b8145831c5c270594886bd6",
+  "hashes": {
+    "raw.png": "dd4ba6b831a6e316308942a7f4219e042747cc4ede0474aaa904ecffef3211d4",
+    "prompt.txt": "f012a3f7b51bf47559b88bf58800ec120b7f99d47a3b02832f77be2864a0d83a",
+    "native-input.png": "767e9823bb12b352b782744edb1e1e43877e564717a8cfb50e5e92e0354784ea",
+    "prepared.png": "767e9823bb12b352b782744edb1e1e43877e564717a8cfb50e5e92e0354784ea",
+    "prepared.png.check.json": "3599ea5b812deacb874acefe71956d54e625272718716682faba3c115fbaaebe",
+    "capture.png": "bca8fcf3b5a07ae7df0c0d3ec94007954b0056fe0ce754d7190da016a0607cf0",
+    "capture-open.png": "1678e18df37326ae2159f49e2f33aa084a52c238a29975a3510b2507772e0dac"
+  },
+  "runtime_preview": "Actual Highbank v2 scene with in-memory ArtSlots override. Separate preview-team.save under this slot folder, no real save writes. Closed and open screenshots; runtime.log shows cache verification and capture pass.",
+  "approval": "pending",
+  "installed": false
+}

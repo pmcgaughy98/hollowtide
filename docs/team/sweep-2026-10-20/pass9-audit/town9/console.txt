@@ -1,0 +1,154 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+[00000    0.0s w    2502] phase town9, keyboard, window (1152, 648), out C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/town9/
+[00000    0.0s w    2503] CLOCK real time, max fps 30
+[00000    0.0s w    2505] save C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/saves/s7_post.save -> C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/town9/slot.save
+[00001    0.0s w    3036] SCENE  -> none after 0.0 s game, 3.0 s wall in 
+[00002    0.1s w    3909] HITCH 873 ms for one frame in creature_opening.tscn (after start)
+[00002    0.1s w    3913] SCENE none -> creature_opening.tscn after 0.0 s game, 0.9 s wall in none
+[00089    3.0s w    5427] SHOT T01_title_boot scene creature_opening.tscn
+[00089    3.0s w    5482] SHOT T02_title_continue_focused scene creature_opening.tscn
+[00158    5.3s w    6728] SCENE creature_opening.tscn -> hub_town.tscn after 5.2 s game, 2.8 s wall in creature_opening.tscn
+[00421   14.0s w   12104] HITCH 769 ms for one frame in hub_town.tscn (after ui_accept(Enter))
+[00441   14.7s w   12608] MARK highbank arrival (game 14.7 s, lines so far 0)
+[00441   14.7s w   12663] SHOT T03_arrive scene hub_town.tscn
+[00441   14.7s w   12665] TEAM T03_arrive area highbank_v1: sparkwick@(5, 8), tallowroot@(4, 9), listener@(3, 9), skimlet@(2, 8)
+[00501   16.7s w   14099] SHOT T04_arrive_settled scene hub_town.tscn
+[00501   16.7s w   14101] TEAM T04_arrive_settled area highbank_v1: sparkwick@(5, 8), tallowroot@(4, 9), listener@(3, 9), skimlet@(2, 8)
+[00501   16.7s w   14103] TOWN npcs 0: []
+[00501   16.7s w   14104] STORY { "taught_wild": true, "taught_item": true, "taught_lantern": true, "parcel": "delivered", "road_talk": true, "met_crew": true, "guild_trial": true, "runner": true, "stone": "installed", "pilot_end_seen": true } beaten ["mouth", "first", "hollow"]
+[00525   17.5s w   14526] SHOT T05_pause_town scene hub_town.tscn
+[00525   17.5s w   14529] TEAM T05_pause_town area highbank_v1: sparkwick@(5, 8), tallowroot@(4, 9), listener@(3, 9), skimlet@(2, 8)
+[00665   22.2s w   17852] SCENE hub_town.tscn -> none after 16.9 s game, 11.1 s wall in hub_town.tscn
+[00666   22.2s w   17882] SCENE none -> town_room.tscn after 0.0 s game, 0.0 s wall in none
+[00673   22.4s w   18023] TIMED hall_door: shown 270 ms after the press, worst frame 123 ms
+[00693   23.1s w   18406] SHOT T06_hall scene town_room.tscn
+[00693   23.1s w   18408] TEAM T06_hall area highbank_v1: sparkwick@(10, 11), tallowroot@(10, 12), listener@(11, 12), skimlet@(12, 11)
+[00693   23.1s w   18409] HALL npcs ["grubbit@(17, 11)", "wayling@(14, 5)"]
+[00734   24.5s w   19107] SHOT T07_mole_before scene town_room.tscn
+[00734   24.5s w   19110] TEAM T07_mole_before area highbank_v1: sparkwick@(17, 12), tallowroot@(16, 12), listener@(15, 12), skimlet@(14, 12)
+[00736   24.5s w   19123] LINE [Grubbit] ...Oh! You walked right up on me.
+[00768   25.6s w   19699] SHOT T08_mole_talk scene town_room.tscn
+[00768   25.6s w   19701] TEAM T08_mole_talk area highbank_v1: sparkwick@(17, 12), tallowroot@(16, 12), listener@(15, 12), skimlet@(14, 12)
+[00886   29.5s w   21604] LINE [Grubbit] Parcel for the bend, parcel for Highbank... I go by feel down here. Never misread one yet.
+[00899   30.0s w   21886] SHOT T09_mole_line0 scene town_room.tscn
+[00899   30.0s w   21889] TEAM T09_mole_line0 area highbank_v1: sparkwick@(17, 12), tallowroot@(16, 12), listener@(15, 12), skimlet@(14, 12)
+[01090   36.3s w   25003] PAGE 2 of [Parcel for the bend, parcel fo]
+[01103   36.8s w   25289] SHOT T10_mole_line1 scene town_room.tscn
+[01103   36.8s w   25292] TEAM T10_mole_line1 area highbank_v1: sparkwick@(17, 12), tallowroot@(16, 12), listener@(15, 12), skimlet@(14, 12)
+[01231   41.0s w   27438] SHOT T11_mole_line2 scene town_room.tscn
+[01231   41.0s w   27444] TEAM T11_mole_line2 area highbank_v1: sparkwick@(17, 12), tallowroot@(16, 12), listener@(15, 12), skimlet@(14, 12)
+[01294   43.1s w   28436] PANEL |Chart Table|The river and its Hollows, pinned where couriers have gone. A new pin sits on the water near Highbank.
+[01321   44.0s w   28951] SHOT T12_hall_chart_panel scene town_room.tscn
+[01321   44.0s w   28953] TEAM T12_hall_chart_panel area highbank_v1: sparkwick@(6, 9), tallowroot@(7, 10), listener@(8, 11), skimlet@(9, 12)
+[01371   45.7s w   29719] SCENE town_room.tscn -> none after 23.5 s game, 11.8 s wall in town_room.tscn
+[01371   45.7s w   29734] WALK no path from (-99, -99) to (10, 13) in town_room.tscn
+[01372   45.7s w   29814] SCENE none -> hub_town.tscn after 0.0 s game, 0.1 s wall in none
+[01392   46.4s w   30188] SHOT T13_hall_out scene hub_town.tscn
+[01392   46.4s w   30193] TEAM T13_hall_out area highbank_v1: sparkwick@(24, 7), tallowroot@(23, 7), listener@(22, 8), skimlet@(20, 8)
+[01408   46.9s w   30471] SHOT T14_board_before scene hub_town.tscn
+[01408   46.9s w   30473] TEAM T14_board_before area highbank_v1: sparkwick@(26, 8), tallowroot@(25, 8), listener@(24, 7), skimlet@(23, 7)
+[01410   47.0s w   30489] PANEL board|Job Board|
+[01424   47.5s w   30700] TIMED board: shown 20 ms after the press, worst frame 18 ms
+[01444   48.1s w   31094] SHOT T15_board scene hub_town.tscn
+[01444   48.1s w   31096] TEAM T15_board area highbank_v1: sparkwick@(26, 8), tallowroot@(25, 8), listener@(24, 7), skimlet@(23, 7)
+[01444   48.1s w   31098] VISIT board panel { "name": "Job Board", "service": "board", "sel": 0, "paid": [], "said": "", "rank_s": "Courier Rank 1    0 points  (60 for the next)", "taken_s": "Taken 0 / 4", "rows": [{ "job": { "id": "7_0", "kind": "delivery", "line": 8, "stage": 0, "floor": 1, "done": false, "reward": "lamp_oil", "count": 1, "pts": 25, "cond": "careful" }, "title": "Deliver to Canvaswing. It\'s waiting on a parcel.", "where"
+[01459   48.6s w   31367] SHOT T16_board_down scene hub_town.tscn
+[01459   48.6s w   31369] TEAM T16_board_down area highbank_v1: sparkwick@(26, 8), tallowroot@(25, 8), listener@(24, 7), skimlet@(23, 7)
+[01575   52.5s w   33304] SHOT T17_shrine_before scene hub_town.tscn
+[01575   52.5s w   33310] TEAM T17_shrine_before area highbank_v1: sparkwick@(7, 12), tallowroot@(8, 11), listener@(9, 10), skimlet@(10, 9)
+[01577   52.6s w   33338] PANEL evolve_ask|Growth Shrine|Tallowroot is ready to grow. Let it grow here?
+[01591   53.0s w   33550] TIMED shrine: shown 31 ms after the press, worst frame 25 ms
+[01611   53.7s w   33935] SHOT T18_shrine scene hub_town.tscn
+[01611   53.7s w   33942] TEAM T18_shrine area highbank_v1: sparkwick@(7, 12), tallowroot@(8, 11), listener@(9, 10), skimlet@(10, 9)
+[01611   53.7s w   33944] VISIT shrine panel { "name": "Growth Shrine", "what": "Tallowroot is ready to grow. Let it grow here?", "service": "evolve_ask", "k": 1 }
+[01641   54.7s w   34453] SHOT T19_shrine_held scene hub_town.tscn
+[01641   54.7s w   34459] TEAM T19_shrine_held area highbank_v1: sparkwick@(7, 12), tallowroot@(8, 11), listener@(9, 10), skimlet@(10, 9)
+[01851   61.7s w   37903] PANEL shut|Training Yard|There's a rope across the gate, and a board hung off it: "Yard's closed till the ground dries out."
+[01881   62.7s w   38418] TAP E 1 frames into the last step (busy true): panel shut
+[01881   62.7s w   38474] SHOT T20_tap_1 scene hub_town.tscn
+[01881   62.7s w   38475] TEAM T20_tap_1 area highbank_v1: sparkwick@(41, 11), tallowroot@(41, 10), listener@(40, 11), skimlet@(39, 11)
+[01922   64.1s w   39104] PANEL shut|Training Yard|There's a rope across the gate, and a board hung off it: "Yard's closed till the ground dries out."
+[01953   65.1s w   39634] TAP E 3 frames into the last step (busy false): panel shut
+[01953   65.1s w   39697] SHOT T21_tap_3 scene hub_town.tscn
+[01953   65.1s w   39699] TEAM T21_tap_3 area highbank_v1: sparkwick@(41, 11), tallowroot@(41, 10), listener@(40, 11), skimlet@(39, 11)
+[01996   66.5s w   40352] PANEL shut|Training Yard|There's a rope across the gate, and a board hung off it: "Yard's closed till the ground dries out."
+[02027   67.6s w   40884] TAP E 5 frames into the last step (busy false): panel shut
+[02027   67.6s w   40947] SHOT T22_tap_5 scene hub_town.tscn
+[02027   67.6s w   40948] TEAM T22_tap_5 area highbank_v1: sparkwick@(41, 11), tallowroot@(41, 10), listener@(40, 11), skimlet@(39, 11)
+[02099   70.0s w   42088] PANEL shut|Training Yard|There's a rope across the gate, and a board hung off it: "Yard's closed till the ground dries out."
+[02126   70.9s w   42551] TAP control, E after standing still: panel shut
+[02145   71.5s w   42868] WALK no path from (41, 11) to (41, 11) in hub_town.tscn
+[02145   71.5s w   42871] VISIT yard: could not reach (41, 11) (at (41, 11))
+[02145   71.5s w   42920] SHOT T23_yard_unreached scene hub_town.tscn
+[02145   71.5s w   42921] TEAM T23_yard_unreached area highbank_v1: sparkwick@(41, 11), tallowroot@(41, 10), listener@(40, 11), skimlet@(39, 11)
+[02221   74.0s w   44151] SCROLLS leader at (33, 12) facing s
+[02221   74.0s w   44153] WALK no path from (33, 12) to (33, 12) in hub_town.tscn
+[02221   74.0s w   44155] VISIT scrolls: could not reach (33, 12) (at (33, 12))
+[02221   74.0s w   44206] SHOT T24_scrolls_unreached scene hub_town.tscn
+[02221   74.0s w   44209] TEAM T24_scrolls_unreached area highbank_v1: sparkwick@(33, 12), tallowroot@(33, 11), listener@(34, 11), skimlet@(36, 11)
+[02332   77.7s w   46072] SHOT T25_lookout_before scene hub_town.tscn
+[02332   77.7s w   46076] TEAM T25_lookout_before area highbank_v1: sparkwick@(13, 5), tallowroot@(13, 6), listener@(14, 7), skimlet@(15, 8)
+[02334   77.8s w   46084] PANEL view|Bluff Lookout|Where the river looks close. On a clear day you can see the next bend.
+[02348   78.3s w   46301] TIMED lookout: shown 11 ms after the press, worst frame 18 ms
+[02368   78.9s w   46693] SHOT T26_lookout scene hub_town.tscn
+[02368   78.9s w   46695] TEAM T26_lookout area highbank_v1: sparkwick@(13, 5), tallowroot@(13, 6), listener@(14, 7), skimlet@(15, 8)
+[02368   78.9s w   46696] VISIT lookout panel { "id": "lookout", "name": "Bluff Lookout", "kind": "area", "rect": [P: (10, 2), S: (6, 4)], "door": (13, 5), "service": "view", "what": "Where the river looks close. On a clear day you can see the next bend." }
+[02550   85.0s w   49669] SCENE hub_town.tscn -> none after 39.3 s game, 19.9 s wall in hub_town.tscn
+[02551   85.0s w   49710] SCENE none -> town_room.tscn after 0.0 s game, 0.0 s wall in none
+[02571   85.7s w   50092] SHOT T27_storage_room scene town_room.tscn
+[02571   85.7s w   50094] TEAM T27_storage_room area highbank_v1: sparkwick@(8, 10), tallowroot@(8, 11), listener@(9, 11), skimlet@(10, 10)
+[02594   86.5s w   50424] PANEL storage|Storage|
+[02621   87.4s w   50939] SHOT T28_storage_panel scene town_room.tscn
+[02621   87.4s w   50941] TEAM T28_storage_panel area highbank_v1: sparkwick@(8, 7), tallowroot@(8, 8), listener@(8, 9), skimlet@(8, 10)
+[02671   89.0s w   51720] SCENE town_room.tscn -> none after 4.0 s game, 2.0 s wall in town_room.tscn
+[02671   89.0s w   51734] WALK no path from (-99, -99) to (8, 12) in town_room.tscn
+[02672   89.1s w   51814] SCENE none -> hub_town.tscn after 0.0 s game, 0.1 s wall in none
+[02893   96.4s w   55470] SCENE hub_town.tscn -> none after 7.4 s game, 3.7 s wall in hub_town.tscn
+[02894   96.5s w   55493] SCENE none -> town_room.tscn after 0.0 s game, 0.0 s wall in none
+[02914   97.1s w   55886] SHOT T29_home scene town_room.tscn
+[02914   97.1s w   55891] TEAM T29_home area highbank_v1: sparkwick@(7, 7), tallowroot@(7, 8), listener@(8, 8), skimlet@(9, 7)
+[02927   97.6s w   56052] PANEL |Table|A lantern, a map of the river, the parcel slip from the first job.
+[02954   98.5s w   56568] SHOT T30_home_table_panel scene town_room.tscn
+[02954   98.5s w   56570] TEAM T30_home_table_panel area highbank_v1: sparkwick@(7, 6), tallowroot@(7, 7), listener@(7, 8), skimlet@(8, 8)
+[02994   99.8s w   57170] SCENE town_room.tscn -> none after 3.3 s game, 1.7 s wall in town_room.tscn
+[02994   99.8s w   57185] WALK no path from (-99, -99) to (7, 9) in town_room.tscn
+[02995   99.8s w   57259] SCENE none -> hub_town.tscn after 0.0 s game, 0.1 s wall in none
+[03015  100.5s w   57622] SHOT T31_street_end scene hub_town.tscn
+[03015  100.5s w   57627] TEAM T31_street_end area highbank_v1: sparkwick@(5, 8), tallowroot@(4, 9), listener@(3, 9), skimlet@(2, 8)
+[03037  101.2s w   57946] PANEL evolve_ask|Growth Shrine|Tallowroot is ready to grow. Let it grow here?
+[03064  102.1s w   58457] SHOT T32_growth_ask scene hub_town.tscn
+[03064  102.1s w   58461] TEAM T32_growth_ask area highbank_v1: sparkwick@(7, 12), tallowroot@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[03064  102.1s w   58462] MARK growth starts (game 102.1 s, lines so far 2)
+[03094  103.1s w   59073] SHOT T33_evo_00 scene hub_town.tscn
+[03094  103.1s w   59075] TEAM T33_evo_00 area highbank_v1: sparkwick@(7, 12), tallowroot@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[03139  104.6s w   59821] SHOT T34_evo_01 scene hub_town.tscn
+[03139  104.6s w   59824] TEAM T34_evo_01 area highbank_v1: sparkwick@(7, 12), tallowroot@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[03184  106.1s w   60570] SHOT T35_evo_02 scene hub_town.tscn
+[03184  106.1s w   60576] TEAM T35_evo_02 area highbank_v1: sparkwick@(7, 12), tallowroot@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[03229  107.6s w   61326] SHOT T36_evo_03 scene hub_town.tscn
+[03229  107.6s w   61328] TEAM T36_evo_03 area highbank_v1: sparkwick@(7, 12), tallowroot@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[03274  109.1s w   62076] SHOT T37_evo_04 scene hub_town.tscn
+[03274  109.1s w   62079] TEAM T37_evo_04 area highbank_v1: sparkwick@(7, 12), tallowroot@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[03319  110.6s w   62824] SHOT T38_evo_05 scene hub_town.tscn
+[03319  110.6s w   62827] TEAM T38_evo_05 area highbank_v1: sparkwick@(7, 12), tallowroot@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[03364  112.1s w   63576] SHOT T39_evo_06 scene hub_town.tscn
+[03364  112.1s w   63579] TEAM T39_evo_06 area highbank_v1: sparkwick@(7, 12), tallowroot@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[03409  113.6s w   64332] SHOT T40_evo_07 scene hub_town.tscn
+[03409  113.6s w   64335] TEAM T40_evo_07 area highbank_v1: sparkwick@(7, 12), tallowroot@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[03433  114.4s w   64768] PANEL growth_done|Growth Shrine|Tallowroot has grown into Huskward! It learned Tail Club.
+[03453  115.1s w   65145] SHOT T41_evo_after scene hub_town.tscn
+[03453  115.1s w   65146] TEAM T41_evo_after area highbank_v1: sparkwick@(7, 12), huskward@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[03453  115.1s w   65147] MARK growth ends (game 115.1 s, lines so far 2)
+[03498  116.6s w   65912] SHOT T42_evo_result scene hub_town.tscn
+[03498  116.6s w   65917] TEAM T42_evo_result area highbank_v1: sparkwick@(7, 12), huskward@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[03537  117.9s w   66571] SHOT T43_evo_closed scene hub_town.tscn
+[03537  117.9s w   66574] TEAM T43_evo_closed area highbank_v1: sparkwick@(7, 12), huskward@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[03537  117.9s w   66574] MARKS [["highbank arrival", 441, 12608, 0], ["growth starts", 3064, 58462, 2], ["growth ends", 3453, 65147, 2]]
+[03537  117.9s w   66576] DONE phase town9 in 117.9 s game, 66.6 s wall
+WARNING: 108 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 2 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

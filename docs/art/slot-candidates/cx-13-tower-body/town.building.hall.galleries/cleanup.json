@@ -1,0 +1,34 @@
+{
+  "authorization": "Preston explicit Python pixel cleanup",
+  "native_dimensions": [
+    217,
+    206
+  ],
+  "raw_unchanged": true,
+  "registration": [
+    {
+      "frame": 0,
+      "raw_crop": [
+        72,
+        54,
+        1212,
+        1164
+      ],
+      "target_box": [
+        4,
+        1,
+        212,
+        202
+      ],
+      "target_alpha_mask_exact": true
+    }
+  ],
+  "precision": [
+    "Three-pixel contact shadow follows the lower silhouette; no alpha or seam movement."
+  ],
+  "alpha_matches_target": true,
+  "rgb_changed_pixels": 32346,
+  "palette_family": "wayline_tower",
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "post_prepare_registration": "prepare_slot recenters the occupied box even for top_left and asymmetric foot parts; restored exact native registration after preparation, then validated final bytes"
+}

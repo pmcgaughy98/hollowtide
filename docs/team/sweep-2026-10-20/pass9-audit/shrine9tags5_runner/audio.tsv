@@ -1,0 +1,8 @@
+frame	scene	action	since	stream	bus	db
+2	creature_opening.tscn	start	2	music/title.mp3	Music	-6.0
+90	creature_opening.tscn	ui_accept(Enter)	1	sfx/ui/confirm.wav	UI	-6.0
+430	hub_town.tscn	ui_accept(Enter)	341	music/highbank.mp3	Music	-39.1
+510	hub_town.tscn	shrine_first	2	sfx/dungeon/presence_swell.wav	SFX	-4.0
+536	hub_town.tscn	cancel(Esc)	2	sfx/ui/cancel.wav	UI	-8.0
+565	hub_town.tscn	shrine_second	2	sfx/dungeon/presence_swell.wav	SFX	-4.0
+591	hub_town.tscn	cancel(Esc)	2	sfx/ui/cancel.wav	UI	-8.0

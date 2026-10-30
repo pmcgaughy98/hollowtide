@@ -1,5 +1,70 @@
 # Working Together on Hollowtide
 
+## Claude: factory pass 9, the pass 8 leftovers and the Tower's look (October 28, 2026)
+
+COMPLETE, NOT COMMITTED. Four Claude lanes (tower, town, dungeon, rooms) and one integrator on `bf1a28876`; the first integrator stopped when usage ran out and a second finished. 35 of 39 items done in full; W12 (hoist arm, far crook haze), D1 (the Warden at 4 or more tiles back) and R5 (the Tower's moving parts) in part, T9 deferred. Shrine opens in about 30 ms (was 613 to 710), counts stop at the goal; Grubbit is seen while he talks; rooms paint on a worker behind a curtain (Hall door 36 ms, stairs 20 ms); quits wait for thread work (`Music.keep_for` takes a static method, never a lambda: exit 139); each run has its own generator (`_run_rng`, floor_seed + 4513; lv1_run has a new baseline); the boss stairs keep the team's art sets; the real-time battle end never recruits a boss or minion; the reveal's two stand apart and the road keeps the far Tower clear; amber lamp glow, Reach lashings, lantern and stair roots redrawn, refs and art task lists at registry ee9c03563b1c. Suite after, both modes: PASS 112, 0 FAIL, WINDOW 6, RAN 3, RETIRED 4, SKIPPED 1 (baseline 107 PASS). The integrator fixed three checks (dungeon_rt_recruit, ui_fit's shrine rows, dungeon_pace) and no game file. Waiting on Preston: the Warden at range, the lamp's colour, the v2 north steps top row, runtime rims on two props, plus the plan's list. Result: [PASS9_RESULT_2026-10-27.md](team/sweep-2026-10-20/PASS9_RESULT_2026-10-27.md). Codex lines: CODEX_TASKS section 12; Grok lines: GROK_TASKS "Pass 9 lines".
+
+## Claude: Wayline Tower built as a coded blockout (October 27, 2026)
+
+COMPLETE, NOT COMMITTED. Preston approved The Reach and the Waiting Lamp with the defaults ("go with the defaults and build it"):
+- the root crook holds the lamp;
+- 720 px (30 tiles);
+- the 72 px look-up lean at the doors;
+- `town.building.hall` comes out of cx-01;
+- v1 keeps the legacy 240x144 Hall until he walks v2;
+- the new names (the Reach, the Waiting Lamp, the Route Board, First Post, the dark lantern) stay working labels.
+
+The same day he made the title's town Highbank with the Tower prominent. Today's title village PNG is kept untouched, as the reference for a future town on another map.
+
+What was built (design: [TOWER_DESIGN.md](design/wayline-tower-2026-10-27/TOWER_DESIGN.md)):
+- `scripts/town/tower_parts.gd` (TowerParts): 21 parts in one 432x720 frame, with coded stand-ins ported from mock_tower.py. The assembled tower matches the mock on 96.6% of drawn px.
+- Slot rows in `scripts/art/slots/town_tower.gd` (census WT00 to WT20). The hall row is now the 300x192 depot.
+- Tower Rise: the Tower stands at (96,-504) with the doors unchanged at (288,150). It has posts, solids and 528 px of sky.
+- The lean in hub_town (`lean_at_rest()`).
+- Waylines into Street, Ferry Ward and East Quarter.
+- The reveal, retimed as "ride the climb".
+- The far views on the road (`paint_far`).
+- The title backdrop `title.backdrop.highbank`, painted by `scripts/art/placeholders/title_highbank.gd`.
+- `scripts/creature_opening.gd` (Codex's file) got a narrow title edit at Preston's request: it draws that slot at 3x, and the canopy shade ends at the slot's `shade_end` anchor.
+
+Integrator fixes:
+- hub_town `_dress_area` now draws a path's "art" (the rise stair) and each area's waylines.
+- Fixed a freed-node tween error when the town changes area. A probe counted 84 errors before the fix and 0 after.
+- `TowerParts.assembled_image(..., installed)`, so painted parts reach the title as they land.
+- Census rows T16 and WT00 to WT20.
+- slots.json re-exported (registry 138737d30d2b); the refs and palette strips match the code palettes.
+
+Checks:
+- v2 suite: 71 PASS, 0 real FAIL. hollow_check's autopilot stalled once, then passed twice; that is dungeon code.
+- v1 suite: 72 PASS, 0 FAIL.
+- Both suites: 6 WINDOW checks need a window.
+- opening_launch: PASS in a window.
+- pilot_chain_check: PASS on v1 and on v2.
+
+Preston's user folder was not touched.
+
+**Codex:** your list is [CODEX_ART_TASKS_2026-10-26.md](team/CODEX_ART_TASKS_2026-10-26.md), rewritten 2026-10-27 at registry 138737d30d2b. The tower batches:
+- cx-11-tower-key: the key, refs only. Your cx-11 draft can now go through prepare_slot and validate_slot, because slots.json carries the slot.
+- cx-12-tower-foot: the depot, gable, root foot, yard and rise stair.
+- cx-13-tower-body.
+- cx-14-tower-crown.
+- cx-15-title-highbank: the title.
+- cx-10 re-brief, after the crown.
+
+**Gate:** nothing is painted past the key until Preston walks the blockout and says yes to the key. He can walk it with `HT_HIGHBANK_V2=1` in `scenes/debug/highbank_v2.tscn`, or in `scenes/debug/building_lineup.tscn`. Your cx-01 hall candidate and the 300x576 one-picture tower are superseded. The palette strips are `refs/palettes/wayline_tower.png` (36 colours) and `highbank_title.png` (47). Run tower checks with and without `HT_HIGHBANK_V2=1`.
+
+**Grok:** gb-08-tower in [GROK_ART_TASKS_2026-10-26.md](team/GROK_ART_TASKS_2026-10-26.md): route lantern, wayline post, basket, cradle and parcel, 12 images, $0.72 to $1.56. It waits for the key's yes; ask Preston before any spend.
+
+Unverified:
+- Nothing has been watched in a real window except the title: not the moving parts (lamp, basket, cradles, chute parcels, smoke), and not a walk on Tower Rise.
+- The v2 pilot chain waits on the Tower scene but does not log that it played.
+- No part is painted yet, so the Finish shader on painted parts and the C6 seams are untested.
+- Look calls Preston has not seen: the hedge on the Rise's outer solid strips, the ground (not rooftop) wayline posts, and the title's composition.
+- The rise stair and wayline post keep the prop kind's drawn outline in their briefs; their stand-ins have none.
+
+No Grok numbers, Route 1, creature data, paid calls or commits.
+
+
 ## Claude: placeholder factory build (October 26, 2026)
 
 COMPLETE, NOT COMMITTED. Every visual outside the creatures now loads through an art slot (`scripts/art/art_slots.gd`, rows in `scripts/art/slots/`): 163 slots, installed 0 of 163 (82 coded placeholders, 76 on Codex's existing files, 5 on Claude's UI frames). Gate three ways: v2 off PASS 105, WINDOW 6, RAN 4, RETIRED 3, SKIPPED 1, 0 FAIL (pass 8's baseline plus 6 new rows); HT_HIGHBANK_V2=1 19 of 19; HT_FORCE_PLACEHOLDERS=1 4 of 4. With v2 off the screens match the committed tree apart from the planned UI frames and the "Wayline Tower" room title. Highbank v2 (Tower Rise, Old Ferry Ward, East Quarter) stays behind its switch, off; Preston walks it in `scenes/debug/highbank_v2.tscn` and the buildings in `scenes/debug/building_lineup.tscn`. The Wayline Hall is now the Wayline Tower in player text (ids, rooms and flags keep `hall`); its slot is 300x576. Result: [BUILD_RESULT.md](design/placeholder-factory-2026-10-26/BUILD_RESULT.md).

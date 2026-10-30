@@ -1,0 +1,74 @@
+{
+  "alpha": "opaque",
+  "anchor": [
+    0,
+    0
+  ],
+  "anchor_mode": "top_left",
+  "anchors": {
+    "door": [
+      333,
+      160
+    ],
+    "lamp": [
+      333,
+      33
+    ],
+    "shade_end": [
+      312,
+      50
+    ]
+  },
+  "area": "title",
+  "brief": "Highbank seen from across the river at the golden hour, the old title village's time of day and mood. The Wayline Tower is the hero: about 162 px tall on Tower Rise at the right (frame x 284 to 380, vane tip near y 6, foot on row 167), the Waiting Lamp lit under the crook at (333, 33). Below it, small and in street order from the west: Home, the Item Shop, Storage and the Scroll Keeper along the bluff, the Crossroads and the Rise stair under the tower's door, waylines from the deck down to posts on their roofs (one slack under the dark lantern), the bluff face with the switchbacks and the ferry dock, and the river in front. Keep the sky calm behind the wordmark (x 90 to 295, y 0 to 52) and keep the crook and lamp right of x 312, where the title's canopy shade stops, and paint the sky right of x 312 above row 50 one band darker so it meets the shaded sky with no edge; the lower left (x 0 to 140, y 100 down) sits under the menu and its dark wash, so keep it quiet. No text.",
+  "census": "T16",
+  "checks": [
+    "C1",
+    "C2",
+    "C3",
+    "C5",
+    "C9"
+  ],
+  "drawn_at": 3,
+  "edges": "all",
+  "file": "res://assets/slots/title/backdrop/highbank.png",
+  "forbid": [
+    "text",
+    "creature",
+    "franchise"
+  ],
+  "frames": 1,
+  "id": "title.backdrop.highbank",
+  "kind": "backdrop",
+  "lane": "codex-wire",
+  "legacy": "",
+  "light": "upper_left",
+  "notes": "Placeholder: the game's own tower blockout and house slot pictures shrunk to 0.225 and snapped to the tower palette, placed from the Street's area data; sky, hills, bluff and river painted in code (47 colours, PALETTE in the painter). The tower names are working labels.",
+  "outline": "none",
+  "owner": "codex",
+  "palette": {
+    "family": "highbank_title",
+    "lock": false,
+    "max": 48,
+    "source": "res://assets/slots/palettes/highbank_title.png"
+  },
+  "placeholder": "res://scripts/art/placeholders/title_highbank.gd:paint",
+  "rows": 1,
+  "sheet_size": [
+    384,
+    216
+  ],
+  "size": [
+    384,
+    216
+  ],
+  "slot_file": "title",
+  "states": {
+    "static": [
+      1,
+      0
+    ]
+  },
+  "status": "placeholder",
+  "tiling": "none"
+}

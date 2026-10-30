@@ -53,7 +53,9 @@ static func grid() -> PackedByteArray:
 				g[y * w + x] = OPEN if b["kind"] in ["grass", "terrace"] else WALL
 	if _area != "":
 		for r in area().get("ground", {}).get("rects", []):
-			_fill(g, r["rect"], OPEN if r["kind"] in ["grass", "terrace"] else WALL)
+			# "solid": ground painted as its kind but never walked on (Tower Rise's turf under the Tower's ground wings).
+			var open: bool = r["kind"] in ["grass", "terrace"] and not r.get("solid", false)
+			_fill(g, r["rect"], OPEN if open else WALL)
 	for r in PATHS:
 		for y in range(r.position.y, r.end.y):
 			for x in range(r.position.x, r.end.x):

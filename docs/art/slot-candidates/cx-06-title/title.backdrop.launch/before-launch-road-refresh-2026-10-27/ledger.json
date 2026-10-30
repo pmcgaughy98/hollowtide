@@ -1,0 +1,23 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-27",
+  "cost": "not exposed; no paid alternative called",
+  "raw_is_untouched": true,
+  "raw_sha256": "4c0aba8f7a863b6180c1b61da5e7dcc5c39fd43701b7c420bf1c6f923db13ee5",
+  "raw_dimensions": [
+    1672,
+    941
+  ],
+  "target_dimensions": [
+    384,
+    216
+  ],
+  "references": [
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\placeholder-factory-2026-10-26\\refs\\title.backdrop.launch.png",
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\placeholder-factory-2026-10-26\\refs\\title.backdrop.launch_grid.png",
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\placeholder-factory-2026-10-26\\refs\\title.backdrop.launch_card.png"
+  ],
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-6f8b385c-af64-4402-b32b-3db28a759ecf.png",
+  "registry_sha256": "cb33c871f11f80980785e47e73ece64acf9e85ff607dc083c7a18639031a0434",
+  "pixel_cleanup": "Explicitly authorized by Preston, 2026-10-27. Raw untouched; native_input.png supplies repaired exact-size art to unchanged prepare_slot."
+}

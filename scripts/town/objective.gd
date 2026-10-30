@@ -44,8 +44,9 @@ static func current(story: Dictionary, beaten: Array, in_hollow := false) -> Dic
 		return _goal("Bring the parcel to Starward",
 			"The parcel is back. Take it to Starward at the counter in the Wayline Tower.")
 	if not "hollow" in beaten:
-		return _goal("Go down to The Hollow",
-			"You're runners now. The Hollow is the next way down, through the %s." % gate)
+		# The Hollow ends in the garden the team climbed out of on the first run (2026-10-28, mouth-garden plan).
+		return _goal("Go back down to the pond garden",
+			"You're runners now. The garden you climbed out of is at the bottom of The Hollow, through the %s." % gate)
 	if stone == "carried":
 		return _goal("Set the Warden's stone in the Growth Shrine",
 			"The Warden let you take its stone. The Growth Shrine is on the west side of town; its socket is waiting.")

@@ -1,0 +1,14 @@
+{
+ "slot": "dungeon.prop.stairs_sealed",
+ "source": "docs\\art\\slot-candidates\\gb-06-stairs\\dungeon.prop.stairs_sealed",
+ "date_tool": "clean_slot.py 2026-10-28",
+ "settings": {
+  "mixed": 0.5,
+  "keep": 40.0,
+  "flip": []
+ },
+ "notes": [
+  "40 orphans after the downscale, cleared",
+  "56 px re-shaded to break a flat (C8)"
+ ]
+}

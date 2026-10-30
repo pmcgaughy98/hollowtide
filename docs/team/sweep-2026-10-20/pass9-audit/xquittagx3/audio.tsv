@@ -1,0 +1,4 @@
+frame	scene	action	since	stream	bus	db
+2	creature_opening.tscn	start	2	music/title.mp3	Music	-6.0
+90	creature_opening.tscn	ui_accept(Enter)	1	sfx/ui/confirm.wav	UI	-6.0
+437	hub_town.tscn	ui_accept(Enter)	348	music/highbank.mp3	Music	-39.1

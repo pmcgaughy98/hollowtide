@@ -1,0 +1,31 @@
+[
+  {
+    "sid": "town.building.hall.reach",
+    "size": [
+      104,
+      300
+    ],
+    "refs": [
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/pass9-reach-stair-2026-10-28/town.building.hall.reach/input-before.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/pass9-reach-stair-2026-10-28/town.building.hall.reach/references/target.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/pass9-reach-stair-2026-10-28/town.building.hall.reach/references/approved-key.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/pass9-reach-stair-2026-10-28/town.building.hall.reach/references/neighbour-band.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/pass9-reach-stair-2026-10-28/town.building.hall.reach/references/palette.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Hollowtide Tower Reach pixel-art sprite edit. Image1 is the existing painted root, image2 is the NEW exact shape and detail target, image3 approved whole Tower style key, image4 neighbour seam band, image5 locked palette. Exact104x300 transparent canvas. Preserve the existing lower shaft, its three horizontal brass bands, three bark knots, rootlets binding the loft, flared base, moss, leaf tufts, lighting and placement. Revise only the UPPER CROOK: gently taper from24px thick where it leaves the shaft at local y60 to13px thick at the downturned hook, as image2. Two narrow worn brass lashings CROSS the curl squarely, following image2: one on the upper-left rising curve, one on the upper-right descending curve. They run radially across the wood, not along it; their positions are222 and312degrees around the crook centre. Add two small dark organic bark knots between/after the lashings, at246 and336degrees. Root remains living weathered wood with broad connected bark planes and moss along its upper-left edge, never a pipe. Preserve the chain hook exactly at local88,72 (Tower frame216,96). Exact new target silhouette, no extra trailing roots or changes to Tower design. Parallel three-quarter game projection, upper-left light. At most32 palette colors, pixel clusters, no dithering/noise/grain/antialias, no baked black outer outline (runtime adds it), true transparent background. No text, characters, backdrop, lamp or Tower body in output."
+  },
+  {
+    "sid": "town.prop.hall.rise_stair",
+    "size": [
+      48,
+      96
+    ],
+    "refs": [
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/pass9-reach-stair-2026-10-28/town.prop.hall.rise_stair/input-before.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/pass9-reach-stair-2026-10-28/town.prop.hall.rise_stair/references/target.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/pass9-reach-stair-2026-10-28/town.prop.hall.rise_stair/references/approved-key.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/pass9-reach-stair-2026-10-28/town.prop.hall.rise_stair/references/palette.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Hollowtide Tower Rise stair sprite edit. Image1 existing painted stair, image2 NEW placement target, image3 approved Tower material/style, image4 locked wayline_tower palette. Deliver exactly48x96 transparent canvas containing eight worn stone steps, each exactly12pixels high. Keep top-down three-quarter shallow view, cream limestone treads, muted shaded riser faces, moss in cracks, upper-left light. Keep one-pixel dark ink sides at x0 and47, since this prop has no runtime outline. Preserve small three-route branching inlay shape on TOP step, no text. REMOVE existing loose roots resting on upper treads. Instead exactly TWO roots emerge from cracks IN THE RISER FACES, beneath each tread lip, as image2: left root emerges at local(3,46) from step indexed3, then bends down-right through(8,50) ending(14,53); right root emerges at(44,70) from step indexed5, bends down-left through(39,74) ending(33,77). Thin organic brown roots5pixels wide at origin taper to3pixels at end, with small dark cracked-stone overhang directly above each origin. Their upper edges must stay below the tread lip, so they visibly grow THROUGH the stone instead of appearing dropped on it. All eight step lips remain distinct. Crisp pixel art, at most32 exact palette colors, connected clusters, no dithering/noise/grain/blur, no extra root, creature, text, perspective vanishing point or background."
+  }
+]

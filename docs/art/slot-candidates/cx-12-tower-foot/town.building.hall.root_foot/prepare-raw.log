@@ -1,0 +1,2 @@
+prepared town.building.hall.root_foot: 96x120, 20 colours, 4326 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\root-redo-2026-10-27-r2\town.building.hall.root_foot\prepared-from-raw.png
+next: python tools/art/validate_slot.py town.building.hall.root_foot C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\root-redo-2026-10-27-r2\town.building.hall.root_foot\prepared-from-raw.png

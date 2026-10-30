@@ -1,0 +1,28 @@
+# cx-14 Tower crown, 2026-10-27
+
+Six slots pass. 17 active sheet cells plus six padding holds. Nothing installed; review answers pending.
+
+[Review sheet](review_sheet.png) | [Static assembly](overview.png) | [Lamp animation](lamp-preview.gif) | [Vane animation](vane-preview.gif) | [Bell animation](bell-preview.gif) | [Semantic checks](semantic-checks.json)
+
+- town.building.hall.reel_back: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS
+- town.building.hall.ring_front: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS
+- town.building.hall.reach: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS
+- town.building.hall.lamp: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS
+- town.building.hall.vane: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS
+- town.building.hall.bell: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS
+
+Source issues for Claude:
+- All raw image_gen outputs are preserved with exact prompts, input paths/hashes, source files and cleanup receipts. Sources were larger than requested native canvases; no alternative paid generator was used.
+- slots.json sorts state dictionary keys alphabetically, but actual lamp rows are lit then dark in town_tower.gd and the target/task sheet. The explicit source row order was used, not JSON key order. Claude should export an ordered state list to prevent row ambiguity.
+- Lamp dark and bell rest have one active frame but four sheet columns. Their three unused columns hold frame0 so C8 does not reject blank padding. The runtime declared state counts stay unchanged.
+- Animated hardware is derived from the first painted cell; the original generated sheet remains untouched. Lamp has four distinct glass frames and a cold dark state; vane cloth follows 0,+1,0,-1; bell and rope follow 0,+2,0,-2. Hardware invariance and active masks were measured.
+- Palette snapping made vane cloth and front-ring planks exceed C8 flat-region limits. A coherent cloth fold and two-pixel radial construction joints resolved this in the existing palette; raw/initial failing reports remain.
+- prepare_slot recenters occupied bounds even for top_left sheets. Exact native frame registration was restored after preparation where needed, then final files validated with the standard tools.
+- Reach silhouette matches the approved blockout exactly. No optional west-trailing rootlets were added; the two previously revised roots and all ten foot/body candidate images remain byte-exact.
+- The static assembly uses coded stand-ins for Grok route lanterns and omits game glow, cables and sway. No capture.png, runtime Finish-shader check, or painted seam approval is claimed.
+- Nothing installed; crown review answers are pending. cx-10 stays held until Preston approves the crown and its current re-brief. cx-15-title-highbank is the next ungated batch after this delivery.
+
+
+## Pass9 reference refresh,2026-10-28
+
+[Updated Reach/stair candidate, check lines and source issues](../pass9-reach-stair-2026-10-28/DELIVERY.md). This slot image supersedes its earlier delivery; new packet pending. Other batch images and answers unchanged. Nothing installed.

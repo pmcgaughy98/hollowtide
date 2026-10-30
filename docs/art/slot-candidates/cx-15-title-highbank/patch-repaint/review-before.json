@@ -1,0 +1,11 @@
+{
+ "batch": "cx-15-title-highbank",
+ "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+ "slots": {
+  "title.backdrop.highbank": {
+   "answer": "yes",
+   "date": "2026-10-29",
+   "why": "Preston: \"get rid of those wires too\" (2026-10-29). Claude painted the three waylines and their lane posts out of the no-houses install (layout-a-no-wires/candidate.png, unwire.py beside it); the reel ring on the Tower stays. Before that: \"get rid of the buildings in title screen photo\" (layout-a-no-houses) and \"go\" on layout A."
+  }
+ }
+}

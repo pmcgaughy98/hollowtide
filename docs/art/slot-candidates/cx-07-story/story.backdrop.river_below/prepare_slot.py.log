@@ -1,0 +1,2 @@
+prepared story.backdrop.river_below: 384x40, 8 colours, 15360 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-07-story\story.backdrop.river_below\prepared.png
+next: python tools/art/validate_slot.py story.backdrop.river_below C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-07-story\story.backdrop.river_below\prepared.png

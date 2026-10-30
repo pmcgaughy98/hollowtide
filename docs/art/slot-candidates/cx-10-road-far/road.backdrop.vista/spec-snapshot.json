@@ -1,0 +1,99 @@
+{
+  "alpha": "opaque",
+  "anchor": [
+    0,
+    0
+  ],
+  "anchor_mode": "top_left",
+  "anchors": {
+    "beacon": [
+      286,
+      11
+    ],
+    "lamp_1": [
+      224,
+      191
+    ],
+    "lamp_2": [
+      233,
+      194
+    ],
+    "lamp_3": [
+      236,
+      189
+    ],
+    "lamp_4": [
+      240,
+      192
+    ],
+    "lamp_5": [
+      246,
+      193
+    ],
+    "party": [
+      84,
+      148
+    ]
+  },
+  "area": "road",
+  "brief": "The rise at first light, the last hill of the road home, as docs/design/vast-scale-2026-10-27/VAST_SCALE_DESIGN.md lays it out (the target is this slot's placeholder, the vast-scale mock final/slot_vista.png there). The willows open on both sides. On the right the whole Wayline Tower, all 480 tiles from its foot (y 200, axis x 285) to its vane (y 8): a slender round Stack about 14 to 1, banded with brass rings, a flat cloud layer level with its collar (280 to 360 tiles), the Waiting Lamp lit near the top (the beacon anchor is the lamp's middle) and one wayline sagging away east. It stands alone on open ground: no other building by the Tower (Preston, 2026-10-28). Left of it and 340 tiles further off, the great tree in its forest, the same tree as the title's (scripts/art/placeholders/title_giants.gd): its crown one even dome centred on its trunk (Preston, 2026-10-28), leaf clusters each with a lit top arc, lit from the east in the morning's greens and hazed a third toward the sky, the trunk flaring to the ground. Highbank's roofs, 2 or 3 px each, sit in a clearing west of the Tower and beyond it, well clear of its foot, with house lamps at the lamp anchors (paint them unlit: the game lights them and puts them out one by one). The party's hill dark in the near left (the party anchor is the leader's feet). No text.",
+  "census": "new",
+  "checks": [
+    "C1",
+    "C2",
+    "C3",
+    "C5",
+    "C9"
+  ],
+  "drawn_at": 3,
+  "edges": "all",
+  "file": "res://assets/slots/road/backdrop/vista.png",
+  "forbid": [
+    "text",
+    "creature",
+    "franchise"
+  ],
+  "frames": 1,
+  "id": "road.backdrop.vista",
+  "kind": "backdrop",
+  "lane": "S",
+  "legacy": "",
+  "light": "right",
+  "notes": "held view at the rise; coded effects: the house lamps going out one by one while the Waiting Lamp stays lit and breathes; the placeholder is the vast-scale mock (final_mocks.py mock_vista, exported to assets/placeholders/road_vista.png); names are working labels",
+  "outline": "none",
+  "owner": "codex",
+  "palette": {
+    "exact": true,
+    "family": "vast_vista",
+    "lock": false,
+    "max": 64,
+    "source": "res://assets/slots/palettes/vast_vista.png"
+  },
+  "place_at": [
+    0,
+    0
+  ],
+  "placeholder": "res://scripts/story/route_scene.gd:paint_slot",
+  "rows": 1,
+  "sheet_size": [
+    384,
+    216
+  ],
+  "size": [
+    384,
+    216
+  ],
+  "slot_file": "route",
+  "specks": 0.02,
+  "state_order": [
+    "static"
+  ],
+  "states": {
+    "static": [
+      1,
+      0
+    ]
+  },
+  "status": "placeholder",
+  "tiling": "none"
+}

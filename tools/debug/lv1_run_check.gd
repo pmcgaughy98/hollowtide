@@ -83,7 +83,9 @@ func _run() -> void:
 	var turns_sum := 0
 	for sd in SEEDS:
 		var t0 := Time.get_ticks_msec()
-		seed(sd)   # the floors after B1F take their seed from randi(), and the fights roll on the same generator
+		# Since pass 9 D3 the next floor's seed and the fights' rolls come from the run's own generator, seeded from
+		# floor_seed + 4513 (dungeon.gd RUN_SEED_OFFSET); seed() here still fixes Godot's generator for everything else.
+		seed(sd)
 		TeamState.start([[0, 0], [1, 0]])
 		var dg: Node2D = load("res://scenes/dungeon.tscn").instantiate()
 		TeamState.give_to(dg)

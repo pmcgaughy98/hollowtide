@@ -1,0 +1,21 @@
+{
+  "batch": "cx-07-story",
+  "slots": [
+    "story.backdrop.dawn_bank",
+    "story.backdrop.river_below"
+  ],
+  "check_lines": [
+    "story.backdrop.dawn_bank: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS",
+    "story.backdrop.river_below: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C6 PASS, C9 PASS"
+  ],
+  "source_issues": [
+    "story.backdrop.dawn_bank: image_gen returned [1672, 941] raw; requested native [384, 216]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "story.backdrop.river_below: image_gen returned [2172, 724] raw; requested native [384, 40]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "river_below is candidate art only: soul_prologue.gd still draws its coded river dashes, so its file-gated texture wiring remains pending approval. Dawn-bank slot plumbing already exists; no script changed.",
+    "In-game capture absent: no candidate installed or runtime wiring changed; R4 remains pending Preston/Claude review."
+  ],
+  "installed": false,
+  "tower_status": "Preston says new Tower ready; Claude still exporting slot contracts. Do not reuse old Tower slot dimensions.",
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "latest_check": "candidate-only real export, freshness guard enabled"
+}

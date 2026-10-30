@@ -215,8 +215,17 @@ func _run() -> void:
 	ps.free()
 	_ok(desc_bad.is_empty(), "team move box: %d moves, the tallest box %.0f of %.0f px%s" % [Arena.MOVES.size(), desc_end, cap, "" if desc_bad.is_empty() else "; over: " + ", ".join(desc_bad)])
 	# 10. The Growth Shrine (shrine_info.gd) for every line that grows: each condition's name in its 180 px
-	# column, its count with a three-digit tally in the 122 px column, every form's name on a 206 px button.
+	# column, its count in the 122 px column, every form's name on a 206 px button. Since pass 9 T3 the count stops at
+	# the goal and a met one reads "n / n   done" (shrine_info.gd), so the widest text is that one or "n-1 / n", not a
+	# three-digit tally (pass 9 integration, on the town lane's request).
+	# The count column is no longer a fixed 122 px: it is as wide as the widest count on the page and the gauge gives way
+	# (shrine_info.gd count_col). So the bound is the row: the 180 px name, the count, the 6 px gap and a gauge of at
+	# least 160 px inside the detail column (the 1056 px panel less its frame, the 258 px team list, the 18 px gap and a
+	# scrollbar), with Godot's 4 px between a row's parts (pass 9 integration; the fixed bound failed "140 / 140   done").
 	var way_names: Dictionary = load("res://scripts/ui/shrine_info.gd").get_script_constant_map()["WAY_NAMES"]
+	var panel_m: float = UI.frame("panel").content_margin_left + UI.frame("panel").content_margin_right
+	var detail_w: float = 1056.0 - panel_m - 258.0 - 18.0 - UI.SCROLL_BAR_W
+	var count_max: float = detail_w - 180.0 - 6.0 - 3.0 * 4.0 - 160.0
 	var cond_w := 0.0
 	var count_w := 0.0
 	var shrine_bad: Array[String] = []
@@ -227,18 +236,22 @@ func _run() -> void:
 			var conds := [["Level", Dungeon.EVO_LEVEL[st]], ["Knockouts", r["kos"][st]], ["Floors cleared", r["floors"][st]], [way_names.get(r["way"], r["way"]), r["need"][st]]]
 			for c in conds:
 				var lw := UI.width_in(String(c[0]), "body")
-				var count := "%d / %d" % [maxi(999, int(c[1])), int(c[1])]
+				var goal := int(c[1])
+				var count := "%d / %d   done" % [goal, goal]
+				var short := "%d / %d" % [maxi(0, goal - 1), goal]
+				if UI.width_in(short, "number") > UI.width_in(count, "number"):
+					count = short
 				var cw := UI.width_in(count, "number")
 				cond_w = maxf(cond_w, lw)
 				count_w = maxf(count_w, cw)
-				if lw > 180.0 or cw > 122.0:
+				if lw > 180.0 or cw > count_max:
 					shrine_bad.append("line %d stage %d: '%s' %.0f px, '%s' %.0f px" % [ln, st + 1, c[0], lw, count, cw])
 		for f in forms:
 			var nm := String(load(f[1]).creature_name)
 			var nw := UI.width_in(nm, UI.fit(nm, "name", 206))
 			if nw > 206.0:
 				shrine_bad.append("%s %.0f px on its button" % [nm, nw])
-	_ok(shrine_bad.is_empty(), "shrine rows: %d growing lines, widest condition %.0f of 180 px, widest count %.0f of 122 px%s" % [Dungeon.EVO.size(), cond_w, count_w, "" if shrine_bad.is_empty() else "; over: " + "; ".join(shrine_bad)])
+	_ok(shrine_bad.is_empty(), "shrine rows: %d growing lines, widest condition %.0f of 180 px, widest count %.0f of %.0f px (a %.0f px detail column keeps a gauge of %.0f px)%s" % [Dungeon.EVO.size(), cond_w, count_w, count_max, detail_w, detail_w - 180.0 - 6.0 - 12.0 - maxf(122.0, count_w),"" if shrine_bad.is_empty() else "; over: " + "; ".join(shrine_bad)])
 	# 11. The dialogue box (UI.dialogue, 760 x 116) with every line of dialogue/*.dialogue. A name slot
 	# ({{...}}) is filled with the widest creature name; a spoken line is measured beside a portrait (528 px),
 	# narration across the box (690 px). Each page is two rows: both inside the frame, each row within the width.
@@ -348,6 +361,12 @@ func _run() -> void:
 	home.poll_input = false
 	root.add_child(home)
 	await _frames(6)
+	# In a window a room not yet painted is painted on a worker behind its curtain and built after that (pass 9 R2), so
+	# its pause menu comes later than 6 frames: wait for it, up to 10 s (pass 9 integration, on the town lane's request).
+	var waited_home := 0
+	while home.get_node_or_null("GamePauseMenu") == null and waited_home < 300:
+		await _frames(1)
+		waited_home += 1
 	await _menu_point("Home", home, func() -> Rect2: return home.hint_now()["strip"])
 	await _snap("06_home_menu")
 	home.queue_free()

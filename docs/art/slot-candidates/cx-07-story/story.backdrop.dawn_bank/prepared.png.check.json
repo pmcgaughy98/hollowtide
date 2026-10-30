@@ -1,0 +1,44 @@
+{
+ "slot": "story.backdrop.dawn_bank",
+ "candidate": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\cx-07-story\\story.backdrop.dawn_bank\\prepared.png",
+ "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+ "pass": true,
+ "results": [
+  {
+   "id": "C1",
+   "name": "size",
+   "result": "PASS",
+   "detail": "384x216, slot sheet 384x216"
+  },
+  {
+   "id": "C2",
+   "name": "colours",
+   "result": "PASS",
+   "detail": "34 colours (worst cell 34), budget 48"
+  },
+  {
+   "id": "C3",
+   "name": "alpha",
+   "result": "PASS",
+   "detail": "0 pixels not fully opaque"
+  },
+  {
+   "id": "C5",
+   "name": "palette",
+   "result": "PASS",
+   "detail": "0 colours over 20 from the palette; mean distance 0.0"
+  },
+  {
+   "id": "C9",
+   "name": "specks",
+   "result": "PASS",
+   "detail": "487 orphan pixels (0.59%), 10 light specks"
+  }
+ ],
+ "review": {
+  "R1": "no text, letters, numbers or signage lettering anywhere",
+  "R2": "nothing that reads as another game or franchise",
+  "R3": "no creature, animal or person unless the slot asks for one",
+  "R4": "sits in the scene: placeholder, candidate and in-game capture side by side"
+ }
+}

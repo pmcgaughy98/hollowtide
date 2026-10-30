@@ -1,0 +1,2 @@
+prepared town.building.hall.reach: 104x300, 23 colours, 10958 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\pass9-reach-stair-2026-10-28\town.building.hall.reach\prepared-from-raw.png
+next: python tools/art/validate_slot.py town.building.hall.reach C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\pass9-reach-stair-2026-10-28\town.building.hall.reach\prepared-from-raw.png

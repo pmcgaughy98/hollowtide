@@ -1,0 +1,10 @@
+{
+ "batch": "cx-17-home-burrow",
+ "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+ "slots": {
+  "town.building.home": {
+   "answer": "yes",
+   "date": "2026-10-29"
+  }
+ }
+}

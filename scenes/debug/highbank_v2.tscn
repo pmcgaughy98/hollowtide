@@ -7,7 +7,9 @@ script/source = "extends Node
 ## is open) and brings Highbank up on the street. The game's own switch stays off (HIGHBANK_V2 in
 ## scripts/town/town_layout.gd, or HT_HIGHBANK_V2=1) until Preston has walked it and says so.
 ## The walk saves to a file of its own (user://highbank_v2_walk.save), never over the game's save: the town saves on
-## every arrival. With no team in memory (F6), a fresh pair whose crew meeting is behind them, so the walk is free.
+## every arrival. With no team in memory (F6), a fresh pair whose crew meeting is behind them, so the walk is free:
+## out of Hollow Mouth, the parcel taken at the board, so the objective sends them to Starward in the Wayline Tower
+## (Claude, 2026-10-27, pass 9 T8 / A9-09: with no run beaten the HUD said to escape the flood, on the street above it).
 ## The three areas: Highbank Street (Home, the shops, the Shrine, the Yard, the Crossroads), Tower Rise up the north
 ## steps (the Wayline Tower and the Job Board), the Old Ferry Ward down the south switchbacks (the Mouth); the East
 ## Quarter is the road east past the barrier, empty.
@@ -21,7 +23,8 @@ func _ready() -> void:
 	TeamState.save_path = \"user://highbank_v2_walk.save\"
 	if TeamState.data.is_empty():
 		TeamState.start([[0, 0], [1, 0]])
-		TeamState.data[\"story\"] = {\"parcel\": \"saved\", \"met_crew\": true}
+		TeamState.data[\"story\"] = {\"parcel\": \"stolen\", \"met_crew\": true}
+		TeamState.data[\"beaten\"] = [\"mouth\"]
 	TeamState.data.erase(\"arrive_at\")
 	TeamState.data.erase(\"news\")
 	get_tree().change_scene_to_file.call_deferred(\"res://scenes/hub_town.tscn\")

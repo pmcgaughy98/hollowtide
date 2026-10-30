@@ -1,0 +1,11 @@
+{
+  "raw_untouched": true,
+  "authorized": "Preston Python pixel cleanup approval",
+  "contract": "ee9c03563b1c2a8bd6adc2abe1df32d2d1a993bdcba109f1d7e9d2c5d060489c",
+  "native_size": [
+    384,
+    216
+  ],
+  "strategy": "Full composition resized to native canvas, snapped to updated nine-colour night palette; adjacent colour cluster cleanup.",
+  "colour_joins": 2188
+}

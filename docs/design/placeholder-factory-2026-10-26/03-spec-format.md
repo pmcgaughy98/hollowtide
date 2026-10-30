@@ -83,7 +83,7 @@ Creature runtime frames sit at 18 to 23 colours (`docs/art/canvaswing-diagonal-w
 | `door_px` | the opening in the art, in px inside the cell; the doorway must read dark against the wall | `Rect2i(60, 112, 30, 56)` |
 | `pass_creature` | the town creature the doorway and eaves must clear, measured from its `town/s.png` | `windcut` (54 px tall) |
 | `states` | name to frame count and fps; one row per state, frames left to right, every cell `size` | `{"closed": [1, 0], "open": [3, 12]}` |
-| `palette` | `{"source": res path of a swatch strip, "max": colour budget, "lock": true/false}` | `{"source": ".../palettes/town_stone.png", "max": 32, "lock": true}` |
+| `palette` | `{"source": res path of a swatch strip, "max": colour budget, "lock": true/false}`; `"exact": true` (2026-10-28) makes the family's strip every colour its placeholders use instead of a median cut, for a target that is a finished picture | `{"source": ".../palettes/town_stone.png", "max": 32, "lock": true}` |
 | `light` | always `upper_left` unless the slot says otherwise | `upper_left` |
 | `outline` | `runtime_rim` (the finish shader recolours the silhouette edge; the art draws no outer line, only internal `#0b0e11` detail), `drawn` (the art carries a 1 px outline, its own darkest ramp tone; icons `#1a1410`), `none` (quiet decorative scenery) | `runtime_rim` |
 | `edges` | canvas sides the art may touch: `none`, `bottom`, `all` | `bottom` |
@@ -93,6 +93,7 @@ Creature runtime frames sit at 18 to 23 colours (`docs/art/canvaswing-diagonal-w
 | `brief` | one or two plain sentences: what it is, materials, mood, in Hollowtide's words | "The team's home: a low river-stone cottage with a moss roof, a framed door with a warm lamp inside, a step at the door." |
 | `forbid` | always `text`, `creature`, `franchise`; add more per slot | `["text", "creature", "franchise", "people"]` |
 | `checks` | check ids from 2.3; the kind's defaults unless overridden | `["C1", "C2", ...]` |
+| `specks` | optional (2026-10-28): the C9 limit as a share of opaque pixels, when the target itself is fine detail at a tiny scale; set from the target's own share with room to spare | `0.10` (road.backdrop.highbank_far) |
 | `placeholder` | the coded painter that draws it today | `TownPlaceholders.building` |
 
 ### 2.2 Kinds and their defaults
@@ -132,7 +133,7 @@ the number. Checks marked *review* cannot be scripted and go on Preston's review
 | C6 | **Seam match** (tiles, `h`/`v` slots, 9-slice edges) | mean absolute difference between the left and right edge columns (and top and bottom rows) `<= 10` per channel, max `<= 48`; the same against the neighbouring set's edge when one is named |
 | C7 | **Foot row** | the lowest opaque row of every cell equals `anchor.foot_row` (characters 0 px drift; lamps and props 0; flicker frames 1) |
 | C8 | **Frame health** | every cell's opaque pixel count within 25% of the median cell; the largest single-colour connected block under 25% of a cell's opaque pixels (catches the ghost and slab frames from the Canvaswing job) |
-| C9 | **Specks and orphans** | single pixels with no same-colour 4-neighbour `<= 1%` of opaque pixels; light specks (all four neighbours 50+ darker) counted and reported (the mech skill-up's speck count) |
+| C9 | **Specks and orphans** | single pixels with no same-colour 4-neighbour `<= 1%` of opaque pixels (or the row's `specks`); light specks (all four neighbours 50+ darker) counted and reported (the mech skill-up's speck count) |
 | C10 | **Doorway reads as a door** (`building`) | `door_px` is fully opaque and its mean brightness is at least 15% under the wall band beside it |
 | C11 | **Scale** (`building`, `room`, `prop` near walkways) | `door_px` height `>= pass_creature` height and width `>= 0.75 x` its width, both read from `assets/sprites/arena/<form>/town/s.png` at check time, so a new creature set re-checks every door |
 | C12 | **Light side** | WARN only: the silhouette's upper-left edge pixels average brighter than its lower-right edge pixels |
@@ -220,6 +221,11 @@ standing method), crop to the slot's aspect, box-downscale to `size`, harden alp
 palette with no dithering (the `reduce` step of `tools/grok_image.py:60-75`, given the slot's numbers), and place
 the content so its lowest row sits on `foot_row`. It does not repaint, sharpen or re-outline: Preston's 2026-10-13
 call was that heavy finishing made generated art worse.
+
+2026-10-28: a raw already at exactly the slot's sheet size keeps every pixel where it is (only keyed, hardened and
+snapped), since Codex paints to the exact size and a refit moved the far view's anchors. An opaque slot or a backdrop
+that does not tile is fitted as a whole frame (crop to aspect, box-downscale), never cut to its content and
+re-centred, so its layout and anchors scale with it.
 
 ### 3.5 The validator, the install and the check
 

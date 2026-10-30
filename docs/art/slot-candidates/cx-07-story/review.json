@@ -1,0 +1,12 @@
+{
+ "batch": "cx-07-story",
+ "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+ "slots": {
+  "story.backdrop.dawn_bank": {
+   "answer": "pending"
+  },
+  "story.backdrop.river_below": {
+   "answer": "pending"
+  }
+ }
+}

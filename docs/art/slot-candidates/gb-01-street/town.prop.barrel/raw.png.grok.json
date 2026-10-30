@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.barrel_card.png",
+ "out": "docs/art/slot-candidates/gb-01-street/town.prop.barrel/raw.png",
+ "cost_usd": 0.0859996,
+ "turns": 6,
+ "text": "I'll read the style reference first, then generate the barrel once and save it as `raw.png`.The reference is chunky pixel art: warm oak and tan staves, cream highlights, blue-gray iron bands, near-black outlines, light from the upper left. I'll generate one barrel in that palette.The generator wrote a JPEG. I'll convert it to `raw.png` in this folder so the file name matches the request.`C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_zpl7v1i5\\raw.png`\n\nIt shows one upright open timber barrel with blue-gray iron bands and teal water, in a three-quarter top-down view on a pink field at 864\u00d71152, but the generator returned a JPEG so the background is about RGB(240, 5, 206) with zero exact `#FF00FF` pixels, and the shading has 33,176 colours instead of flat hard-edged clusters.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_zpl7v1i5"
+}

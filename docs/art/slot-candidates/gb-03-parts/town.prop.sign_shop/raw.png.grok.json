@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.sign_shop_card.png",
+ "out": "docs/art/slot-candidates/gb-03-parts/town.prop.sign_shop/raw.png",
+ "cost_usd": 0.05631556,
+ "turns": 4,
+ "text": "I'll read the style reference first, then generate the sign once from what that image actually shows.The reference is warm oak and walnut pixel art in a three-quarter top-down view, with flat colour clusters and a small hanging sign. I'll generate the satchel sign once in that palette.The generator saved a JPEG. I'll convert that file to `raw.png` in this folder.Saved to `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_auzzxb2k\\raw.png`: a 1024\u00d71024 image meant to be one hanging oak plank sign with a carved satchel pictogram on flat magenta, and I did not reopen the generated file, so I cannot confirm the pictogram, the pure `#FF00FF` field, the hard pixel edges, or that no letters appeared; the generator wrote a JPEG first, so the PNG may be slightly soft from that compression.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_auzzxb2k"
+}

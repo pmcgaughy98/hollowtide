@@ -1,0 +1,118 @@
+{
+  "date_utc": "2026-10-27T18:34:53.460646+00:00",
+  "new_slots": [
+    {
+      "slot": "town.building.hall",
+      "pass": true,
+      "check_line": "town.building.hall: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C10 PASS, C11 PASS, C12 PASS",
+      "prepared_sha256": "2f25c90d287db8ec842d8a28cc5bc0851ddf6ab86cdb2433d4fb680c18f20d5f",
+      "raw_sha256": "0dd85b049ca5a5c5d9955ead20c86479ff3a274d42bc8ad7e0a17bbe2f972d39",
+      "alpha_matches_blockout": true
+    },
+    {
+      "slot": "town.building.hall.gable",
+      "pass": true,
+      "check_line": "town.building.hall.gable: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+      "prepared_sha256": "7b9f45a254c2ee94f935f46737857dd4ad6c59a56c01708b180877c8fcf09cbd",
+      "raw_sha256": "ce31a68d976aae4f2324124e53d95b554a0fac6bb7c67b17146258234c1f5178",
+      "alpha_matches_blockout": true
+    },
+    {
+      "slot": "town.building.hall.root_foot",
+      "pass": true,
+      "check_line": "town.building.hall.root_foot: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C12 PASS",
+      "prepared_sha256": "c6e94f29b0dc9bd904aee9cb7792b8f5b4518043e449123c5446034546b3aaef",
+      "raw_sha256": "aa287d0e02067d077bc04a0e11f9a6c0935a135d6ff6a3b78f356919778caad0",
+      "alpha_matches_blockout": false
+    },
+    {
+      "slot": "town.building.hall.yard",
+      "pass": true,
+      "check_line": "town.building.hall.yard: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C12 PASS",
+      "prepared_sha256": "b9c9a20481b6ed6dd82585bbbd9ef5a0f6480f5852e83cdf7f6459c1dc34aa61",
+      "raw_sha256": "867779ed4651a192b4f14b4f445e2756985af6353e79aae569ccc2b92ad8ead7",
+      "alpha_matches_blockout": true
+    },
+    {
+      "slot": "town.prop.hall.rise_stair",
+      "pass": true,
+      "check_line": "town.prop.hall.rise_stair: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C12 PASS",
+      "prepared_sha256": "9b36a28c53d2b174c11870120fc46a8602fbf7437dc4e0104c5b1fcf119a4444",
+      "raw_sha256": "a5ec1829b01c1bf8780b10e88dcb9f73dbb43ec0664296eb979a62954e36f721",
+      "alpha_matches_blockout": true
+    }
+  ],
+  "semantic": {
+    "all_five_alpha_masks_exact": true,
+    "depot_door": [
+      126,
+      126,
+      48,
+      64
+    ],
+    "gable_peg_centres": [
+      [
+        42,
+        34
+      ],
+      [
+        36,
+        29
+      ],
+      [
+        51,
+        34
+      ],
+      [
+        51,
+        28
+      ],
+      [
+        51,
+        24
+      ],
+      [
+        60,
+        34
+      ],
+      [
+        68,
+        30
+      ],
+      [
+        51,
+        40
+      ]
+    ],
+    "gable_sockets": 8,
+    "stair_treads": 8,
+    "stair_tread_height": 12,
+    "yard_changed_pixels": 32,
+    "yard_difference_bbox": [
+      12,
+      46,
+      45,
+      48
+    ],
+    "yard_other_pixels_exact": true,
+    "in_game_verified": false
+  },
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "installed": false,
+  "great_tree_revision": {
+    "west_woody_entry_rows": [
+      72,
+      110
+    ],
+    "west_woody_cross_section_px": 39,
+    "west_turf_rows": [
+      111,
+      119
+    ],
+    "upper_join_and_secondary_leg_rgba_exact": true,
+    "protected_region": "all pixels outside x0..55,y52..119",
+    "footing_stone_removed": "visual review",
+    "baseline": 119,
+    "old_reference_mask_intentionally_revised": true
+  }
+}

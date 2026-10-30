@@ -1,0 +1,13 @@
+{
+ "slot": "town.prop.scrolls_cellar.rack",
+ "source": "docs\\art\\slot-candidates\\gb-04-furniture\\town.prop.scrolls_cellar.rack",
+ "date_tool": "clean_slot.py 2026-10-28",
+ "settings": {
+  "mixed": 0.5,
+  "keep": 40.0,
+  "flip": []
+ },
+ "notes": [
+  "452 orphans after the downscale, cleared"
+ ]
+}

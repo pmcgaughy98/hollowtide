@@ -1,0 +1,14 @@
+{
+ "slot": "title.hud_piece.menu_cursor",
+ "source": "docs\\art\\slot-candidates\\gb-05-menu\\title.hud_piece.menu_cursor",
+ "date_tool": "clean_slot.py 2026-10-28",
+ "settings": {
+  "mixed": 0.5,
+  "keep": 40.0,
+  "flip": []
+ },
+ "notes": [
+  "6 orphans after the downscale, cleared",
+  "8 px re-shaded to break a flat (C8)"
+ ]
+}

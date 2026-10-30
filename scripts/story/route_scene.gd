@@ -42,6 +42,21 @@ const HINT_AFTER := 1.2      # seconds standing still, with no line up, before t
 const LAMP_LIT := Color("#f2c14e")
 const LAMP_DARK := Color("#4a4434")
 const SMOKE := Color("#dfe1da")
+## The Wayline Tower on the far view (road.backdrop.highbank_far), in that picture's own px: the whole 480-tile Tower
+## is 70 px from its vane (row 5) to its foot (row 75), and this box is its body above the forest band, as wide as the
+## Stack, from the vane down to the Low Reel where the wayline leaves (measured from the placeholder by
+## docs/design/vast-scale-2026-10-27/final/final_mocks.py mock_road_far, its report's "tower body box"). The checks
+## measure how much of it the nearer layers leave in sight (road_check.gd, road_tower_view_check.gd).
+const FAR_BODY := Rect2i(100, 5, 8, 66)
+## The Waiting Lamp on the far view, round its beacon anchor (the lamp's middle): 2 x 3 px. The scene draws it over
+## the haze, so the lamp is never hazed. A glint of light runs down one wayline every GLINT_SECS, taking GLINT_RUN.
+const FAR_LAMP := Rect2(-1, -1, 2, 3)
+## The willow layer's two trees, [crown x, crown y, half width, half height] in its own px (pass 9: moved from x 70
+## and 262 into a pair so the far Tower stands in the opening at the trail talks; see _willows).
+const WILLOWS := [[100, 34, 40, 25], [190, 38, 36, 24]]
+const GLINT := Color("#f6e6c0")
+const GLINT_SECS := 9.0
+const GLINT_RUN := 6.5
 ## Aerial perspective: the layer's own colours mixed toward the sky's haze by `amount` (less colour first), and its
 ## alpha by `alpha` (the river dropping back, the trees opening). Binary-alpha art stays binary.
 const HAZE_SHADER := """shader_type canvas_item;
@@ -128,6 +143,7 @@ var _box: Node2D
 var _veil: ColorRect
 var _vista: Sprite2D
 var _fx: Node2D
+var _far_fx: Node2D              # the far Tower's lamp and wayline glint, just over the far town (_draw_far)
 var _vista_t := 0.0
 var _vista_spec: Dictionary
 var _foot := {}                  # texture path -> [Texture2D, foot offset], read once
@@ -244,6 +260,13 @@ func _add_layer(layer: Dictionary) -> void:
 		s.position = Vector2(place)
 	_vp.add_child(s)
 	_layers.append([layer, s, mat])
+	if layer.get("far", false):
+		# The far Tower's lamp and wayline glint draw just over the far town and under every nearer layer, so a
+		# willow passing in front hides them as it hides the tower.
+		_far_fx = Node2D.new()
+		_far_fx.name = "FarTowerLight"
+		_far_fx.draw.connect(_draw_far.bind(layer, s))
+		_vp.add_child(_far_fx)
 
 
 ## The Dialogue Manager autoload, found at run time: a check that preloads this script (or tower_reveal.gd, which
@@ -295,6 +318,8 @@ func _process(delta: float) -> void:
 		_layout(_progress())
 	_pose()
 	_fx.queue_redraw()
+	if _far_fx != null and not in_vista:
+		_far_fx.queue_redraw()
 	_box.queue_redraw()
 
 
@@ -618,8 +643,8 @@ func _leave() -> void:
 	get_tree().change_scene_to_node(next)
 
 
-## Over the held view: the street lamps below going out one by one, chimney smoke, the Tower's beacon. On the trail:
-## the far Tower's beacon, a pinprick of light.
+## Over the held view: the street lamps below going out one by one, chimney smoke, and the Waiting Lamp, which stays
+## lit and breathes. (On the trail the far Tower's lights are _draw_far's.)
 func _draw_fx() -> void:
 	if in_vista:
 		var anchors: Dictionary = _vista_spec.get("anchors", {})
@@ -644,19 +669,46 @@ func _draw_fx() -> void:
 				_fx.draw_rect(Rect2(at, Vector2(size, size)), Color(SMOKE, 0.75 * (1.0 - t)))
 		var beacon: Vector2 = Vector2(anchors.get("beacon", Vector2i(-10, -10)))
 		var pulse := 0.5 if _reduce else 0.35 + 0.25 * sin(_vista_t * 2.4)
+		_fx.draw_rect(Rect2(beacon - Vector2(4, 5), Vector2(9, 11)), Color(LAMP_LIT, pulse * 0.4))
 		_fx.draw_rect(Rect2(beacon - Vector2(2, 2), Vector2(5, 5)), Color(LAMP_LIT, pulse))
+
+
+## On the trail: the far Tower's Waiting Lamp, drawn over the haze (the lamp is never hazed) with a soft breathing
+## glow, and a slow glint of light running down one of its waylines toward the roofs (still under Reduce motion).
+func _draw_far(layer: Dictionary, s: Sprite2D) -> void:
+	if in_vista:
 		return
-	for entry: Array in _layers:
-		var layer: Dictionary = entry[0]
-		if not layer.get("far", false):
-			continue
-		var s: Sprite2D = entry[1]
-		var b: Vector2i = ArtSlots.spec(String(layer["slot"])).get("anchors", {}).get("beacon", Vector2i(-1, -1))
-		if b.x < 0:
-			continue
-		var at := (s.position + (Vector2(b) + s.offset) * s.scale).round()
-		var a := 0.6 if _reduce else 0.35 + 0.3 * absf(sin(_clock * 1.7))
-		_fx.draw_rect(Rect2(at, Vector2.ONE), Color(LAMP_LIT, a))
+	var anchors: Dictionary = ArtSlots.spec(String(layer["slot"])).get("anchors", {})
+	var b: Vector2i = anchors.get("beacon", Vector2i(-1, -1))
+	if b.x < 0:
+		return
+	var a := 0.6 if _reduce else 0.35 + 0.3 * absf(sin(_clock * 1.7))
+	var lamp := far_lamp_rect(s, b)
+	_far_fx.draw_rect(lamp.grow(1.0), Color(LAMP_LIT, a * 0.45))
+	_far_fx.draw_rect(lamp, LAMP_LIT)
+	if anchors.has("wayline_top") and anchors.has("wayline_end"):
+		var t := glint_t()
+		if t <= 1.0:
+			var p := far_wayline_at(Vector2(anchors["wayline_top"]), Vector2(anchors["wayline_end"]), t)
+			_far_fx.draw_rect(Rect2(far_at(s, p), Vector2.ONE), Color(GLINT, 0.6 if _reduce else 0.85 * sin(PI * t)))
+
+
+## How far down its wayline the far glint is now, 0 at the Low Reel to 1 at the roof; over 1 while it waits for the next
+## run. Under Reduce motion it stays put, two fifths of the way down.
+func glint_t() -> float:
+	return 0.4 if _reduce else fposmod(_clock, GLINT_SECS) / GLINT_RUN
+
+
+## Where a point of the far view (its own px) is on the screen: the layer's place, its anchor offset and its scale.
+static func far_at(s: Sprite2D, p: Vector2) -> Vector2:
+	return (s.position + (p + s.offset) * s.scale).round()
+
+
+## The far Tower's Waiting Lamp on the screen: FAR_LAMP round the beacon anchor, at the layer's scale, at least 1 x 2.
+static func far_lamp_rect(s: Sprite2D, beacon: Vector2i) -> Rect2:
+	var at := far_at(s, Vector2(beacon) + FAR_LAMP.position)
+	var size := (FAR_LAMP.size * s.scale).round().max(Vector2(1, 2))
+	return Rect2(at, size)
 
 
 # ------------------------------------------------------------------------------------------------ the text box
@@ -741,8 +793,16 @@ const MUD_LIT := Color("#6b563f")
 const SHEEN := Color("#8ea3a2")
 const SKY_DAWN := ["#4d6582", "#5f7894", "#7a90a6", "#9aa9b4", "#bcbbb2", "#d6baa4", "#e8c69c", "#f2d8a8", "#f6e6c0"]
 const SKY_DAWN_AT := [40, 70, 92, 108, 120, 130, 138, 146]
-const SKY_RISE := ["#56708e", "#6a84a0", "#879db0", "#a9b5ba", "#cdc6b4", "#e4cba6", "#f0d59f", "#f7e3b5"]
-const SKY_RISE_AT := [34, 60, 80, 96, 106, 114, 120]
+## The held view's placeholder is the vast-scale mock of it (docs/design/vast-scale-2026-10-27/final/final_mocks.py
+## mock_vista, saved there as slot_vista.png): the whole 480-tile Wayline Tower from its foot to its vane, standing
+## alone, the great tree in its forest, Highbank's roofs set back to the west; no party (the scene draws them).
+const VISTA_PICTURE := "res://assets/placeholders/road_vista.png"
+## The far view's placeholder is the vast-scale mock of it (final_mocks.py mock_road_far, saved there as
+## slot_highbank_far.png): from 3,000 tiles down the river, the great tree as the title paints it and the whole
+## Wayline Tower standing alone, both over the forest band, Highbank's roofs in a clearing west of the Tower, one
+## broken wayline from the Low Reel down to them (the anchors' wayline, where the glint runs). Full colour, unhazed:
+## the scene hazes the layer itself.
+const FAR_PICTURE := "res://assets/placeholders/road_highbank_far.png"
 
 
 ## The placeholder for one road slot, by the last part of its id; exactly spec.sheet_size.
@@ -756,7 +816,9 @@ static func paint_slot(id: String, spec: Dictionary) -> Image:
 			_cloud(img, 214, 76, 120, Color("#97a3b0"), Color("#ecca9f"))
 			_cloud(img, 18, 96, 70, Color("#a9b0b4"), Color("#efd3a6"))
 		"highbank_far":
-			_far_town(img, spec)
+			var far := (load(FAR_PICTURE) as Texture2D).get_image()
+			far.convert(Image.FORMAT_RGBA8)
+			img.blit_rect(far, Rect2i(Vector2i.ZERO, far.get_size()), Vector2i.ZERO)
 		"far":
 			_hills(img, 52, [4.0, 2.0, 1.0], [2, 5, 11], [0.3, 1.1, 2.0], Color("#93a6aa"), Color("#aebdbf"))
 			_hills(img, 41, [3.0, 2.0], [3, 7], [0.5, 2.4], Color("#7f9394"), Color("#92a5a5"))
@@ -775,7 +837,9 @@ static func paint_slot(id: String, spec: Dictionary) -> Image:
 		"lost_parcel":
 			_parcel(img)
 		"vista":
-			_vista_art(img, spec)
+			var pic := (load(VISTA_PICTURE) as Texture2D).get_image()
+			pic.convert(Image.FORMAT_RGBA8)
+			img.blit_rect(pic, Rect2i(Vector2i.ZERO, pic.get_size()), Vector2i.ZERO)
 	return img
 
 
@@ -813,12 +877,21 @@ static func sky(img: Image, tones: Array, at: Array) -> void:
 				_p(img, x, y0 - 2, c)
 
 
-## A torn cloud band: a streak with its underside lit by the low sun.
+## A torn cloud band: a streak with its underside lit by the low sun. Pass 9 (W12): each row starts and ends at its
+## own place, the top breaks into two lumps, a wisp tears off the tail and the lit underside has a gap, so the band
+## reads as vapour and not a ruled line.
 static func _cloud(img: Image, x: int, y: int, length: int, body: Color, lit: Color) -> void:
-	_r(img, x + 4, y, length - 10, 1, body)
+	var s := _h(x * 7 + y)
+	var l0 := 2 + s % 4
+	var r0 := 3 + (s / 4) % 5
+	_r(img, x + l0 + 2, y, length - l0 - r0 - 6, 1, body)
 	_r(img, x, y + 1, length, 1, body)
-	_r(img, x + 3, y + 2, length - 8, 1, lit)
+	_r(img, x + length + 2, y + 1, 2 + s % 3, 1, body)
+	_r(img, x + l0 + 1, y + 2, length - l0 - r0 - 2, 1, lit)
+	_r(img, x + length / 3 + s % 5, y + 2, 2, 1, body)
 	_r(img, x + length / 3, y - 1, length / 4, 1, body)
+	_r(img, x + length * 2 / 3, y - 1, length / 6, 1, body)
+	_r(img, x + length / 3 + 2, y - 2, maxi(3, length / 8), 1, body)
 
 
 ## A hill line that tiles (whole waves across the width), crowns broken by tree bumps, filled to the bottom.
@@ -836,36 +909,10 @@ static func _hills(img: Image, base: int, amp: Array, freq: Array, phase: Array,
 		_p(img, x, top, lit)
 
 
-## Highbank miles off: a flat bluff with a few roofs, and the Tower over it, a beacon at the top. Few tones.
-static func _far_town(img: Image, spec: Dictionary) -> void:
-	var bluff := Color("#7d8c96")
-	var bluff_lit := Color("#93a2aa")
-	var roof := Color("#6c7b88")
-	var wall := Color("#8a99a3")
-	var tower := Color("#74838f")
-	var tower_lit := Color("#a3b1b8")
-	var cap := Color("#5f6e7c")
-	# The bluff: sloped sides, a flat top at row 74, running off the bottom.
-	for y in range(74, 96):
-		var inset := maxi(0, 14 - (y - 74))
-		_r(img, 8 + inset, y, 144 - inset * 2, 1, bluff)
-	_r(img, 22, 74, 116, 1, bluff_lit)
-	# Roofs on the bluff top, in two rows.
-	for k in 9:
-		var x := 26 + k * 12 + (_h(k) % 4)
-		var tall := 5 + _h(k + 9) % 4
-		_r(img, x, 74 - tall, 8, tall, wall)
-		for j in 4:   # a gable, widest at the eaves
-			_r(img, x + j, 74 - tall - 1 - j, 8 - j * 2, 1, roof)
-	# The Tower: wider at its foot, a cap, a mast and the beacon.
-	var b: Vector2i = spec.get("anchors", {}).get("beacon", Vector2i(92, 6))
-	for y in range(16, 74):
-		var half := 5 + (y - 16) / 24
-		_r(img, b.x - half, y, half * 2 + 1, 1, tower)
-		_p(img, b.x - half, y, tower_lit)
-	_r(img, b.x - 7, 13, 15, 3, cap)
-	_r(img, b.x, b.y + 2, 1, 11 - b.y, cap)
-	_r(img, b.x - 1, b.y - 1, 3, 3, Color("#c9a24a"))
+## A point on the far wayline, `t` from 0 at the Tower's Low Reel to 1 at the roof: the straight line, sagging 3 px at
+## its middle (the far view's placeholder paints its cable on this curve, every fourth pixel left out).
+static func far_wayline_at(from: Vector2, to: Vector2, t: float) -> Vector2:
+	return from.lerp(to, t) + Vector2(0, 3.0 * sin(PI * t))
 
 
 static func _river(img: Image) -> void:
@@ -908,7 +955,10 @@ static func _willows(img: Image) -> void:
 	for x in w:
 		var top: int = h - 6 - [0, 1, 2, 1, 0, 2, 3, 1][x % 8]
 		_r(img, x, top, 1, h - top, leaf_dark)
-	for tree in [[70, 34, 40, 25], [262, 38, 36, 24]]:
+	# The two stand as a pair and leave the rest of the strip open (columns 228 round to 58): that opening is where
+	# the far Tower stands while each trail talk opens and for a few seconds of the stroll after (pass 9, W3; measured
+	# by road_tower_view_check.gd). Moving a tree means running that check.
+	for tree in WILLOWS:
 		var cx: int = tree[0]
 		var cy: int = tree[1]
 		var rx: int = tree[2]
@@ -945,15 +995,18 @@ static func _willows(img: Image) -> void:
 			var length := 10 + _h(sx * 3) % 26 - absi(sx - cx) / 4
 			var c := strand if (sx / 2) % 3 == 0 else (leaf if (sx / 2) % 3 == 1 else leaf_dark)
 			_r(img, sx, eave + 1, 1, maxi(3, length), c)
-	# Flood debris: a snapped branch in the first tree's fork, driftwood at the second's root, a reed tangle.
+	# Flood debris: a snapped branch in the first tree's fork, driftwood at the second's root, a reed tangle low in
+	# the opening (under the far Tower's rows, so it hides nothing of it).
+	var a: int = WILLOWS[0][0]
+	var b: int = WILLOWS[1][0]
 	for i in 22:
-		_p(img, 58 + i, 52 + i / 4, drift)
-		_p(img, 58 + i, 51 + i / 4, drift_lit)
-	_r(img, 236, h - 9, 44, 4, drift)
-	_r(img, 236, h - 9, 44, 1, drift_lit)
-	_r(img, 279, h - 8, 3, 2, INK)
+		_p(img, a - 12 + i, 52 + i / 4, drift)
+		_p(img, a - 12 + i, 51 + i / 4, drift_lit)
+	_r(img, b - 26, h - 9, 44, 4, drift)
+	_r(img, b - 26, h - 9, 44, 1, drift_lit)
+	_r(img, b + 17, h - 8, 3, 2, INK)
 	for i in 9:
-		_r(img, 160 + i * 2, h - 12 + (i % 3), 1, 10 - (i % 3), reed)
+		_r(img, 296 + i * 2, h - 12 + (i % 3), 1, 10 - (i % 3), reed)
 
 
 ## The trail from the side: a back verge, a band of mud with ruts and puddles, a grassy slope to the bottom.
@@ -1117,114 +1170,3 @@ static func _parcel(img: Image) -> void:
 	_r(img, 3, 12, 26, 1, MUD_LIT)
 	_r(img, 4, 14, 6, 1, SHEEN)
 	_r(img, 22, 15, 5, 1, SHEEN)
-
-
-## The rise at first light: the willows open on both sides, Highbank on its bluff below, the Tower over all of it.
-## The lamps, chimneys and beacon sit at the row's anchors, which the scene's effects read too.
-static func _vista_art(img: Image, spec: Dictionary) -> void:
-	var anchors: Dictionary = spec.get("anchors", {})
-	sky(img, SKY_RISE, SKY_RISE_AT)
-	_cloud(img, 40, 44, 90, Color("#93a3b2"), Color("#ead0a6"))
-	_cloud(img, 250, 70, 80, Color("#a6b0b6"), Color("#f0d6a8"))
-	# Far hills behind the town, then the bluff it stands on.
-	_hill_band(img, 118, 5, Color("#a3b0ae"), Color("#b8c2bc"), 0.7)
-	_hill_band(img, 130, 4, Color("#7f9467"), Color("#93a77a"), 1.3)
-	var plateau := Color("#6f8455")
-	for x in range(130, 384):
-		var top := 136 if x >= 190 else 136 + (190 - x) * 2 / 5
-		_r(img, x, top, 1, 216 - top, plateau)
-	# Houses behind the Tower, the Tower, then the houses in front of it.
-	var houses := [[160, 160, 20, 11], [186, 150, 22, 12], [214, 146, 18, 10], [232, 160, 22, 12], [292, 148, 22, 12],
-		[316, 160, 18, 10], [338, 150, 24, 12], [196, 172, 22, 11], [322, 178, 24, 11], [258, 182, 22, 10]]
-	for hs in houses:
-		if int(hs[1]) < 176:
-			_house(img, hs)
-	_tower(img, Vector2i(anchors.get("beacon", Vector2i(268, 13))), 176)
-	for hs in houses:
-		if int(hs[1]) >= 176:
-			_house(img, hs)
-	for key: String in anchors:
-		var at: Vector2i = anchors[key]
-		if key.begins_with("chimney_"):
-			_r(img, at.x - 1, at.y, 3, 7, Color("#6b5d4e"))
-			_r(img, at.x - 2, at.y, 5, 1, INK)
-		elif key.begins_with("lamp_"):
-			_r(img, at.x, at.y + 2, 1, 6, Color("#3b3629"))
-			_r(img, at.x - 1, at.y - 1, 2, 2, Color("#4a4434"))
-	# The near ridge where the two stand, sloping down toward the town.
-	for x in range(0, 214):
-		var top := 149 if x <= 120 else 149 + (x - 120) * 7 / 10
-		_r(img, x, top, 1, 216 - top, Color("#3e5629"))
-		_p(img, x, top, Color("#6a8848"))
-		_p(img, x, top + 1, Color("#4b6634"))
-	# Willows framing the view, dark against the dawn.
-	_dark_tree(img, 18, 30, 34, 30, 12)
-	_dark_tree(img, 392, 40, 40, 46, 374)
-
-
-static func _hill_band(img: Image, base: int, amp: int, body: Color, lit: Color, f: float) -> void:
-	for x in img.get_width():
-		var top := base + int(amp * sin(x * 0.021 * f + 1.3) + amp * 0.5 * sin(x * 0.067 * f))
-		_r(img, x, top, 1, img.get_height() - top, body)
-		_p(img, x, top, lit)
-
-
-static func _house(img: Image, hs: Array) -> void:
-	var x: int = hs[0]
-	var base: int = hs[1]
-	var w: int = hs[2]
-	var wall_h: int = hs[3]
-	var top := base - wall_h
-	_r(img, x, top, w, wall_h, Color("#c9b38e"))
-	_r(img, x, top, 1, wall_h, Color("#dcc9a2"))
-	_r(img, x + w - 1, top, 1, wall_h, Color("#a8926f"))
-	var rise := w / 2 - 1
-	for j in rise:
-		_r(img, x - 1 + j, top - 1 - j, w + 2 - j * 2, 1, Color("#8e6a50"))
-		_p(img, x - 1 + j, top - 1 - j, Color("#a57e5f"))
-		_p(img, x + w - j, top - 1 - j, Color("#6f513c"))
-	_r(img, x - 1, top, w + 2, 1, Color("#6f513c"))
-	for k in range(3, w - 3, 6):
-		_r(img, x + k, top + 3, 2, 3, Color("#e2bd72") if (x + k) % 4 != 0 else Color("#6f513c"))
-
-
-## The Wayline Tower from the rise: river stone, lit on its left, slits up its face, a ledge, a lantern room, the mast.
-static func _tower(img: Image, beacon: Vector2i, base: int) -> void:
-	var cx := beacon.x
-	var stone := Color("#8f805e")
-	var lit := Color("#bea986")
-	var shade := Color("#6f6349")
-	var slit := Color("#3b3629")
-	for y in range(30, base):
-		var half := 8 + (y - 30) * 4 / (base - 30)
-		_r(img, cx - half, y, half * 2 + 1, 1, stone)
-		_r(img, cx - half, y, 2, 1, lit)
-		_r(img, cx + half - 1, y, 2, 1, shade)
-	for y in range(44, base - 10, 18):
-		_r(img, cx - 1, y, 2, 5, slit)
-	_r(img, cx - 12, 27, 25, 3, shade)
-	_r(img, cx - 12, 27, 25, 1, lit)
-	_r(img, cx - 7, 19, 15, 8, stone)
-	_r(img, cx - 7, 19, 2, 8, lit)
-	_r(img, cx - 3, 21, 7, 4, slit)
-	_r(img, cx - 9, 17, 19, 2, Color("#5f6e7c"))
-	_r(img, cx, beacon.y + 3, 1, 17 - beacon.y - 3, INK)
-	_r(img, cx - 2, beacon.y - 2, 5, 5, INK)
-	_r(img, cx - 1, beacon.y - 1, 3, 3, LAMP_LIT)
-
-
-## A dark willow framing the view: crown, strands and trunk to the bottom.
-static func _dark_tree(img: Image, cx: int, cy: int, rx: int, ry: int, trunk_x: int) -> void:
-	var body := Color("#2f3d2a")
-	var mid := Color("#3b4f33")
-	var lit := Color("#4c663d")
-	_r(img, trunk_x - 4, cy, 9, 216 - cy, body)
-	for y in range(maxi(0, cy - ry), cy + ry + 1):
-		var dy := float(y - cy) / float(ry)
-		var half := int(rx * sqrt(maxf(0.0, 1.0 - dy * dy)))
-		_r(img, cx - half, y, half * 2 + 1, 1, mid if dy < 0.2 else body)
-		_p(img, cx - half, y, lit)
-	for sx in range(cx - rx + 2, cx + rx - 1, 3):
-		var dx := float(sx - cx) / float(rx)
-		var bottom := cy + int(ry * sqrt(maxf(0.0, 1.0 - dx * dx)))
-		_r(img, sx, bottom, 1, 10 + _h(sx) % 26, body if (sx / 3) % 2 == 0 else mid)

@@ -1,0 +1,33 @@
+{
+  "batch": "cx-08-stages",
+  "slots": [
+    "ui.backdrop.stage_blight",
+    "ui.backdrop.stage_hollow",
+    "ui.backdrop.stage_ice",
+    "ui.backdrop.stage_loam",
+    "ui.backdrop.stage_murk",
+    "ui.backdrop.stage_sinew"
+  ],
+  "check_lines": [
+    "ui.backdrop.stage_blight: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS",
+    "ui.backdrop.stage_hollow: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS",
+    "ui.backdrop.stage_ice: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS",
+    "ui.backdrop.stage_loam: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS",
+    "ui.backdrop.stage_murk: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS",
+    "ui.backdrop.stage_sinew: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS"
+  ],
+  "source_issues": [
+    "ui.backdrop.stage_blight: image_gen returned [1672, 941] raw; requested native [448, 252]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "ui.backdrop.stage_hollow: image_gen returned [1672, 941] raw; requested native [448, 252]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "ui.backdrop.stage_ice: image_gen returned [1672, 941] raw; requested native [448, 252]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "ui.backdrop.stage_loam: image_gen returned [1672, 941] raw; requested native [448, 252]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "ui.backdrop.stage_murk: image_gen returned [1672, 941] raw; requested native [448, 252]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "ui.backdrop.stage_sinew: image_gen returned [1672, 940] raw; requested native [448, 252]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "Each supplied essence palette contains only five colors despite the 48-color ceiling. Candidates intentionally use those five inks; richer shading would require Claude to supply a broader family palette.",
+    "In-game capture absent: no candidate installed or runtime wiring changed; R4 remains pending Preston/Claude review."
+  ],
+  "installed": false,
+  "tower_status": "Preston says new Tower ready; Claude still exporting slot contracts. Do not reuse old Tower slot dimensions.",
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "latest_check": "candidate-only real export, freshness guard enabled"
+}

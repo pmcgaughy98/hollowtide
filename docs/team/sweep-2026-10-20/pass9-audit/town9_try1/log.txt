@@ -1,0 +1,59 @@
+[00000    0.0s w    2411] phase town9, keyboard, window (1152, 648), out C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/town9/
+[00000    0.0s w    2413] CLOCK real time, max fps 30
+[00000    0.0s w    2416] save C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/saves/s7_post.save -> C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/town9/slot.save
+[00001    0.0s w    3007] SCENE  -> none after 0.0 s game, 3.0 s wall in 
+[00002    0.1s w    3960] HITCH 953 ms for one frame in creature_opening.tscn (after start)
+[00002    0.1s w    3963] SCENE none -> creature_opening.tscn after 0.0 s game, 1.0 s wall in none
+[00089    3.0s w    5499] SHOT T01_title_boot scene creature_opening.tscn
+[00089    3.0s w    5534] SHOT T02_title_continue_focused scene creature_opening.tscn
+[00158    5.3s w    6787] SCENE creature_opening.tscn -> hub_town.tscn after 5.2 s game, 2.8 s wall in creature_opening.tscn
+[00515   17.2s w   13155] HITCH 258 ms for one frame in hub_town.tscn (after ui_accept(Enter))
+[00516   17.2s w   13862] HITCH 707 ms for one frame in hub_town.tscn (after ui_accept(Enter))
+[00536   17.9s w   14398] MARK highbank arrival (game 17.9 s, lines so far 0)
+[00536   17.9s w   14449] SHOT T03_arrive scene hub_town.tscn
+[00596   19.9s w   16037] SHOT T04_arrive_settled scene hub_town.tscn
+[00596   19.9s w   16043] TOWN npcs 0: []
+[00596   19.9s w   16044] STORY { "taught_wild": true, "taught_item": true, "taught_lantern": true, "parcel": "delivered", "road_talk": true, "met_crew": true, "guild_trial": true, "runner": true, "stone": "installed", "pilot_end_seen": true } beaten ["mouth", "first", "hollow"]
+[00620   20.7s w   16479] SHOT T05_pause_town scene hub_town.tscn
+[00760   25.3s w   19991] SCENE hub_town.tscn -> none after 20.1 s game, 13.2 s wall in hub_town.tscn
+[00761   25.4s w   20492] HITCH 501 ms for one frame in town_room.tscn (after hall_door)
+[00761   25.4s w   20500] SCENE none -> town_room.tscn after 0.0 s game, 0.5 s wall in none
+[00768   25.6s w   20723] TIMED hall_door: shown 803 ms after the press, worst frame 504 ms
+[00788   26.3s w   21110] SHOT T06_hall scene town_room.tscn
+[00788   26.3s w   21119] HALL npcs ["grubbit@(17, 11)", "wayling@(14, 5)"]
+[00814   27.1s w   21574] SCENE town_room.tscn -> none after 1.8 s game, 1.1 s wall in town_room.tscn
+[00814   27.1s w   21590] WALK no path from (-99, -99) to (6, 9) in none
+[00815   27.2s w   23325] HITCH 1751 ms for one frame in town_room.tscn (after step (1, 0))
+[00815   27.2s w   23332] SCENE none -> town_room.tscn after 0.0 s game, 1.8 s wall in none
+[00849   28.3s w   24006] SHOT T07_hall_chart_panel scene town_room.tscn
+[00849   28.3s w   24012] WALK no path from (24, 14) to (-1, -1) in town_room.tscn
+[00850   28.3s w   24013] LINE [Wayling] Mail's in! Gather up, routes are going out. Grab what's yours.
+[01469   49.0s w   34363] SHOT T08_hall_out scene town_room.tscn
+[01469   49.0s w   34369] VISIT board: could not reach (26, 8) (at (24, 14))
+[01469   49.0s w   34417] SHOT T09_board_unreached scene town_room.tscn
+[01484   49.5s w   34678] SHOT T10_board_down scene town_room.tscn
+[01505   50.2s w   34993] VISIT shrine: could not reach (7, 12) (at (24, 14))
+[01505   50.2s w   35045] SHOT T11_shrine_unreached scene town_room.tscn
+[01535   51.2s w   35642] SHOT T12_shrine_held scene town_room.tscn
+[01559   52.0s w   35995] WALK no path from (24, 14) to (41, 11) in town_room.tscn
+[01559   52.0s w   35996] VISIT yard: could not reach (41, 11) (at (24, 14))
+[01559   52.0s w   36048] SHOT T13_yard_unreached scene town_room.tscn
+[01559   52.0s w   36054] WALK no path from (24, 14) to (33, 11) in town_room.tscn
+[01559   52.0s w   36056] VISIT scrolls: could not reach (33, 11) (at (24, 14))
+[01559   52.0s w   36100] SHOT T14_scrolls_unreached scene town_room.tscn
+[01559   52.0s w   36105] VISIT lookout: could not reach (13, 6) (at (24, 14))
+[01559   52.0s w   36151] SHOT T15_lookout_unreached scene town_room.tscn
+[01559   52.0s w   36156] WALK no path from (24, 14) to (40, 7) in town_room.tscn
+[01594   53.1s w   36749] SHOT T16_storage_room scene town_room.tscn
+[01621   54.0s w   37141] QUIET 0.91 s wall (1.80 s game) before this line (cutscene true)
+[01622   54.1s w   37157] LINE [Wayling] The bend. Two parcels, and one's heavy.
+[01629   54.3s w   37342] SHOT T17_storage_panel scene town_room.tscn
+[01648   54.9s w   37610] WALK no path from (14, 10) to (-1, -1) in town_room.tscn
+[02277   75.9s w   48091] LINE [Grubbit] ...mine. I know that one by the weight.
+[02303   76.8s w   48576] SHOT T18_home scene town_room.tscn
+[02338   77.9s w   49179] SHOT T19_home_table_panel scene town_room.tscn
+[02338   77.9s w   49188] WALK no path from (14, 10) to (-1, -1) in town_room.tscn
+[02958   98.6s w   59526] SHOT T20_street_end scene town_room.tscn
+[02958   98.6s w   59528] GROWTH nobody ready on this save
+[02958   98.6s w   59530] MARKS [["highbank arrival", 536, 14398, 0]]
+[02958   98.6s w   59531] DONE phase town9 in 98.6 s game, 59.5 s wall

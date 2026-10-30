@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.shop.counter_card.png",
+ "out": "docs/art/slot-candidates/gb-04-furniture/town.prop.shop.counter/raw.png",
+ "cost_usd": 0.06315976,
+ "turns": 4,
+ "text": "I'll read the style reference first, then generate the counter once and save it as `raw.png`.The reference is chunky pixel art: dark outlines, warm timber browns, brass gold, teal and cream cloth, a muted sage accent, and light from the upper left. I\u2019ll generate the counter once in that palette.The generator returned a JPEG. I\u2019ll convert it to a real PNG and save it in this folder as `raw.png`.`C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_z1v93z45\\raw.png` is the one generated shop counter, saved as a PNG at 1408\u00d7704 (exactly 2:1).\n\nI did not open the generated pixels, so I cannot confirm the magenta field, the missing text, or that the edges stayed hard. The generator wrote a JPEG first, and that compression can soften pixel edges before the PNG conversion.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_z1v93z45"
+}

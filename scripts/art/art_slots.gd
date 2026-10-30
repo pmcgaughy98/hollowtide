@@ -224,8 +224,10 @@ static func texture(id: String) -> Texture2D:
 			tex = _load_sized(id, String(s["legacy"]), want, bool(s.get("legacy_misfit", false)))
 			if tex != null:
 				src = "legacy"
+	if tex != null and _stands(s):
+		tex = ImageTexture.create_from_image(_grounded(s, tex.get_image()))
 	if tex == null:
-		var img := _painted(id, s)
+		var img := _grounded(s, _painted(id, s))
 		tex = ImageTexture.create_from_image(img)
 	_tex[id] = tex
 	_src[id] = src
@@ -255,8 +257,45 @@ static func image(id: String) -> Image:
 	if img.get_format() != Image.FORMAT_RGBA8:
 		img = img.duplicate()
 		img.convert(Image.FORMAT_RGBA8)
+	img = _grounded(spec(id), img)
 	_img[id] = img
 	return img
+
+
+## Things standing in the world (props and buildings) get a dark contact row where they meet the ground (Preston,
+## 2026-10-29: the town read "cut off rather than has an edge"; Gemini's read of it the same day put this first): in
+## each cell of the sheet whose art reaches its bottom row (stands, rather than hangs like the shut chain), every
+## column's lowest solid pixel turns INK. The cast shadow under it stays the game's.
+const CONTACT := Color("#0b0e11")
+
+
+static func _stands(s: Dictionary) -> bool:
+	return String(s.get("kind", "")) in ["prop", "building"]
+
+
+static func _grounded(s: Dictionary, img: Image) -> Image:
+	if not _stands(s) or img == null:
+		return img
+	var out: Image = img.duplicate()
+	if out.is_compressed():
+		out.decompress()
+	if out.get_format() != Image.FORMAT_RGBA8:
+		out.convert(Image.FORMAT_RGBA8)
+	var ch: int = maxi(1, (s.get("size", out.get_size()) as Vector2i).y)
+	for top in range(0, out.get_height() - ch + 1, ch):
+		var stands := false
+		for x in out.get_width():
+			if out.get_pixel(x, top + ch - 1).a > 0.5:
+				stands = true
+				break
+		if not stands:
+			continue
+		for x in out.get_width():
+			for y in range(top + ch - 1, top - 1, -1):
+				if out.get_pixel(x, y).a > 0.5:
+					out.set_pixel(x, y, CONTACT)
+					break
+	return out
 
 
 ## One cell of the sheet: `state` picks the row (the first state when ""), `i` the frame (wraps).

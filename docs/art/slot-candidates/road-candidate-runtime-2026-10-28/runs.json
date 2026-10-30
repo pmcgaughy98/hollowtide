@@ -1,0 +1,44 @@
+[
+  {
+    "case": "old",
+    "exit_code": 1,
+    "elapsed_s": 10.74,
+    "argv": [
+      "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--fixed-fps",
+      "30",
+      "--audio-driver",
+      "Dummy",
+      "--path",
+      "C:\\Users\\pmcga\\dev\\hollowtide",
+      "--script",
+      "res://docs/art/slot-candidates/road-candidate-runtime-2026-10-28/candidate_road_check.gd",
+      "--log-file",
+      "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\road-candidate-runtime-2026-10-28\\old-godot.log"
+    ],
+    "cache_verified": true,
+    "pass": false
+  },
+  {
+    "case": "revised",
+    "exit_code": 0,
+    "elapsed_s": 7.45,
+    "argv": [
+      "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--fixed-fps",
+      "30",
+      "--audio-driver",
+      "Dummy",
+      "--path",
+      "C:\\Users\\pmcga\\dev\\hollowtide",
+      "--script",
+      "res://docs/art/slot-candidates/road-candidate-runtime-2026-10-28/candidate_road_check.gd",
+      "--log-file",
+      "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\road-candidate-runtime-2026-10-28\\revised-godot.log"
+    ],
+    "cache_verified": true,
+    "pass": true
+  }
+]

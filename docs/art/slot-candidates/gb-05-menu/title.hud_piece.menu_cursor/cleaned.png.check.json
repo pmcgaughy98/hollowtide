@@ -1,0 +1,56 @@
+{
+ "slot": "title.hud_piece.menu_cursor",
+ "candidate": "docs\\art\\slot-candidates\\gb-05-menu\\title.hud_piece.menu_cursor\\cleaned.png",
+ "registry_sha256": "67ea0f75a2e064b4d6f4cc184af816f256f00831a0fcc7d841bc9dd340cdc9bf",
+ "pass": true,
+ "results": [
+  {
+   "id": "C1",
+   "name": "size",
+   "result": "PASS",
+   "detail": "8x9, slot sheet 8x9"
+  },
+  {
+   "id": "C2",
+   "name": "colours",
+   "result": "PASS",
+   "detail": "5 colours (worst cell 5), budget 16"
+  },
+  {
+   "id": "C3",
+   "name": "alpha",
+   "result": "PASS",
+   "detail": "0 partial-alpha pixels"
+  },
+  {
+   "id": "C4",
+   "name": "edges",
+   "result": "PASS",
+   "detail": "clear"
+  },
+  {
+   "id": "C5",
+   "name": "palette",
+   "result": "PASS",
+   "detail": "0 colours over 20 from the palette; mean distance 0.0"
+  },
+  {
+   "id": "C8",
+   "name": "frame health",
+   "result": "PASS",
+   "detail": "opaque per cell [23]; largest one-colour block 22% of a cell"
+  },
+  {
+   "id": "C9",
+   "name": "specks",
+   "result": "PASS",
+   "detail": "0 orphan pixels (0.00%), 0 light specks"
+  }
+ ],
+ "review": {
+  "R1": "no text, letters, numbers or signage lettering anywhere",
+  "R2": "nothing that reads as another game or franchise",
+  "R3": "no creature, animal or person unless the slot asks for one",
+  "R4": "sits in the scene: placeholder, candidate and in-game capture side by side"
+ }
+}

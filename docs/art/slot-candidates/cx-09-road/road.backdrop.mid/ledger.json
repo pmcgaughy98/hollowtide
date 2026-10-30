@@ -1,0 +1,21 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-27 America/Chicago",
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-309cf2bc-f632-4b6c-98ec-e639853baec9.png",
+  "raw_sha256": "e1a224f9f7d8fe70d7f10d483e89651b245961d94d2f1ed13ea0d2429729fea1",
+  "raw_is_untouched": true,
+  "cost": "not exposed; no paid alternative generator",
+  "references": [
+    {
+      "tool_path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\launch-road-refresh-2026-10-27\\road.backdrop.mid\\input-before.png",
+      "snapshot": "references\\input-1.png",
+      "sha256": "011e7d42945c7fa74be693b759971df09229bd1917ae1b3ad7cbf097ea70a90e"
+    },
+    {
+      "tool_path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\launch-road-refresh-2026-10-27\\road.backdrop.mid\\references\\target.png",
+      "snapshot": "references\\input-2.png",
+      "sha256": "eecbc76fef6f7dfa2cb87b609f30752b305988ad7aa6261a4b49cb20ced5f215"
+    }
+  ],
+  "pixel_cleanup": "Preston explicitly approved Python native pixel cleanup"
+}

@@ -1,0 +1,41 @@
+{
+  "form": "punchybun",
+  "source": "assets/sprites/arena/punchybun/sw.png",
+  "source_sha256": "d53ef82e2ef31d18b8b5fe18b64c90531561198d35bbdab82e8e55039ed092e3",
+  "source_dimensions": [
+    128,
+    128
+  ],
+  "HEAD": [
+    0.27,
+    0.0,
+    0.55
+  ],
+  "crop_size": [
+    45,
+    45
+  ],
+  "output_dimensions": [
+    40,
+    40
+  ],
+  "colours": 15,
+  "alpha_binary": true,
+  "palette_subset_of_source_crop": true,
+  "opaque_bounds": [
+    0,
+    0,
+    36,
+    40
+  ],
+  "prepared_sha256": "48f6381bd5fabe92d34050ad515846081a29341957cb3e92f25e5fed12b1cf1d",
+  "tool": "existing auto_cut + downscale.resample, no generation",
+  "cost": 0,
+  "installed": false,
+  "approval": "pending",
+  "FACE_AT_proposal": [
+    14,
+    22
+  ],
+  "small_opaque_coverage": 0.9583333333333334
+}

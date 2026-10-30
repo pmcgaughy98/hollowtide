@@ -1,0 +1,14 @@
+{
+  "canvas": [
+    384,
+    88
+  ],
+  "clear_top_rows": 0,
+  "raw_crop": [
+    0,
+    0,
+    2172,
+    724
+  ],
+  "strategy": "fixed strip width; retain the painted ribbon/foreground bounds, solid hills below silhouette, near12-row clearance; raw unchanged"
+}

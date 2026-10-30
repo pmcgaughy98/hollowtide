@@ -1,0 +1,2 @@
+prepared town.landmark.lot_before_plot: 144x96, 20 colours, 12174 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-02-lots\town.landmark.lot_before_plot\prepared.png
+next: python tools/art/validate_slot.py town.landmark.lot_before_plot C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-02-lots\town.landmark.lot_before_plot\prepared.png

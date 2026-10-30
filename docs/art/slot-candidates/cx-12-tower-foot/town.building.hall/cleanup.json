@@ -1,0 +1,33 @@
+{
+  "authorization": "Preston explicit Python pixel cleanup",
+  "native_dimensions": [
+    300,
+    192
+  ],
+  "raw_unchanged": true,
+  "registration": [
+    {
+      "frame": 0,
+      "raw_crop": [
+        21,
+        48,
+        1553,
+        955
+      ],
+      "target_box": [
+        0,
+        0,
+        300,
+        192
+      ],
+      "target_alpha_mask_exact": true
+    }
+  ],
+  "precision": [
+    "Exact open dark doorway [126, 126, 48, 64]"
+  ],
+  "alpha_matches_target": true,
+  "rgb_changed_pixels": 53475,
+  "palette_family": "wayline_tower",
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b"
+}

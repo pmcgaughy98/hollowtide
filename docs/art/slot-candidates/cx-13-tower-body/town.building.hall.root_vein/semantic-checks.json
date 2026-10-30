@@ -1,0 +1,17 @@
+{
+  "same_occupied_rows_and_run_breaks": true,
+  "shoulders_max_horizontal_expansion_px": 6,
+  "slot_frame_x": [
+    80,
+    139
+  ],
+  "nearest_window_x": 144,
+  "size": [
+    60,
+    296
+  ],
+  "restored_rows": [
+    208,
+    209
+  ]
+}

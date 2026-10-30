@@ -1,0 +1,13 @@
+{
+  "tool": "built-in image_gen edit",
+  "date": "2026-10-28 America/Chicago",
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-b93da635-6edf-4271-b139-2e1770ffe537.png",
+  "raw_sha256": "c9f7c6670a0c115a2a5f8bcd73e14496486c4f6d0dfa7313fa4307f3e43aa389",
+  "raw_is_untouched": true,
+  "cost": "not exposed",
+  "reference": "references/user-side-tree-correction.png",
+  "reference_sha256": "1ebad045921a402dac1dff06848216f33c82d8c8f17ecb8f1560b1350e4f6af4",
+  "scope": "two framing trees only; source composite middle x450..1309 byte-exact",
+  "previous_generation": "before-side-tree-edit-2026-10-28/ledger.json",
+  "python_cleanup": "previous explicit user approval"
+}

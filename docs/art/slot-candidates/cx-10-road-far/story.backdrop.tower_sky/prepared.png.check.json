@@ -1,0 +1,44 @@
+{
+ "slot": "story.backdrop.tower_sky",
+ "candidate": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\cx-10-road-far\\story.backdrop.tower_sky\\prepared.png",
+ "registry_sha256": "e88d4a4eea95e9698ca39bf5e4c26cc29be65526101234d1db4fb96399482c5c",
+ "pass": true,
+ "results": [
+  {
+   "id": "C1",
+   "name": "size",
+   "result": "PASS",
+   "detail": "384x216, slot sheet 384x216"
+  },
+  {
+   "id": "C2",
+   "name": "colours",
+   "result": "PASS",
+   "detail": "18 colours (worst cell 18), budget 32"
+  },
+  {
+   "id": "C3",
+   "name": "alpha",
+   "result": "PASS",
+   "detail": "0 pixels not fully opaque"
+  },
+  {
+   "id": "C5",
+   "name": "palette",
+   "result": "PASS",
+   "detail": "0 colours over 20 from the palette; mean distance 0.0"
+  },
+  {
+   "id": "C9",
+   "name": "specks",
+   "result": "PASS",
+   "detail": "178 orphan pixels (0.21%, limit 1%), 0 light specks"
+  }
+ ],
+ "review": {
+  "R1": "no text, letters, numbers or signage lettering anywhere",
+  "R2": "nothing that reads as another game or franchise",
+  "R3": "no creature, animal or person unless the slot asks for one",
+  "R4": "sits in the scene: placeholder, candidate and in-game capture side by side"
+ }
+}

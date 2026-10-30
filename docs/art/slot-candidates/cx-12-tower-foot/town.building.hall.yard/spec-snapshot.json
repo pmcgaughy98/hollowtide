@@ -1,0 +1,68 @@
+{
+  "alpha": "binary",
+  "anchor": [
+    36,
+    103
+  ],
+  "anchor_mode": "foot",
+  "area": "town",
+  "brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The hoist yard, the tower's right ground wing: a timber dock on legs with the capstan winch (its handle swings over 2 frames while the rope runs), parcels, a crate, a barrow wheel and a barrel with a teal lid.",
+  "census": "WT15",
+  "checks": [
+    "C1",
+    "C12",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C7",
+    "C8",
+    "C9"
+  ],
+  "drawn_at": 3,
+  "edges": "all",
+  "file": "res://assets/slots/town/building/hall_yard.png",
+  "forbid": [
+    "text",
+    "creature",
+    "franchise"
+  ],
+  "frame_at": [
+    360,
+    616
+  ],
+  "frames": 2,
+  "id": "town.building.hall.yard",
+  "kind": "building",
+  "lane": "T",
+  "legacy": "",
+  "light": "upper_left",
+  "notes": "order 16; ground layer (batch cx-12)",
+  "outline": "runtime_rim",
+  "owner": "codex",
+  "palette": {
+    "family": "wayline_tower",
+    "lock": true,
+    "max": 32,
+    "source": "res://assets/slots/palettes/wayline_tower.png"
+  },
+  "placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+  "rows": 1,
+  "sheet_size": [
+    144,
+    104
+  ],
+  "size": [
+    72,
+    104
+  ],
+  "slot_file": "town_tower",
+  "states": {
+    "winch": [
+      2,
+      4
+    ]
+  },
+  "status": "placeholder",
+  "tiling": "none"
+}

@@ -1,0 +1,18 @@
+{
+ "slot": "town.lamp.post",
+ "source": "docs\\art\\slot-candidates\\gb-01-street\\town.lamp.post",
+ "date_tool": "clean_slot.py 2026-10-28",
+ "settings": {
+  "mixed": 0.5,
+  "keep": 40.0,
+  "flip": [
+   "lit"
+  ]
+ },
+ "notes": [
+  "flipped lit",
+  "state feet aligned (raw shifts +0,+0, +79,+0)",
+  "74 orphans after the downscale, cleared",
+  "222 px re-shaded to break a flat (C8)"
+ ]
+}

@@ -770,12 +770,17 @@ func leave() -> void:
     if page == "quit":
         # Every sound stopped and the UI's caches emptied first, so nothing is still held at exit (Claude, 2026-10-26,
         # pass 8 U7 for LH8-10: scripts/audio/music.gd release); this page's own slider parts go too.
-        preload("res://scripts/audio/music.gd").release(get_tree())
+        var music = preload("res://scripts/audio/music.gd")
+        music.release(get_tree())   # also stops new thread work: Highbank's warm-up starts nothing more (pass 9 T1)
         _slider_parts.clear()
         # A stopped sound is let go once the audio thread has mixed it out and a frame has run after: wait 0.1 s of
-        # real time (frames alone can pass in a few milliseconds), then one more frame.
+        # real time (frames alone can pass in a few milliseconds), then one more frame. Thread work still running
+        # (Highbank's warm-up painting a room or reading a scene) is waited for a frame at a time too, up to 5 s, and
+        # whatever is left after that here (Claude, 2026-10-27, pass 9 T1 for A9-01 / H9-12).
         var until = Time.get_ticks_msec() + 100
-        while Time.get_ticks_msec() < until: await get_tree().process_frame
+        var cap = Time.get_ticks_msec() + 5000
+        while Time.get_ticks_msec() < until or (music.working() and Time.get_ticks_msec() < cap): await get_tree().process_frame
+        music.finish_work()
         await get_tree().process_frame
         get_tree().quit()
         return

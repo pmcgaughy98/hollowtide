@@ -1,0 +1,24 @@
+{
+  "authorization": "Preston explicit Python pixel cleanup",
+  "notes": [
+    {
+      "row_layout": [
+        [
+          "lit",
+          4
+        ],
+        [
+          "dark",
+          1
+        ]
+      ],
+      "padding": "unused state cells hold the first state cell; runtime uses declared frame counts",
+      "lamp_state_order": "lit then dark from source/target, not alphabetically sorted JSON keys"
+    },
+    "Restored native cell registration after prepare_slot recentred its occupied bounds; final bytes validated."
+  ],
+  "active_masks_exact": true,
+  "raw_untouched": true,
+  "sequential_colour_joins": 958,
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b"
+}

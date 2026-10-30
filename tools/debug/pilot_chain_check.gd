@@ -110,6 +110,10 @@ func _tower_scene_done(town: Node) -> void:
 		return
 	await _until(func() -> bool: return not is_instance_valid(town) or town.cutscene, 30 * 3)
 	await _until(func() -> bool: return not is_instance_valid(town) or not town.cutscene, 30 * 120)
+	# The waits above end on time as well as on the scene, so say whether the scene really ran (pass 9 D8, H9-31):
+	# tower_reveal.gd sets tower_seen as it starts, so false here means the Tower scene never played.
+	var seen := bool(_story().get("tower_seen", false))
+	_ok("Highbank v2: the Tower scene played on the first visit to Tower Rise (tower_seen %s)" % seen, seen)
 
 
 ## Play frames until `done` is true or the frame budget runs out.

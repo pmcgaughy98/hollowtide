@@ -1,0 +1,14 @@
+[
+  {
+    "tool": "prepare_slot.py",
+    "exit": 2,
+    "stdout": "",
+    "stderr": "refused: slots.json is stale (stamp cb33c871f11f, registry 0ddcf5ba5d11); export it again: godot --headless --path . --script res://tools/art/render_slot_refs.gd -- --export-only\n"
+  },
+  {
+    "tool": "validate_slot.py",
+    "exit": 2,
+    "stdout": "",
+    "stderr": "refused: slots.json is stale (stamp cb33c871f11f, registry 0ddcf5ba5d11); export it again: godot --headless --path . --script res://tools/art/render_slot_refs.gd -- --export-only\n"
+  }
+]

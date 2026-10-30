@@ -1,0 +1,22 @@
+{
+  "candidate_paths": {
+    "road.backdrop.sky": "docs/art/slot-candidates/cx-09-road/road.backdrop.sky/prepared.png",
+    "road.backdrop.far": "docs/art/slot-candidates/cx-09-road/road.backdrop.far/prepared.png",
+    "road.backdrop.river": "docs/art/slot-candidates/cx-09-road/road.backdrop.river/prepared.png",
+    "road.backdrop.mid": "docs/art/slot-candidates/cx-09-road/road.backdrop.mid/prepared.png",
+    "road.backdrop.near": "docs/art/slot-candidates/cx-09-road/road.backdrop.near/prepared.png",
+    "road.ground.path": "docs/art/slot-candidates/cx-09-road/road.ground.path/prepared.png",
+    "road.backdrop.highbank_far": "docs/art/slot-candidates/cx-10-road-far/road.backdrop.highbank_far/prepared.png"
+  },
+  "old_mid": "docs/art/slot-candidates/cx-09-road/road.backdrop.mid/before-launch-road-refresh-2026-10-27/prepared.png",
+  "candidate_hashes": {
+    "road.backdrop.sky": "ad638a00498a5775db081f8d0e3f900ddeffd85bebdd8a704f366f80fe305aae",
+    "road.backdrop.far": "dc435e992fd95cbffae140ccdc9bea8ff6ad9cdda24e769680480b1a90bdc755",
+    "road.backdrop.river": "2d4e077c22e7b6fbc4f8aecd880c89c62c5b7d943c47944f7d0e9e1639b7911e",
+    "road.backdrop.mid": "ebc61432a1e46dfe33ce9886157c1580232a4f3c5795d4accb08c1e721207fad",
+    "road.backdrop.near": "38c26264e815249fcc998774a058f5b10ec649be6dd702039022b17e7bc8bc6f",
+    "road.ground.path": "185d322119534cbc51ebc7b4d9ac46369e91cc27fa0191ca1487eec02f36e0e9",
+    "road.backdrop.highbank_far": "af099b761cb40aa36504b4466474ce4600560759881c2a3d65493d21a4a81011"
+  },
+  "old_mid_sha256": "011e7d42945c7fa74be693b759971df09229bd1917ae1b3ad7cbf097ea70a90e"
+}

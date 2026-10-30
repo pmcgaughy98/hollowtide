@@ -1,0 +1,2 @@
+prepared town.building.home: 132x144, 24 colours, 14642 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-01-buildings\town.building.home\prepared.png
+next: python tools/art/validate_slot.py town.building.home C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-01-buildings\town.building.home\prepared.png

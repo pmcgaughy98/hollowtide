@@ -1,0 +1,12 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-27",
+  "references": [
+    "refs/town.building.hall.png",
+    "refs/town.building.hall_grid.png",
+    "refs/town.building.hall_card.png"
+  ],
+  "cost": "not exposed; no paid alternative used",
+  "raw_is_untouched": true,
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-17027c49-252a-45e1-a7b2-7cd41fd4a255.png"
+}

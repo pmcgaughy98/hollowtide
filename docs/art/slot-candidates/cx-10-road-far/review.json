@@ -1,0 +1,18 @@
+{
+  "batch": "cx-10-road-far",
+  "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+  "slots": {
+    "road.backdrop.highbank_far": {
+      "answer": "pending",
+      "candidate_sha256": "af099b761cb40aa36504b4466474ce4600560759881c2a3d65493d21a4a81011"
+    },
+    "road.backdrop.vista": {
+      "answer": "pending",
+      "candidate_sha256": "24e2b07673a016c5fb940bc6e0abf79d2c5c3ff84478252c79bbcbb00beb2f82"
+    },
+    "story.backdrop.tower_sky": {
+      "answer": "pending",
+      "candidate_sha256": "ec62c915164da8ea486bf2010671b99752b2a9e31e7023b1a33c15c7abab58f5"
+    }
+  }
+}

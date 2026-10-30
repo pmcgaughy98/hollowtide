@@ -1,0 +1,68 @@
+{
+ "slot": "town.building.hall.root_foot",
+ "candidate": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\root-redo-2026-10-27-r2\\town.building.hall.root_foot\\prepared-from-raw.png",
+ "registry_sha256": "f4423acc8832bfc0361921cdaba3de3b3c2c1b635d3758f8372ec56c81b354be",
+ "pass": false,
+ "results": [
+  {
+   "id": "C1",
+   "name": "size",
+   "result": "PASS",
+   "detail": "96x120, slot sheet 96x120"
+  },
+  {
+   "id": "C2",
+   "name": "colours",
+   "result": "PASS",
+   "detail": "20 colours (worst cell 20), budget 32"
+  },
+  {
+   "id": "C3",
+   "name": "alpha",
+   "result": "PASS",
+   "detail": "0 partial-alpha pixels"
+  },
+  {
+   "id": "C4",
+   "name": "edges",
+   "result": "PASS",
+   "detail": "clear"
+  },
+  {
+   "id": "C5",
+   "name": "palette",
+   "result": "PASS",
+   "detail": "0 colours over 0 from the palette; mean distance 0.0"
+  },
+  {
+   "id": "C7",
+   "name": "foot row",
+   "result": "PASS",
+   "detail": "lowest rows [119], foot row 119"
+  },
+  {
+   "id": "C8",
+   "name": "frame health",
+   "result": "PASS",
+   "detail": "opaque per cell [4326]; largest one-colour block 4% of a cell"
+  },
+  {
+   "id": "C9",
+   "name": "specks",
+   "result": "FAIL",
+   "detail": "724 orphan pixels (16.74%), 0 light specks"
+  },
+  {
+   "id": "C12",
+   "name": "light side",
+   "result": "PASS",
+   "detail": "upper-left edge 84, lower-right edge 73"
+  }
+ ],
+ "review": {
+  "R1": "no text, letters, numbers or signage lettering anywhere",
+  "R2": "nothing that reads as another game or franchise",
+  "R3": "no creature, animal or person unless the slot asks for one",
+  "R4": "sits in the scene: placeholder, candidate and in-game capture side by side"
+ }
+}

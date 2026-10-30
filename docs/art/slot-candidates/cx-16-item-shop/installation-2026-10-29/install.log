@@ -1,0 +1,2 @@
+installed town.building.shop: docs\art\slot-candidates\cx-16-item-shop\town.building.shop\prepared.png -> res://assets/slots/town/building/shop.png (sha256 b229d8f8024d); status set in town_buildings.gd
+imported and exported slots.json; run python tools/debug/run_checks.py art_slots --jobs 1

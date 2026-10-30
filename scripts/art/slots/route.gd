@@ -12,6 +12,19 @@ extends RefCounted
 ## colour with less detail the farther it is; the scene mixes each far layer toward the sky's haze itself (HAZE in
 ## route_scene.gd), so a file is not hazed twice. Parallax speeds and placements live in RouteScene.ROUTES.
 ## All names are working labels.
+## 2026-10-27 (the approved Wayline Tower, docs/design/wayline-tower-2026-10-27/TOWER_DESIGN.md section 9): the far
+## view and the vista show the new tower, painted for its own size (TowerParts.paint_far), with the beacon anchor on
+## the Waiting Lamp's glass; tower_sky is a banded dawn with no tower in it. These three are Codex's cx-10 re-brief,
+## painted only after the tower's crown is approved.
+## 2026-10-28 (docs/design/vast-scale-2026-10-27/VAST_SCALE_DESIGN.md): the vista and the far view are re-briefed to
+## the vast-scale design, the whole 480-tile Tower standing alone and the great tree the same as the title's; their
+## placeholders are the vast-scale mocks (assets/placeholders/road_vista.png, road_highbank_far.png), not coded.
+## tower_sky is re-briefed the same way, to the hold above the clouds: the cloud sea under the Waiting Lamp and the
+## great tree's crown cap breaking it (assets/placeholders/tower_sky.png).
+## Later on 2026-10-28 (so a painting faithful to these three targets passes validate_slot.py and install_slot.py):
+## each has its own "exact" palette family, every colour its target uses (refs/palettes/vast_far.png, vast_vista.png,
+## vast_sky.png), not the dawn strip's median cut, which averaged away the lamp's amber and the brass; the far view and
+## the vista carry "specks", their C9 limit, set from their targets' own share of lone pixels with room to spare.
 
 const SLOTS := {
 	"road.backdrop.sky": {
@@ -39,16 +52,18 @@ const SLOTS := {
 		"census": "new",
 		"file": "res://assets/slots/road/backdrop/highbank_far.png",
 		"size": Vector2i(160, 96),
-		"anchor": Vector2i(80, 95),
+		"anchor": Vector2i(104, 95),   # the bottom row under the Tower's axis (2026-10-28; was (80, 95))
 		"anchor_mode": "foot",
 		"states": {"static": [1, 0]},
-		"palette": {"family": "dawn", "max": 24},
+		"palette": {"family": "vast_far", "max": 24, "exact": true},   # the target's own 24 colours
+		"specks": 0.10,   # C9: the target has 7.45% lone pixels (leaf texture, 1 px roofs, rings and wisps at this size)
 		"alpha": "binary",
 		"edges": "bottom",
-		"anchors": {"beacon": Vector2i(92, 6)},
-		"brief": "Highbank seen from miles down the river: a flat-topped bluff with a few rows of roofs on it, and the Wayline Tower rising over the town more than three times its height, a beacon mast and lantern at the very top (the beacon anchor). Silhouette-level detail only: no windows, no doors. The bluff runs off the bottom edge.",
+		"anchors": {"beacon": Vector2i(105, 7), "wayline_top": Vector2i(101, 70), "wayline_end": Vector2i(84, 73)},
+		"light": "right",   # the low dawn sun in the east, as the brief says
+		"brief": "Highbank and the two giants from about 3,000 tiles down the river, as docs/design/vast-scale-2026-10-27/VAST_SCALE_DESIGN.md lays out the far view (the target is this slot's placeholder, the vast-scale mock final/road_far_slot_1x.png there; final/slot_highbank_far.png is the picture itself). Both giants stand over a dark forest band. On the right the whole Wayline Tower, all 480 tiles in 70 px from its vane (row 5) to its foot (row 75, axis x 104): a slender pale Stack with brass rings, the dark wet collar in a flat cloud layer (280 to 360 tiles up), the narrow neck, and at the top a root's crook holding the Waiting Lamp, one amber px (the beacon anchor). A thin root climbs its west side. It stands alone in open ground: no other building by the Tower (Preston, 2026-10-28). Left of it and farther off, the great tree, the same tree as the title's (scripts/art/placeholders/title_giants.gd): its crown one even dome centred on its trunk (Preston, 2026-10-28), about 60 px across, leaf clusters each with a lit top arc, lit from the east in the morning's greens, the trunk about 14 px wide flaring into the forest. Highbank's roofs, 1 or 2 px each, sit in a pale clearing west of the Tower on rows 73 and 74, between it and the tree, well clear of its foot. One broken 1 px wayline runs from the Low Reel (5 px up the Tower's west side) down to a roof in the middle of the town, from wayline_top to wayline_end, sagging 3 px at its middle (the scene's glint runs along that curve). Keep the forest band, the town, the wayline and the Tower's foot above row 76: the scene stands the bottom row (the foot anchor) at y 108, behind its far hills, which can hide anything below row 76, but where they dip the land shows down to about row 90. So under the band the land thins into valley mist the colour of the hazed hills and runs off the bottom edge, and toward both sides its top rounds down into the mist: only the bottom edge may be touched. Sky transparent. Paint in full colour, unhazed: the scene hazes the layer. No text.",
 		"placeholder": "res://scripts/story/route_scene.gd:paint_slot",
-		"notes": "drawn at 0.82x growing to 1x as the party nears the rise, hazed by the scene (0.5 down to 0.3); the coded beacon glint sits on anchors.beacon",
+		"notes": "drawn at 0.82x growing to 1x as the party nears the rise (the foot anchor at x 300 to 236, y 108), hazed by the scene (0.5 down to 0.3); the game draws the Waiting Lamp unhazed on anchors.beacon (it breathes) and a slow glint of light running down the wayline from anchors.wayline_top to anchors.wayline_end; road_check and road_tower_view_check measure the Tower's body in RouteScene.FAR_BODY (x 100 to 107, rows 5 to 70), so a repaint keeps the Tower there; the placeholder is the vast-scale mock (final_mocks.py mock_road_far, exported to assets/placeholders/road_highbank_far.png); names are working labels",
 	},
 	"road.backdrop.far": {
 		"owner": "codex",
@@ -106,9 +121,9 @@ const SLOTS := {
 		"edges": ["left", "right", "bottom"],
 		"tiling": "h",
 		"place_at": Vector2i(0, 36),
-		"brief": "The wooded river trail: weeping willows with long hanging strands, their trunks down to the trail, flood debris caught in them (a snapped branch in a fork, driftwood at a root, a tangle of reeds). Gaps between the trees show the river and hills behind. Tiles left to right.",
+		"brief": "The wooded river trail: weeping willows with long hanging strands, their trunks down to the trail, flood debris caught in them (a snapped branch in a fork, driftwood at a root, a tangle of reeds). Gaps between the trees show the river and hills behind. Keep a gap where the far Tower stands: both willows between x 60 and 226, and from x 228 round to x 58 nothing above row 52 (low reeds and debris are fine), so the far Tower shows clear at each trail talk. Tiles left to right.",
 		"placeholder": "res://scripts/story/route_scene.gd:paint_slot",
-		"notes": "parallax 0.45, hazed 0.1; fades out near the rise (the trees open)",
+		"notes": "parallax 0.45, hazed 0.1; fades out near the rise (the trees open). Pass 9 (W3): the far Tower falls on columns 229 to 370 of this picture, rows 0 to 51, at the four trail talks; tools/debug/road_tower_view_check.gd measures it.",
 	},
 	"road.ground.path": {
 		"owner": "codex",
@@ -207,16 +222,16 @@ const SLOTS := {
 		"anchor": Vector2i(0, 0),
 		"anchor_mode": "top_left",
 		"states": {"static": [1, 0]},
-		"palette": {"family": "dawn", "max": 48},
+		"palette": {"family": "vast_vista", "max": 64, "exact": true},   # the target's own 62 colours
+		"specks": 0.02,   # C9: the target has 1.43% lone pixels (the crown's leaf texture and the valley scrub)
 		"place_at": Vector2i(0, 0),
-		"anchors": {"party": Vector2i(84, 148), "beacon": Vector2i(268, 8),
-			"lamp_1": Vector2i(154, 152), "lamp_2": Vector2i(211, 141), "lamp_3": Vector2i(286, 140),
-			"lamp_4": Vector2i(313, 154), "lamp_5": Vector2i(250, 168),
-			"chimney_1": Vector2i(202, 126), "chimney_2": Vector2i(308, 124), "chimney_3": Vector2i(355, 125),
-			"chimney_4": Vector2i(248, 136)},
-		"brief": "The rise at first light: the willows open on both sides and Highbank lies below on its bluff, rows of roofs and chimneys, and over all of it the Wayline Tower, a tall river-stone tower with a beacon mast and lantern at the top (the beacon anchor). Grassy ground in the near left where the two stand (the party anchor is the leader's feet). Street lamps at the lamp anchors (paint them unlit: the game lights them and puts them out one by one) and chimney tops at the chimney anchors (the game draws the smoke).",
+		"anchors": {"party": Vector2i(84, 148), "beacon": Vector2i(286, 11),
+			"lamp_1": Vector2i(224, 191), "lamp_2": Vector2i(233, 194), "lamp_3": Vector2i(236, 189),
+			"lamp_4": Vector2i(240, 192), "lamp_5": Vector2i(246, 193)},
+		"light": "right",   # the low dawn sun in the east, as the brief says
+		"brief": "The rise at first light, the last hill of the road home, as docs/design/vast-scale-2026-10-27/VAST_SCALE_DESIGN.md lays it out (the target is this slot's placeholder, the vast-scale mock final/slot_vista.png there). The willows open on both sides. On the right the whole Wayline Tower, all 480 tiles from its foot (y 200, axis x 285) to its vane (y 8): a slender round Stack about 14 to 1, banded with brass rings, a flat cloud layer level with its collar (280 to 360 tiles), the Waiting Lamp lit near the top (the beacon anchor is the lamp's middle) and one wayline sagging away west, down to Highbank's roofs (both waylines run west to the town; VAST_SCALE_DESIGN, 2026-10-28). It stands alone on open ground: no other building by the Tower (Preston, 2026-10-28). Left of it and 340 tiles further off, the great tree in its forest, the same tree as the title's (scripts/art/placeholders/title_giants.gd): its crown one even dome centred on its trunk (Preston, 2026-10-28), leaf clusters each with a lit top arc, lit from the east in the morning's greens and hazed a third toward the sky, the trunk flaring to the ground. Highbank's roofs, 2 or 3 px each, sit in a clearing west of the Tower and beyond it, well clear of its foot, with house lamps at the lamp anchors (paint them unlit: the game lights them and puts them out one by one). The party's hill dark in the near left (the party anchor is the leader's feet). No text.",
 		"placeholder": "res://scripts/story/route_scene.gd:paint_slot",
-		"notes": "held view at the rise; coded effects: lamps going out one by one, chimney smoke, the beacon glint",
+		"notes": "held view at the rise; coded effects: the house lamps going out one by one while the Waiting Lamp stays lit and breathes; the placeholder is the vast-scale mock (final_mocks.py mock_vista, exported to assets/placeholders/road_vista.png); names are working labels",
 	},
 	"story.backdrop.tower_sky": {
 		"owner": "codex",
@@ -229,10 +244,12 @@ const SLOTS := {
 		"anchor": Vector2i(0, 0),
 		"anchor_mode": "top_left",
 		"states": {"static": [1, 0]},
-		"palette": {"family": "dawn", "max": 32},
+		"palette": {"family": "vast_sky", "max": 32, "exact": true},   # the target's own 18 colours
 		"place_at": Vector2i(0, 0),
-		"brief": "A clear morning sky over Highbank, deep blue at the top paling toward the bottom, two or three long thin clouds. Sky only. Seen behind the Wayline Tower while the camera pans up it; it does not scroll.",
+		"anchors": {"beacon": Vector2i(192, 127)},
+		"light": "right",   # the low dawn sun in the east, as the brief says
+		"brief": "The sky behind the Wayline Tower's top while the Tower scene's camera holds there, as docs/design/vast-scale-2026-10-27/VAST_SCALE_DESIGN.md lays it out (the target is this slot's placeholder, the vast-scale mock final/slot_tower_sky.png there; final/hold_1x.png shows it with Codex's crown and the lamp's glow over it). First light, seen from the Waiting Lamp 475 tiles up. Flat dawn bands from a deep blue at the top through slate to a pale grey-blue haze at the horizon (y 146). The Waiting Lamp's glass hangs at the beacon anchor: keep the sky in a 17 px box round it a calm cool blue, no cloud or leaf in it, so the amber stands out. Below the horizon a flat sea of cloud fills the bottom: the cloud layer's top (360 tiles), lit warm cream from the east by the low sun, its lumps growing toward the bottom edge. On the left the great tree's crown cap breaks the sea, the same tree as the title's (scripts/art/placeholders/title_giants.gd): one even dome centred on its trunk at x 100, its top at y 156, about 180 px wide where it meets the cloud at y 188, leaf clusters each with a lit top arc, in the morning's greens, lit from the east (the right), hazed a little toward the sky; cloud laps round its foot. No building and no town: the town is under the clouds and nothing stands by the Tower. Sky only, no tower or lamp painted in: the scene draws the Tower, the lamp and its glow over it. It does not scroll.",
 		"placeholder": "res://scripts/story/tower_reveal.gd:paint_sky",
-		"notes": "shown only during the Tower scene, behind the town's world, above the area's top edge",
+		"notes": "shown only during the Tower scene, behind the town's world, above the area's top edge (the whole view from the second leg of the climb to the hold); the placeholder is the vast-scale mock (final_mocks.py hold_backdrop, exported to assets/placeholders/tower_sky.png); the climb still runs up TowerParts' 30-tile tower, so the cloud sea shows behind its drum and Reel Deck until the town's Tower is redesigned and the reveal retimed; names are working labels",
 	},
 }

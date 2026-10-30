@@ -1,0 +1,2 @@
+prepared town.prop.chamber.window_wide: 96x32, 18 colours, 2371 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-05-room-fixes\town.prop.chamber.window_wide\prepared.png
+next: python tools/art/validate_slot.py town.prop.chamber.window_wide C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-05-room-fixes\town.prop.chamber.window_wide\prepared.png

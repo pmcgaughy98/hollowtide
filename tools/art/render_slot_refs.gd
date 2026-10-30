@@ -10,6 +10,8 @@ extends SceneTree
 ## tile lines, the foot row, the door box, 9-slice margins, and the pass creature as a flat grey block), <id>_card.png
 ## (Grok's one image: a style sample of installed house art, the placeholder and the palette strip side by side) and
 ## <id>.json (its spec), plus palettes/<family>.png swatch strips. No text on any picture: Grok copies labels.
+## A strip is a median cut of the family's placeholders to its largest budget, or, when a row's palette says
+## "exact": true, every colour those placeholders use (2026-10-28, the vast-scale views).
 ## Run one Godot at a time.
 
 const DOC := "res://docs/design/placeholder-factory-2026-10-26/"
@@ -83,7 +85,7 @@ func _initialize() -> void:
 		var strip := _palette_strip(fam, s, families)
 		_card(target, s, strip).save_png(out + id + "_card.png")
 		var f := FileAccess.open(out + id + ".json", FileAccess.WRITE)
-		f.store_string(JSON.stringify(_jsonable(s), "\t", true) + "\n")
+		f.store_string(JSON.stringify(_exported(s), "\t", true) + "\n")
 		f.close()
 	for fam in families:
 		(families[fam] as Image).save_png(out + "palettes/" + String(fam) + ".png")
@@ -95,7 +97,7 @@ func _initialize() -> void:
 func _export(path: String) -> void:
 	var slots := {}
 	for id in ArtSlots.ids():
-		slots[id] = _jsonable(ArtSlots.spec(id))
+		slots[id] = _exported(ArtSlots.spec(id))
 	var doc := {"registry_sha256": ArtSlots.registry_hash(), "slot_files": Array(ArtSlots.slot_files()),
 		"count": slots.size(), "slots": slots, "note": "Written by tools/art/render_slot_refs.gd; do not edit. Edit scripts/art/slots/*.gd and export again."}
 	DirAccess.make_dir_recursive_absolute(path.get_base_dir())
@@ -210,12 +212,14 @@ func _palette_strip(fam: String, s: Dictionary, done: Dictionary) -> Image:
 	if done.has(fam):
 		return done[fam]
 	var budget := 0
+	var exact := false
 	var sources: Array[Image] = []
 	for id in ArtSlots.ids():
 		var o := ArtSlots.spec(id)
 		if String(o["palette"].get("family", "")) != fam:
 			continue
 		budget = maxi(budget, int(o["palette"].get("max", 0)))
+		exact = exact or bool(o["palette"].get("exact", false))
 		sources.append(PlaceholderPainter.paint(id, o))
 		for key in ["legacy", "legacy_v1"]:
 			var p := String(o.get(key, ""))
@@ -231,12 +235,31 @@ func _palette_strip(fam: String, s: Dictionary, done: Dictionary) -> Image:
 		for p in UI_FRAMES:
 			if FileAccess.file_exists(p):
 				sources.append(Image.load_from_file(ProjectSettings.globalize_path(p)))
-	var cols := _median_cut(sources, maxi(1, budget))
+	var cols := _exact_colours(sources) if exact else _median_cut(sources, maxi(1, budget))
 	var strip := Image.create(8 * cols.size(), 8, false, Image.FORMAT_RGBA8)
 	for i in cols.size():
 		strip.fill_rect(Rect2i(i * 8, 0, 8, 8), cols[i])
 	done[fam] = strip
 	return strip
+
+
+## Every colour the sources use, every pixel read, lightest first: the strip of an "exact" family (2026-10-28, the
+## vast-scale views, whose targets are finished pictures; a median cut averaged away their amber lamp and brass).
+func _exact_colours(sources: Array[Image]) -> Array[Color]:
+	var seen := {}
+	for img in sources:
+		var im := img.duplicate() as Image
+		im.convert(Image.FORMAT_RGBA8)
+		for y in im.get_height():
+			for x in im.get_width():
+				var c := im.get_pixel(x, y)
+				if c.a > 0.5:
+					seen[(c.r8 << 16) | (c.g8 << 8) | c.b8] = true
+	var out: Array[Color] = []
+	for k: int in seen:
+		out.append(Color8((k >> 16) & 255, (k >> 8) & 255, k & 255))
+	out.sort_custom(func(a: Color, b: Color) -> bool: return a.get_luminance() > b.get_luminance())
+	return out
 
 
 func _median_cut(sources: Array[Image], n: int) -> Array[Color]:
@@ -302,6 +325,16 @@ func _box(img: Image, r: Rect2i, c: Color) -> void:
 	_mix(img, Rect2i(r.position.x, r.end.y - 2, r.size.x, 2), c, 1.0)
 	_mix(img, Rect2i(r.position.x, r.position.y, 2, r.size.y), c, 1.0)
 	_mix(img, Rect2i(r.end.x - 2, r.position.y, 2, r.size.y), c, 1.0)
+
+
+## A spec as the export writes it: JSON-safe, plus "state_order", the states in sheet order (top row first, as
+## PlaceholderPainter and ArtSlots.frame lay them out). JSON sorts an object's keys, so "states" alone comes out
+## alphabetical (the wayline post's quiet, strung, waiting) and the Python tools could not read the sheet's order from
+## it (pass 9 W10, H9-39).
+static func _exported(s: Dictionary) -> Dictionary:
+	var out: Dictionary = _jsonable(s)
+	out["state_order"] = (s.get("states", {}) as Dictionary).keys()
+	return out
 
 
 static func _jsonable(v: Variant) -> Variant:

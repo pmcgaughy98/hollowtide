@@ -112,7 +112,7 @@ func _initialize() -> void:
 		var tex := ArtSlots.texture(id)
 		if Vector2i(tex.get_size()) != sheet or not ArtSlots.source(id) in ["placeholder", "file"]:
 			bad_slot.append("%s resolves to %s from %s" % [id, tex.get_size(), ArtSlots.source(id)])
-	_ok("street slots: %d lamp and prop slots resolve to their coded placeholders (exact sheet, binary alpha, foot row, budget)" % street.size(), bad_slot.is_empty() and street.size() == 12, bad_slot)
+	_ok("street slots: %d lamp and prop slots resolve to their coded placeholders (exact sheet, binary alpha, foot row, budget)" % street.size(), bad_slot.is_empty() and street.size() == 16, bad_slot)   # 13: the forest trunk; 16: the Item Shop's dooryard (both 2026-10-28)
 	var bad_ground: Array = []
 	for id: String in ground:
 		if ArtSlots.source(id) != ("placeholder" if ArtSlots.forcing() else "legacy") or Vector2i(ArtSlots.texture(id).get_size()) != ArtSlots.sheet_size(id):

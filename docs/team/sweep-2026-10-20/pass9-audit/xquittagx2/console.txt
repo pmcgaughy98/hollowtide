@@ -1,0 +1,32 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+[00000    0.0s w    2351] phase xquit, keyboard, window (1152, 648), out C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/xquittagx2/
+[00000    0.0s w    2352] CLOCK real time, max fps 30
+[00000    0.0s w    2354] save C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/saves/s5_runner.save -> C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/xquittagx2/slot.save
+[00001    0.0s w    2837] SCENE  -> none after 0.0 s game, 2.8 s wall in 
+[00002    0.1s w    3662] HITCH 825 ms for one frame in creature_opening.tscn (after start)
+[00002    0.1s w    3665] SCENE none -> creature_opening.tscn after 0.0 s game, 0.8 s wall in none
+[00089    3.0s w    5152] SHOT Q01_title_boot scene creature_opening.tscn
+[00089    3.0s w    5194] SHOT Q02_title_continue_focused scene creature_opening.tscn
+[00160    5.3s w    6481] SCENE creature_opening.tscn -> hub_town.tscn after 5.3 s game, 2.8 s wall in creature_opening.tscn
+[00435   14.5s w   11366] SHOT Q03_town_at_close scene hub_town.tscn
+[00435   14.5s w   11369] TEAM Q03_town_at_close area highbank_v1: kithflare@(5, 8), tallowroot@(4, 9), listener@(3, 9), skimlet@(2, 8)
+[00435   14.5s w   11371] XQUIT close request at w11371
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/fonts/Silkscreen-Bold.ttf".
+   at: GDScript::reload (res://scripts/dungeon/dungeon.gd:36)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "FONT" constant because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/dungeon/dungeon.gd:36)
+ERROR: Failed to load script "res://scripts/dungeon/dungeon.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://scripts/dungeon/dungeon_finish.gdshader".
+   at: GDScript::reload (res://scripts/town/town_room.gd:628)
+ERROR: Failed to load script "res://scripts/town/town_room.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+ERROR: Parse Error: Failed. [Resource file res://scenes/town_room.tscn:6]
+   at: _parse_node_tag (scene/resources/resource_format_text.cpp:293)
+ERROR: Failed loading resource: res://scenes/town_room.tscn.
+   at: _load (core/io/resource_loader.cpp:317)
+WARNING: 28 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)

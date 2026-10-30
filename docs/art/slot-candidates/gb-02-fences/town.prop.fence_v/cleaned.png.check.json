@@ -1,0 +1,74 @@
+{
+ "slot": "town.prop.fence_v",
+ "candidate": "docs\\art\\slot-candidates\\gb-02-fences\\town.prop.fence_v\\cleaned.png",
+ "registry_sha256": "67ea0f75a2e064b4d6f4cc184af816f256f00831a0fcc7d841bc9dd340cdc9bf",
+ "pass": true,
+ "results": [
+  {
+   "id": "C1",
+   "name": "size",
+   "result": "PASS",
+   "detail": "24x24, slot sheet 24x24"
+  },
+  {
+   "id": "C2",
+   "name": "colours",
+   "result": "PASS",
+   "detail": "5 colours (worst cell 5), budget 24"
+  },
+  {
+   "id": "C3",
+   "name": "alpha",
+   "result": "PASS",
+   "detail": "0 partial-alpha pixels"
+  },
+  {
+   "id": "C4",
+   "name": "edges",
+   "result": "PASS",
+   "detail": "clear"
+  },
+  {
+   "id": "C5",
+   "name": "palette",
+   "result": "PASS",
+   "detail": "0 colours over 20 from the palette; mean distance 0.0"
+  },
+  {
+   "id": "C6",
+   "name": "seams",
+   "result": "PASS",
+   "detail": "top/bottom mean 0.8 max 19"
+  },
+  {
+   "id": "C7",
+   "name": "foot row",
+   "result": "PASS",
+   "detail": "lowest rows [23], foot row 23"
+  },
+  {
+   "id": "C8",
+   "name": "frame health",
+   "result": "PASS",
+   "detail": "opaque per cell [180]; largest one-colour block 17% of a cell"
+  },
+  {
+   "id": "C9",
+   "name": "specks",
+   "result": "PASS",
+   "detail": "0 orphan pixels (0.00%), 0 light specks"
+  },
+  {
+   "id": "C12",
+   "name": "light side",
+   "result": "PASS",
+   "detail": "upper-left edge 97, lower-right edge 52"
+  }
+ ],
+ "review": {
+  "R1": "no text, letters, numbers or signage lettering anywhere",
+  "R2": "nothing that reads as another game or franchise",
+  "R3": "no creature, animal or person unless the slot asks for one",
+  "R4": "sits in the scene: placeholder, candidate and in-game capture side by side"
+ }
+}

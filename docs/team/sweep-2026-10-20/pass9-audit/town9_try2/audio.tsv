@@ -1,0 +1,71 @@
+frame	scene	action	since	stream	bus	db
+2	creature_opening.tscn	start	2	music/title.mp3	Music	-6.0
+90	creature_opening.tscn	ui_accept(Enter)	1	sfx/ui/confirm.wav	UI	-6.0
+425	hub_town.tscn	ui_accept(Enter)	336	music/highbank.mp3	Music	-39.1
+499	hub_town.tscn	pause(P)	1	sfx/dungeon/menu_open.wav	UI	-8.0
+523	hub_town.tscn	cancel(Esc)	1	sfx/dungeon/menu_close.wav	UI	-8.0
+656	hub_town.tscn	hall_door	2	sfx/dungeon/door.wav	SFX	-4.0
+752	town_room.tscn	interact(E)	21	sfx/ui/text_blip_1.wav	UI	-16.0
+755	town_room.tscn	interact(E)	24	sfx/ui/text_blip_0.wav	UI	-16.0
+762	town_room.tscn	interact(E)	31	sfx/ui/text_blip_2.wav	UI	-16.0
+767	town_room.tscn	interact(E)	36	sfx/ui/text_blip_2.wav	UI	-16.0
+771	town_room.tscn	interact(E)	40	sfx/ui/text_blip_0.wav	UI	-16.0
+778	town_room.tscn	interact(E)	47	sfx/ui/text_blip_1.wav	UI	-16.0
+781	town_room.tscn	interact(E)	50	sfx/ui/text_blip_2.wav	UI	-16.0
+788	town_room.tscn	interact(E)	57	sfx/ui/text_blip_0.wav	UI	-16.0
+886	town_room.tscn	interact(E)	6	sfx/ui/text_blip_1.wav	UI	-16.0
+889	town_room.tscn	interact(E)	9	sfx/ui/text_blip_2.wav	UI	-16.0
+897	town_room.tscn	interact(E)	17	sfx/ui/text_blip_1.wav	UI	-16.0
+902	town_room.tscn	interact(E)	22	sfx/ui/text_blip_0.wav	UI	-16.0
+905	town_room.tscn	interact(E)	25	sfx/ui/text_blip_2.wav	UI	-16.0
+908	town_room.tscn	interact(E)	28	sfx/ui/text_blip_0.wav	UI	-16.0
+912	town_room.tscn	interact(E)	32	sfx/ui/text_blip_2.wav	UI	-16.0
+918	town_room.tscn	interact(E)	38	sfx/ui/text_blip_0.wav	UI	-16.0
+922	town_room.tscn	interact(E)	42	sfx/ui/text_blip_0.wav	UI	-16.0
+925	town_room.tscn	interact(E)	45	sfx/ui/text_blip_2.wav	UI	-16.0
+932	town_room.tscn	interact(E)	52	sfx/ui/text_blip_2.wav	UI	-16.0
+938	town_room.tscn	interact(E)	58	sfx/ui/text_blip_2.wav	UI	-16.0
+942	town_room.tscn	interact(E)	62	sfx/ui/text_blip_1.wav	UI	-16.0
+945	town_room.tscn	interact(E)	65	sfx/ui/text_blip_2.wav	UI	-16.0
+962	town_room.tscn	interact(E)	82	sfx/ui/text_blip_0.wav	UI	-16.0
+965	town_room.tscn	interact(E)	85	sfx/ui/text_blip_2.wav	UI	-16.0
+972	town_room.tscn	interact(E)	92	sfx/ui/text_blip_0.wav	UI	-16.0
+975	town_room.tscn	interact(E)	95	sfx/ui/text_blip_2.wav	UI	-16.0
+978	town_room.tscn	interact(E)	98	sfx/ui/text_blip_1.wav	UI	-16.0
+982	town_room.tscn	interact(E)	102	sfx/ui/text_blip_2.wav	UI	-16.0
+988	town_room.tscn	interact(E)	108	sfx/ui/text_blip_2.wav	UI	-16.0
+992	town_room.tscn	interact(E)	112	sfx/ui/text_blip_0.wav	UI	-16.0
+1089	town_room.tscn	interact(E)	6	sfx/ui/text_blip_0.wav	UI	-16.0
+1092	town_room.tscn	interact(E)	9	sfx/ui/text_blip_2.wav	UI	-16.0
+1099	town_room.tscn	interact(E)	16	sfx/ui/text_blip_0.wav	UI	-16.0
+1100	town_room.tscn	interact(E)	17	sfx/ui/text_blip_1.wav	UI	-16.0
+1104	town_room.tscn	interact(E)	21	sfx/ui/text_blip_0.wav	UI	-16.0
+1111	town_room.tscn	interact(E)	28	sfx/ui/text_blip_1.wav	UI	-16.0
+1118	town_room.tscn	interact(E)	35	sfx/ui/text_blip_2.wav	UI	-16.0
+1318	town_room.tscn	cancel(Esc)	2	sfx/dungeon/menu_close.wav	UI	-8.0
+1360	town_room.tscn	step (0, 1)	5	sfx/dungeon/door.wav	SFX	-4.0
+1375	hub_town.tscn	step (0, 1)	20	music/wayline_hall.mp3	Music	-39.1
+1405	hub_town.tscn	board	2	sfx/dungeon/board_paper.wav	SFX	-4.0
+1441	hub_town.tscn	move_down(Down)	2	sfx/ui/cursor.wav	UI	-8.0
+1456	hub_town.tscn	cancel(Esc)	2	sfx/dungeon/menu_close.wav	UI	-8.0
+1572	hub_town.tscn	shrine	2	sfx/dungeon/presence_swell.wav	SFX	-4.0
+1593	hub_town.tscn	shrine	23	music/highbank.mp3	Music	-39.1
+1638	hub_town.tscn	cancel(Esc)	2	sfx/ui/cancel.wav	UI	-8.0
+1874	hub_town.tscn	cancel(Esc)	2	sfx/dungeon/menu_close.wav	UI	-8.0
+2153	hub_town.tscn	cancel(Esc)	2	sfx/dungeon/menu_close.wav	UI	-8.0
+2260	hub_town.tscn	step (1, 0)	3	music/wayline_hall.mp3	Music	-39.1
+2327	hub_town.tscn	interact(E)	2	sfx/dungeon/door.wav	SFX	-4.0
+2330	hub_town.tscn	interact(E)	5	music/highbank.mp3	Music	-39.1
+2377	town_room.tscn	interact(E)	2	sfx/dungeon/menu_open.wav	UI	-8.0
+2406	town_room.tscn	cancel(Esc)	2	sfx/dungeon/menu_close.wav	UI	-8.0
+2448	town_room.tscn	step (0, 1)	5	sfx/dungeon/door.wav	SFX	-4.0
+2593	hub_town.tscn	step (-1, 0)	3	music/wayline_hall.mp3	Music	-39.1
+2663	hub_town.tscn	step (0, -1)	13	music/highbank.mp3	Music	-39.1
+2670	hub_town.tscn	interact(E)	2	sfx/dungeon/door.wav	SFX	-4.0
+2739	town_room.tscn	cancel(Esc)	2	sfx/dungeon/menu_close.wav	UI	-8.0
+2771	town_room.tscn	step (0, 1)	5	sfx/dungeon/door.wav	SFX	-4.0
+2820	hub_town.tscn	interact(E)	2	sfx/dungeon/presence_swell.wav	SFX	-4.0
+2857	hub_town.tscn	interact(E)	10	sfx/dungeon/evolve_ready.wav	SFX	-4.0
+3002	hub_town.tscn	interact(E)	155	music/evolution.mp3	Music	-6.0
+3002	hub_town.tscn	interact(E)	155	sfx/dungeon/revive.wav	SFX	-2.0
+3283	hub_town.tscn	interact(E)	2	sfx/dungeon/menu_close.wav	UI	-8.0

@@ -1,0 +1,2 @@
+prepared town.building.hall.root_vein: 60x296, 27 colours, 6845 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\root-redo-2026-10-27-r2\town.building.hall.root_vein\prepared-from-raw.png
+next: python tools/art/validate_slot.py town.building.hall.root_vein C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\root-redo-2026-10-27-r2\town.building.hall.root_vein\prepared-from-raw.png

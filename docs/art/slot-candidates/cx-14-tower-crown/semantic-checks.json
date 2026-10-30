@@ -1,0 +1,70 @@
+{
+  "active_reference_alpha_masks_exact": true,
+  "active_cells": 17,
+  "unused_padding_holds": 6,
+  "lamp_rows": [
+    "lit",
+    "dark"
+  ],
+  "lamp_four_distinct_lit_frames": true,
+  "lamp_hardware_exact": true,
+  "lamp_beacon_local": [
+    16,
+    26
+  ],
+  "vane_phases": [
+    0,
+    1,
+    0,
+    -1
+  ],
+  "vane_hardware_exact": true,
+  "vane_apex_local": [
+    19,
+    1
+  ],
+  "bell_phases": [
+    0,
+    2,
+    0,
+    -2
+  ],
+  "bell_hardware_exact": true,
+  "padding_holds_exact": true,
+  "seven_sheave_centres_local": [
+    [
+      223,
+      16
+    ],
+    [
+      199,
+      31
+    ],
+    [
+      162,
+      42
+    ],
+    [
+      116,
+      46
+    ],
+    [
+      70,
+      42
+    ],
+    [
+      33,
+      31
+    ],
+    [
+      9,
+      16
+    ]
+  ],
+  "reach_hook_local": [
+    88,
+    72
+  ],
+  "crown_silhouette_unchanged": true,
+  "in_game_verified": false
+}

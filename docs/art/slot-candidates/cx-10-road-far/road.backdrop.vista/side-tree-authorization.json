@@ -1,0 +1,5 @@
+{
+  "user": "Fix side trees that look like puff balls, specifically attached vista",
+  "edit": "both foreground framing trees only; center giant tree and Tower preserved",
+  "reference_sha256": "1ebad045921a402dac1dff06848216f33c82d8c8f17ecb8f1560b1350e4f6af4"
+}

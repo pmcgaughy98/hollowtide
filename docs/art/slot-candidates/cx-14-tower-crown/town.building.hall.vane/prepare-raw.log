@@ -1,0 +1,2 @@
+prepared town.building.hall.vane: 192x44, 16 colours, 1797 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-14-tower-crown\town.building.hall.vane\prepared-from-raw.png
+next: python tools/art/validate_slot.py town.building.hall.vane C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-14-tower-crown\town.building.hall.vane\prepared-from-raw.png

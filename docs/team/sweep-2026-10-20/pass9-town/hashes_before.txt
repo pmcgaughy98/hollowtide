@@ -1,0 +1,4 @@
+Tue Oct 27 18:24:06 CDT 2026
+\74da42927c22d816dddbf9a6ead63226278dedd0888f14e0bddc6fb7adc1770b *C:\\Users\\pmcga\\AppData\\Roaming/Godot/app_userdata/Hollowtide/team.save
+\74da42927c22d816dddbf9a6ead63226278dedd0888f14e0bddc6fb7adc1770b *C:\\Users\\pmcga\\AppData\\Roaming/Godot/app_userdata/Hollowtide/team.save.bak
+\59fa1b889c1ad37fbc0c2f0e92c7a9dc9bd31bc2f85af8b1a0f8993de63d3afa *C:\\Users\\pmcga\\AppData\\Roaming/Godot/app_userdata/Hollowtide/menu_preferences.cfg

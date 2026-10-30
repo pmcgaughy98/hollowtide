@@ -1,0 +1,296 @@
+{
+  "approved_note": "CODEX_ROOT_NOTE.md, Preston go",
+  "raw_untouched": true,
+  "native_size": [
+    96,
+    120
+  ],
+  "incoming_bark_registration_warp": [
+    {
+      "x": 0,
+      "source_rows": [
+        98,
+        120
+      ],
+      "destination_rows": [
+        72,
+        120
+      ]
+    },
+    {
+      "x": 1,
+      "source_rows": [
+        98,
+        120
+      ],
+      "destination_rows": [
+        73,
+        120
+      ]
+    },
+    {
+      "x": 2,
+      "source_rows": [
+        98,
+        120
+      ],
+      "destination_rows": [
+        74,
+        120
+      ]
+    },
+    {
+      "x": 3,
+      "source_rows": [
+        99,
+        120
+      ],
+      "destination_rows": [
+        75,
+        120
+      ]
+    },
+    {
+      "x": 4,
+      "source_rows": [
+        99,
+        120
+      ],
+      "destination_rows": [
+        76,
+        120
+      ]
+    },
+    {
+      "x": 5,
+      "source_rows": [
+        99,
+        120
+      ],
+      "destination_rows": [
+        77,
+        120
+      ]
+    },
+    {
+      "x": 6,
+      "source_rows": [
+        100,
+        120
+      ],
+      "destination_rows": [
+        78,
+        120
+      ]
+    },
+    {
+      "x": 7,
+      "source_rows": [
+        100,
+        120
+      ],
+      "destination_rows": [
+        79,
+        120
+      ]
+    },
+    {
+      "x": 8,
+      "source_rows": [
+        101,
+        120
+      ],
+      "destination_rows": [
+        80,
+        120
+      ]
+    },
+    {
+      "x": 9,
+      "source_rows": [
+        100,
+        120
+      ],
+      "destination_rows": [
+        81,
+        120
+      ]
+    },
+    {
+      "x": 10,
+      "source_rows": [
+        100,
+        120
+      ],
+      "destination_rows": [
+        82,
+        120
+      ]
+    },
+    {
+      "x": 11,
+      "source_rows": [
+        101,
+        120
+      ],
+      "destination_rows": [
+        83,
+        120
+      ]
+    },
+    {
+      "x": 12,
+      "source_rows": [
+        101,
+        120
+      ],
+      "destination_rows": [
+        84,
+        120
+      ]
+    },
+    {
+      "x": 13,
+      "source_rows": [
+        100,
+        120
+      ],
+      "destination_rows": [
+        85,
+        120
+      ]
+    },
+    {
+      "x": 14,
+      "source_rows": [
+        100,
+        120
+      ],
+      "destination_rows": [
+        86,
+        120
+      ]
+    },
+    {
+      "x": 15,
+      "source_rows": [
+        100,
+        120
+      ],
+      "destination_rows": [
+        87,
+        120
+      ]
+    },
+    {
+      "x": 16,
+      "source_rows": [
+        100,
+        120
+      ],
+      "destination_rows": [
+        88,
+        120
+      ]
+    },
+    {
+      "x": 17,
+      "source_rows": [
+        100,
+        120
+      ],
+      "destination_rows": [
+        89,
+        120
+      ]
+    },
+    {
+      "x": 18,
+      "source_rows": [
+        98,
+        120
+      ],
+      "destination_rows": [
+        90,
+        120
+      ]
+    },
+    {
+      "x": 19,
+      "source_rows": [
+        98,
+        120
+      ],
+      "destination_rows": [
+        91,
+        120
+      ]
+    },
+    {
+      "x": 20,
+      "source_rows": [
+        97,
+        120
+      ],
+      "destination_rows": [
+        92,
+        120
+      ]
+    },
+    {
+      "x": 21,
+      "source_rows": [
+        96,
+        120
+      ],
+      "destination_rows": [
+        93,
+        120
+      ]
+    },
+    {
+      "x": 22,
+      "source_rows": [
+        95,
+        120
+      ],
+      "destination_rows": [
+        94,
+        120
+      ]
+    },
+    {
+      "x": 23,
+      "source_rows": [
+        93,
+        120
+      ],
+      "destination_rows": [
+        95,
+        120
+      ]
+    },
+    {
+      "x": 24,
+      "source_rows": [
+        92,
+        120
+      ],
+      "destination_rows": [
+        96,
+        120
+      ]
+    }
+  ],
+  "west_root_cross_section": [
+    72,
+    110
+  ],
+  "turf_occlusion": "Ragged near-side turf begins y111 at west edge, using three existing turf colours; baseline remains119.",
+  "second_image_edit": "Tool blocked output; no second image generated or used. Authorized pixel cleanup applied to first returned edit.",
+  "upper_join_and_secondary_leg_protected": "all pixels outside x0..55,y52..119 exact",
+  "preserved_baseline_turf_pixels": 155,
+  "sequential_colour_joins": 228,
+  "new_colours": 16,
+  "prepared_sha256": "c6e94f29b0dc9bd904aee9cb7792b8f5b4518043e449123c5446034546b3aaef"
+}

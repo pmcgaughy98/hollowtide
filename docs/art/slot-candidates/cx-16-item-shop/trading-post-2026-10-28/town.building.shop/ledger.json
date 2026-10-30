@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-28",
+  "batch": "cx-16-item-shop",
+  "slot": "town.building.shop",
+  "revision": "trading_post 204x192; supersedes lean_to 204x144",
+  "generation_authorization": "Latest user message explicitly reopens cx-16 and approves generating this revised Item Shop, up to three tries if validation fails. Visual yes remains pending.",
+  "tool": "image_gen.imagegen (built-in)",
+  "image_jobs": 1,
+  "validation_failed_attempts": 0,
+  "paid_alternative_calls": 0,
+  "cost": null,
+  "cost_note": "Built-in tool did not report a monetary/credit cost. No external generator used.",
+  "references": [
+    "docs/design/placeholder-factory-2026-10-26/refs/town.building.shop.png",
+    "docs/design/placeholder-factory-2026-10-26/refs/town.building.shop_card.png"
+  ],
+  "source_generated_path": "C:/Users/pmcga/.codex/generated_images/01a12b4b-7982-7b32-b405-2a584762f412/exec-37e0fab6-2377-44d8-8b12-df29e37edcf8.png",
+  "raw_untouched": true,
+  "raw_size": [
+    1293,
+    1217
+  ],
+  "native_size": [
+    204,
+    192
+  ],
+  "colours": 26,
+  "door_px": [
+    79,
+    142,
+    22,
+    48
+  ],
+  "foot_row": 191,
+  "registry_sha256": "2d9b461262c916bc1555519d5181ded20a2b692668e25e741ace2a69ec6a959e",
+  "native_preparation": "prepare_native.py; previously authorized pixel cleanup; existing clear_orphans keep=40, exact doorway and foot registration. Standard prepare_slot.py and validate_slot.py unchanged.",
+  "historical_delivery": "historical-lean-to-204x144/",
+  "runtime_preview": "Actual Highbank v2, in-memory ArtSlots candidate, isolated save under revision folder, inspection camera with main HUD hidden; verified Sparkjab leader; closed/open captures, clean exit at fixed-fps30. No door interaction/playthrough claim.",
+  "approval": "pending",
+  "installed": false,
+  "hashes": {
+    "raw.png": "cd3715412c50cdf10a06ae45412ff4530b7d19b6c501454fdb4a063af713aaeb",
+    "prompt.txt": "5aada2403580d764b8f8f646cb968c84eb1c0765978439cb2e9d7a976a4ea504",
+    "native-input.png": "b229d8f8024d7ba6535bd970347ca153212c0b9e04fa30bfc258dff9bbca6beb",
+    "prepared.png": "b229d8f8024d7ba6535bd970347ca153212c0b9e04fa30bfc258dff9bbca6beb",
+    "prepared.png.check.json": "a12e54f5cb87bce8257a07f90a7245fca7bcd8e921afe01a483f254d6f1b97f9",
+    "capture.png": "559610b6141d9c36bfc54702117bebfd9d1804d8442717b490d2c6a4d7769ee9",
+    "capture-open.png": "ff3ac56834b6148befd3308da8dabc9bfed853566ac9205050fe3d4179e450dd"
+  }
+}

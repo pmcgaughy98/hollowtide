@@ -1,0 +1,20 @@
+{
+  "docs/design/placeholder-factory-2026-10-26/refs/town.building.shop.json": "a662585878935d2f29ab8de74ff580ed0cf40e3052af110d8cd19bccbd022db4",
+  "docs/design/placeholder-factory-2026-10-26/refs/town.building.shop.png": "f502fd8b62e660f79d6a44c1bfc246656f53aa1077dbab52b84452aed39217da",
+  "docs/design/placeholder-factory-2026-10-26/refs/town.building.shop_grid.png": "999166c6f4d0071c151fd4c8c2d3f52a11af7aec51ad10a6f0b4ad266ede37b3",
+  "docs/design/placeholder-factory-2026-10-26/refs/town.building.shop_card.png": "8e0ce1a73d3e19de21d571fd0a11491309bcf4f63564bb030248d5bddd2053a4",
+  "docs/design/placeholder-factory-2026-10-26/refs/palettes/town_stone.png": "376fbce45c43e369e3bbf114f237d1d3b3c44eb8453400f8470fb77ca6d5c5d9",
+  "docs/design/placeholder-factory-2026-10-26/slots.json": "2d3015471ccee73c1498614ef5248c01b89c2603d2dc72ae36518d8daffb2067",
+  "scripts/town/building_template.gd": "d71e1051fdb8ee9ee4d7b1700d41f9d39554b366faa6962c6dbe3be33c2e5cd5",
+  "scripts/art/art_slots.gd": "2fc684f1bec499b531ca3b111ac38b563751aeffcdb1d233f8b8305a51ab6fb9",
+  "project.godot": "2d4967e84799bd1feaf63c52141a0d08521777187f4227a062c1ec034066aaeb",
+  "scripts/art/slots/dungeon.gd": "488b05cea4278b76b205e66e547c41689fdbb6677fc4179dc4b9a76d8292ecdb",
+  "scripts/art/slots/route.gd": "0aff6825530ad19f4c9da021a54b5ae15a61365cf4b355071ae81a0c685d0979",
+  "scripts/art/slots/story.gd": "47610c02eb89686e39f21ff06cb1699d3cf28a64aac2a67af791369ca8dac64b",
+  "scripts/art/slots/title.gd": "198618b68c5520a68a0d3b76f9d3b19edd3dbc739d43fc2a57979a07bdf922a9",
+  "scripts/art/slots/town_buildings.gd": "d72bca4be886b9fecde44f536c8806730f6a58f00a8c1d5ed7baaf0b699646de",
+  "scripts/art/slots/town_rooms.gd": "d9ff65bf6de5a4be92b66f548253322f4f383a92a74654c8eafc57310844e854",
+  "scripts/art/slots/town_street.gd": "1cecb305b5137c9d42553fb77c71ef2f472f90a4e1a03986954a80f3c9ffe01d",
+  "scripts/art/slots/town_tower.gd": "468d3cf168293d4837fbd6526c15132577e0bc601e7800541e2f81ade92aa0a7",
+  "scripts/art/slots/ui.gd": "619bf537153102e87c9748a72ce513a9fd8f79f435c6dc40658db5aad86aa083"
+}

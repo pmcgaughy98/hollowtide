@@ -1,0 +1,32 @@
+{
+  "authorization": "Preston explicit Python pixel cleanup",
+  "native_dimensions": [
+    60,
+    296
+  ],
+  "raw_unchanged": true,
+  "registration": [
+    {
+      "frame": 0,
+      "raw_crop": [
+        154,
+        39,
+        558,
+        2002
+      ],
+      "target_box": [
+        3,
+        6,
+        60,
+        293
+      ],
+      "target_alpha_mask_exact": true
+    }
+  ],
+  "precision": [],
+  "alpha_matches_target": true,
+  "rgb_changed_pixels": 4244,
+  "palette_family": "wayline_tower",
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "post_prepare_registration": "prepare_slot recenters the occupied box even for top_left and asymmetric foot parts; restored exact native registration after preparation, then validated final bytes"
+}

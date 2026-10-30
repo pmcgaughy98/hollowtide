@@ -1,0 +1,40 @@
+{
+  "date_utc": "2026-10-27T23:35:22.247003+00:00",
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "pass": true,
+  "check_line": "title.backdrop.highbank: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS",
+  "prepared_sha256": "3cc05c28e7f4f230942b4fee5a306fa3af6b04d2e37f50b827ca859f3c0dc0c8",
+  "raw_sha256": "45ee590ebed90dbeb9b740899668f6573417cca3b1e9704e2fa00e553578e24b",
+  "protected_files": 28,
+  "protected_source_changes": [],
+  "semantic": {
+    "lamp_anchor": [
+      333,
+      33
+    ],
+    "lamp_anchor_luma": 171.25499999999997,
+    "door_anchor": [
+      333,
+      160
+    ],
+    "door_anchor_luma": 71.46899999999998,
+    "adjacent_wall_luma": 77.011,
+    "shade_end": [
+      312,
+      50
+    ],
+    "shade_seam_max_channel_delta_after_canopy": 0.490000000000002,
+    "wordmark_sky_unique_colours": 3,
+    "house_order_visual": [
+      "home",
+      "shop",
+      "storage",
+      "scrolls"
+    ],
+    "in_game_verified": false,
+    "preview": "Current canopy and legibility-wash formulas, static calculation only",
+    "old_title_village_exact_to_HEAD": true,
+    "old_title_village_sha256": "f6a9ca44abe87744988460faf3cdcb442a9ab681e7bdbc8013fe1dbae412215d"
+  },
+  "installed": false
+}

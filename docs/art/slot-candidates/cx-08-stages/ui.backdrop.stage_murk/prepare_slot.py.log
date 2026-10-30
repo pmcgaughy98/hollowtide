@@ -1,0 +1,2 @@
+prepared ui.backdrop.stage_murk: 448x252, 5 colours, 112896 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-08-stages\ui.backdrop.stage_murk\prepared.png
+next: python tools/art/validate_slot.py ui.backdrop.stage_murk C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-08-stages\ui.backdrop.stage_murk\prepared.png

@@ -1,0 +1,52 @@
+{
+  "pass": true,
+  "checks": {
+    "size_224x224": true,
+    "alpha_binary": true,
+    "uses_current_riftfin_palette": true,
+    "all_sides_clear": true,
+    "taller_than_rimefin_idle_union": true,
+    "same_two_x_scale": true,
+    "raw_preserved": true
+  },
+  "raw_size": [
+    1254,
+    1254
+  ],
+  "raw_solid_box": [
+    93,
+    152,
+    1145,
+    1135
+  ],
+  "native_size": [
+    224,
+    224
+  ],
+  "native_opaque_box": [
+    23,
+    30,
+    201,
+    196
+  ],
+  "source_palette": "assets/sprites/arena/riftfin/sw.png",
+  "palette_colours": 28,
+  "candidate_colours": 24,
+  "rimefin_idle_union": [
+    17,
+    12,
+    182,
+    167
+  ],
+  "old_height": 155,
+  "new_height": 166,
+  "candidate_scale": 2,
+  "on_screen_heights": [
+    310,
+    332
+  ],
+  "frames": 1,
+  "animation": false,
+  "approval": "pending",
+  "installed": false
+}

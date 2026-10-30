@@ -1,0 +1,32 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-27",
+  "cost": "not exposed; no paid alternative called",
+  "raw_is_untouched": true,
+  "raw_sha256": "a12f752d71b8d4a3b649b8ff483fbd6510aebf4d17627a2061aa89467bd0f455",
+  "raw_dimensions": [
+    1448,
+    1086
+  ],
+  "target_dimensions": [
+    288,
+    48
+  ],
+  "references": [
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\_references_cx-04-cellar.png"
+  ],
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-1fc5c958-ceb2-40a1-8b46-22134e523ff4.png",
+  "registry_sha256": "cb33c871f11f80980785e47e73ece64acf9e85ff607dc083c7a18639031a0434",
+  "shared_generation": "one whole-room image generation shared by these five strips",
+  "native_master_size": [
+    288,
+    216
+  ],
+  "native_crop_box": [
+    0,
+    0,
+    288,
+    48
+  ],
+  "pixel_cleanup": "Explicitly authorized by Preston, 2026-10-27. Raw untouched; native_input.png supplies repaired exact-size art to unchanged prepare_slot."
+}

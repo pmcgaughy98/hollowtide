@@ -1,0 +1,25 @@
+{
+  "reference_alpha_exact": true,
+  "tiny_source_tower_core_exact": true,
+  "beacon": [
+    105,
+    7
+  ],
+  "wayline_anchors": [
+    [
+      101,
+      70
+    ],
+    [
+      84,
+      73
+    ]
+  ],
+  "foot_anchor": [
+    104,
+    95
+  ],
+  "painted_foot_row": 75,
+  "forest_town_above_row76": true,
+  "runtime_visibility": "100% at all four trail talks, lamp true"
+}

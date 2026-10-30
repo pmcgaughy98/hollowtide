@@ -1,0 +1,2 @@
+installed town.building.home: docs\art\slot-candidates\cx-17-home-burrow\town.building.home\prepared.png -> res://assets/slots/town/building/home.png (sha256 d02e2935540f); status set in town_buildings.gd
+imported and exported slots.json; run python tools/debug/run_checks.py art_slots --jobs 1

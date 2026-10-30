@@ -1,0 +1,22 @@
+[00000    0.0s w    2418] phase shrine9, keyboard, window (1152, 648), out C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/shrine9tags5_runner/
+[00000    0.0s w    2420] CLOCK real time, max fps 30
+[00000    0.0s w    2422] save C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/saves/s5_runner.save -> C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/shrine9tags5_runner/slot.save
+[00001    0.0s w    2900] SCENE  -> none after 0.0 s game, 2.9 s wall in 
+[00002    0.1s w    3730] HITCH 830 ms for one frame in creature_opening.tscn (after start)
+[00002    0.1s w    3734] SCENE none -> creature_opening.tscn after 0.0 s game, 0.8 s wall in none
+[00089    3.0s w    5271] SHOT G01_title_boot scene creature_opening.tscn
+[00089    3.0s w    5309] SHOT G02_title_continue_focused scene creature_opening.tscn
+[00158    5.3s w    6555] SCENE creature_opening.tscn -> hub_town.tscn after 5.2 s game, 2.8 s wall in creature_opening.tscn
+[00510   17.0s w   13233] HITCH 635 ms for one frame in hub_town.tscn (after shrine_first)
+[00510   17.0s w   13237] PANEL growth|Growth Shrine|The shrine is dark. At its heart is a round socket, empty, worn smooth, as if something sat there once.
+[00524   17.5s w   13512] TIMED shrine_first: shown 644 ms after the press, worst frame 628 ms
+[00534   17.8s w   13734] SHOT G03_shrine_first scene hub_town.tscn
+[00534   17.8s w   13735] TEAM G03_shrine_first area highbank_v1: kithflare@(7, 12), tallowroot@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[00534   17.8s w   13737] SHRINE panel { "name": "Growth Shrine", "what": "The shrine is dark. At its heart is a round socket, empty, worn smooth, as if something sat there once.", "service": "growth" }
+[00565   18.8s w   14794] HITCH 613 ms for one frame in hub_town.tscn (after shrine_second)
+[00565   18.8s w   14796] PANEL growth|Growth Shrine|The shrine is dark. At its heart is a round socket, empty, worn smooth, as if something sat there once.
+[00579   19.3s w   15079] TIMED shrine_second: shown 623 ms after the press, worst frame 605 ms
+[00589   19.6s w   15301] SHOT G04_shrine_second scene hub_town.tscn
+[00589   19.6s w   15303] TEAM G04_shrine_second area highbank_v1: kithflare@(7, 12), tallowroot@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[00618   20.6s w   15745] MARKS []
+[00618   20.6s w   15750] DONE phase shrine9 in 20.6 s game, 15.8 s wall

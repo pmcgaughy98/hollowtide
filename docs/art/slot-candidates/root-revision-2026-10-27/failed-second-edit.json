@@ -1,0 +1,10 @@
+{
+  "tool": "built-in image_gen",
+  "stage": "output moderation",
+  "status": "blocked",
+  "reported_category": "sexual",
+  "request_id": "e8126c97-e4a7-48a2-8e25-57daec6a1fce",
+  "task": "benign isolated game tree root girth correction",
+  "output_created": false,
+  "fallback": "Previously authorized native Python cleanup of the first successful edit"
+}

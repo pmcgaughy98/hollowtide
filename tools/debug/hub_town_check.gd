@@ -122,7 +122,51 @@ func _run() -> void:
 	# Headless has no viewport texture, so the still needs a window; the printed lines are the check (Claude, 2026-10-21).
 	if DisplayServer.get_name() != "headless":
 		root.get_texture().get_image().save_png(ProjectSettings.globalize_path(out.path_join("hall_panel.png")))
-	_ok("Places: %d of %d answered E from their door" % [answered, asked], answered == asked and asked == 12)
+	# v2 adds the Great Tree Path's Canopy Gap and its shut Root Path (Claude, 2026-10-28).
+	_ok("Places: %d of %d answered E from their door" % [answered, asked], answered == asked and asked == (14 if Layout.v2() else 12))
+	# Pass 9 T5 / A9-06 (Claude, 2026-10-27): a shut building's door tiles are solid on the town's own grid (the leader
+	# stepped onto the Scroll Keeper's door and stood drawn on its roof), a step north at the door leaves the leader on
+	# the tile in front, and E there, facing the door, reads the shut sign.
+	var shut_script: GDScript = town.get_script()
+	var shut_bad: Array = []
+	var shut_n := 0
+	for id in Layout.areas():
+		town.enter_area(id)
+		for p in Layout.PLACES:
+			if p["kind"] != "building" or not shut_script.SHUT.has(p["service"]):
+				continue
+			shut_n += 1
+			for d: Vector2i in Layout.door_tiles(p):
+				if town.open_at(d):
+					shut_bad.append("%s's door %s walkable" % [p["id"], str(d)])
+			# The tile in front of the door, outside the building's edge the door is on (the Scroll Keeper's cellar lid
+			# is on its top edge, so its front is north of it; the shop's door is on its bottom edge).
+			var r: Rect2i = p["rect"]
+			var door: Vector2i = p["door"]
+			var outward := Vector2i(0, 1)
+			if door.y == r.position.y:
+				outward = Vector2i(0, -1)
+			elif door.x == r.position.x and door.y != r.end.y - 1:
+				outward = Vector2i(-1, 0)
+			elif door.x == r.end.x - 1 and door.y != r.end.y - 1:
+				outward = Vector2i(1, 0)
+			var front: Vector2i = door + outward
+			if not town.open_at(front):
+				shut_bad.append("%s: the tile in front of its door, %s, is not open ground" % [p["id"], str(front)])
+				continue
+			town.panel = {}
+			town.team[0]["pos"] = front
+			town._place(town.team[0])
+			await town.act_move(-outward)
+			if town.team[0]["pos"] != front:
+				shut_bad.append("%s: a step at the door from %s ended on %s" % [p["id"], str(front), str(town.team[0]["pos"])])
+			town.panel = {}
+			var said: Dictionary = town.act_use()
+			if said.get("id", "") != p["id"] or String(town.panel.get("service", "")) != "shut":
+				shut_bad.append("%s: E from %s facing %s read '%s'" % [p["id"], str(front), str(town.team[0]["facing"]), String(said.get("id", ""))])
+	town.panel = {}
+	_ok("Shut doors: %d shut buildings, each door tile solid, a step at it stays in front, E there reads the sign%s" % [shut_n, "" if shut_bad.is_empty() else "; " + ", ".join(shut_bad)],
+		shut_n > 0 and shut_bad.is_empty())
 	town.panel = {}
 	town.enter_area(Layout.anchor_area("mouth_approach"), "mouth_approach")
 	town.team[0]["pos"] = Layout.anchor("mouth_approach")

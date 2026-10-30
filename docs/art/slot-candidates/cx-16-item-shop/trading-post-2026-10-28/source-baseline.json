@@ -1,0 +1,21 @@
+{
+  "scripts/art/art_slots.gd": "2fc684f1bec499b531ca3b111ac38b563751aeffcdb1d233f8b8305a51ab6fb9",
+  "scripts/town/building_template.gd": "285f25e1ad482fa89566bcb4712cfaf95ee08cb35b9923effab4ea618e829bf5",
+  "scripts/world/areas/street.gd": "d230a34ebaaa09b39b44ac385601a8e7417f9f00288ec84ed1885be9167bbffd",
+  "project.godot": "2d4967e84799bd1feaf63c52141a0d08521777187f4227a062c1ec034066aaeb",
+  "scripts/art/slots/dungeon.gd": "488b05cea4278b76b205e66e547c41689fdbb6677fc4179dc4b9a76d8292ecdb",
+  "scripts/art/slots/route.gd": "0aff6825530ad19f4c9da021a54b5ae15a61365cf4b355071ae81a0c685d0979",
+  "scripts/art/slots/story.gd": "47610c02eb89686e39f21ff06cb1699d3cf28a64aac2a67af791369ca8dac64b",
+  "scripts/art/slots/title.gd": "198618b68c5520a68a0d3b76f9d3b19edd3dbc739d43fc2a57979a07bdf922a9",
+  "scripts/art/slots/town_buildings.gd": "8b3b1a9ee1b41d3046e8dc7db0e6cb691e7fb7feec4cf865a3f83bbe4537e008",
+  "scripts/art/slots/town_rooms.gd": "d9ff65bf6de5a4be92b66f548253322f4f383a92a74654c8eafc57310844e854",
+  "scripts/art/slots/town_street.gd": "24bdf3302732e8b95cd1bc79b522c275fea727d0d541fb728dcd7f26a2fd8682",
+  "scripts/art/slots/town_tower.gd": "468d3cf168293d4837fbd6526c15132577e0bc601e7800541e2f81ade92aa0a7",
+  "scripts/art/slots/ui.gd": "619bf537153102e87c9748a72ce513a9fd8f79f435c6dc40658db5aad86aa083",
+  "docs/design/placeholder-factory-2026-10-26/slots.json": "09d31757a1fdfdf7ab0f8d4a11d878849eb544a11b532e68a6d7ab3055f62fe2",
+  "docs/design/placeholder-factory-2026-10-26/refs/town.building.shop.json": "3586976e3c67705aca6024ebbca3dc362cf4f3ad04f276d84d143a783f917741",
+  "docs/design/placeholder-factory-2026-10-26/refs/town.building.shop.png": "3df2963579bcf70a5df36b2f99095eb964d634e46ff1beee6c55e5504b1a4b56",
+  "docs/design/placeholder-factory-2026-10-26/refs/town.building.shop_card.png": "aa854da0d59913082d902102bacda2b5d16797551b1bdabc8f05389a85c6a6ed",
+  "docs/design/placeholder-factory-2026-10-26/refs/town.building.shop_grid.png": "1b1364ba98f88cedcde97a8e5261678f4c6cdfc68d2abdae968363920b069ae1",
+  "docs/design/placeholder-factory-2026-10-26/refs/palettes/town_stone.png": "ac57fd0e7a190de24f2a7fcd42eba4e1aab1e7a4f149e09a19db9b752da5e8c7"
+}

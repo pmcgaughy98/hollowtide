@@ -1,0 +1,2 @@
+prepared road.backdrop.highbank_far: 160x96, 24 colours, 5962 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-10-road-far\road.backdrop.highbank_far\prepared-from-raw.png
+next: python tools/art/validate_slot.py road.backdrop.highbank_far C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-10-road-far\road.backdrop.highbank_far\prepared-from-raw.png

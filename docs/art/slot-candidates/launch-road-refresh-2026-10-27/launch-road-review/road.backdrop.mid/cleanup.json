@@ -1,0 +1,29 @@
+{
+  "raw_untouched": true,
+  "authorized": "Preston Python pixel cleanup approval",
+  "contract": "ee9c03563b1c2a8bd6adc2abe1df32d2d1a993bdcba109f1d7e9d2c5d060489c",
+  "native_size": [
+    384,
+    112
+  ],
+  "strategy": "Two generated willows fit x60..225,y4..107; generated low ground fringe y104..111. Upper viewing corridor kept transparent.",
+  "raw_tree_crop": [
+    296,
+    181,
+    1355,
+    696
+  ],
+  "raw_ground_crop": [
+    0,
+    679,
+    2172,
+    724
+  ],
+  "tree_native_box": [
+    60,
+    4,
+    166,
+    104
+  ],
+  "colour_joins": 924
+}

@@ -1,0 +1,21 @@
+{
+ "batch": "gb-08-tower",
+ "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+ "slots": {
+  "town.building.hall.route_lantern": {
+   "answer": "pending"
+  },
+  "town.prop.hall.wayline_post": {
+   "answer": "pending"
+  },
+  "town.prop.hall.basket": {
+   "answer": "pending"
+  },
+  "town.prop.hall.cradle": {
+   "answer": "pending"
+  },
+  "town.prop.hall.parcel": {
+   "answer": "pending"
+  }
+ }
+}

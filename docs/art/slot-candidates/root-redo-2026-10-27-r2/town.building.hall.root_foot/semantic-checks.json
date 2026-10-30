@@ -1,0 +1,11 @@
+{
+  "west_woody_rows": [
+    72,
+    110
+  ],
+  "west_width_px": 39,
+  "west5columns_exact": true,
+  "upper_join_secondary_leg_baseline_exact": true,
+  "edit_region": "x5..53,y65..113, lower secondary-leg base protected",
+  "changed_pixels": 1258
+}

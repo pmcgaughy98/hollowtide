@@ -1,0 +1,24 @@
+{
+ "batch": "cx-09-road",
+ "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+ "slots": {
+  "road.backdrop.sky": {
+   "answer": "pending"
+  },
+  "road.backdrop.far": {
+   "answer": "pending"
+  },
+  "road.backdrop.river": {
+   "answer": "pending"
+  },
+  "road.backdrop.mid": {
+   "answer": "pending"
+  },
+  "road.backdrop.near": {
+   "answer": "pending"
+  },
+  "road.ground.path": {
+   "answer": "pending"
+  }
+ }
+}

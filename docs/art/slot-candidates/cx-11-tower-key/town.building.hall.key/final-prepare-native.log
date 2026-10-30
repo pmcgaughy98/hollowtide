@@ -1,0 +1,2 @@
+prepared town.building.hall.key: 216x360, 29 colours, 36757 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-11-tower-key\town.building.hall.key\prepared.png
+next: python tools/art/validate_slot.py town.building.hall.key C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-11-tower-key\town.building.hall.key\prepared.png

@@ -1,0 +1,15 @@
+{
+  "protected_outside_elbow_exact": true,
+  "west_bark_rows": [
+    72,
+    110
+  ],
+  "join_frame": [
+    90,
+    610
+  ],
+  "size": [
+    96,
+    120
+  ]
+}

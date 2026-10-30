@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.planter_card.png",
+ "out": "docs/art/slot-candidates/gb-01-street/town.prop.planter/raw.png",
+ "cost_usd": 0.12579184,
+ "turns": 6,
+ "text": "I'll read the style reference and the Imagine skill first, then generate the planter once from what that image actually shows.The reference is chunky pixel art in a three-quarter top-down view: a beige planter with gray bands, a rounded sage shrub, and a small earth-tone palette. I'll generate one matching sprite on flat magenta.The generator saved a JPEG. I'll convert it to `raw.png` in this folder and check the pixels against the brief.Saved to `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_nisvwyc8\\raw.png`: a single beige stone planter with a rounded green shrub in three-quarter view on magenta, and the background is not pure `#FF00FF` (corners read about `#E42493` to `#EA2996` because the generator wrote a JPEG) while the shrub uses many dithered greens instead of a few flat colours.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_nisvwyc8"
+}

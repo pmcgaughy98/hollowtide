@@ -1,0 +1,38 @@
+[
+  {
+    "slot": "town.building.hall.reel_back",
+    "check_line": "town.building.hall.reel_back: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+    "prepared_sha256": "4cde391b1fb263189fd4db5995ebc1a44d764abd7948a552c17a32a362d1d0f4",
+    "raw_sha256": "64cb4bd4afbb6f742f496d86f89ec032092fa455e82a88e4ebef6dd893b4e603"
+  },
+  {
+    "slot": "town.building.hall.ring_front",
+    "check_line": "town.building.hall.ring_front: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+    "prepared_sha256": "b86d63fd70f62ac7f8c05c861d41c691414e5fe70a162df9a187657ca56de749",
+    "raw_sha256": "74c6dba8e3e3a2013e0b2cc9e67e44fb7fffe066779ad0f60db1a69816a847a3"
+  },
+  {
+    "slot": "town.building.hall.reach",
+    "check_line": "town.building.hall.reach: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+    "prepared_sha256": "e3e2c15fb497dfe0ef51cceddbeaa5e9b0afd6169b811ff406d67e42bb024f06",
+    "raw_sha256": "2bd1d22a4a8bd09dec87e52327437fb77aba2c47fa9a7e87fc64e0da6f9d7c3c"
+  },
+  {
+    "slot": "town.building.hall.lamp",
+    "check_line": "town.building.hall.lamp: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+    "prepared_sha256": "4009eda59b3ec094e35cab70a575d35703aaf168fceefb840a82b5a96dc9eb46",
+    "raw_sha256": "7ff0b8ccfc73ada4f6d16f6bb6a8e2e1a9ebc750eb6ed5acee31a93476d6d86e"
+  },
+  {
+    "slot": "town.building.hall.vane",
+    "check_line": "town.building.hall.vane: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+    "prepared_sha256": "dc7665c3dd8b830d6b7920ae6ac5a7305341e2887028e513480400ac4762b623",
+    "raw_sha256": "5147129f07562bd9001f0dd41c66e870e8a0c17a32be3f79f606e7ce5eec2afb"
+  },
+  {
+    "slot": "town.building.hall.bell",
+    "check_line": "town.building.hall.bell: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+    "prepared_sha256": "9b08b66b2a0d45f8782f20387ad6c72463f54858aa9bc6c735fdc561502fc214",
+    "raw_sha256": "48cd5e8d2abe9d43504415fc4b387979d056eeb0da2c0b5cd84566dc72ee998e"
+  }
+]

@@ -16,9 +16,10 @@ const UNSEEN := "Nobody in Highbank has seen this line grow."
 const STONE_STATUS := "The Warden's stone wakes the shrine. %s can grow now."
 const STONE_NOW := "The Warden's stone lets it grow now."   # the Team page says this much too (Claude, 2026-10-26, LF7-07)
 const STONE_READY := STONE_NOW + " These counts are not needed this time."
-## How far the rows the stone makes unneeded are dimmed, here and on the Team page: 0.7 keeps their muted parchment
-## above 4:1 on the panel (Claude, 2026-10-26, ACC-16; it was 0.55).
-const STONE_DIM := 0.7
+## How far the rows the stone makes unneeded are dimmed, here and on the Team page: 0.75 keeps their muted parchment
+## above 4.5:1 on the panel (Claude, 2026-10-26, ACC-16; it was 0.55. Claude, 2026-10-27, pass 9 T3 / A9-03: at 0.7 the
+## counts measured 4.42 to 4.52 on the shrine's panel, #293126 and #283025; 0.75 makes them 4.86 and 4.92).
+const STONE_DIM := 0.75
 ## The panel's heading, on a brass name tab over its top edge as the town's panels wear theirs (Claude, 2026-10-26,
 ## L7-22: it was a line in the name face inside the panel).
 const TITLE := "Growth Shrine"
@@ -54,6 +55,18 @@ static func stone_lets(rec: Dictionary, k: int) -> bool:
 		return false
 	return String(rec.get("story", {}).get("stone", "")) == "installed" and Evolution.ready(rec, k)
 
+## A creature record (its .tres) read once a session and kept (Claude, 2026-10-27, pass 9 T2 / H9-11 and A9-02). member()
+## read each name with load(path).creature_name and let the record go at once, so nothing held it and every call read
+## it from disk again: Kithflare 130 ms and Sparkwick 100 ms, Tallowroot 150 ms and Huskward 120 ms. The page asks for
+## each member five times as it opens, so the shrine held the street still for 600 to 700 ms on every open, not only the
+## first. hub_town.gd's warm-up reads the party's records on a thread after the arrival, so this finds them read.
+static var _creatures := {}
+
+static func creature(path: String) -> Resource:
+	if not _creatures.has(path):
+		_creatures[path] = load(path)
+	return _creatures[path]
+
 static func member(rec: Dictionary, k: int) -> Dictionary:
 	var party: Array = rec.get("party", [])
 	if k < 0 or k >= party.size(): return {}
@@ -64,9 +77,9 @@ static func member(rec: Dictionary, k: int) -> Dictionary:
 	var level := int(rec.get("levels", {}).get(ln, {}).get("lv", 1))
 	var dungeon: GDScript = load(Evolution.DUNGEON)
 	var c := dungeon.get_script_constant_map()
-	var data := {"name": String(load(forms[st][1]).creature_name), "form": form, "level": level,
+	var data := {"name": String(creature(forms[st][1]).creature_name), "form": form, "level": level,
 		"final": st >= 2, "iq": int(rec.get("iq", {}).get(ln, 0)), "ready": Evolution.ready(rec, k), "conditions": [],
-		"next": String(load(forms[st + 1][1]).creature_name) if st + 1 < forms.size() else "",
+		"next": String(creature(forms[st + 1][1]).creature_name) if st + 1 < forms.size() else "",
 		"moves": rec.get("taught", {}).get("%d:%d" % [ln, st], dungeon.moves_for(ln, st, level)).duplicate(),
 		"learn": c["LEARN"].get(form, []).duplicate(true), "waiting": c["WAITING"].get(form, []).duplicate(true),
 		"next_learn": [], "next_waiting": [], "pending": [], "stone": stone_lets(rec, k)}
@@ -199,7 +212,10 @@ func _hints() -> void:
 	keys_hint.add_theme_font_size_override("font_size", UI.type_size(role))
 	close_button.text = "%s close" % UI.binding_text("cancel")
 	var service: String = town.panel.get("service", "") if town != null else ""
-	action.text = "%s %s" % [ControlsText.advance_text(), "set stone" if service == "stone_ask" else ("grow" if service == "evolve_ask" else "close")]
+	# One close hint (Claude, 2026-10-27, pass 9 T3 / A9-07): with nothing to set in or grow, the action button said
+	# "E close" beside "Esc close". It shows only when it does something; E still closes the page, as before.
+	action.visible = service in ["stone_ask", "evolve_ask"]
+	action.text = "%s %s" % [ControlsText.advance_text(), "set stone" if service == "stone_ask" else "grow"]
 
 func _process(_delta: float) -> void:
 	var active: bool = town.panel.get("service", "") in SERVICES and not town.cutscene and town.talk.is_empty() and not town.evolving_now
@@ -326,6 +342,12 @@ func _render_detail() -> void:
 	if tab == "growth":
 		if not data["conditions"].is_empty():
 			details.add_child(_label("To grow", "label", UI.MUTED if data["stone"] else UI.EDGE_LIGHT))   # the rows' heading (Claude, 2026-10-22, W24)
+		# Every row's count column is as wide as the widest count this page can show ("goal / goal   done"), so the gauges
+		# all end at one x however the counts stand (pass 9 integration: "60 / 60   done" made its own gauge shorter).
+		var count_col := 122.0
+		for c in data["conditions"]:
+			var widest := "%d / %d   done" % [int(c[2]), int(c[2])]
+			count_col = maxf(count_col, ceilf(UI.font("number").get_string_size(widest, HORIZONTAL_ALIGNMENT_LEFT, -1, UI.type_size("number")).x))
 		for condition in data["conditions"]:
 			var row := HBoxContainer.new()
 			row.custom_minimum_size.y = 26
@@ -340,7 +362,10 @@ func _render_detail() -> void:
 			# (Claude, 2026-10-22, W23; it was a ProgressBar in flat boxes).
 			var met: bool = int(condition[1]) >= int(condition[2])
 			var tint: Color = UI.MUTED if data["stone"] else (UI.HP_GOOD if met else UI.EVO)
-			var frac: float = float(condition[1]) / maxf(1.0, float(condition[2]))
+			# The count stops at the goal once it is met, with the Team page's done mark (party_screen.gd, pass 8 U4):
+			# "5 / 5   done", never "6 / 5" (Claude, 2026-10-27, pass 9 T3 / A9-03). The gauge is full at the goal.
+			var have := mini(int(condition[1]), int(condition[2]))
+			var frac: float = minf(1.0, float(have) / maxf(1.0, float(condition[2])))
 			var bar := Control.new()
 			bar.name = "Gauge"
 			bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -352,10 +377,10 @@ func _render_detail() -> void:
 			# "n / goal" right-aligned at the row's end, which stops at the scrollbar now that the bar's width is kept
 			# clear; the column is never narrower than the words, so the gauge gives way and the goal always shows
 			# (Claude, 2026-10-24, S1 / LV-04: the goal after the slash sat under the bar).
-			var said := "%d / %d" % [condition[1], condition[2]]
+			var said := ("%d / %d" % [have, condition[2]]) + ("   done" if met else "")
 			var count := _label(said, "number", tint)
 			count.autowrap_mode = TextServer.AUTOWRAP_OFF
-			count.custom_minimum_size.x = maxf(122.0, ceilf(UI.font("number").get_string_size(said, HORIZONTAL_ALIGNMENT_LEFT, -1, UI.type_size("number")).x))
+			count.custom_minimum_size.x = maxf(count_col, ceilf(UI.font("number").get_string_size(said, HORIZONTAL_ALIGNMENT_LEFT, -1, UI.type_size("number")).x))
 			count.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 			row.add_child(count)
 			var gap := Control.new()   # two UI pixels between the goal and the bar's rule

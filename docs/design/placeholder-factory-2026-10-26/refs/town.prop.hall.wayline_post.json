@@ -1,0 +1,83 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		12,
+		63
+	],
+	"anchor_mode": "foot",
+	"anchors": {
+		"pulley": [
+			12,
+			7
+		]
+	},
+	"area": "town",
+	"brief": "A wayline post where a cable from the tower comes down to the ground: a boulder foot, a timber post, a brass plate with the three-route mark as a shape (no letters), a brass pulley at the top (the cable ties to it) and a small lantern on a hook. Strung: lantern lit; waiting: unlit; quiet: dusty grey glass. wayline_tower palette.",
+	"census": "WT16",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/hall_wayline_post.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.hall.wayline_post",
+	"kind": "prop",
+	"lane": "T",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "order 17; Tower Rise stands two at tiles (2, 10) and (24, 10) (Grok's set). Outline: drawn, the prop default, kept in pass 9 (W8) because the town's prop builder (town_props.gd) puts no runtime rim on props; runtime_rim waits on that.",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "wayline_tower",
+		"lock": true,
+		"max": 24,
+		"source": "res://assets/slots/palettes/wayline_tower.png"
+	},
+	"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+	"rows": 3,
+	"sheet_size": [
+		24,
+		192
+	],
+	"size": [
+		24,
+		64
+	],
+	"slot_file": "town_tower",
+	"state_order": [
+		"strung",
+		"waiting",
+		"quiet"
+	],
+	"states": {
+		"quiet": [
+			1,
+			0
+		],
+		"strung": [
+			1,
+			0
+		],
+		"waiting": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

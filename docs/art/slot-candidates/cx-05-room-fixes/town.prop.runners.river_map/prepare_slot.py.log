@@ -1,0 +1,2 @@
+prepared town.prop.runners.river_map: 48x28, 18 colours, 1242 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-05-room-fixes\town.prop.runners.river_map\prepared.png
+next: python tools/art/validate_slot.py town.prop.runners.river_map C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-05-room-fixes\town.prop.runners.river_map\prepared.png

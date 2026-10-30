@@ -1,0 +1,50 @@
+{
+ "slot": "town.room.shop.west",
+ "candidate": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\cx-03-shop-room\\town.room.shop.west\\prepared.png",
+ "registry_sha256": "cb33c871f11f80980785e47e73ece64acf9e85ff607dc083c7a18639031a0434",
+ "pass": true,
+ "results": [
+  {
+   "id": "C1",
+   "name": "size",
+   "result": "PASS",
+   "detail": "24x168, slot sheet 24x168"
+  },
+  {
+   "id": "C2",
+   "name": "colours",
+   "result": "PASS",
+   "detail": "13 colours (worst cell 13), budget 48"
+  },
+  {
+   "id": "C3",
+   "name": "alpha",
+   "result": "PASS",
+   "detail": "0 pixels not fully opaque"
+  },
+  {
+   "id": "C4",
+   "name": "edges",
+   "result": "PASS",
+   "detail": "clear"
+  },
+  {
+   "id": "C5",
+   "name": "palette",
+   "result": "PASS",
+   "detail": "0 colours over 20 from the palette; mean distance 0.0"
+  },
+  {
+   "id": "C9",
+   "name": "specks",
+   "result": "PASS",
+   "detail": "3 orphan pixels (0.07%), 0 light specks"
+  }
+ ],
+ "review": {
+  "R1": "no text, letters, numbers or signage lettering anywhere",
+  "R2": "nothing that reads as another game or franchise",
+  "R3": "no creature, animal or person unless the slot asks for one",
+  "R4": "sits in the scene: placeholder, candidate and in-game capture side by side"
+ }
+}

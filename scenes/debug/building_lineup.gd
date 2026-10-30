@@ -3,7 +3,9 @@ extends Node2D
 ## scenes/debug/building_lineup.tscn and press F6. Every building class in BuildingTemplate.CLASSES stands beside
 ## Codex's current picture for it, with a stage 1, 2 and 3 creature at each door (their town sets, as the town draws
 ## them), at scale 1.0 (top row) and 1.25 (bottom row), so the building scale (Preston's call 1) can be picked by eye
-## before Codex and Grok get their lists. The hall class is the Wayline Tower. Nothing here is saved or changes the game.
+## before Codex and Grok get their lists. The hall class is the Wayline Tower: in the 1.0 row the whole tower stands at
+## true scale (TowerParts.place, every part's slot, its life running, two waylines down to post height); the 1.25 row
+## shows only its depot stretched, since the parts are painted at 1.0. Nothing here is saved or changes the game.
 ##   Arrows or WASD: pan    Mouse wheel or + and -: zoom    1 or 2: the 1.0 or 1.25 row    0: everything
 ##   T: pan up the Tower at the town's 3x view    F: placeholders forced on or off (what an installed file replaces)
 
@@ -66,8 +68,7 @@ func _build() -> void:
 	_rows.clear()
 	var top := 0.0
 	for s in BT.SCALES:
-		var tallest: int = BT.geometry("hall", s)["canvas"].y
-		var baseline := top + tallest + 40.0
+		var baseline := top + _tallest(float(s)) + 40.0
 		_rows.append(_row(float(s), baseline))
 		top = baseline + ROW_GAP
 	_all = _rows[0]
@@ -79,12 +80,15 @@ func _build() -> void:
 ## One row at scale s, every class standing on `baseline`. Returns the row's bounds.
 func _row(s: float, baseline: float) -> Rect2:
 	var x := 0.0
-	var title_at := Vector2(0, baseline - BT.geometry("hall", s)["canvas"].y - 30)
+	var title_at := Vector2(0, baseline - _tallest(s) - 30)
 	for cls in BT.CLASSES:
 		var g := BT.geometry(cls, s)
 		var today := String(TODAY[cls])
 		if today != "":
 			x = _today(cls, today, x, baseline) + COL_GAP
+		if cls == BT.TOWER_CLASS and is_equal_approx(s, BT.BUILDING_SCALE):
+			x = _whole_tower(x, baseline) + COL_GAP
+			continue
 		var holder := Node2D.new()
 		var base: Vector2i = g["base"]
 		holder.position = Vector2(x + BT.EAVE, baseline - base.y * T)
@@ -100,9 +104,7 @@ func _row(s: float, baseline: float) -> Rect2:
 		if door.size.x > 0:
 			line2 += "\ndoor %dx%d, %s %dpx" % [door.size.x, door.size.y, g["pass_creature"], heights.get(String(g["pass_creature"]), 0)]
 		if cls == "hall":
-			line2 += "\n%.2f screens tall" % (size.y / 216.0)
-			if is_equal_approx(s, BT.BUILDING_SCALE):
-				_tower = {"door": Vector2(x, baseline - size.y) + Vector2(door.get_center()), "top": Vector2(x + BT.TOWER_TOP.x, baseline - size.y + BT._ty(BT.TOWER_TOP.y, size.y, s))}
+			line2 += "\nthe depot only, stretched (parts are painted at 1.0)"
 		var src := ""
 		if node != null and node.get_meta("slot", "") != "" and ArtSlots.has(String(node.get_meta("slot"))) and is_equal_approx(s, BT.BUILDING_SCALE):
 			src = "\n%s: %s" % [node.get_meta("slot"), ArtSlots.source(String(node.get_meta("slot")))]
@@ -118,6 +120,36 @@ func _row(s: float, baseline: float) -> Rect2:
 	return Rect2(Vector2(-COL_GAP, title_at.y - 10), Vector2(x + COL_GAP, baseline + 70 - title_at.y + 10))
 
 
+## The tallest thing standing in a row: the whole tower in the 1.0 row, else the tallest class canvas.
+func _tallest(s: float) -> float:
+	var h := 0
+	for cls in BT.CLASSES:
+		h = maxi(h, int(BT.geometry(cls, s)["canvas"].y))
+	if is_equal_approx(s, BT.BUILDING_SCALE):
+		h = maxi(h, BT.TOWER_FRAME.y)
+	return float(h)
+
+
+## The whole Wayline Tower at true scale with its frame's left edge at x, standing on `baseline`, the creatures at its
+## door, two waylines down to post height either side, and its label. Remembers the door and beacon for T's pan.
+## Returns the x after it.
+func _whole_tower(x: float, baseline: float) -> float:
+	var origin := Vector2(x, baseline - BT.TOWER_FRAME.y)
+	var lines := [{"sheave": 6, "to": Vector2(-36, 711), "sag": 40.0}, {"sheave": 0, "to": Vector2(468, 711), "sag": 40.0}]
+	var node := BT.TP.place(_world, origin, {"lines": lines})
+	node.z_index = 0
+	var door := Rect2(origin + Vector2(BT.TP.DOOR.position), Vector2(BT.TP.DOOR.size))
+	var heights := _creatures(door.get_center().x, baseline, BT.TP.DOOR.size.x, "galeshear")
+	_tower = {"door": door.get_center(), "top": origin + Vector2(BT.TOWER_BEACON)}
+	var src := ""
+	for id in [BT.TOWER_SLOT, "town.building.hall.drum", "town.building.hall.reach", "town.building.hall.lamp"]:
+		src += "\n%s: %s" % [id, ArtSlots.source(id)]
+	_label(Vector2(x, baseline + 8), "Wayline Tower (TowerParts, %d parts)\n%dx%d frame, %.2f screens tall; depot %dx%d\ndoor %dx%d, galeshear %dpx%s" % [
+		BT.TP.ids().size(), BT.TOWER_FRAME.x, BT.TOWER_FRAME.y, BT.TOWER_FRAME.y / 216.0, BT.TOWER_DEPOT.x, BT.TOWER_DEPOT.y,
+		BT.TP.DOOR.size.x, BT.TP.DOOR.size.y, heights.get("galeshear", 0), src])
+	return x + BT.TOWER_FRAME.x
+
+
 ## Codex's current picture for a class at x, with the creatures at its door. Returns the x after it.
 func _today(cls: String, id: String, x: float, baseline: float) -> float:
 	var spec := ArtSlots.spec("town.building." + id)
@@ -130,10 +162,15 @@ func _today(cls: String, id: String, x: float, baseline: float) -> float:
 	sprite.texture = tex
 	sprite.position = Vector2(x, baseline - tex.get_height())
 	_world.add_child(sprite)
+	# The legacy pictures belong to today's (v1) map, so read v1's place list directly. Layout.PLACES holds the
+	# shown v2 area instead when HT_HIGHBANK_V2=1 is set, and these ids are not in it.
 	var place: Dictionary = {}
-	for p in Layout.PLACES:
+	for p in Layout.Areas.V1.AREA["places"]:
 		if p["id"] == id:
 			place = p
+	if place.is_empty():
+		_label(Vector2(x, baseline + 8), "today: Codex's %s\n%dx%d\n(v1, no v1 place)" % [id, tex.get_width(), tex.get_height()])
+		return x + tex.get_width()
 	var r: Rect2i = place["rect"]
 	var tiles: Array = Layout.door_tiles(place)
 	var first: Vector2i = tiles[0]

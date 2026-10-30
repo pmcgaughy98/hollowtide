@@ -1,0 +1,176 @@
+{
+  "registry_sha256": "e88d4a4eea95e9698ca39bf5e4c26cc29be65526101234d1db4fb96399482c5c",
+  "date": "2026-10-27",
+  "batches": {
+    "cx-01-buildings": [
+      "town.building.home",
+      "town.building.shop",
+      "town.building.storage",
+      "town.building.scrolls"
+    ],
+    "cx-02-lots": [
+      "town.building.lot_before_stall",
+      "town.building.lot_before_shop",
+      "town.landmark.lot_before_plot"
+    ],
+    "cx-03-shop-room": [
+      "town.room.shop.floor",
+      "town.room.shop.north",
+      "town.room.shop.south",
+      "town.room.shop.west",
+      "town.room.shop.east"
+    ],
+    "cx-04-cellar": [
+      "town.room.scrolls_cellar.floor",
+      "town.room.scrolls_cellar.north",
+      "town.room.scrolls_cellar.south",
+      "town.room.scrolls_cellar.west",
+      "town.room.scrolls_cellar.east"
+    ],
+    "cx-05-room-fixes": [
+      "town.prop.chamber.rug",
+      "town.prop.chamber.window_wide",
+      "town.prop.runners.window",
+      "town.prop.runners.river_map"
+    ],
+    "cx-06-title": [
+      "title.backdrop.launch"
+    ],
+    "cx-07-story": [
+      "story.backdrop.dawn_bank",
+      "story.backdrop.river_below"
+    ],
+    "cx-08-stages": [
+      "ui.backdrop.stage_blight",
+      "ui.backdrop.stage_hollow",
+      "ui.backdrop.stage_ice",
+      "ui.backdrop.stage_loam",
+      "ui.backdrop.stage_murk",
+      "ui.backdrop.stage_sinew"
+    ],
+    "cx-09-road": [
+      "road.backdrop.sky",
+      "road.backdrop.far",
+      "road.backdrop.river",
+      "road.backdrop.mid",
+      "road.backdrop.near",
+      "road.ground.path"
+    ],
+    "cx-11-tower-key": [
+      "town.building.hall.key"
+    ],
+    "cx-12-tower-foot": [
+      "town.building.hall",
+      "town.building.hall.gable",
+      "town.building.hall.root_foot",
+      "town.building.hall.yard",
+      "town.prop.hall.rise_stair"
+    ],
+    "cx-13-tower-body": [
+      "town.building.hall.drum",
+      "town.building.hall.galleries",
+      "town.building.hall.hoist",
+      "town.building.hall.root_vein",
+      "town.building.hall.chute"
+    ],
+    "cx-14-tower-crown": [
+      "town.building.hall.reel_back",
+      "town.building.hall.ring_front",
+      "town.building.hall.reach",
+      "town.building.hall.lamp",
+      "town.building.hall.vane",
+      "town.building.hall.bell"
+    ],
+    "cx-15-title-highbank": [
+      "title.backdrop.highbank"
+    ],
+    "cx-10-road-far": [
+      "road.backdrop.highbank_far",
+      "road.backdrop.vista",
+      "story.backdrop.tower_sky"
+    ]
+  },
+  "instruction": "Candidate-only writes; review_sheet now authorized; no install. Native Python cleanup explicitly authorized by Preston. cx-09 cleared.",
+  "held": [
+    "town Tower parts at vast scale awaiting new exported contracts and Preston walk; existing candidates preserved"
+  ],
+  "superseded": [
+    "old300x576 town.building.hall candidate; excluded from delivery"
+  ],
+  "pending_export": [],
+  "tower_authorization": "Preston: approval go. Key approved and proceed to parts authorized. No install.",
+  "pending_review": [
+    "cx-12, cx-13, and cx-14 images; key approved; root revision brief approved, revised image answers pending"
+  ],
+  "next_batch": null,
+  "all_unheld_batches_prepared": false,
+  "all_unheld_work_complete": false,
+  "recorded_redo": [
+    "town.building.hall.root_foot",
+    "town.building.hall.root_vein"
+  ],
+  "next_work": "Claude fixes published title palette; then default checks rerun. Independent next art candidate: Punchybun/Sparkjab40x40dialogue faces from canonical refs, current candidate-only scope. Team backdrop old task is already wired to12slots; do not repaint it from stale queue wording. See ART_BACKLOG_2026-10-28.md.",
+  "redo_responses_submitted": {
+    "town.building.hall.root_foot": {
+      "sha256": "1224d0995c6233938b2e12dd6bf8794af974f43a87a694f38c72ffaf4e1d82fb",
+      "review_packet": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\root-redo-2026-10-27-r2\\root-redo-r2-review",
+      "answer": "pending"
+    },
+    "town.building.hall.root_vein": {
+      "sha256": "3ff1773191b3fe85f8c31cf5e4f737123b59b2d65e572e61fda88c134e76fb9f",
+      "review_packet": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\root-redo-2026-10-27-r2\\root-redo-r2-review",
+      "answer": "pending"
+    }
+  },
+  "contract_refresh_submissions": {
+    "title.backdrop.launch": {
+      "sha256": "0b9ad9a29ec1fcc164f1cd54a5dffbd28251d01addce84e7a54d6e077de7a36c",
+      "registry_sha256": "ee9c03563b1c2a8bd6adc2abe1df32d2d1a993bdcba109f1d7e9d2c5d060489c",
+      "review_packet": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\launch-road-refresh-2026-10-27\\launch-road-review",
+      "answer": "pending"
+    },
+    "road.backdrop.mid": {
+      "sha256": "ebc61432a1e46dfe33ce9886157c1580232a4f3c5795d4accb08c1e721207fad",
+      "registry_sha256": "ee9c03563b1c2a8bd6adc2abe1df32d2d1a993bdcba109f1d7e9d2c5d060489c",
+      "review_packet": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\launch-road-refresh-2026-10-27\\launch-road-review",
+      "answer": "pending"
+    }
+  },
+  "pass9_refresh_submissions": {
+    "town.building.hall.reach": {
+      "sha256": "8ae5af4206b94cb8cb0e995be4ba1526403a129f36ee95356638c2520a343622",
+      "registry_sha256": "ee9c03563b1c2a8bd6adc2abe1df32d2d1a993bdcba109f1d7e9d2c5d060489c",
+      "review_packet": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\pass9-reach-stair-2026-10-28\\pass9-reach-stair-review",
+      "answer": "pending"
+    },
+    "town.prop.hall.rise_stair": {
+      "sha256": "f0f6a911a92b46e37ea4003460447c1619fe4a343009b8d3daffe265b3f054d0",
+      "registry_sha256": "ee9c03563b1c2a8bd6adc2abe1df32d2d1a993bdcba109f1d7e9d2c5d060489c",
+      "review_packet": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\pass9-reach-stair-2026-10-28\\pass9-reach-stair-review",
+      "answer": "pending"
+    }
+  },
+  "vast_scale_authorization": "Preston: Claude redid Tower/title/cliff views and they are ready; current task list opens all3cx-10 and titleA redo2026-10-28.",
+  "cx10_delivery": {
+    "date": "2026-10-28",
+    "slots": [
+      "road.backdrop.highbank_far",
+      "road.backdrop.vista",
+      "story.backdrop.tower_sky"
+    ],
+    "registry_sha256": "e88d4a4eea95e9698ca39bf5e4c26cc29be65526101234d1db4fb96399482c5c",
+    "review": "pending",
+    "runtime_four_talks": "100%clear",
+    "installed": false
+  },
+  "title_layout_a_delivery": {
+    "date": "2026-10-28",
+    "candidate_sha256": "1568b36ba1764dbaa35540ebbebdcc3b64a27d8112916062cea5105da7be90a7",
+    "state": "source_palette_hold",
+    "shared_pass": false,
+    "source_palette_diagnostic_pass": true,
+    "review": "pending",
+    "installed": false
+  },
+  "art_backlog": "ART_BACKLOG_2026-10-28.md"
+}

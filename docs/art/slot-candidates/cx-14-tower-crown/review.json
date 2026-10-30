@@ -1,0 +1,24 @@
+{
+ "batch": "cx-14-tower-crown",
+ "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+ "slots": {
+  "town.building.hall.reel_back": {
+   "answer": "pending"
+  },
+  "town.building.hall.ring_front": {
+   "answer": "pending"
+  },
+  "town.building.hall.reach": {
+   "answer": "pending"
+  },
+  "town.building.hall.lamp": {
+   "answer": "pending"
+  },
+  "town.building.hall.vane": {
+   "answer": "pending"
+  },
+  "town.building.hall.bell": {
+   "answer": "pending"
+  }
+ }
+}

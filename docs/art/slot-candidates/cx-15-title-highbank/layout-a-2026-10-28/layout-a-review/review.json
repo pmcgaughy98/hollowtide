@@ -1,0 +1,12 @@
+{
+  "batch": "layout-a-review",
+  "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+  "slots": {
+    "title.backdrop.highbank": {
+      "answer": "pending",
+      "candidate_sha256": "1568b36ba1764dbaa35540ebbebdcc3b64a27d8112916062cea5105da7be90a7",
+      "source_batch": "cx-15-title-highbank",
+      "source_issue": "published palette34omits16protected colours; shared C5FAIL"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "raw_size": [
+    1293,
+    1217
+  ],
+  "native_size": [
+    204,
+    192
+  ],
+  "registration_shift_y": 6,
+  "resampling": "premultiplied BOX, alpha >=128",
+  "orphans_before": 1603,
+  "orphans_after": 2,
+  "changed_from_initial_snap": 1599,
+  "opaque_before": 26715,
+  "opaque_after": 26731,
+  "door_box": [
+    79,
+    142,
+    22,
+    48
+  ],
+  "door_colour": [
+    36,
+    26,
+    18
+  ],
+  "cleanup": "existing clean_slot.clear_orphans, keep=40; exact dark doorway; no shared tool changes",
+  "raw_sha256": "cd3715412c50cdf10a06ae45412ff4530b7d19b6c501454fdb4a063af713aaeb",
+  "registry_sha256": "2d9b461262c916bc1555519d5181ded20a2b692668e25e741ace2a69ec6a959e"
+}

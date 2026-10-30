@@ -1,0 +1,2 @@
+prepared town.room.shop.south: 336x24, 14 colours, 8064 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-03-shop-room\town.room.shop.south\prepared.png
+next: python tools/art/validate_slot.py town.room.shop.south C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-03-shop-room\town.room.shop.south\prepared.png

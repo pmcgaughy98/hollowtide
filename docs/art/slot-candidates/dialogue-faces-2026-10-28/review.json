@@ -1,0 +1,12 @@
+{
+  "batch": "dialogue-faces-2026-10-28",
+  "note": "Creature crop candidates, not ArtSlots. Awaiting Preston visual approval. No install authorized.",
+  "faces": {
+    "punchybun": {
+      "answer": "pending"
+    },
+    "sparkjab": {
+      "answer": "pending"
+    }
+  }
+}

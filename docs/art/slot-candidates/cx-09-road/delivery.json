@@ -1,0 +1,44 @@
+{
+  "batch": "cx-09-road",
+  "slots": [
+    "road.backdrop.sky",
+    "road.backdrop.far",
+    "road.backdrop.river",
+    "road.backdrop.mid",
+    "road.backdrop.near",
+    "road.ground.path"
+  ],
+  "check_lines": [
+    "road.backdrop.sky: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS",
+    "road.backdrop.far: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C6 PASS, C9 PASS",
+    "road.backdrop.river: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C6 PASS, C9 PASS",
+    "road.backdrop.mid: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C6 PASS, C9 PASS",
+    "road.backdrop.near: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C6 PASS, C9 PASS",
+    "road.ground.path: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C6 PASS, C9 PASS"
+  ],
+  "source_issues": [
+    "road.backdrop.sky: image_gen returned [1672, 941] raw; requested native [384, 216]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "road.backdrop.far: image_gen returned [2172, 724] raw; requested native [384, 88]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "road.backdrop.river: image_gen returned [1586, 992] raw; requested native [384, 24]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "road.backdrop.mid: image_gen returned [2172, 724] raw; requested native [384, 112]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "road.backdrop.near: image_gen returned [2172, 724] raw; requested native [384, 56]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "road.ground.path: image_gen returned [1942, 809] raw; requested native [192, 80]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "C6 measures RGB only. This delivery additionally checks exact RGBA endpoints for all five repeating strips and the foreground12-row alpha clearance (semantic-checks.json).",
+    "Static art-only layer layout uses the current place_at positions; it is not an in-game capture, omits held far-town/Tower art, scene haze, props and actors.",
+    "Generated opaque-black river padding and translucent hill holes were corrected in native inputs; raw originals and first-layout attempts retained.",
+    "In-game capture absent: no candidate installed or runtime wiring changed; R4 remains pending Preston/Claude review."
+  ],
+  "installed": false,
+  "tower_status": "Preston says new Tower ready; Claude still exporting slot contracts. Do not reuse old Tower slot dimensions.",
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "latest_check": "candidate-only real export, freshness guard enabled",
+  "LATEST_REVISION": {
+    "slot": "road.backdrop.mid",
+    "revision": "launch-road-refresh-2026-10-27",
+    "registry_sha256": "ee9c03563b1c2a8bd6adc2abe1df32d2d1a993bdcba109f1d7e9d2c5d060489c",
+    "check_line": "road.backdrop.mid: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C6 PASS, C9 PASS",
+    "prepared_sha256": "ebc61432a1e46dfe33ce9886157c1580232a4f3c5795d4accb08c1e721207fad",
+    "review_packet": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\launch-road-refresh-2026-10-27\\launch-road-review",
+    "answer": "pending"
+  }
+}

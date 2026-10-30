@@ -1,0 +1,34 @@
+{
+  "town.building.hall.root_foot": {
+    "protected_outside_elbow_exact": true,
+    "west_bark_rows": [
+      72,
+      110
+    ],
+    "join_frame": [
+      90,
+      610
+    ],
+    "size": [
+      96,
+      120
+    ]
+  },
+  "town.building.hall.root_vein": {
+    "same_occupied_rows_and_run_breaks": true,
+    "shoulders_max_horizontal_expansion_px": 6,
+    "slot_frame_x": [
+      80,
+      139
+    ],
+    "nearest_window_x": 144,
+    "size": [
+      60,
+      296
+    ],
+    "restored_rows": [
+      208,
+      209
+    ]
+  }
+}

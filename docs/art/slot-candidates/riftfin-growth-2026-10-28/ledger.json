@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-28",
+  "task": "H9-44 / LO6-23 Riftfin growth still",
+  "tool": "image_gen.imagegen (built-in)",
+  "intent": "current-design identity-preserving showcase still",
+  "references": [
+    "assets/sprites/arena/riftfin/s.png",
+    "assets/sprites/arena/riftfin/sw.png",
+    "assets/sprites/creatures/idle_2026_10_05/001_rimefin/f0.png"
+  ],
+  "reference_roles": [
+    "primary identity and colours",
+    "supporting same-creature view",
+    "finish, framing and scale only, not anatomy"
+  ],
+  "cost": null,
+  "cost_note": "Built-in imagegen did not expose monetary/credit cost; no external generator called.",
+  "source_generated_path": "C:/Users/pmcga/.codex/generated_images/01a12b4b-7982-7b32-b405-2a584762f412/exec-00356d3a-62e4-4035-90fe-85b24ff15166.png",
+  "raw_untouched": true,
+  "native_size": [
+    224,
+    224
+  ],
+  "preparation": "prepare_candidate.py; premultiplied BOX resize, hard alpha, current Riftfin sw palette",
+  "pixel_cleanup_authorization": "Preston explicitly authorized Python cleanup earlier in this conversation",
+  "frames": 1,
+  "animation": false,
+  "approval": "pending",
+  "installed": false,
+  "hashes": {
+    "raw.png": "0bfe725b6f66a1caba809364063d0e119a3bc79da2d24e8ce6aa770fb1aed029",
+    "prompt.txt": "ac56ea12731bfb6252694869ffe1079a8a900a1d060f1522403bdb7152efd991",
+    "prepared.png": "2fae6a58c7d51ee2630ef47ff967d0d24f4204a647e3631ada0644cc135e83b2",
+    "riftfin/f0.png": "2fae6a58c7d51ee2630ef47ff967d0d24f4204a647e3631ada0644cc135e83b2",
+    "checks.json": "ba3becd3ee3d17124f99bb6d4676f623a114bab1a669ecaccfa9d13ad1e924d2",
+    "runtime-check.json": "199328a727cee4977e151d18718291e4d19bd29dc5037d6fc7d6703a7cfd1730",
+    "candidate-intro.png": "5ba0c935753a92365cc622ff75c28bd0fd170e7bd9faf2123c7db90b907d8b80",
+    "candidate-reveal.png": "32409c9c3e13b51cd0be5d5266a4341a81dc3dc789856208f8d69147a4e17b0c",
+    "current-fallback.png": "79f15bf487a62a5522551fdf48cb9f7c3656e4ae6766d4252387533eb5034e07"
+  }
+}

@@ -278,6 +278,9 @@ def main() -> int:
     ap.add_argument("--import", dest="do_import", action="store_true", help="run 'godot --headless --import' once first (fresh clones, CI)")
     ap.add_argument("--logs", default="", help="folder for the logs (default: a new temp folder)")
     ap.add_argument("--md", default="", help="also write the table to this markdown file")
+    # Typed by habit from the rule "run checks with --fixed-fps 30"; every lane of pass 9 had it refused. Accepted, and
+    # only as 30: the runner always passes --fixed-fps 30 to Godot itself (run_one), whatever is typed here.
+    ap.add_argument("--fixed-fps", type=int, default=30, choices=[30], help="accepted for the rule's sake; always 30")
     a = ap.parse_args()
 
     godot = find_godot(a.godot)

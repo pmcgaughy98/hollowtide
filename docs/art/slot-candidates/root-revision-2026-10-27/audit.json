@@ -1,0 +1,100 @@
+{
+  "date_utc": "2026-10-27T21:51:23.729768+00:00",
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "slots": [
+    {
+      "batch": "cx-12-tower-foot",
+      "slot": "town.building.hall.root_foot",
+      "check_line": "town.building.hall.root_foot: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C12 PASS",
+      "prepared_sha256": "c6e94f29b0dc9bd904aee9cb7792b8f5b4518043e449123c5446034546b3aaef",
+      "raw_sha256": "aa287d0e02067d077bc04a0e11f9a6c0935a135d6ff6a3b78f356919778caad0",
+      "semantic": {
+        "west_woody_entry_rows": [
+          72,
+          110
+        ],
+        "west_woody_cross_section_px": 39,
+        "west_turf_rows": [
+          111,
+          119
+        ],
+        "upper_join_and_secondary_leg_rgba_exact": true,
+        "protected_region": "all pixels outside x0..55,y52..119",
+        "footing_stone_removed": "visual review",
+        "baseline": 119,
+        "old_reference_mask_intentionally_revised": true
+      },
+      "archived_previous_candidate": "cx-12-tower-foot\\town.building.hall.root_foot\\before-great-tree-2026-10-27"
+    },
+    {
+      "batch": "cx-13-tower-body",
+      "slot": "town.building.hall.root_vein",
+      "check_line": "town.building.hall.root_vein: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+      "prepared_sha256": "4c894164ae49ad1b9dff52b9f870b7d297744eb5db78af94d80f513dd72eedae",
+      "raw_sha256": "689a0e0aec191ee2cd0237b7679ec130cfccbc20d12e71ba277b7056a3631d43",
+      "semantic": {
+        "alpha_mask_exact": true,
+        "root_run_intervals": [
+          [
+            6,
+            66
+          ],
+          [
+            79,
+            198
+          ],
+          [
+            204,
+            292
+          ]
+        ],
+        "no_new_opaque_window_coverage": true,
+        "masonry_lips_both_edges": "visual review",
+        "stone_overhang_bands": [
+          [
+            64,
+            66
+          ],
+          [
+            196,
+            198
+          ],
+          [
+            290,
+            292
+          ]
+        ]
+      },
+      "archived_previous_candidate": "cx-13-tower-body\\town.building.hall.root_vein\\before-great-tree-2026-10-27"
+    }
+  ],
+  "other_eight_prepared_images_exact": [
+    "docs\\art\\slot-candidates\\cx-12-tower-foot\\town.building.hall\\prepared.png",
+    "docs\\art\\slot-candidates\\cx-12-tower-foot\\town.building.hall.gable\\prepared.png",
+    "docs\\art\\slot-candidates\\cx-12-tower-foot\\town.building.hall.yard\\prepared.png",
+    "docs\\art\\slot-candidates\\cx-12-tower-foot\\town.prop.hall.rise_stair\\prepared.png",
+    "docs\\art\\slot-candidates\\cx-13-tower-body\\town.building.hall.chute\\prepared.png",
+    "docs\\art\\slot-candidates\\cx-13-tower-body\\town.building.hall.drum\\prepared.png",
+    "docs\\art\\slot-candidates\\cx-13-tower-body\\town.building.hall.galleries\\prepared.png",
+    "docs\\art\\slot-candidates\\cx-13-tower-body\\town.building.hall.hoist\\prepared.png"
+  ],
+  "installed": false,
+  "source_issues": [
+    "The user approved the two-root note; the full great-tree map/dungeon/road proposal and new slots were not built in this slice.",
+    "The registry still describes a footing stone and protruding root. Its geometry/check contract remains valid; the approved note overrides those art details. Claude should reconcile the brief/reference text. No registry edits were made.",
+    "The shared export was refreshed externally during this slice and is now current at registry 235abb6156b1. Both root contracts match the preparation snapshot. Final validation and both review sheets ran through the default unchanged tools; no snapshot override needed.",
+    "The first foot edit still had a thin arriving stem; the second edit was blocked by the image tool. Native pixel cleanup of the first successful edit widened its actual bark and added a near-side turf lip. Failed-tool receipt preserved.",
+    "Foot upper join and secondary leg are byte-exact outside x0..55,y52..119. The new west woody cross-section is 39px (y72..110), followed by turf through the unchanged foot row119.",
+    "The vein alpha mask is exact, with all three run breaks and window coverage unchanged. Stone lips/overhangs are painted inside that mask. Its recessed appearance needs Preston's visual review.",
+    "Earlier per-batch builders predate this override and would remask the foot incorrectly. Use the saved revision builder/native inputs; REVISION_OVERRIDE.json marks both slots.",
+    "Static assembly only; no capture.png or runtime Finish-shader/seam approval. No installation. Both revised image answers remain pending; approval to revise was not recorded as approval of unseen new images."
+  ],
+  "protected_registry_code_files_changed": [],
+  "shared_export_refreshed_externally": {
+    "path": "docs/design/placeholder-factory-2026-10-26/slots.json",
+    "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+    "root_contracts_match_candidate_snapshot": true
+  },
+  "final_tools": "Default, unchanged validate_slot.py and review_sheet.py; no candidate snapshot redirection for final checks.",
+  "static_assembly": "Rebuilt from transparent canvas and individual parts; coded effects omitted."
+}

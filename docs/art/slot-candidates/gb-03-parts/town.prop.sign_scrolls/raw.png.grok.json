@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.sign_scrolls_card.png",
+ "out": "docs/art/slot-candidates/gb-03-parts/town.prop.sign_scrolls/raw.png",
+ "cost_usd": 0.08679384,
+ "turns": 7,
+ "text": "I'll read the game style reference first, then generate the sign once and save it as `raw.png`.The reference is chunky pixel wood: walnut and golden-tan planks, dark outlines, cream highlights, light from the upper left. I'll generate the hanging plank sign once in that look.The generator wrote a JPEG. I'll convert it to `raw.png` in this folder and check the result so I don't guess.Saved at `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_e6_ofmjv\\raw.png`. It shows one walnut hanging plank with rope loops and a carved rolled-scroll pictogram on a magenta field. The background is not pure #FF00FF (a corner pixel reads about 241, 13, 212 because the generator wrote a JPEG), the angle is closer to a front three-quarter than top-down, the sign does not fill the frame, and the scroll carving has",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_e6_ofmjv"
+}

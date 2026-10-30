@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.hall.parcel_card.png",
+ "out": "docs/art/slot-candidates/gb-08-tower/town.prop.hall.parcel/raw_paper.png",
+ "cost_usd": 0.0763164,
+ "turns": 5,
+ "text": "I'll read the style reference first, then generate the brown-paper parcel once and save it as `raw_paper.png`.The style reference is a small pixel-art sheet: three-quarter crates and parcels, flat earth colours, light from the upper left, and a warm tan paper parcel with a twine band. I'll generate that paper parcel once on pure magenta.The generator saved a JPEG. I'll convert it to PNG in this folder and check size and background colour so I don't guess whether the file matches.`C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_kjc1wbrw\\raw_paper.png` is a 1152\u00d7864 still whose main colour masses are a dusty magenta field around RGB(239, 20, 166) and a tan paper mass around RGB(214, 182, 144). The pure `#FF00FF` background failed (zero exact magenta pixels) and the flat pixel-art limit failed (",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_kjc1wbrw"
+}

@@ -1,0 +1,2 @@
+prepared town.building.hall.root_vein: 60x296, 25 colours, 5137 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-13-tower-body\town.building.hall.root_vein\prepared-from-raw.png
+next: python tools/art/validate_slot.py town.building.hall.root_vein C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-13-tower-body\town.building.hall.root_vein\prepared-from-raw.png

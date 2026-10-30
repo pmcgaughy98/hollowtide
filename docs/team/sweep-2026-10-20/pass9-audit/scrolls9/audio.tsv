@@ -1,0 +1,7 @@
+frame	scene	action	since	stream	bus	db
+2	creature_opening.tscn	start	2	music/title.mp3	Music	-6.0
+90	creature_opening.tscn	ui_accept(Enter)	1	sfx/ui/confirm.wav	UI	-6.0
+429	hub_town.tscn	ui_accept(Enter)	340	music/highbank.mp3	Music	-39.1
+570	hub_town.tscn	step (1, 0)	3	music/wayline_hall.mp3	Music	-39.1
+640	hub_town.tscn	interact(E)	18	music/highbank.mp3	Music	-39.1
+653	hub_town.tscn	cancel(Esc)	2	sfx/dungeon/menu_close.wav	UI	-8.0

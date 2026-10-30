@@ -1,0 +1,2 @@
+prepared title.backdrop.launch: 384x216, 8 colours, 82944 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-06-title\title.backdrop.launch\prepared.png
+next: python tools/art/validate_slot.py title.backdrop.launch C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-06-title\title.backdrop.launch\prepared.png

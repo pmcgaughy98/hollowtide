@@ -1,0 +1,20 @@
+[
+  {
+    "sid": "title.backdrop.launch",
+    "transparent": false,
+    "refs": [
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/launch-road-refresh-2026-10-27/title.backdrop.launch/input-before.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/launch-road-refresh-2026-10-27/title.backdrop.launch/references/target.png"
+    ],
+    "prompt": "Use case: lighting-weather. Edit target is image 1, an existing Hollowtide pixel-art night river-valley launch backdrop. Image 2 is the updated night-color reference. Deliver exactly 384 x 216 opaque pixels, full canvas. Keep the river, forest banks, low hill silhouettes and the existing calm composition. Change only the night color mood so the main dark sky is #18172c, with subdued purple-blue shadow bands and muted dark-green riverbanks and blue river. No bright dawn, no new objects, no stars, no text, creatures, tower or logo. Crisp native pixel art, calm connected color clusters, at most48 colors, no dithering, grain, speckles or gradients. The launch text is placed separately over this quiet image."
+  },
+  {
+    "sid": "road.backdrop.mid",
+    "transparent": true,
+    "refs": [
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/launch-road-refresh-2026-10-27/road.backdrop.mid/input-before.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/launch-road-refresh-2026-10-27/road.backdrop.mid/references/target.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Image 1 is the existing painted Hollowtide woodland mid-layer style, image 2 is the NEW exact composition target. Repaint the layer to the NEW target layout: only TWO weeping willows, both entirely grouped within x60 through226 of a 384x112 canvas. Left willow crown x60..139, right willow crown x151..225; trunks descend to ground at y109. Keep long hanging willow strands, mossy roots, snapped branch in one fork, small driftwood and reed tangles. A continuous very low grass/debris fringe across the bottom y105..111. Everything outside the willow group must be EMPTY TRANSPARENT above row52, especially x228..383 and x0..58, which is the view corridor for a separate distant Tower. Do NOT paint the Tower. Truly transparent background, no sky or landscape fill. Side-on parallax game art, not isometric. Exact384x112 pixel canvas, two trees fitting full height with a little clear space above. Muted olive sage and dark riverbank greens, warm brown trunks, upper-left light,32 colors, crisp pixel clusters, no texture noise, blur, text, people or creatures. Grass edges at x0 and383 must tile seamlessly."
+  }
+]

@@ -1,0 +1,104 @@
+{
+  "alpha": "binary",
+  "anchor": [
+    150,
+    191
+  ],
+  "anchor_mode": "foot",
+  "anchors": {
+    "apex": [
+      117,
+      -527
+    ],
+    "beacon": [
+      150,
+      -410
+    ],
+    "door_mid": [
+      150,
+      158
+    ]
+  },
+  "area": "town",
+  "brief": "The Wayline Tower's depot, the door part (read TOWER_DESIGN.md and the key, town.building.hall.key, first): the wide ground storey the tower stands on. Its roof deck seen from above (mostly under the drum) with a skylight, crates, an oilcloth stack and the mess chimney; a parapet lip; a limestone and loess-brick front on a boulder footing; the runners' porch on the left under a moss awning (satchel hooks, one empty, a bench, a round window); the First Post, an old relay stone worn pale by partners' hands, in the left jamb; the grand arch with its three-route fan-light and the 48 x 64 double door; and on the right the loading bay under its canopy, a chute bin, a burrow hatch and high-water cuts. Lit from the upper left, wayline_tower palette, no outer outline.",
+  "building_class": "hall",
+  "census": "B01",
+  "checks": [
+    "C1",
+    "C10",
+    "C11",
+    "C12",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C7",
+    "C8",
+    "C9"
+  ],
+  "door_px": [
+    126,
+    126,
+    48,
+    64
+  ],
+  "drawn_at": 3,
+  "edges": "all",
+  "file": "res://assets/slots/town/building/hall.png",
+  "forbid": [
+    "text",
+    "creature",
+    "franchise"
+  ],
+  "frame_at": [
+    66,
+    528
+  ],
+  "frames": 1,
+  "id": "town.building.hall",
+  "kind": "building",
+  "lane": "B",
+  "legacy": "",
+  "legacy_misfit": true,
+  "legacy_v1": "res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png",
+  "legacy_v1_size": [
+    240,
+    144
+  ],
+  "light": "upper_left",
+  "notes": "2026-10-27 approved tower (Reach and Waiting Lamp, defaults): this row is now the 300 x 192 depot at frame (66, 528) of the 432 x 720 tower; the other parts are scripts/art/slots/town_tower.gd. The 300 x 576 single-picture tower and Codex's cx-01 hall candidate (and the old 240 x 144 Hall) are superseded. beacon and apex are in the depot's px, above its top (negative y), so the reveal finds the lamp. Base 12x3 and doors kept; door 48 wide so Galeshear (63 px wide) passes C11; open frames come from door_px; legacy_v1 is still the v1 picture.",
+  "optional_states": {
+    "open": [
+      3,
+      12
+    ]
+  },
+  "outline": "runtime_rim",
+  "owner": "codex",
+  "palette": {
+    "family": "wayline_tower",
+    "lock": true,
+    "max": 32,
+    "source": "res://assets/slots/palettes/wayline_tower.png"
+  },
+  "pass_creature": "galeshear",
+  "placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+  "rows": 1,
+  "sheet_size": [
+    300,
+    192
+  ],
+  "size": [
+    300,
+    192
+  ],
+  "slot_file": "town_buildings",
+  "states": {
+    "closed": [
+      1,
+      0
+    ]
+  },
+  "status": "placeholder",
+  "tiling": "none"
+}

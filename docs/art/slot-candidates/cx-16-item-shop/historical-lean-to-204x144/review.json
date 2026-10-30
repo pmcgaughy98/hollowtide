@@ -1,0 +1,9 @@
+{
+ "batch": "cx-16-item-shop",
+ "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+ "slots": {
+  "town.building.shop": {
+   "answer": "pending"
+  }
+ }
+}

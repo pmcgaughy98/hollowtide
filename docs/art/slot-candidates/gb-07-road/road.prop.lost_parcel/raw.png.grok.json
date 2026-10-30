@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/road.prop.lost_parcel_card.png",
+ "out": "docs/art/slot-candidates/gb-07-road/road.prop.lost_parcel/raw.png",
+ "cost_usd": 0.05935312,
+ "turns": 4,
+ "text": "I'll read the style reference and the Imagine skill first, then generate the parcel once and save it as `raw.png`.The reference is chunky three-quarter pixel art: warm browns and tans, beige paper, a muted teal accent, hard clusters, light from the upper left. I'll generate the parcel once in that palette.The generator saved a JPEG. I'll convert it to `raw.png` in this folder without a second generation.Saved to `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_1_w6zi9e\\raw.png`. It was generated once as a single paper-wrapped parcel tipped on a corner, bottom third in wet mud, twine dark with river water, in three-quarter pixel art on pure magenta (#FF00FF). The generator cannot take the style reference as an input, so the warm brown, tan, beige, and muted teal palette was described in the pr",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_1_w6zi9e"
+}

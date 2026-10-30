@@ -1,0 +1,23 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-27",
+  "cost": "not exposed; no paid alternative called",
+  "raw_is_untouched": true,
+  "raw_sha256": "79a4785ce8b44c84d9d5367a4f19ea58eccc89cf825129589b018c0fef99726e",
+  "raw_dimensions": [
+    1672,
+    941
+  ],
+  "target_dimensions": [
+    448,
+    252
+  ],
+  "references": [
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\placeholder-factory-2026-10-26\\refs\\ui.backdrop.stage_hollow.png",
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\placeholder-factory-2026-10-26\\refs\\ui.backdrop.stage_hollow_grid.png",
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\placeholder-factory-2026-10-26\\refs\\ui.backdrop.stage_hollow_card.png"
+  ],
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-75ec18fe-bdea-4141-9ed4-4443cf6b1fc0.png",
+  "registry_sha256": "cb33c871f11f80980785e47e73ece64acf9e85ff607dc083c7a18639031a0434",
+  "pixel_cleanup": "Explicitly authorized by Preston, 2026-10-27. Raw untouched; native_input.png supplies repaired exact-size art to unchanged prepare_slot."
+}

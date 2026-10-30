@@ -1,0 +1,33 @@
+{
+  "alpha_mask_exact": true,
+  "root_run_intervals": [
+    [
+      6,
+      66
+    ],
+    [
+      79,
+      198
+    ],
+    [
+      204,
+      292
+    ]
+  ],
+  "no_new_opaque_window_coverage": true,
+  "masonry_lips_both_edges": "visual review",
+  "stone_overhang_bands": [
+    [
+      64,
+      66
+    ],
+    [
+      196,
+      198
+    ],
+    [
+      290,
+      292
+    ]
+  ]
+}

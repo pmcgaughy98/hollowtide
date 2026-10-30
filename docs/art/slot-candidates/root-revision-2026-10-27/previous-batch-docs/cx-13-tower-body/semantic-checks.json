@@ -1,0 +1,56 @@
+{
+  "all_five_alpha_masks_exact": true,
+  "hoist_changed_pixels": 16,
+  "hoist_difference_bbox": [
+    77,
+    19,
+    83,
+    25
+  ],
+  "hoist_outside_sheave_exact": true,
+  "hoist_rope_entry_local": [
+    81,
+    28
+  ],
+  "hoist_rope_entry_frame": [
+    385,
+    488
+  ],
+  "root_run_row_intervals": [
+    [
+      6,
+      66
+    ],
+    [
+      79,
+      198
+    ],
+    [
+      204,
+      292
+    ]
+  ],
+  "chute_mouth_local": [
+    18,
+    8
+  ],
+  "chute_spout_local": [
+    78,
+    276
+  ],
+  "chute_mouth_frame": [
+    262,
+    344
+  ],
+  "chute_spout_frame": [
+    322,
+    612
+  ],
+  "visual_feature_review": {
+    "drum_windows": 3,
+    "drum_cubbies": "6 columns x 3 rows, empty at row0/col4 and row2/col1",
+    "gallery_windows": "2-1-2",
+    "flyer_landing_boards": 2
+  },
+  "in_game_verified": false
+}

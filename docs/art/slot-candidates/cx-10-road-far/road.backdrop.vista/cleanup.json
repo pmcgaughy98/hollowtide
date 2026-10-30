@@ -1,0 +1,30 @@
+{
+  "authorization": "Preston explicit Python pixel cleanup",
+  "raw_untouched": true,
+  "registry_sha256": "e88d4a4eea95e9698ca39bf5e4c26cc29be65526101234d1db4fb96399482c5c",
+  "size": [
+    384,
+    216
+  ],
+  "side_colour_joins": 4748,
+  "user_side_tree_revision": true,
+  "framing_bands_native": [
+    [
+      0,
+      103
+    ],
+    [
+      301,
+      383
+    ]
+  ],
+  "native_centre_columns104_300_exact_to_common_baseline": true,
+  "source_centre_columns450_1309_exact": true,
+  "lamp_windows": "five declared house anchors dark/unlit; runtime owns lighting",
+  "beacon": [
+    286,
+    11
+  ],
+  "wayline": "Original central cable preserved per user side-only request; east/west source contradiction left for Claude.",
+  "colour_joins": 0
+}

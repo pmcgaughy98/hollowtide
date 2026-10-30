@@ -1,0 +1,29 @@
+[
+  {
+    "tool": "prepare_slot.py",
+    "command": [
+      "C:\\Users\\pmcga\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "C:\\Users\\pmcga\\dev\\hollowtide\\tools\\art\\prepare_slot.py",
+      "town.building.hall.key",
+      "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\cx-11-tower-key\\town.building.hall.key\\raw.png",
+      "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\cx-11-tower-key\\town.building.hall.key\\prepared.png"
+    ],
+    "exit": 2,
+    "stdout": "",
+    "stderr": "refused: 'no slot named town.building.hall.key'\n"
+  },
+  {
+    "tool": "validate_slot.py",
+    "command": [
+      "C:\\Users\\pmcga\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "C:\\Users\\pmcga\\dev\\hollowtide\\tools\\art\\validate_slot.py",
+      "town.building.hall.key",
+      "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\cx-11-tower-key\\town.building.hall.key\\key-native.png"
+    ],
+    "exit": 2,
+    "stdout": "",
+    "stderr": "refused: 'no slot named town.building.hall.key'\n"
+  }
+]

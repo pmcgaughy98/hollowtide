@@ -1,0 +1,21 @@
+E182_rise_parts_01.png: 0 moving cells, boxes 
+E183_rise_parts_02.png: 0 moving cells, boxes 
+E184_rise_parts_03.png: 0 moving cells, boxes 
+E185_rise_parts_04.png: 100 moving cells, boxes (528,448)-(624,568)x100
+E186_rise_parts_05.png: 0 moving cells, boxes 
+E187_rise_parts_06.png: 0 moving cells, boxes 
+E188_rise_parts_07.png: 92 moving cells, boxes (752,464)-(832,576)x92
+E189_rise_parts_08.png: 0 moving cells, boxes 
+E190_rise_parts_09.png: 0 moving cells, boxes 
+E191_rise_parts_10.png: 0 moving cells, boxes 
+E192_rise_parts_11.png: 0 moving cells, boxes 
+E193_rise_parts_12.png: 0 moving cells, boxes 
+E194_rise_parts_13.png: 100 moving cells, boxes (528,448)-(624,568)x100
+E195_rise_parts_14.png: 0 moving cells, boxes 
+E196_rise_parts_15.png: 92 moving cells, boxes (752,464)-(832,576)x92
+E197_rise_parts_16.png: 0 moving cells, boxes 
+E198_rise_parts_17.png: 0 moving cells, boxes 
+E199_rise_parts_18.png: 0 moving cells, boxes 
+E200_rise_parts_19.png: 0 moving cells, boxes 
+19 pairs, 0 camera moves skipped, 19 compared
+sheet docs/team/sweep-2026-10-20/pass9-rooms/shots/tower_rise_motion.png

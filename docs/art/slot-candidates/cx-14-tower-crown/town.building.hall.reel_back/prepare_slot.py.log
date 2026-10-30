@@ -1,0 +1,2 @@
+prepared town.building.hall.reel_back: 225x93, 27 colours, 12548 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-14-tower-crown\town.building.hall.reel_back\prepared.png
+next: python tools/art/validate_slot.py town.building.hall.reel_back C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-14-tower-crown\town.building.hall.reel_back\prepared.png

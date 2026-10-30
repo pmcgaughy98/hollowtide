@@ -1,0 +1,41 @@
+{
+  "form": "sparkjab",
+  "source": "assets/sprites/arena/sparkjab/sw.png",
+  "source_sha256": "dd0086b011b8852986f4810c8b34022892ac0d18d7c48bb0800f77660d3f9688",
+  "source_dimensions": [
+    144,
+    144
+  ],
+  "HEAD": [
+    0.22,
+    0.0,
+    0.35
+  ],
+  "crop_size": [
+    36,
+    36
+  ],
+  "output_dimensions": [
+    40,
+    40
+  ],
+  "colours": 15,
+  "alpha_binary": true,
+  "palette_subset_of_source_crop": true,
+  "opaque_bounds": [
+    1,
+    0,
+    40,
+    40
+  ],
+  "prepared_sha256": "11472af7a42b5aa3281ad0668391a1734889437d729db18e2f610b701d58119b",
+  "tool": "existing auto_cut + downscale.resample, no generation",
+  "cost": 0,
+  "installed": false,
+  "approval": "pending",
+  "FACE_AT_proposal": [
+    21,
+    21
+  ],
+  "small_opaque_coverage": 0.9930555555555556
+}

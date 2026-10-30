@@ -42,6 +42,7 @@ const POND := Vector2i(13, 4)   # the pond in tiles, centred one row below the s
 const LAND_ROW := 9            # the Warden lands this many tiles below the stairs, clear of the shore: its back reaches about three tiles up (Preston: its rear touched the water; 2026-10-11 the pond grew, and he wants it and its Listeners to land on dry ground)
 const KNOCK_ROWS := 6          # the burst throws the team this far back from the shore, past where the Warden lands
 const FIREFLIES := 14
+const FIREFLY_OUT := 0.11   # seconds between fireflies going out (the Mouth's eyes scene)
 
 
 ## Lay out the room for the scene: the Warden and its Listeners hidden until they appear.
@@ -881,7 +882,7 @@ static func draw_floor(dg, c: CanvasItem) -> void:
 				var q := (p - dir * float(i)).round()
 				c.draw_rect(Rect2(q, Vector2(2 if i < 3 else 1, 1)), Color(0.04, 0.12, 0.16, 0.55))
 	# Slow rings from the lily pads, faint; a strong one when something stirs.
-	for k in 3:
+	for k in (0 if dg.intro.get("still", false) else 3):   # "still": the pond holds its breath (the Mouth's eyes, 2026-10-28)
 		var idle := fmod(now + k * 1.1, 3.3) / 3.3
 		var at := pc + Vector2(-60 + k * 55, -8 + 9 * k)
 		_ellipse(c, at, 3.0 + idle * 18.0, Color(0.75, 0.88, 0.95, 0.3 * (1.0 - idle)))
@@ -897,6 +898,12 @@ static func draw_floor(dg, c: CanvasItem) -> void:
 		c.draw_circle(Vector2.ZERO, w, Color(0.02, 0.05, 0.08, 0.35 + 0.4 * s))
 		c.draw_circle(Vector2.ZERO, w * 0.6, Color(0.0, 0.02, 0.04, 0.35 * s))
 		c.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+		# Two eyes open in the shadow after the team leaves the Mouth (dungeon._garden_eyes): "eyes" is how open,
+		# "narrow" how hard they glare.
+		var open: float = dg.intro.get("eyes", 0.0)
+		if open > 0.0:
+			for side in [-1, 1]:
+				_eye(c, (pc + Vector2(EYE_GAP * side, -2)).round(), side, open, dg.intro.get("narrow", 0.0))
 	var gd: Dictionary = dg.intro.get("ground", {})
 	if not gd.is_empty():
 		var k: float = gd["k"]
@@ -904,6 +911,27 @@ static func draw_floor(dg, c: CanvasItem) -> void:
 		c.draw_circle(Vector2.ZERO, 10.0 + 40.0 * k, Color(0, 0, 0, 0.15 + 0.4 * k))
 		c.draw_circle(Vector2.ZERO, 6.0 + 24.0 * k, Color(0, 0, 0, 0.2 * k))
 		c.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+
+## One of the Warden's eyes under the water, centred on `at`: a lens EYE_W pixels wide, its top edge dropping toward
+## the other eye (a glare), a hot core and a dark slit. `side` is -1 for the left eye. Pixel columns, no smoothing.
+const EYE_W := 9
+const EYE_GAP := 13      # pixels from the shadow's middle to each eye's middle
+static func _eye(c: CanvasItem, at: Vector2, side: int, open: float, narrow: float) -> void:
+	var half := 2.6 * open * (1.0 - 0.5 * narrow)
+	c.draw_rect(Rect2(at + Vector2(-EYE_W / 2 - 1, -roundf(half) - 1), Vector2(EYE_W + 2, roundf(half) * 2.0 + 3.0)), Color(1.0, 0.45, 0.1, 0.22 * open))
+	for i in EYE_W:
+		var u := (float(i) + 0.5) / EYE_W
+		var inner: float = u if side < 0 else 1.0 - u   # 1 at the side nearest the other eye
+		var reach := roundf(half * sin(PI * u))
+		var top := -reach + roundf((1.0 + 2.0 * narrow) * inner * open)
+		if top > reach:
+			continue
+		var x := at.x - EYE_W / 2 + i
+		var hot := absf(u - 0.5) < 0.3
+		c.draw_rect(Rect2(Vector2(x, at.y + top), Vector2(1, reach - top + 1)), Color(1.0, 0.97, 0.7, open) if hot else Color(1.0, 0.72, 0.22, open))
+		if i == EYE_W / 2:
+			c.draw_rect(Rect2(Vector2(x, at.y + top), Vector2(1, reach - top + 1)), Color(0.16, 0.03, 0.0, open))   # the slit
 
 
 static func _ellipse(c: CanvasItem, at: Vector2, rx: float, col: Color) -> void:
@@ -919,10 +947,15 @@ static func draw_over(dg, c: CanvasItem) -> void:
 	if dg.pond.size != Vector2i.ZERO and not dg.intro.has("burst_at"):
 		var g := garden_rect(dg)
 		var gr := Rect2(Vector2(g.position * dg.T), Vector2(g.size * dg.T))
+		var out_t: float = (Time.get_ticks_msec() - int(dg.intro["lights_out_at"])) / 1000.0 if dg.intro.has("lights_out_at") else -1.0
 		for k in FIREFLIES:
 			var base := gr.position + Vector2(_h(k, 51, 16), _h(k, 53, 17)) * gr.size
 			var p := (base + Vector2(sin(t * 0.6 + k) * 10.0, cos(t * 0.45 + k * 1.7) * 6.0 - 6.0)).round()
 			var glow := 0.5 + 0.5 * sin(t * 2.2 + k * 0.9)
+			if out_t >= 0.0:
+				glow *= clampf(1.0 - (out_t - k * FIREFLY_OUT) / 0.15, 0.0, 1.0)   # one by one, each in a blink
+				if glow <= 0.0:
+					continue
 			c.draw_rect(Rect2(p - Vector2(1, 1), Vector2(3, 3)), Color(0.85, 1.0, 0.45, 0.18 * glow))
 			c.draw_rect(Rect2(p, Vector2(1, 1)), Color(0.95, 1.0, 0.6, 0.5 + 0.5 * glow))
 	var em: Dictionary = dg.intro.get("emote", {})

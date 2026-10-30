@@ -1,0 +1,68 @@
+{
+ "slot": "town.prop.shut_chain",
+ "candidate": "docs\\art\\slot-candidates\\gb-03-parts\\town.prop.shut_chain\\cleaned.png",
+ "registry_sha256": "ee9c03563b1c2a8bd6adc2abe1df32d2d1a993bdcba109f1d7e9d2c5d060489c",
+ "pass": true,
+ "results": [
+  {
+   "id": "C1",
+   "name": "size",
+   "result": "PASS",
+   "detail": "28x36, slot sheet 28x36"
+  },
+  {
+   "id": "C2",
+   "name": "colours",
+   "result": "PASS",
+   "detail": "9 colours (worst cell 9), budget 24"
+  },
+  {
+   "id": "C3",
+   "name": "alpha",
+   "result": "PASS",
+   "detail": "0 partial-alpha pixels"
+  },
+  {
+   "id": "C4",
+   "name": "edges",
+   "result": "PASS",
+   "detail": "clear"
+  },
+  {
+   "id": "C5",
+   "name": "palette",
+   "result": "PASS",
+   "detail": "0 colours over 20 from the palette; mean distance 0.0"
+  },
+  {
+   "id": "C7",
+   "name": "foot row",
+   "result": "PASS",
+   "detail": "lowest rows [35], foot row 35"
+  },
+  {
+   "id": "C8",
+   "name": "frame health",
+   "result": "PASS",
+   "detail": "opaque per cell [692]; largest one-colour block 13% of a cell"
+  },
+  {
+   "id": "C9",
+   "name": "specks",
+   "result": "PASS",
+   "detail": "0 orphan pixels (0.00%), 0 light specks"
+  },
+  {
+   "id": "C12",
+   "name": "light side",
+   "result": "PASS",
+   "detail": "upper-left edge 98, lower-right edge 21"
+  }
+ ],
+ "review": {
+  "R1": "no text, letters, numbers or signage lettering anywhere",
+  "R2": "nothing that reads as another game or franchise",
+  "R3": "no creature, animal or person unless the slot asks for one",
+  "R4": "sits in the scene: placeholder, candidate and in-game capture side by side"
+ }
+}

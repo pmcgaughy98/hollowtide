@@ -1,0 +1,71 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "town",
+	"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The Reach: the living root rising through the deck's moss collar with a gentle S and a flared foot, then curling over to the right like a shepherd's crook to hold the lamp's chain on the door axis (the hook at frame 216, 96). Rootlets binding the loft, three knots, moss on the lit side and along the top of the curl, three worn brass bands, two small leaf tufts and the chain hook. The curl tapers as it turns down to the hook (about 24 px thick leaving the shaft, 13 at the hook) and carries two worn brass lashings square across it and two knots, so it reads as the same tended root and never as a bent pipe.",
+	"census": "WT08",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/town/building/hall_reach.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frame_at": [
+		128,
+		24
+	],
+	"frames": 1,
+	"id": "town.building.hall.reach",
+	"kind": "building",
+	"lane": "T",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "order 9 (batch cx-14)",
+	"outline": "runtime_rim",
+	"owner": "codex",
+	"palette": {
+		"family": "wayline_tower",
+		"lock": true,
+		"max": 32,
+		"source": "res://assets/slots/palettes/wayline_tower.png"
+	},
+	"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		104,
+		300
+	],
+	"size": [
+		104,
+		300
+	],
+	"slot_file": "town_tower",
+	"state_order": [
+		"static"
+	],
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

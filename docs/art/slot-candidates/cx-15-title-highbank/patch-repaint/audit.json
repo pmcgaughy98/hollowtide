@@ -1,0 +1,31 @@
+{
+  "before_sha256": "57a11306de1c9d8d1ba26f5b76f97ff0013e3c4ee55e0061a067eacbbff22bc6",
+  "candidate_sha256": "603395e2f50080df0a2acd43c98adb92d72499960797f4c6dd56333959681d24",
+  "raw_sha256": "3ce3d5e53781ac9e36d4db6ad3a293533d7d3a1badcd8354fc7cf5136b0746e3",
+  "raw_size": [
+    1672,
+    941
+  ],
+  "candidate_size": [
+    384,
+    216
+  ],
+  "changed_pixels": 7427,
+  "editable_pixels": 12284,
+  "protected_pixels_exact": 70660,
+  "outside_task_rectangles_exact": true,
+  "great_tree_exact": true,
+  "tower_root_reel_steps_exact": true,
+  "watched_source_files": 114,
+  "watched_differences": {
+    "docs/design/placeholder-factory-2026-10-26/slots.json": {
+      "before": "f726610fd94138a866988fab7859e06559aabce69f87d8b159fb3579e800453b",
+      "after": "8a00e8e72fa8d9970903c7202ec01a46eb23b32d70f82af780bf2815d1854b04"
+    }
+  },
+  "installed_asset_unchanged": true,
+  "checks_pass": true,
+  "registry_sha256": "05fc60aebc364e4ede0b01895a8885c83a6b6583a317ae8e06368fe4c46caebe",
+  "review": "pending; prior approvals apply to installed no-wires version, not this repaint",
+  "installed": false
+}

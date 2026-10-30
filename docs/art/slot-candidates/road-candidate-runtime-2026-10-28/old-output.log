@@ -1,0 +1,27 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+CANDIDATE_INPUT old road.backdrop.sky ad638a00498a5775db081f8d0e3f900ddeffd85bebdd8a704f366f80fe305aae
+CANDIDATE_INPUT old road.backdrop.far dc435e992fd95cbffae140ccdc9bea8ff6ad9cdda24e769680480b1a90bdc755
+CANDIDATE_INPUT old road.backdrop.river 2d4e077c22e7b6fbc4f8aecd880c89c62c5b7d943c47944f7d0e9e1639b7911e
+CANDIDATE_INPUT old road.backdrop.mid 011e7d42945c7fa74be693b759971df09229bd1917ae1b3ad7cbf097ea70a90e
+CANDIDATE_INPUT old road.backdrop.near 38c26264e815249fcc998774a058f5b10ec649be6dd702039022b17e7bc8bc6f
+CANDIDATE_INPUT old road.ground.path 185d322119534cbc51ebc7b4d9ac46369e91cc27fa0191ca1487eec02f36e0e9
+CANDIDATE_ONLY: six road textures substituted in process cache; no installation
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+The willow layer: placeholder, 384 x 112
+CANDIDATE_CACHE_VERIFIED old: actual road scene uses all six candidate textures
+  bluff: leader x 259, camera x 102, 31% of the far Tower shows, lamp true (screen columns (283, 323), rows (30, 87), willow-layer columns (329, 369))
+  tower: leader x 1150, camera x 991, 37% of the far Tower shows, lamp true (screen columns (267, 308), rows (25, 86), willow-layer columns (329, 370))
+  parcel: leader x 1984, camera x 1819, 29% of the far Tower shows, lamp true (screen columns (251, 294), rows (21, 85), willow-layer columns (302, 345))
+  crew: leader x 2700, camera x 2541, 100% of the far Tower shows, lamp true (screen columns (238, 283), rows (18, 84), willow-layer columns (229, 274))
+The far Tower stands clear of the willows at each trail talk: 1 of 4 (lamp lit and 95% of it or more) -> FAIL
+The whole trail, settled, every 8 px (430 looks): 56% of the far Tower on average, the least 20% at x 152, the lamp lit at 430
+  the first 120 px after bluff: 0 of 15 looks clear, the least 20%
+  the first 120 px after tower: 0 of 15 looks clear, the least 24%
+  the first 120 px after parcel: 0 of 15 looks clear, the least 32%
+  the first 120 px after crew: 0 of 15 looks clear, the least 32%
+ROAD TOWER VIEW CHECK: FAIL (1)
+WARNING: 3 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 2 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

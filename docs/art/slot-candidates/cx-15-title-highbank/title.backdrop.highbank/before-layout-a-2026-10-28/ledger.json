@@ -1,0 +1,31 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-27",
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-47f82f20-f8b8-4a8d-9ccb-22a7f6a1b79f.png",
+  "cost": "not exposed; no alternative generator used",
+  "raw_sha256": "45ee590ebed90dbeb9b740899668f6573417cca3b1e9704e2fa00e553578e24b",
+  "raw_is_untouched": true,
+  "references": [
+    {
+      "path": "C:/Users/pmcga/dev/hollowtide/docs/design/placeholder-factory-2026-10-26/refs/title.backdrop.highbank.png",
+      "sha256": "a6b397ae6162d3e9adf92aecc9726056b3a9b32b48d38bfec8ce06fd83ab200a"
+    },
+    {
+      "path": "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-14-tower-crown/static-assembled-reference.png",
+      "sha256": "71a59a7280bd9858f47fc9e4d3fec4bc8bf8811fb57704730c186f0c8857de29"
+    },
+    {
+      "path": "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-11-tower-key/town.building.hall.key/prepared.png",
+      "sha256": "08933cee846f3257a32558276d23bd999577ff4891b33fed611b2c5f50b129e4"
+    },
+    {
+      "path": "C:/Users/pmcga/dev/hollowtide/docs/design/placeholder-factory-2026-10-26/refs/palettes/highbank_title.png",
+      "sha256": "e97309225df747d2ece30b7dc8fc5df5e3226d2201c546e10370ee260bb34a43"
+    },
+    {
+      "path": "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-15-title-highbank/house-style-row.png",
+      "sha256": "b64394bc49ce0839ef67edaf05deab8c4beea672d46be031932530765e4de1b0"
+    }
+  ],
+  "pixel_cleanup_authorized_by": "Preston: Yes, use Python pixel cleanup"
+}

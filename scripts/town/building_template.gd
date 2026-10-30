@@ -9,9 +9,13 @@ extends RefCounted
 ## fill) and the before state of a lot. v1, today's town, is drawn by building_exteriors.gd and never calls this file,
 ## so with Highbank v2 off nothing here changes a screen.
 ##
-## The Wayline Tower (canon, Preston 2026-10-26) is the "hall" class: the Hall's 12 x 3 base, double door and room
-## entrance, rising 576 px (2.67 screens of the 384 x 216 view) to a signal lantern on a beacon mast. Its numbers are
-## the TOWER_* consts below; tower_points() gives a scene the door and the beacon in area px to pan a camera between.
+## The Wayline Tower (canon, Preston 2026-10-26; the approved "Reach and Waiting Lamp" tower, 2026-10-27) is the "hall"
+## class. Its door part, the depot, is an ordinary 300 x 192 building on the Hall's 12 x 3 base with the 48 x 64 double
+## door; the tower rising 720 px over it is TowerParts (scripts/town/tower_parts.gd), a stack of part slots. With
+## Highbank v2 on, place() hands the hall to TowerParts.place(); v1 never calls this file. tower_points() gives a scene
+## the door, the beacon and the apex in area px to pan a camera between. A hall entry with "tower": "foot" (Tower Rise
+## since 2026-10-29, RISE_CLIMB_SLICE.md slice 1) stands the new Tower's coded foot instead (scripts/town/tower_foot.gd):
+## the plinth's two steps, the stair and the Stack's foot with the doors; TowerParts stays for the other callers.
 
 const Layout := preload("res://scripts/town/town_layout.gd")
 const Finish := preload("res://scripts/town/exterior_finish.gd")
@@ -23,9 +27,10 @@ const VIEW_H := 216           # the town view's height, for "screens tall"
 const BUILDING_SCALE := 1.0   # Preston call 1: 1.0 by default; 1.25 resizes every canvas before the lists go out
 const SCALES := [1.0, 1.25]   # what scenes/debug/building_lineup.tscn shows side by side
 ## base in tiles, canvas and door opening in px (02 section 4.2); wall and roof are the px heights BUILDING_SCALE
-## multiplies; door_col is the base column of the (left) door tile. The hall class is the Wayline Tower (canon,
-## Preston 2026-10-26): the same 12 x 3 base and doors, rising 576 px to a beacon; its double door is 48 px wide so
-## Galeshear (63 px wide, 62 tall, measured from its town/s.png) passes check C11.
+## multiplies; door_col is the base column of the (left) door tile. The hall class is the Wayline Tower's depot (canon,
+## Preston 2026-10-26 and 2026-10-27): the same 12 x 3 base and doors, 192 px tall, with the tower standing on it
+## (TowerParts); its double door is 48 px wide so Galeshear (63 px wide, 62 tall, measured from its town/s.png) passes
+## check C11.
 const CLASSES := {
 	"cottage": {"base": Vector2i(5, 2), "canvas": Vector2i(132, 144), "door_px": Rect2i(55, 94, 22, 48), "pass_creature": "sparkjab",
 		"wall": 60, "roof": 36, "door_col": 2, "door_tiles": 1},
@@ -33,28 +38,39 @@ const CLASSES := {
 		"wall": 60, "roof": 36, "door_col": 2, "door_tiles": 1},
 	"stall": {"base": Vector2i(4, 2), "canvas": Vector2i(108, 120), "door_px": Rect2i(), "pass_creature": "",
 		"wall": 36, "roof": 36, "door_col": -1, "door_tiles": 0},
-	"hall": {"base": Vector2i(12, 3), "canvas": Vector2i(300, 576), "door_px": Rect2i(126, 510, 48, 64), "pass_creature": "galeshear",
-		"wall": 80, "roof": 40, "door_col": 5, "door_tiles": 2, "tower": true},
+	"hall": {"base": Vector2i(12, 3), "canvas": Vector2i(300, 192), "door_px": Rect2i(126, 126, 48, 64), "pass_creature": "galeshear",
+		"wall": 80, "roof": 40, "door_col": 5, "door_tiles": 2},
+	# Buildings shaped by their keepers (Preston, 2026-10-28; TOWN_MAP.md): each its own class with its own painter.
+	# trading_post: Swaphoard's Item Shop. Roof first (TOWN_SYNTHESIS.md, measured from Explorers of Sky's town): a base
+	# three deep so the roof covers solid ground, 192 px tall (about six small creatures of the town set), the roof two
+	# thirds of it and the front a 64 px band ("eave", px from the foot to the eave line), the door a quarter. It
+	# replaced the lean_to of the same morning (Preston: "to small and shack like").
+	"trading_post": {"base": Vector2i(8, 3), "canvas": Vector2i(204, 192), "door_px": Rect2i(79, 142, 22, 48), "pass_creature": "sparkjab",
+		"wall": 40, "roof": 80, "eave": 64, "door_col": 3, "door_tiles": 1},
+	# burrow: the team's Home, dug into the bluff at the Street's west end (TOWN_MAP.md, Preston's yes 2026-10-28).
+	# Roof first like the trading post: the grass bank over a base three deep is the roof, the stone face the bottom
+	# 56 px ("eave", the door plus 8), 192 tall so the door stays a quarter of it, the door centred on base column 2.
+	"burrow": {"base": Vector2i(5, 3), "canvas": Vector2i(132, 192), "door_px": Rect2i(55, 142, 22, 48), "pass_creature": "sparkjab",
+		"wall": 40, "roof": 80, "eave": 56, "door_col": 2, "door_tiles": 1},
 }
 
 ## The Wayline Tower, for the lanes that frame it (the story scene at its foot pans a camera up it; the road home
-## shows it far off). Canvas px at BUILDING_SCALE 1.0; the foot is the anchor, the bottom centre on the base's last row.
+## shows it far off). The depot's numbers in its own canvas px at BUILDING_SCALE 1.0 (its foot is the anchor, the
+## bottom centre on the base's last row); the tower's in TowerParts' 432 x 720 frame, where the depot's top-left is
+## TOWER_DEPOT_AT. TOWER_PARTS is the draw order (TowerParts.PARTS: id, name, frame rect, layer, order, foot).
+const TP := preload("res://scripts/town/tower_parts.gd")
+const Foot := preload("res://scripts/town/tower_foot.gd")
 const TOWER_CLASS := "hall"
-const TOWER_SLOT := "town.building.hall"
-const TOWER_CANVAS := Vector2i(300, 576)        # 12 tiles + eaves wide, 24 tiles tall
-const TOWER_DOOR := Rect2i(126, 510, 48, 64)     # the double door, over base columns 5 and 6
+const TOWER_SLOT := "town.building.hall"         # the depot's slot (the door part); the other parts are town_tower.gd
+const TOWER_DEPOT := Vector2i(300, 192)          # the depot canvas: 12 tiles + eaves wide, 8 tiles tall
+const TOWER_DOOR := Rect2i(126, 126, 48, 64)     # the double door in the depot, over base columns 5 and 6
 const TOWER_DOOR_COLS := [5, 6]
-const TOWER_FOOT := Vector2i(150, 575)
-const TOWER_TOP := Vector2i(150, 8)              # the beacon light: where a pan up the Tower ends
-## The placeholder's stages, top to bottom, so Codex sees the shape it repaints (canvas px at 1.0).
-const TOWER_STAGES := {
-	"mast": Rect2i(146, 2, 9, 28),       # the beacon mast, its courier pennant and the signal light at TOWER_TOP
-	"cap": Rect2i(114, 30, 72, 26),      # the lantern's roof cap
-	"lantern": Rect2i(120, 56, 60, 48),  # the signal lantern room
-	"gallery": Rect2i(84, 104, 132, 16), # the lamp gallery's ledge and rail
-	"shaft": Rect2i(96, 120, 108, 326),  # the shaft, standing on the terrace; a lit window on every floor
-	"base": Rect2i(6, 422, 288, 154),    # the wide base: its terrace roof, and the front wall with the double door
-}
+const TOWER_FOOT := Vector2i(150, 191)           # the depot's foot (its anchor)
+const TOWER_FRAME := TP.FRAME                    # 432 x 720: the whole tower, 30 tiles (3.33 screens) tall
+const TOWER_DEPOT_AT := TP.DEPOT_AT              # the depot's top-left in the frame
+const TOWER_BEACON := TP.BEACON                  # the Waiting Lamp's glass in the frame: where a pan up the Tower ends
+const TOWER_APEX := TP.APEX                      # the vane's tip, the tower's top
+const TOWER_PARTS := TP.PARTS
 
 const INK := Color("#0b0e11")
 const STONE := Color("#8f805e")
@@ -68,12 +84,13 @@ const TARP := Color("#c9b98a")
 const DOOR_WOOD := Color("#80694a")
 const DOOR_SEAM := Color("#1f241e")
 const HANDLE := Color("#e2bd72")
+const GLASS_DARK := Color("#24282b")   # the dark inside an open counter or a loft door
+const BERRY := Color("#b8433a")        # stock on the Item Shop's shelves
 
 ## Each building slot's look (02 section 3.3 fields: roof, wall, windows as base columns, chimney column, awning,
 ## shutters, and the sign beside the door). An area's building entry may name its own sign; the rest is the slot's.
 ## "_<class>" rows are the defaults for a building with no row of its own.
 const STYLES := {
-	"home": {"roof": "moss", "wall": "stone", "windows": [0, 4], "chimney": 3},
 	"shop": {"roof": "gable", "wall": "plank", "windows": [0, 5], "awning": true, "sign": {"col": 3, "icon": "bag"}},
 	"storage": {"roof": "hip", "wall": "timber", "windows": [0, 5], "sign": {"col": 3, "icon": "crate"}},
 	"scrolls": {"roof": "gable", "wall": "timber", "windows": [0, 5], "tint": "plum", "sign": {"col": 3, "icon": "scroll"}},
@@ -84,6 +101,8 @@ const STYLES := {
 	"_shop": {"roof": "gable", "wall": "plank", "windows": [0, 5]},
 	"_stall": {},
 	"_hall": {"roof": "tower", "wall": "river_stone", "windows": [1, 3, 10]},
+	"_trading_post": {"sign": {"col": 2, "icon": "bag"}},
+	"_burrow": {},
 }
 ## A sign's pictogram -> its slot (the five sign slots in scripts/art/slots/town_buildings.gd).
 const SIGN_SLOTS := {"waymark": "town.prop.sign_hall", "bag": "town.prop.sign_shop", "crate": "town.prop.sign_storage",
@@ -104,7 +123,7 @@ static func geometry(cls: String, s: float = BUILDING_SCALE) -> Dictionary:
 	var c: Dictionary = CLASSES[cls]
 	var base: Vector2i = c["base"]
 	var w := base.x * T + 2 * EAVE
-	var h := roundi(TOWER_CANVAS.y * s) if c.get("tower", false) else base.y * T + roundi((int(c["wall"]) + int(c["roof"])) * s)
+	var h := base.y * T + roundi((int(c["wall"]) + int(c["roof"])) * s)
 	var door := Rect2i()
 	var tiles := int(c["door_tiles"])
 	if tiles > 0:
@@ -159,17 +178,17 @@ static func place_entry(id: String) -> Dictionary:
 	return {}
 
 
-## The Tower in area px for a building whose base is `base` (tiles): its canvas origin and size, the middle of its
-## door, its foot, and the beacon at its top. A camera panning up the Tower runs from "door" to "top".
-static func tower_points(base: Rect2i, s: float = BUILDING_SCALE) -> Dictionary:
-	var g := geometry(TOWER_CLASS, s)
-	var size: Vector2i = g["canvas"]
-	var o := canvas_origin(TOWER_CLASS, base, s)
-	var door: Rect2i = g["door_px"]
-	var anchor: Vector2i = g["anchor"]
-	var top := Vector2(o.x + TOWER_TOP.x, o.y + _ty(TOWER_TOP.y, size.y, s))
-	return {"origin": o, "canvas": size, "door": Vector2(o) + Vector2(door.get_center()), "foot": Vector2(o + anchor),
-		"top": top, "height": size.y, "screens": float(size.y) / VIEW_H}
+## The Tower in area px for a hall whose base is `base` (tiles), at BUILDING_SCALE: "origin" and "canvas" are the
+## whole tower's frame (its top-left and 432 x 720), "depot_origin" the depot canvas's top-left, "door" the middle of
+## the double door, "foot" the sill under it, "top" the beacon (the Waiting Lamp's glass) and "apex" the vane's tip.
+## A camera panning up the Tower runs from "door" to "top". On Tower Rise (base 7, 6, 12, 3): origin (96, -504),
+## door (312, 182), top (312, -386).
+static func tower_points(base: Rect2i) -> Dictionary:
+	var depot := canvas_origin(TOWER_CLASS, base)
+	var o := depot - TOWER_DEPOT_AT
+	var p := TP.points(Vector2(o))
+	return {"origin": o, "canvas": TOWER_FRAME, "depot_origin": depot, "door": p["door"], "foot": p["foot"],
+		"top": p["beacon"], "apex": p["apex"], "height": TOWER_FRAME.y, "screens": float(TOWER_FRAME.y) / VIEW_H}
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -208,8 +227,6 @@ static func template_image(cls: String, name: String, s: float = BUILDING_SCALE)
 ## The scale a canvas was drawn at, read back from its height.
 static func _scale_of(cls: String, size: Vector2i) -> float:
 	var c: Dictionary = CLASSES[cls]
-	if c.get("tower", false):
-		return float(size.y) / TOWER_CANVAS.y
 	var base: Vector2i = c["base"]
 	return float(size.y - base.y * T) / float(int(c["wall"]) + int(c["roof"]))
 
@@ -247,9 +264,16 @@ static func _shell(cls: String, name: String, size: Vector2i, door: Rect2i, s: f
 	var style := _style(cls, name)
 	match cls:
 		"hall":
-			_tower(img, door, s, style)
+			var depot := TP.paint_part(TOWER_SLOT)
+			if depot.get_size() != size:
+				depot.resize(size.x, size.y, Image.INTERPOLATE_NEAREST)   # off BUILDING_SCALE: a stand-in only
+			img = depot
 		"stall":
 			_stall(img, style, s)
+		"trading_post":
+			_trading_post(img, door, s)
+		"burrow":
+			_burrow(img, door, s)
 		_:
 			_house(img, door, style, s)
 	return img
@@ -271,7 +295,9 @@ static func _house(img: Image, door: Rect2i, style: Dictionary, s: float) -> voi
 		PP.block(img, Rect2i(cx, 2, 10, roundi(24 * s)), STONE)
 	_roof(img, Rect2i(1, 1, w - 2, wall_top - 1), String(style.get("roof", "gable")), roof, s)
 	_wall(img, Rect2i(EAVE, wall_top, w - 2 * EAVE, h - wall_top), String(style.get("wall", "stone")))
-	_rect(img, Rect2i(EAVE - 2, wall_top, w - 2 * EAVE + 4, 1), INK)   # the drip line under the eave
+	_rect(img, Rect2i(1, wall_top, w - 2, 1), INK)   # the drip line under the whole eave, its overhang included
+	_eave_shade(img, Rect2i(EAVE, wall_top + 1, w - 2 * EAVE, 5),
+		PP.ramp(PP.WOOD if String(style.get("wall", "stone")) in ["plank", "timber"] else STONE)[2])   # timber: its top beam
 	var shut := bool(style.get("shutters", false))
 	for col in style.get("windows", []):
 		_window(img, Rect2i(EAVE + int(col) * T + 5, wall_top + roundi(14 * s), 14, roundi(13 * s)), shut)
@@ -312,6 +338,9 @@ static func _roof(img: Image, r: Rect2i, kind: String, base: Color, s: float) ->
 			c = rp[0]
 		elif y >= r.end.y - 4:
 			c = rp[2]
+			if kind != "moss":
+				# The eave (Preston, 2026-10-29, roofs read flat): a crease, the lit lip where the roof turns down, its face.
+				c = [rp[2], rp[0], rp[1], rp[1]][y - (r.end.y - 4)]
 		elif kind != "moss" and k % 6 == 0:
 			c = rp[2]   # a shingle course
 		_rect(img, Rect2i(x0, y, x1 - x0, 1), c)
@@ -326,6 +355,16 @@ static func _roof(img: Image, r: Rect2i, kind: String, base: Color, s: float) ->
 		_rect(img, Rect2i(x1 - 1, y, 1, 1), INK)
 		if k == 0:
 			_rect(img, Rect2i(x0, y, x1 - x0, 1), INK)
+
+
+## The eave's shadow on the wall under it: the wall's own dark tone through the ordered dither, solid on its top row
+## thinning to none, so the roof stands out over the wall and the picture keeps its palette.
+static func _eave_shade(img: Image, r: Rect2i, dark: Color) -> void:
+	for y in range(r.position.y, mini(r.end.y, img.get_height())):
+		var density := 1.0 - float(y - r.position.y) / float(r.size.y)
+		for x in range(r.position.x, mini(r.end.x, img.get_width())):
+			if img.get_pixel(x, y).a > 0.0 and (GROUND_DITHER[(y & 3) * 4 + (x & 3)] + 0.5) / 16.0 < density:
+				img.set_pixel(x, y, dark)
 
 
 ## A wall of stone courses, planks, a timber frame over stone, or rounded river stone, lit top-left.
@@ -380,6 +419,221 @@ static func _door_opening(img: Image, door: Rect2i) -> void:
 	_rect(img, Rect2i(door.position.x + 2, door.position.y + 2, door.size.x - 4, door.size.y - 2), PP.DOOR_DARK)
 
 
+## The team's Home, dug into the bluff (TOWN_MAP.md, Preston's yes 2026-10-28). Roof first like the trading post: the
+## bank's grass dome is the roof, lit on its crown, a stovepipe standing out of it. Under the turf's hanging lip, a short
+## face of river stone between the bank's flanks: a round window either side, the doorway under a stone ring that cuts
+## up into the turf, a lantern by it, a parcel waiting below the right window (a courier team lives here), a flat step.
+static func _burrow(img: Image, door: Rect2i, s: float) -> void:
+	var w := img.get_width()
+	var h := img.get_height()
+	var eave := h - roundi(int(CLASSES["burrow"]["eave"]) * s)   # the turf's lip: the bank above it, the face below
+	var top := roundi(14 * s)                 # the crown of the bank
+	var gp := PP.ramp(GRASS)
+	var cx := w / 2
+	var half := w / 2 - 1
+	var widths := {}
+	var prev := 0
+	for y in range(top, eave):
+		var k := float(y - top + 1) / float(eave - top)
+		var hw := roundi(half * sqrt(1.0 - (1.0 - k) * (1.0 - k)))
+		widths[y] = hw
+		_rect(img, Rect2i(cx - hw, y, 2 * hw, 1), gp[0] if y < top + roundi(8 * s) else gp[1])
+		_rect(img, Rect2i(cx - hw + 1, y, maxi(1, hw / 5), 1), gp[0])            # lit down the left
+		_rect(img, Rect2i(cx + hw - maxi(2, hw / 6), y, maxi(2, hw / 6), 1), gp[2])   # shaded down the right
+		if (y - top) % 6 == 3:   # tufts in staggered rows
+			var off := 0 if ((y - top) / 6) % 2 == 0 else 4
+			for x in range(cx - hw + 4 + off, cx + hw - 4, 8):
+				_rect(img, Rect2i(x, y, 1, 2), gp[2])
+		# The outline: each side's step out from the row above, so the dome's edge has no gaps.
+		var step := maxi(1, hw - prev)
+		_rect(img, Rect2i(cx - hw, y, step, 1), INK)
+		_rect(img, Rect2i(cx + hw - step, y, step, 1), INK)
+		prev = hw
+	for p in [Vector2(0.3, 0.45), Vector2(0.62, 0.3), Vector2(0.45, 0.72), Vector2(0.76, 0.6), Vector2(0.18, 0.8)]:
+		var fp := Vector2i(roundi(p.x * w), top + roundi(p.y * (eave - top)))
+		if absi(fp.x - cx) < int(widths.get(fp.y, 0)) - 3:   # wildflowers, only on the turf
+			_rect(img, Rect2i(fp.x, fp.y, 1, 1), PP.PARCHMENT)
+			_rect(img, Rect2i(fp.x, fp.y + 1, 1, 1), gp[2])
+	# The stovepipe out of the bank, right of the crown, a turf collar round its foot.
+	var px := cx + roundi(28 * s)
+	var foot := top
+	while foot < eave - 1 and int(widths.get(foot, 0)) < absi(px - cx) + 10:
+		foot += 1
+	PP.block(img, Rect2i(px, roundi(4 * s), 6, foot - roundi(4 * s) + 4), PP.SLATE)
+	PP.block(img, Rect2i(px - 2, 1, 10, 4), PP.SLATE)
+	_rect(img, Rect2i(px - 2, foot + 3, 10, 2), gp[2])
+	# The face between the bank's flanks, and the flanks running down to the ground.
+	var fx0 := EAVE + roundi(8 * s)
+	var fx1 := w - EAVE - roundi(8 * s)
+	for y in range(eave, h):
+		_rect(img, Rect2i(1, y, fx0 - 1, 1), gp[1])
+		_rect(img, Rect2i(fx1, y, w - 1 - fx1, 1), gp[2])
+		_rect(img, Rect2i(1, y, 1, 1), INK)
+		_rect(img, Rect2i(w - 2, y, 1, 1), INK)
+	_wall(img, Rect2i(fx0, eave, fx1 - fx0, h - eave), "river_stone")
+	_rect(img, Rect2i(fx0 - 1, eave, 1, h - eave), INK)
+	_rect(img, Rect2i(fx1, eave, 1, h - eave), INK)
+	_rect(img, Rect2i(1, h - 1, w - 2, 1), INK)
+	# The turf's lip over the face, its fringe hanging.
+	_rect(img, Rect2i(1, eave - 2, w - 2, 3), gp[2])
+	for x in range(fx0 + 1, fx1 - 1, 3):
+		_rect(img, Rect2i(x, eave + 1, 1, 1 + (x / 3) % 3), gp[3])
+	# The door's stone ring, cutting up into the turf, then the arched doorway inside it.
+	var dcx := door.position.x + door.size.x / 2
+	var ccy := door.position.y + door.size.x / 2   # the arch's centre: the door's top is the top of its round
+	var ring := door.size.x / 2 + roundi(5 * s)
+	_arch(img, dcx, ccy, ring + 1, door.end.y, INK)
+	_arch(img, dcx, ccy, ring, door.end.y, LIGHT)
+	for a in [200.0, 235.0, 270.0, 305.0, 340.0]:   # the ring's joints, radial
+		var d := Vector2.from_angle(deg_to_rad(a))
+		for r in range(door.size.x / 2 + 1, ring):
+			_rect(img, Rect2i(dcx + roundi(d.x * r), ccy + roundi(d.y * r), 1, 1), PP.ramp(LIGHT)[2])
+	for y in range(ccy + 8, door.end.y - 2, 8):     # and the jambs' courses
+		_rect(img, Rect2i(dcx - ring, y, ring - door.size.x / 2, 1), PP.ramp(LIGHT)[2])
+		_rect(img, Rect2i(dcx + door.size.x / 2, y, ring - door.size.x / 2, 1), PP.ramp(LIGHT)[2])
+	_arch(img, dcx, ccy, door.size.x / 2 + 1, door.end.y, INK)
+	_arch(img, dcx, ccy, door.size.x / 2, door.end.y, PP.DOOR_FRAME)
+	_arch(img, dcx, ccy, door.size.x / 2 - 2, door.end.y, PP.DOOR_DARK)
+	# Round windows either side, lit.
+	for wx in [dcx - roundi(40 * s), dcx + roundi(40 * s)]:
+		var at := Vector2i(wx, eave + roundi(22 * s))
+		_disc(img, at, 10, INK)
+		_disc(img, at, 9, LIGHT)
+		_disc(img, at, 7, INK)
+		_disc(img, at, 6, PP.WINDOW)
+		_rect(img, Rect2i(at.x, at.y - 6, 1, 12), INK)
+		_rect(img, Rect2i(at.x - 6, at.y, 12, 1), INK)
+	# A lantern on a hook left of the ring, a parcel under the right window, the step.
+	var lx := dcx - ring - roundi(8 * s)
+	_rect(img, Rect2i(lx + 2, eave + roundi(6 * s), 1, 4), INK)
+	PP.block(img, Rect2i(lx, eave + roundi(10 * s), 6, 8), HANDLE)
+	var parcel := Rect2i(dcx + roundi(30 * s), h - 15, 16, 13)
+	PP.block(img, parcel, TARP)
+	_rect(img, Rect2i(parcel.position.x + parcel.size.x / 2, parcel.position.y, 1, parcel.size.y), CLAY)
+	_rect(img, Rect2i(parcel.position.x, parcel.position.y + parcel.size.y / 2, parcel.size.x, 1), CLAY)
+	_rect(img, Rect2i(dcx - 15, h - 2, 30, 1), LIGHT)
+	_rect(img, Rect2i(dcx - 16, h - 3, 32, 1), INK)
+
+
+## A round-topped shape: a half disc of radius rad on (cx, cy), straight sides down to row bottom (exclusive).
+static func _arch(img: Image, cx: int, cy: int, rad: int, bottom: int, c: Color) -> void:
+	for y in range(cy - rad, bottom):
+		for x in range(cx - rad, cx + rad):
+			var dx := x - cx + 0.5
+			var dy := y - cy + 0.5
+			if (y >= cy or dx * dx + dy * dy <= rad * rad) and x >= 0 and y >= 0 and x < img.get_width() and y < img.get_height():
+				img.set_pixel(x, y, c)
+
+
+static func _disc(img: Image, at: Vector2i, rad: int, c: Color) -> void:
+	_arch(img, at.x, at.y, rad, at.y, c)
+	for y in range(at.y, at.y + rad):
+		for x in range(at.x - rad, at.x + rad):
+			var dx := x - at.x + 0.5
+			var dy := y - at.y + 0.5
+			if dx * dx + dy * dy <= rad * rad and x >= 0 and y >= 0 and x < img.get_width() and y < img.get_height():
+				img.set_pixel(x, y, c)
+
+
+## Swaphoard's Item Shop as a hoarder's trading post (Preston, 2026-10-28: "wire shop again but make bigger", and the
+## perspective). Roof first, the way a town seen from above reads (docs/design/town-map-2026-10-28/TOWN_SYNTHESIS.md):
+## a clay hip roof over two thirds of the height, its back plane past the ridge catching the light; a loft dormer with
+## a hoist and a crate hanging over the tiles; a tied sack on the ridge for the trade; a chimney. Under a deep eave
+## shadow, a short plank front on a stone sill: a shuttered window, the door, and the open counter under a striped
+## awning with stock on the sill. The goods tables and crates out front are the dooryard's own props.
+static func _trading_post(img: Image, door: Rect2i, s: float) -> void:
+	var w := img.get_width()
+	var h := img.get_height()
+	var eave := h - roundi(int(CLASSES["trading_post"]["eave"]) * s)   # the eave line: the roof above it, the front below
+	var x0 := EAVE
+	var x1 := w - EAVE
+	var rp := PP.ramp(CLAY)
+	var wp := PP.ramp(DOOR_WOOD)
+	var top := roundi(6 * s)                 # the back eave, the farthest edge seen
+	var ridge := top + roundi(18 * s)
+	var hip := roundi(46 * s)                # how far in the hips bring the ridge's ends
+	# The back plane, narrowing away from us.
+	for y in range(top, ridge):
+		var ins := hip + roundi((1.0 - float(y - top) / maxf(1.0, ridge - top)) * 12.0)
+		_rect(img, Rect2i(1 + ins, y, w - 2 - 2 * ins, 1), rp[0] if y > top else INK)
+		_rect(img, Rect2i(1 + ins, y, 1, 1), INK)
+		_rect(img, Rect2i(w - 2 - ins, y, 1, 1), INK)
+	# The chimney stands on the back plane, right of the ridge's middle.
+	PP.block(img, Rect2i(w - 2 - hip - 30, 2, 12, ridge + 2), STONE)
+	# The front plane: ridge to eave, widening to the full overhang; tile courses, staggered joints, the hips inked,
+	# a shaded strip down the right where the side plane turns away.
+	for y in range(ridge, eave):
+		var k := float(y - ridge) / maxf(1.0, eave - 1 - ridge)
+		var ins := roundi(hip * (1.0 - k))
+		var row := y - ridge
+		var c: Color = rp[2] if row % 8 == 0 or y >= eave - 3 else rp[1]
+		_rect(img, Rect2i(1 + ins, y, w - 2 - 2 * ins, 1), c)
+		if row % 8 > 0 and y < eave - 3:
+			var off := 0 if (row / 8) % 2 == 0 else 5
+			for x in range(4 + ins + off, w - 4 - ins, 10):
+				_rect(img, Rect2i(x, y, 1, 1), rp[2])
+		_rect(img, Rect2i(w - 8 - ins, y, 5, 1), rp[2])
+		_rect(img, Rect2i(1 + ins, y, 1, 1), INK)
+		_rect(img, Rect2i(w - 2 - ins, y, 1, 1), INK)
+	_rect(img, Rect2i(1 + hip, ridge, w - 2 - 2 * hip, 2), INK)            # the ridge
+	_rect(img, Rect2i(2 + hip, ridge - 1, w - 4 - 2 * hip, 1), PP.PARCHMENT)   # light along its cap
+	_rect(img, Rect2i(1, eave - 1, w - 2, 1), INK)                        # the eave's edge
+	# The loft dormer in the front plane, its little gable, the loft door open on the dark.
+	var dw := roundi(34 * s)
+	var dx := w / 2 - dw / 2
+	var dy := ridge + roundi(20 * s)
+	var dh := roundi(30 * s)
+	for i in 10:
+		var half := 4 + (dw / 2) * i / 10
+		_rect(img, Rect2i(w / 2 - half - 2, dy - 10 + i, 2 * half + 4, 1), rp[0] if i < 4 else rp[1])
+		_rect(img, Rect2i(w / 2 - half - 2, dy - 10 + i, 1, 1), INK)
+		_rect(img, Rect2i(w / 2 + half + 1, dy - 10 + i, 1, 1), INK)
+	_rect(img, Rect2i(w / 2 - 6, dy - 11, 12, 1), INK)
+	PP.block(img, Rect2i(dx, dy, dw, dh), DOOR_WOOD)
+	_rect(img, Rect2i(dx + 7, dy + 6, dw - 14, dh - 8), GLASS_DARK)
+	# The hoist: a beam out over the tiles, a rope, a crate hanging from it.
+	PP.block(img, Rect2i(w / 2 - 2, dy - 14, 4, 8), DOOR_WOOD)
+	_rect(img, Rect2i(w / 2, dy - 7, 1, dh + 12), INK)
+	PP.block(img, Rect2i(w / 2 - 7, dy + dh + 4, 14, 12), DOOR_WOOD)
+	_rect(img, Rect2i(w / 2 - 6, dy + dh + 9, 12, 1), wp[2])
+	# A tied sack on the ridge, the trade's mark.
+	PP.block(img, Rect2i(w / 2 - 6, ridge - 13, 12, 13), TARP)
+	_rect(img, Rect2i(w / 2 - 3, ridge - 16, 6, 3), TARP)
+	_rect(img, Rect2i(w / 2 - 4, ridge - 13, 8, 1), INK)
+	# The front: planks on a stone sill, the shadow under the eave.
+	_wall(img, Rect2i(x0, eave, x1 - x0, h - eave), "plank")
+	_rect(img, Rect2i(x0, eave, x1 - x0, roundi(7 * s)), wp[2])
+	_rect(img, Rect2i(x0, eave + roundi(7 * s), x1 - x0, 1), INK)
+	PP.block(img, Rect2i(x0 - 1, h - 6, x1 - x0 + 2, 6), STONE)
+	# A shuttered window, left.
+	var win := Rect2i(x0 + 20, eave + roundi(20 * s), 18, roundi(16 * s))
+	_window(img, win, false)
+	for sx in [win.position.x - 7, win.end.x + 1]:
+		PP.block(img, Rect2i(sx, win.position.y - 1, 6, win.size.y + 2), DOOR_WOOD)
+	# The door.
+	if door.size.x > 0:
+		_door_opening(img, door)
+	# The counter, right: the dark of the shop behind, shelves of stock, the sill board, the striped awning over it.
+	var cx := door.end.x + roundi(12 * s)
+	var counter := Rect2i(cx, eave + roundi(20 * s), x1 - 10 - cx, roundi(24 * s))
+	_rect(img, counter, GLASS_DARK)
+	for sy in [counter.position.y + 8, counter.position.y + 16]:
+		_rect(img, Rect2i(counter.position.x, sy, counter.size.x, 1), wp[2])
+		for gx in range(counter.position.x + 3, counter.end.x - 3, 6):
+			_rect(img, Rect2i(gx, sy - 3, 3, 3), [BERRY, HANDLE, MOSS][(gx / 6 + sy) % 3])
+	PP.block(img, Rect2i(counter.position.x - 3, counter.end.y, counter.size.x + 6, 5), DOOR_WOOD)
+	for gx in range(counter.position.x + 2, counter.end.x - 4, 9):
+		_rect(img, Rect2i(gx, counter.end.y - 4, 4, 4), [BERRY, HANDLE, MOSS][(gx / 9) % 3])   # stock on the sill
+	var aw := Rect2i(counter.position.x - 5, eave + roundi(9 * s), counter.size.x + 10, roundi(9 * s))
+	var cloth := PP.ramp(AWNING)
+	for x in range(aw.position.x, aw.end.x):
+		var col: Color = cloth[1] if ((x - aw.position.x) / 6) % 2 == 0 else PP.PARCHMENT
+		_rect(img, Rect2i(x, aw.position.y, 1, aw.size.y), col)
+		if (x - aw.position.x) % 6 in [2, 3]:
+			_rect(img, Rect2i(x, aw.end.y, 1, 1), col)   # the scalloped hem
+	_rect(img, Rect2i(aw.position.x, aw.position.y - 1, aw.size.x, 1), INK)
+
+
 ## A stall: a counter along the bottom row, two posts and a striped awning; before it opens, a canvas tarp tied over
 ## the bare frame.
 static func _stall(img: Image, style: Dictionary, s: float) -> void:
@@ -396,12 +650,14 @@ static func _stall(img: Image, style: Dictionary, s: float) -> void:
 		_rect(img, Rect2i(EAVE + 1, h - counter + 1, w - 2 * EAVE - 2, 2), wood[0])
 		_rect(img, Rect2i(EAVE, h - 4, w - 2 * EAVE, 4), INK)
 		_rect(img, Rect2i(EAVE + 1, h - 3, w - 2 * EAVE - 2, 2), wood[1])
+		_rect(img, Rect2i(EAVE + 1, h - 3, w - 2 * EAVE - 2, 1), wood[0])   # the rail's lit top
 		for k in range(0, w - 2 * EAVE - 12):
 			var y := h - counter + 4 + k * (counter - 8) / maxi(1, w - 2 * EAVE - 12)
 			_rect(img, Rect2i(EAVE + 6 + k, y, 1, 2), wood[2])
 		# The tarp, draped from the post tops and sagging between them, a fold down the middle.
 		var cloth := PP.ramp(TARP)
 		var tarp_top := post_top - roundi(8 * s)
+		var top_d := maxi(3, roundi(6 * s))
 		for x in range(EAVE - 2, w - EAVE + 2):
 			var u := float(x - (EAVE - 2)) / float(w - 2 * EAVE + 3)
 			var hang := roundi((44 + 10 * sin(u * PI)) * s)
@@ -412,7 +668,16 @@ static func _stall(img: Image, style: Dictionary, s: float) -> void:
 			_rect(img, Rect2i(x, y0, 1, hang), c)
 			_rect(img, Rect2i(x, y0, 1, 1), INK)
 			_rect(img, Rect2i(x, y0 + hang, 1, 1), INK)
-			_rect(img, Rect2i(x, y0 + 1, 1, 2), cloth[0])
+			# Its top, lit, turning down over the front (Preston, 2026-10-29: the canopy read flat): a crease under the
+			# lip, and the hem curling under in shade.
+			_rect(img, Rect2i(x, y0 + 1, 1, top_d), cloth[0])
+			_rect(img, Rect2i(x, y0 + 1 + top_d, 1, 1), cloth[2])
+			_rect(img, Rect2i(x, y0 + hang - 2, 1, 2), cloth[2])
+		for px in [EAVE + 2, w - EAVE - 8]:   # the tarp's shadow down the posts under its hem
+			for x in range(px, px + 6):
+				var u := float(x - (EAVE - 2)) / float(w - 2 * EAVE + 3)
+				var bottom := tarp_top + roundi(8 * s * absf(u - 0.5)) + roundi((44 + 10 * sin(u * PI)) * s)
+				_eave_shade(img, Rect2i(x, bottom + 1, 1, 6), wood[2])
 		for px in [EAVE + 4, w - EAVE - 6]:
 			_rect(img, Rect2i(px - 1, tarp_top + roundi(46 * s), 4, 3), INK)   # rope ties at the posts
 			_rect(img, Rect2i(px, tarp_top + roundi(46 * s) + 1, 2, 1), cloth[0])
@@ -427,137 +692,6 @@ static func _stall(img: Image, style: Dictionary, s: float) -> void:
 	_rect(img, Rect2i(a.position.x, a.end.y - 1, a.size.x, 1), INK)
 	_rect(img, Rect2i(a.position.x, a.position.y, 1, a.size.y), INK)
 	_rect(img, Rect2i(a.end.x - 1, a.position.y, 1, a.size.y), INK)
-
-
-## A canvas row at scale s, from a 1.0 row v measured on TOWER_CANVAS (distances are kept from the foot).
-static func _ty(v: int, h: int, s: float) -> int:
-	return (h - 1) - roundi((TOWER_FOOT.y - v) * s)
-
-
-## A canvas column at scale s, from a 1.0 column (distances are kept from the middle).
-static func _tx(v: int, w: int, s: float) -> int:
-	return w / 2 + roundi((v - TOWER_CANVAS.x / 2) * s)
-
-
-## The stage rect `name` of TOWER_STAGES at this canvas and scale (the base keeps its tile-locked width).
-static func tower_stage(name: String, size: Vector2i, s: float) -> Rect2i:
-	var r: Rect2i = TOWER_STAGES[name]
-	var y0 := _ty(r.position.y, size.y, s)
-	var y1 := _ty(r.end.y, size.y, s)
-	if name == "base":
-		return Rect2i(r.position.x, y0, r.size.x, size.y - y0)
-	var x0 := _tx(r.position.x, size.x, s)
-	var x1 := _tx(r.end.x, size.x, s)
-	return Rect2i(x0, y0, x1 - x0, y1 - y0)
-
-
-## The Wayline Tower's placeholder, in its stages: the base (terrace roof, front wall, pilasters, double door, windows),
-## the shaft (stone courses, string courses, a lit window on every floor, a courier banner), the lamp gallery, the
-## signal lantern room, its cap, and the beacon mast with a pennant and the signal light at the top.
-static func _tower(img: Image, door: Rect2i, s: float, style: Dictionary = {}) -> void:
-	var size := img.get_size()
-	var w := size.x
-	var h := size.y
-	var stone := PP.ramp(STONE)
-	var slate := PP.ramp(PP.SLATE)
-	var teal := PP.ramp(PP.SEAL)
-	var glow := PP.ramp(PP.LANTERN)
-	var lit := PP.ramp(LIGHT)
-	var wall_top := door.position.y - roundi(16 * s)
-	var base := tower_stage("base", size, s)
-	# The base's terrace roof, over its three-tile depth.
-	var terrace := Rect2i(1, base.position.y, w - 2, wall_top - base.position.y)
-	for y in range(terrace.position.y, terrace.end.y):
-		var k := y - terrace.position.y
-		var inset := roundi(10 * (1.0 - float(k) / maxf(1.0, terrace.size.y - 1)))
-		var x0 := terrace.position.x + inset
-		var x1 := terrace.end.x - inset
-		var c: Color = slate[0] if k < 2 else (slate[2] if k % 6 == 0 or y >= terrace.end.y - 3 else slate[1])
-		_rect(img, Rect2i(x0, y, x1 - x0, 1), c)
-		_rect(img, Rect2i(x0, y, 1, 1), INK)
-		_rect(img, Rect2i(x1 - 1, y, 1, 1), INK)
-	_rect(img, Rect2i(terrace.position.x + 10, terrace.position.y, terrace.size.x - 20, 1), INK)
-	# The shaft stands on the terrace, a third of the way back from the front wall.
-	var shaft := tower_stage("shaft", size, s)
-	PP.block(img, shaft, STONE)
-	_courses(img, shaft, stone, 8, 12)
-	var floor_h := roundi(70 * s)
-	for y in range(shaft.position.y + floor_h, shaft.end.y - 4, floor_h):
-		_rect(img, Rect2i(shaft.position.x, y, shaft.size.x, 3), INK)            # a string course
-		_rect(img, Rect2i(shaft.position.x + 1, y + 1, shaft.size.x - 2, 1), LIGHT)
-	for y in range(shaft.position.y + roundi(90 * s), shaft.end.y - roundi(60 * s), floor_h):
-		var win := Rect2i(w / 2 - roundi(6 * s), y, roundi(12 * s), roundi(22 * s))
-		_rect(img, win, INK)
-		_rect(img, win.grow(-1), PP.WINDOW)
-		_rect(img, Rect2i(win.position.x + win.size.x / 2, win.position.y, 1, win.size.y), INK)
-		for side in [-1, 1]:   # arrow slits either side
-			_rect(img, Rect2i(w / 2 + side * roundi(34 * s) - 1, y + roundi(4 * s), 3, roundi(12 * s)), INK)
-	# A courier banner hung under the gallery: teal cloth, a lantern-gold chevron (a pictogram, no letters).
-	var banner := Rect2i(w / 2 - roundi(14 * s), shaft.position.y + roundi(4 * s), roundi(28 * s), roundi(60 * s))
-	_rect(img, banner.grow(1), INK)
-	_rect(img, banner, teal[1])
-	_rect(img, Rect2i(banner.position.x, banner.position.y, 2, banner.size.y), teal[0])
-	for k in roundi(10 * s):
-		_rect(img, Rect2i(w / 2 - k - 1, banner.position.y + roundi(18 * s) + k, 2, 2), PP.LANTERN)
-		_rect(img, Rect2i(w / 2 + k - 1, banner.position.y + roundi(18 * s) + k, 2, 2), PP.LANTERN)
-	var notch := roundi(6 * s)
-	for x in range(banner.position.x, banner.end.x):   # a swallowtail hem
-		var d := absi(x - w / 2)
-		if d < notch:
-			_rect(img, Rect2i(x, banner.end.y - (notch - d), 1, notch - d + 1), INK)
-	# The gallery: a ledge wider than the shaft, a rail of posts.
-	var gal := tower_stage("gallery", size, s)
-	var ledge := Rect2i(gal.position.x, gal.position.y + gal.size.y / 2, gal.size.x, gal.size.y - gal.size.y / 2)
-	PP.block(img, ledge, LIGHT)
-	_rect(img, Rect2i(gal.position.x + 2, gal.position.y, gal.size.x - 4, 2), INK)
-	for x in range(gal.position.x + 3, gal.end.x - 3, 8):
-		_rect(img, Rect2i(x, gal.position.y, 2, ledge.position.y - gal.position.y), INK)
-	# The lantern room: lit glass between ink mullions, on a stone sill, the lamp's core in the middle.
-	var lan := tower_stage("lantern", size, s)
-	PP.block(img, lan, PP.LANTERN)
-	_rect(img, Rect2i(lan.position.x + 2, lan.position.y + 2, lan.size.x - 4, 3), glow[0])
-	for x in range(lan.position.x + lan.size.x / 4, lan.end.x - 2, lan.size.x / 4):
-		_rect(img, Rect2i(x - 1, lan.position.y, 2, lan.size.y), INK)
-	_rect(img, Rect2i(w / 2 - roundi(6 * s), lan.position.y + lan.size.y / 2 - roundi(6 * s), roundi(12 * s), roundi(12 * s)), PP.WINDOW)
-	_rect(img, Rect2i(lan.position.x - 2, lan.end.y - 4, lan.size.x + 4, 4), INK)
-	_rect(img, Rect2i(lan.position.x - 1, lan.end.y - 3, lan.size.x + 2, 2), stone[1])
-	# The cap: a pointed slate roof.
-	var cap := tower_stage("cap", size, s)
-	for y in range(cap.position.y, cap.end.y):
-		var u := float(y - cap.position.y) / maxf(1.0, cap.size.y - 1)
-		var half := roundi(3 + u * (cap.size.x / 2 - 3))
-		var c: Color = slate[0] if u < 0.25 else (slate[2] if y >= cap.end.y - 3 else slate[1])
-		_rect(img, Rect2i(w / 2 - half, y, half * 2, 1), c)
-		_rect(img, Rect2i(w / 2 - half, y, 1, 1), INK)
-		_rect(img, Rect2i(w / 2 + half - 1, y, 1, 1), INK)
-	_rect(img, Rect2i(cap.position.x - 2, cap.end.y - 1, cap.size.x + 4, 1), INK)
-	# The beacon mast, a courier pennant, and the signal light at the very top (TOWER_TOP).
-	var top := _ty(TOWER_TOP.y, h, s)
-	_rect(img, Rect2i(w / 2 - 1, top + 3, 3, cap.position.y - top - 2), INK)
-	_rect(img, Rect2i(w / 2, top + 4, 1, cap.position.y - top - 4), PP.WOOD_LIT)
-	var pen := top + roundi(8 * s)
-	for k in roundi(14 * s):
-		var tall := maxi(1, roundi((7 - k * 0.5) * s))
-		_rect(img, Rect2i(w / 2 + 2 + k, pen, 1, tall), teal[0] if k < 2 else teal[1])
-		_rect(img, Rect2i(w / 2 + 2 + k, pen + tall, 1, 1), INK)
-	_rect(img, Rect2i(w / 2 - 3, top - 3, 7, 7), INK)
-	_rect(img, Rect2i(w / 2 - 2, top - 2, 5, 5), PP.LANTERN)
-	_rect(img, Rect2i(w / 2 - 1, top - 1, 2, 2), glow[0])
-	# The front wall: river stone between lit pilasters, windows, and the double door under a stone arch.
-	var front := Rect2i(EAVE, wall_top, w - 2 * EAVE, h - wall_top)
-	PP.block(img, front, STONE)
-	_courses(img, front, stone, 8, 10)
-	_rect(img, Rect2i(EAVE - 2, wall_top, w - 2 * EAVE + 4, 1), INK)   # the drip line
-	for px in [EAVE, w / 2 - roundi(40 * s), w / 2 + roundi(40 * s) - 10, w - EAVE - 10]:
-		PP.block(img, Rect2i(px, wall_top + 1, 10, h - wall_top - 1), LIGHT)   # pilasters
-		_rect(img, Rect2i(px + 2, wall_top + 4, 1, h - wall_top - 6), lit[0])
-	for col in style.get("windows", STYLES["hall"]["windows"]):
-		_window(img, Rect2i(EAVE + int(col) * T + 4, wall_top + roundi(16 * s), 16, roundi(20 * s)), false)
-	var arch := Rect2i(door.position.x - 4, door.position.y - roundi(8 * s), door.size.x + 8, door.size.y + roundi(8 * s))
-	_rect(img, arch, INK)
-	_rect(img, arch.grow_individual(-1, -1, -1, 0), LIGHT)
-	_rect(img, Rect2i(w / 2 - 3, arch.position.y, 6, 5), lit[0])
-	_door_opening(img, door)
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -640,6 +774,10 @@ static func place_scaled(b: Dictionary, parent: Node, s: float) -> Node2D:
 		return null
 	var id := String(entry.get("id", cls))
 	var base_rect: Rect2i = entry["base"]
+	if cls == TOWER_CLASS and is_equal_approx(s, BUILDING_SCALE) and Layout.v2():
+		if String(entry.get("tower", "")) == "foot":
+			return _place_foot(entry, parent)
+		return _place_tower(entry, parent)
 	var g := geometry(cls, s)
 	var size: Vector2i = g["canvas"]
 	var slot := String(entry.get("slot", "town.building." + id))
@@ -661,6 +799,7 @@ static func place_scaled(b: Dictionary, parent: Node, s: float) -> Node2D:
 	shadow.position = Vector2(2, 2)
 	shadow.modulate = Color(0, 0, 0, 0.28)
 	node.add_child(shadow)
+	node.add_child(_ground_shadow(base_rect, node.position))
 	var sprite := Sprite2D.new()
 	sprite.name = "Exterior"
 	sprite.centered = false
@@ -699,6 +838,62 @@ static func place_scaled(b: Dictionary, parent: Node, s: float) -> Node2D:
 	node.set_meta("door_px", door)
 	node.set_meta("class", cls)
 	node.set_meta("slot", slot)
+	return node
+
+
+## The hall in Highbank v2: the whole Wayline Tower (TowerParts.place) with its depot on the hall's base, sorting at
+## the door row like any building. Its long shadow falls on the ground below the foot down to the cliff row (the area's last row).
+## Meta as place() sets it: "door_px" (the door in the tower's px), "frames", "class", "slot"; no Details or Sign (the
+## depot paints its own footing, doorstep and Route Board).
+static func _place_tower(entry: Dictionary, parent: Node) -> Node2D:
+	var base_rect: Rect2i = entry["base"]
+	var o := canvas_origin(TOWER_CLASS, base_rect) - TOWER_DEPOT_AT
+	var rows := Layout.size().y if Layout.size().y > 0 else base_rect.end.y
+	var drop := maxi(0, (rows - 1 - base_rect.end.y) * T)   # down to the cliff row, the area's last
+	var node := TP.place(parent, Vector2(o), {"z": (base_rect.end.y - 1) * T, "shadow_drop": drop})
+	node.name = String(entry.get("id", TOWER_CLASS)).capitalize().replace(" ", "")
+	node.set_meta("slot", String(entry.get("slot", TOWER_SLOT)))
+	return node
+
+
+## The hall on Tower Rise since 2026-10-29: the new Tower's foot (TowerFoot.place), the plinth across the area's
+## width and the Stack's foot over the hall's one-row base with the doors on it. Meta as place() sets it ("frames",
+## "door_px" in the Stack node's px, "class", "slot"); it has no "beacon", so the Tower scene stands its own old tower
+## on the doors (tower_reveal.gd town_tower).
+## The building's shadow on the ground (Preston, 2026-10-29: buildings looked "flat and part of the scene"): its base
+## shadowed 4 px right and 3 px down, solid, with a dithered rim 5 px wide fading out. It lies under the building's own
+## picture, so what shows is a band along its foot and down its east side (the light is high in the west). Over the
+## ground and under every creature and prop (z 1), as the props' shadows are.
+const GROUND_DITHER := [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5]
+
+
+static func _ground_shadow(base_rect: Rect2i, origin: Vector2) -> Sprite2D:
+	var foot := Rect2i(base_rect.position * T, base_rect.size * T)
+	var off := Vector2i(4, 3)
+	var rim := 5
+	var size := foot.size + off + Vector2i(rim, rim)
+	var img := Image.create(size.x, size.y, false, Image.FORMAT_RGBA8)
+	for y in size.y:
+		for x in size.x:
+			var out := maxi(maxi(0, x - (foot.size.x + off.x - 1)), maxi(0, y - (foot.size.y + off.y - 1)))
+			if out == 0 or (GROUND_DITHER[(y & 3) * 4 + (x & 3)] + 0.5) / 16.0 < 1.0 - float(out) / float(rim + 1):
+				img.set_pixel(x, y, Color.WHITE)
+	var s := Sprite2D.new()
+	s.name = "GroundShadow"
+	s.centered = false
+	s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	s.texture = ImageTexture.create_from_image(img)
+	s.position = Vector2(foot.position) - origin
+	s.modulate = Color(0, 0, 0, 0.3)
+	s.z_as_relative = false
+	s.z_index = 1
+	return s
+
+
+static func _place_foot(entry: Dictionary, parent: Node) -> Node2D:
+	var cols := Layout.size().x if Layout.size().x > 0 else 26
+	var node := Foot.place(parent, entry, cols * T)
+	node.set_meta("slot", String(entry.get("slot", TOWER_SLOT)))
 	return node
 
 

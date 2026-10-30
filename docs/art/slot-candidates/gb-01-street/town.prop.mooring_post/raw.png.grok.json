@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.mooring_post_card.png",
+ "out": "docs/art/slot-candidates/gb-01-street/town.prop.mooring_post/raw.png",
+ "cost_usd": 0.06043432,
+ "turns": 4,
+ "text": "I'll read the style reference and the Imagine skill first, then generate the mooring post once.The style reference is a chunky pixel-art prop sheet: warm brown timber, tan highlights, near-black outlines, and light from the upper left. I'll generate the mooring post once in that look.The generation finished. I'll convert that file to PNG and save it in this folder as `raw.png`.Saved to `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_0d2gl_ol\\raw.png`. It is the single Imagine generation of a thick timber ferry-dock mooring post with a rope coil, in the warm-brown pixel-art look from `style_ref.png`, on a requested flat magenta field. I did not reopen the pixels after saving, so I cannot confirm the background is pure `#FF00FF`, that there is no ground shadow or lettering, or that the edges s",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_0d2gl_ol"
+}

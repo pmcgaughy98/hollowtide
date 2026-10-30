@@ -1,0 +1,62 @@
+{
+ "slot": "town.building.hall.root_vein",
+ "candidate": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\root-redo-2026-10-27-r2\\town.building.hall.root_vein\\prepared-from-raw.png",
+ "registry_sha256": "f4423acc8832bfc0361921cdaba3de3b3c2c1b635d3758f8372ec56c81b354be",
+ "pass": false,
+ "results": [
+  {
+   "id": "C1",
+   "name": "size",
+   "result": "PASS",
+   "detail": "60x296, slot sheet 60x296"
+  },
+  {
+   "id": "C2",
+   "name": "colours",
+   "result": "PASS",
+   "detail": "27 colours (worst cell 27), budget 32"
+  },
+  {
+   "id": "C3",
+   "name": "alpha",
+   "result": "PASS",
+   "detail": "0 partial-alpha pixels"
+  },
+  {
+   "id": "C4",
+   "name": "edges",
+   "result": "PASS",
+   "detail": "clear"
+  },
+  {
+   "id": "C5",
+   "name": "palette",
+   "result": "PASS",
+   "detail": "0 colours over 0 from the palette; mean distance 0.0"
+  },
+  {
+   "id": "C8",
+   "name": "frame health",
+   "result": "PASS",
+   "detail": "opaque per cell [6845]; largest one-colour block 3% of a cell"
+  },
+  {
+   "id": "C9",
+   "name": "specks",
+   "result": "FAIL",
+   "detail": "1622 orphan pixels (23.70%), 0 light specks"
+  },
+  {
+   "id": "C12",
+   "name": "light side",
+   "result": "PASS",
+   "detail": "upper-left edge 59, lower-right edge 50"
+  }
+ ],
+ "review": {
+  "R1": "no text, letters, numbers or signage lettering anywhere",
+  "R2": "nothing that reads as another game or franchise",
+  "R3": "no creature, animal or person unless the slot asks for one",
+  "R4": "sits in the scene: placeholder, candidate and in-game capture side by side"
+ }
+}

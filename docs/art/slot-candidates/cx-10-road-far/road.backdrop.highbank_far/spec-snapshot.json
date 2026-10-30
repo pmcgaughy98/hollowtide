@@ -1,0 +1,79 @@
+{
+  "alpha": "binary",
+  "anchor": [
+    104,
+    95
+  ],
+  "anchor_mode": "foot",
+  "anchors": {
+    "beacon": [
+      105,
+      7
+    ],
+    "wayline_end": [
+      84,
+      73
+    ],
+    "wayline_top": [
+      101,
+      70
+    ]
+  },
+  "area": "road",
+  "brief": "Highbank and the two giants from about 3,000 tiles down the river, as docs/design/vast-scale-2026-10-27/VAST_SCALE_DESIGN.md lays out the far view (the target is this slot's placeholder, the vast-scale mock final/road_far_slot_1x.png there; final/slot_highbank_far.png is the picture itself). Both giants stand over a dark forest band. On the right the whole Wayline Tower, all 480 tiles in 70 px from its vane (row 5) to its foot (row 75, axis x 104): a slender pale Stack with brass rings, the dark wet collar in a flat cloud layer (280 to 360 tiles up), the narrow neck, and at the top a root's crook holding the Waiting Lamp, one amber px (the beacon anchor). A thin root climbs its west side. It stands alone in open ground: no other building by the Tower (Preston, 2026-10-28). Left of it and farther off, the great tree, the same tree as the title's (scripts/art/placeholders/title_giants.gd): its crown one even dome centred on its trunk (Preston, 2026-10-28), about 60 px across, leaf clusters each with a lit top arc, lit from the east in the morning's greens, the trunk about 14 px wide flaring into the forest. Highbank's roofs, 1 or 2 px each, sit in a pale clearing west of the Tower on rows 73 and 74, between it and the tree, well clear of its foot. One broken 1 px wayline runs from the Low Reel (5 px up the Tower's west side) down to a roof in the middle of the town, from wayline_top to wayline_end, sagging 3 px at its middle (the scene's glint runs along that curve). Keep the forest band, the town, the wayline and the Tower's foot above row 76: the scene stands the bottom row (the foot anchor) at y 108, behind its far hills, which can hide anything below row 76, but where they dip the land shows down to about row 90. So under the band the land thins into valley mist the colour of the hazed hills and runs off the bottom edge, and toward both sides its top rounds down into the mist: only the bottom edge may be touched. Sky transparent. Paint in full colour, unhazed: the scene hazes the layer. No text.",
+  "census": "new",
+  "checks": [
+    "C1",
+    "C2",
+    "C3",
+    "C5",
+    "C9"
+  ],
+  "drawn_at": 3,
+  "edges": "bottom",
+  "file": "res://assets/slots/road/backdrop/highbank_far.png",
+  "forbid": [
+    "text",
+    "creature",
+    "franchise"
+  ],
+  "frames": 1,
+  "id": "road.backdrop.highbank_far",
+  "kind": "backdrop",
+  "lane": "S",
+  "legacy": "",
+  "light": "right",
+  "notes": "drawn at 0.82x growing to 1x as the party nears the rise (the foot anchor at x 300 to 236, y 108), hazed by the scene (0.5 down to 0.3); the game draws the Waiting Lamp unhazed on anchors.beacon (it breathes) and a slow glint of light running down the wayline from anchors.wayline_top to anchors.wayline_end; road_check and road_tower_view_check measure the Tower's body in RouteScene.FAR_BODY (x 100 to 107, rows 5 to 70), so a repaint keeps the Tower there; the placeholder is the vast-scale mock (final_mocks.py mock_road_far, exported to assets/placeholders/road_highbank_far.png); names are working labels",
+  "outline": "none",
+  "owner": "codex",
+  "palette": {
+    "exact": true,
+    "family": "vast_far",
+    "lock": false,
+    "max": 24,
+    "source": "res://assets/slots/palettes/vast_far.png"
+  },
+  "placeholder": "res://scripts/story/route_scene.gd:paint_slot",
+  "rows": 1,
+  "sheet_size": [
+    160,
+    96
+  ],
+  "size": [
+    160,
+    96
+  ],
+  "slot_file": "route",
+  "specks": 0.1,
+  "state_order": [
+    "static"
+  ],
+  "states": {
+    "static": [
+      1,
+      0
+    ]
+  },
+  "status": "placeholder",
+  "tiling": "none"
+}

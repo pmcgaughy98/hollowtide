@@ -1,0 +1,18 @@
+{
+ "batch": "cx-05-room-fixes",
+ "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+ "slots": {
+  "town.prop.chamber.rug": {
+   "answer": "pending"
+  },
+  "town.prop.chamber.window_wide": {
+   "answer": "pending"
+  },
+  "town.prop.runners.window": {
+   "answer": "pending"
+  },
+  "town.prop.runners.river_map": {
+   "answer": "pending"
+  }
+ }
+}

@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.fence_v_card.png",
+ "out": "docs/art/slot-candidates/gb-02-fences/town.prop.fence_v/raw.png",
+ "cost_usd": 0.0623016,
+ "turns": 4,
+ "text": "I'll read the style reference and the Imagine skill first, then generate one fence span from what I can actually see.The reference is chunky pixel art: warm walnut and tan wood, hard edges, light from the upper left. I'll generate one fence span in that look.The generator wrote a JPEG. I'll save a PNG copy in this folder as `raw.png`.Saved to `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_qdfh4rq2\\raw.png`: one generated low timber fence span in the reference's warm walnut pixel-art colours, meant to recede from the camera so it tiles top to bottom on flat magenta. I did not reopen the file after generation, and the tool first wrote a JPEG, so I cannot confirm pure `#FF00FF`, hard pixel edges, no ground shadow, or the absence of lettering.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_qdfh4rq2"
+}

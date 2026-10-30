@@ -1,0 +1,2 @@
+prepared town.building.hall.chute: 88x290, 22 colours, 4473 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-13-tower-body\town.building.hall.chute\prepared-from-raw.png
+next: python tools/art/validate_slot.py town.building.hall.chute C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-13-tower-body\town.building.hall.chute\prepared-from-raw.png

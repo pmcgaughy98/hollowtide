@@ -1,0 +1,36 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-28 America/Chicago",
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-b3127ecc-b4a4-41fb-983b-2541ff19685f.png",
+  "raw_sha256": "e444e38552b02eff480ce6b95929a97d2147fdfc6717c6f4ba49ebe79da2ed83",
+  "raw_is_untouched": true,
+  "cost": "not exposed; no paid alternate generator",
+  "references": [
+    {
+      "tool_path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\pass9-reach-stair-2026-10-28\\town.building.hall.reach\\input-before.png",
+      "snapshot": "references\\input-1.png",
+      "sha256": "e3e2c15fb497dfe0ef51cceddbeaa5e9b0afd6169b811ff406d67e42bb024f06"
+    },
+    {
+      "tool_path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\pass9-reach-stair-2026-10-28\\town.building.hall.reach\\references\\target.png",
+      "snapshot": "references\\input-2.png",
+      "sha256": "ae74cd9648ff306a026b082504c5365f70456bfdf56142da310a565261c3d582"
+    },
+    {
+      "tool_path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\pass9-reach-stair-2026-10-28\\town.building.hall.reach\\references\\approved-key.png",
+      "snapshot": "references\\input-3.png",
+      "sha256": "08933cee846f3257a32558276d23bd999577ff4891b33fed611b2c5f50b129e4"
+    },
+    {
+      "tool_path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\pass9-reach-stair-2026-10-28\\town.building.hall.reach\\references\\neighbour-band.png",
+      "snapshot": "references\\input-4.png",
+      "sha256": "b2a719d64b36d9b806f37658cede830af46b7f82bc6d979bcfec262ffec1baeb"
+    },
+    {
+      "tool_path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\pass9-reach-stair-2026-10-28\\town.building.hall.reach\\references\\palette.png",
+      "snapshot": "references\\input-5.png",
+      "sha256": "49dc8d51f946892a79fbdb613f8a58a155ea6fa161e4cd7129aa4f5c267e499e"
+    }
+  ],
+  "pixel_cleanup": "explicit Preston approval retained"
+}

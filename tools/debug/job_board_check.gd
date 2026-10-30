@@ -181,5 +181,54 @@ func _run() -> void:
 	_ok("Paid by condition: %s; lamp oil +%d, rank +%d" % [str(paid2), oil1 - oil0, rank1 - rank0],
 		paid2.size() == 2 and oil1 - oil0 == Jobs.MET_COUNT + 1 and rank1 - rank0 == 25 * 2 + Jobs.MET_PTS and TeamState.data["jobs"].is_empty())
 	town.queue_free()
+	# 5. Two hundred boards (Claude, 2026-10-27, pass 9 D4, Grok task 7): a client is posted only on a floor whose
+	#    spawn list has it (a swapped client takes its own floor), and the pay and a quick delivery's turns follow
+	#    that floor. The steps above force their jobs onto B1F, so they never saw a swap.
+	_post_probe(200)
 	print("JOB BOARD: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))
 	quit()
+
+
+## Jobs.post for seeds 1..`boards`, every request read against dungeon.gd's Rootbank Warren lists (FLOOR_SPAWNS).
+func _post_probe(boards: int) -> void:
+	var c: Dictionary = load("res://scripts/dungeon/dungeon.gd").get_script_constant_map()
+	var spawns: Dictionary = c["FLOOR_SPAWNS"]
+	var floors := int(c["FLOORS"])
+	var wrong_floor: Array = []
+	var wrong_pay: Array = []
+	var wrong_turns: Array = []
+	var repeats := 0
+	var sizes := {}
+	var seen := {}   # "line_stage" -> {floor: count}, to show which floors each client was posted on
+	var quick := 0
+	for sd in range(1, boards + 1):
+		var board: Array = Jobs.post(sd)
+		sizes[board.size()] = int(sizes.get(board.size(), 0)) + 1
+		var keys := {}
+		for j: Dictionary in board:
+			var fl := int(j["floor"])
+			var who := [int(j["line"]), int(j["stage"])]
+			var key := "%d_%d" % who
+			if keys.has(key):
+				repeats += 1
+			keys[key] = true
+			var on: Dictionary = seen.get(key, {})
+			on[fl] = int(on.get(fl, 0)) + 1
+			seen[key] = on
+			if not spawns.get(fl, []).has(who):
+				wrong_floor.append("seed %d %s on B%dF" % [sd, key, fl])
+			if int(j["pts"]) != int(Jobs.KINDS[j["kind"]]["pts"]) + Jobs.FLOOR_PTS * (fl - 1):
+				wrong_pay.append("seed %d %s B%dF pays %d" % [sd, j["kind"], fl, int(j["pts"])])
+			if j.get("cond", "") == "quick":
+				quick += 1
+				if int(j.get("turns", -1)) != Jobs.QUICK_TURNS_PER_FLOOR * fl:
+					wrong_turns.append("seed %d B%dF %d turns" % [sd, fl, int(j.get("turns", -1))])
+	var floors_of := []
+	for key in seen:
+		floors_of.append("%s on %s" % [key, str(seen[key].keys())])
+	print("  %d boards: sizes %s; clients by floor: %s; %d quick deliveries" % [boards, str(sizes), ", ".join(floors_of), quick])
+	_ok("%d boards of %d: no client on a floor whose spawn list lacks it (%d wrong%s)" % [boards, Jobs.POSTED, wrong_floor.size(), (": " + ", ".join(wrong_floor.slice(0, 4))) if not wrong_floor.is_empty() else ""],
+		wrong_floor.is_empty() and sizes.keys() == [Jobs.POSTED])
+	_ok("Rank points are the kind's base + %d a floor below B1F (%d wrong%s)" % [Jobs.FLOOR_PTS, wrong_pay.size(), (": " + ", ".join(wrong_pay.slice(0, 4))) if not wrong_pay.is_empty() else ""], wrong_pay.is_empty())
+	_ok("Quick deliveries give %d turns a floor (%d of %d wrong%s)" % [Jobs.QUICK_TURNS_PER_FLOOR, wrong_turns.size(), quick, (": " + ", ".join(wrong_turns.slice(0, 4))) if not wrong_turns.is_empty() else ""], quick > 0 and wrong_turns.is_empty())
+	_ok("No client posted twice on one board while there are %d clients for %d requests (%d repeats)" % [Jobs.clients(spawns, floors).size(), Jobs.POSTED, repeats], repeats == 0)

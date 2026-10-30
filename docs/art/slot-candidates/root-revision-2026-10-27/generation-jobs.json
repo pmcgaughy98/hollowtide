@@ -1,0 +1,38 @@
+[
+  {
+    "batch": "cx-12-tower-foot",
+    "sid": "town.building.hall.root_foot",
+    "size": [
+      96,
+      120
+    ],
+    "prompt": "Use case: precise-object-edit. Edit the existing native-pixel-art Tower root in image1. This is a controlled revision of delivered art, not a new style. Preserve its warm ochre bark, olive moss, little worn treads, knots, upper-left lighting, crisp coherent native pixel clusters and parallel3/4 top-down view. No antialiasing, blurred/painterly texture, gradients, noise or dithering. Exact locked wayline_tower palette shown in final reference; maximum32colours, binary transparent alpha, #0b0e11 for internal material seams only, NO outer black outline, no labels, letters, numbers, creatures or scenery outside specified root part. Keep canvas dimensions and registration; neighbours are context, not part of returned asset. Do not return a comparison sheet. Only one revised isolated root part on true transparency.\nReference roles: image1 edit target96x120; image2 rough before/after guide with text, geometry-only reference: use right-hand proposal idea, NEVER reproduce its labels/background or whole comparison; image3 approved style key; image4 current complete Tower assembly for registration; image5 locked palette.\nREQUIRED CHANGE: this root arrives FROM A SEPARATE GREAT TREE far north-west, it does not originate here. Remove the footing stone and the flared/stumped base at bottom-left. Instead bend the low root in a smooth elbow and continue it out through LEFT edge at FULL GIRTH34-40nativepixels, heading west-north-west. Native x0 should carry actual BARK over roughly y72..110, with a ragged olive turf lip partly burying its near side through about y114. There must be no transparent margin at that west entry and no separate flared root base. Blend a thick incoming branch from the west into the existing diagonal climbing root, tapering as it climbs. Keep ALL existing pixels of the UPPER DIAGONAL/JOIN near native(90,10), its moss, treads and knots, and SECONDARY thin leg on the right as closely as possible. Only revise lower-west area, principally x0..52,y55..119. Do not add a new stone. Keep small ground/turf strip and existing secondary-leg foot on baseline y119. Exact96x120canvas, no rescaling or recentering of the existing upper diagonal.",
+    "refs": [
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-12-tower-foot/town.building.hall.root_foot/prepared.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/design/great-tree-2026-10-27/final/final_root_foot_change_3x.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-11-tower-key/town.building.hall.key/prepared.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-13-tower-body/static-assembled-reference.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/design/placeholder-factory-2026-10-26/refs/palettes/wayline_tower.png"
+    ],
+    "source": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-19ba8c4b-ddc9-4ed3-a769-18b03b1492e0.png",
+    "output_hint": "Generated images are saved to C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412 as C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-19ba8c4b-ddc9-4ed3-a769-18b03b1492e0.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "batch": "cx-13-tower-body",
+    "sid": "town.building.hall.root_vein",
+    "size": [
+      60,
+      296
+    ],
+    "prompt": "Use case: precise-object-edit. Edit the existing native-pixel-art Tower root in image1. This is a controlled revision of delivered art, not a new style. Preserve its warm ochre bark, olive moss, little worn treads, knots, upper-left lighting, crisp coherent native pixel clusters and parallel3/4 top-down view. No antialiasing, blurred/painterly texture, gradients, noise or dithering. Exact locked wayline_tower palette shown in final reference; maximum32colours, binary transparent alpha, #0b0e11 for internal material seams only, NO outer black outline, no labels, letters, numbers, creatures or scenery outside specified root part. Keep canvas dimensions and registration; neighbours are context, not part of returned asset. Do not return a comparison sheet. Only one revised isolated root part on true transparency.\nReference roles: image1 edit target60x296; image2 current painted masonry neighbours with the vein omitted, revealing EXACT wall tones and drum lips behind it; image3 approved style key; image4 current assembly for position only, existing protruding root there is being changed; image5 locked palette.\nREQUIRED CHANGE: keep the same60x296canvas, SAME PATH, SAME THREE SEPARATE root runs and transparent interruptions, exact occupied placement; do not widen it or add a wall rectangle. Make this root look HALF SUNK INTO THE EXISTING MASONRY instead of strapped on top. Add narrow mortar/cream-stone lips along BOTH edges, occluding part of the bark inside the existing occupied strip. Stone/drum lips step OVER it at the three run breaks, casting tiny internal contact shadows on bark. The17-to9pixel visible strip should read as the exposed rounded back of a root about34pixels thick buried behind the wall. Preserve readable moss, treads and two knots in the exposed bark middle. Use same cream limestone and ochre/gray mortar tones as neighbour walls, upper-left lit edge, right recessed contact shadow. Do not paint stone slabs behind or beyond the narrow existing root silhouette, no new background, no buried/covered windows. Original position frame(80,326) must stay exact. Exact60x296nativepixels.",
+    "refs": [
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-13-tower-body/town.building.hall.root_vein/prepared.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/root-revision-2026-10-27/vein-masonry-neighbours.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-11-tower-key/town.building.hall.key/prepared.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-13-tower-body/static-assembled-reference.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/design/placeholder-factory-2026-10-26/refs/palettes/wayline_tower.png"
+    ],
+    "source": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-cc67c9ad-7d6e-4dde-bf2e-497e7ce8d879.png",
+    "output_hint": "Generated images are saved to C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412 as C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-cc67c9ad-7d6e-4dde-bf2e-497e7ce8d879.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  }
+]

@@ -1,0 +1,6 @@
+{
+ "slot": "town.prop.fence_v",
+ "hold": true,
+ "reason": "it is drawn running corner to corner, so it does not reach the top and bottom edges and a vertical run of fence leaves gaps. Needs a redraw from Grok running straight up the screen with posts at the top and bottom edges, or your call.",
+ "date_tool": "clean_slot.py --hold 2026-10-28"
+}

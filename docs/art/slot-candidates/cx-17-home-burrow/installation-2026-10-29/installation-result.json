@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-29",
+  "slot": "town.building.home",
+  "batch": "cx-17-home-burrow",
+  "installed_sha256": "d02e2935540ffd2346f553b198254fedc75dd8fd8213ebcf2080b53f4d4f6ef4",
+  "approved_sha256": "d02e2935540ffd2346f553b198254fedc75dd8fd8213ebcf2080b53f4d4f6ef4",
+  "status": "installed",
+  "size": [
+    132,
+    192
+  ],
+  "registry_after": "19fe5c2bff04900937c586b404bbe6042258f5630b79f36ad98ee7d0a1529390",
+  "checks": {
+    "v1": {
+      "art_slots": "PASS",
+      "building_template": "PASS",
+      "hub_town": "PASS"
+    },
+    "v2": {
+      "art_slots": "PASS",
+      "building_template": "PASS",
+      "hub_town": "PASS"
+    }
+  },
+  "fixed_fps": 30,
+  "protected_dirty_files": 318,
+  "changed_watched_files": [
+    "assets/slots/town/building/home.png",
+    "docs/design/placeholder-factory-2026-10-26/installed.json",
+    "docs/design/placeholder-factory-2026-10-26/slots.json",
+    "scripts/art/slots/town_buildings.gd"
+  ],
+  "unexpected_changes": [],
+  "unexpected_new_tracked_changes": [],
+  "old_cottage_and_installed_shop_unchanged": true,
+  "other_install_records_preserved": true,
+  "slot_file_change_only": "Home status -> installed",
+  "committed": false
+}

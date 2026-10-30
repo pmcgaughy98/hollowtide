@@ -1,0 +1,2 @@
+prepared title.backdrop.launch: 384x216, 9 colours, 82944 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\launch-road-refresh-2026-10-27\title.backdrop.launch\prepared-from-raw.png
+next: python tools/art/validate_slot.py title.backdrop.launch C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\launch-road-refresh-2026-10-27\title.backdrop.launch\prepared-from-raw.png

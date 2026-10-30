@@ -1,0 +1,53 @@
+{
+  "authorization": "Preston explicit Python pixel cleanup",
+  "notes": [
+    {
+      "row_layout": [
+        [
+          "static",
+          1
+        ]
+      ],
+      "padding": "unused state cells hold the first state cell; runtime uses declared frame counts",
+      "lamp_state_order": "lit then dark from source/target, not alphabetically sorted JSON keys"
+    },
+    {
+      "seven_sheave_centres": [
+        [
+          223,
+          16
+        ],
+        [
+          199,
+          31
+        ],
+        [
+          162,
+          42
+        ],
+        [
+          116,
+          46
+        ],
+        [
+          70,
+          42
+        ],
+        [
+          33,
+          31
+        ],
+        [
+          9,
+          16
+        ]
+      ]
+    },
+    "Coherent two-pixel radial plank/rim joints split a 36% flat palette region; moss collar, 7 exact sheaves and footprint cutout retained; underside has 3px contact shadow.",
+    "Restored native cell registration after prepare_slot recentred its occupied bounds; final bytes validated."
+  ],
+  "active_masks_exact": true,
+  "raw_untouched": true,
+  "sequential_colour_joins": 1676,
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b"
+}

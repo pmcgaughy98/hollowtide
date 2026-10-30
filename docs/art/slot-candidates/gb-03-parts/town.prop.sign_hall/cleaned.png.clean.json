@@ -1,0 +1,14 @@
+{
+ "slot": "town.prop.sign_hall",
+ "source": "docs\\art\\slot-candidates\\gb-03-parts\\town.prop.sign_hall",
+ "date_tool": "clean_slot.py 2026-10-28",
+ "settings": {
+  "mixed": 0.5,
+  "keep": 40.0,
+  "flip": []
+ },
+ "notes": [
+  "45 orphans after the downscale, cleared",
+  "62 px re-shaded to break a flat (C8)"
+ ]
+}

@@ -1,0 +1,2 @@
+prepared road.backdrop.vista: 384x216, 60 colours, 82944 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-10-road-far\road.backdrop.vista\prepared-from-raw.png
+next: python tools/art/validate_slot.py road.backdrop.vista C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-10-road-far\road.backdrop.vista\prepared-from-raw.png

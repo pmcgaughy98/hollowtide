@@ -164,7 +164,7 @@ static func _paint(base: Image) -> Image:
 	_soften(img)   # pass 5 T9: the ruled edges below Wayline Hall
 	# The cliff ledges keep their contour; the lanes no longer get one (Claude, 2026-10-23, T2): world_finish.gd's
 	# paint() rims both, over the whole map, and the lane rim was the ink line round every street rectangle.
-	return _cliff_contour(Detail.river(img))
+	return _ledges(_cliff_contour(Detail.river(img)))
 
 
 const PLAIN_GRASS := [Color("#637849"), Color("#677c4c"), Color("#6b804f"), Color("#6f8352")]   # Codex's grass tones
@@ -995,6 +995,46 @@ static func _move_edge(img: Image, src: Image, kinds: PackedByteArray, span: Rec
 
 ## The cliff ledges' contour (world_finish.gd's sel-out on its cliff mask), run on the two cliff rows alone instead
 ## of the whole map: the same pixels, a fraction of the work (Claude, 2026-10-23, T1).
+## Ledges stand off the ground (Preston, 2026-10-29: the town "cuts off rather than has an edge"). Under a cliff's
+## foot the ground below darkens, an ordered dither from 70% of its pixels to none 7 px down; a stair down a cliff
+## gets a low wall each side, lit on the west, in shade on the east, and its shadow on the cliff face east of it.
+const LEDGE_SHADE := 0.3
+const STAIR_WALL_W := [Color("#3a3226"), Color("#e2cfa5"), Color("#d0b891"), Color("#a38f6c")]   # west wall, west to east
+const STAIR_WALL_E := [Color("#a38f6c"), Color("#8b7a5c"), Color("#665a45"), Color("#3a3226")]   # east wall
+
+
+static func _ledges(img: Image) -> Image:
+	if img.get_size() != Vector2i(Tiles.cols * T, Tiles.rows * T):
+		return img
+	for ty in Tiles.rows:
+		for tx in Tiles.cols:
+			if Tiles.band(tx, ty) != "cliff":
+				continue
+			if not _path(tx, ty):
+				if ty + 1 < Tiles.rows and Tiles.band(tx, ty + 1) in ["grass", "terrace"] and not _path(tx, ty + 1):
+					_shade(img, Rect2i(tx * T, (ty + 1) * T, T, 7), 0.7, false)
+				continue
+			if tx == 0 or not _path(tx - 1, ty):
+				for k in 4:
+					img.fill_rect(Rect2i(tx * T + k, ty * T, 1, T), STAIR_WALL_W[k])
+			if tx + 1 >= Tiles.cols or not _path(tx + 1, ty):
+				for k in 4:
+					img.fill_rect(Rect2i(tx * T + T - 4 + k, ty * T, 1, T), STAIR_WALL_E[k])
+				if tx + 1 < Tiles.cols:
+					_shade(img, Rect2i((tx + 1) * T, ty * T, 6, T), 0.8, true)
+	return img
+
+
+## Darkens `r` of img by LEDGE_SHADE through the ordered dither: `from` of its pixels at its top (its west side when
+## `across`) fading to none at the far side.
+static func _shade(img: Image, r: Rect2i, from: float, across: bool) -> void:
+	for y in range(r.position.y, mini(r.end.y, img.get_height())):
+		for x in range(r.position.x, mini(r.end.x, img.get_width())):
+			var t := float(x - r.position.x) / float(r.size.x) if across else float(y - r.position.y) / float(r.size.y)
+			if (Tiles.BAYER[posmod(y, 4) * 4 + posmod(x, 4)] + 0.5) / 16.0 < from * (1.0 - t):
+				img.set_pixel(x, y, img.get_pixel(x, y).darkened(LEDGE_SHADE))
+
+
 static func _cliff_contour(img: Image) -> Image:
 	if img.get_size() != Vector2i(Tiles.cols * T, Tiles.rows * T):
 		return img

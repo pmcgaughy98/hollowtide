@@ -1,0 +1,36 @@
+{
+  "authorization": "Preston explicit Python pixel cleanup",
+  "raw_untouched": true,
+  "registry_sha256": "ee9c03563b1c2a8bd6adc2abe1df32d2d1a993bdcba109f1d7e9d2c5d060489c",
+  "size": [
+    104,
+    300
+  ],
+  "scope": "crook rows0..109 only; lower190rows exact",
+  "alpha": "current reference silhouette exact",
+  "lashings_degrees": [
+    222,
+    312
+  ],
+  "knots_degrees": [
+    246,
+    336
+  ],
+  "knot_centres_local": [
+    [
+      40,
+      30
+    ],
+    [
+      84,
+      47
+    ]
+  ],
+  "hook_local": [
+    88,
+    72
+  ],
+  "precision": "Two brass/lip masks and two7x7 knot patches follow current reference; existing hook kept. No optional trailing rootlets.",
+  "post_prepare_registration": "Restored authored reference registration after bounding-box recenter, final bytes validated.",
+  "colour_joins": 202
+}

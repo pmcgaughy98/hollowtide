@@ -1,0 +1,12 @@
+{
+  "status": "CHECKED: ready for key review",
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "validation_pass": true,
+  "blockout_walk_confirmed": false,
+  "key_approved": true,
+  "installed": false,
+  "refs_only": true,
+  "authorization_quote": "approval go",
+  "authorization_date": "2026-10-27",
+  "proceed_to_parts_authorized": true
+}

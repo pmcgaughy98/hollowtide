@@ -157,7 +157,10 @@ def run(slot_id: str, path: Path) -> dict:
             darker &= lum - lpad[dy:dy + H, dx:dx + W] >= 50
         light = int((opaque & darker).sum())
         share = orphans / max(1, int(opaque.sum()))
-        say("C9", "PASS" if share <= 0.01 else "FAIL", f"{orphans} orphan pixels ({share:.2%}), {light} light specks")
+        # A row's own "specks" share replaces the 1% when its target is fine detail at a tiny scale (the far view's
+        # 1 px roofs and leaf texture); it is set from the target's own share with room to spare.
+        limit = float(s.get("specks", 0.01))
+        say("C9", "PASS" if share <= limit else "FAIL", f"{orphans} orphan pixels ({share:.2%}, limit {limit:.0%}), {light} light specks")
     if "C10" in checks and "door_px" in s and sized:
         x, y, w, h = s["door_px"]
         door = img[y:y + h, x:x + w]

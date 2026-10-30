@@ -1,0 +1,68 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "town",
+	"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The three-arm route vane at the apex (its tip is the tower's top, frame 183, 1) with a teal courier pennant and its fold, which lifts and drops 1 px over 4 frames.",
+	"census": "WT13",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/town/building/hall_vane.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frame_at": [
+		164,
+		0
+	],
+	"frames": 4,
+	"id": "town.building.hall.vane",
+	"kind": "building",
+	"lane": "T",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "order 14; TowerParts.APEX (batch cx-14)",
+	"outline": "runtime_rim",
+	"owner": "codex",
+	"palette": {
+		"family": "wayline_tower",
+		"lock": true,
+		"max": 32,
+		"source": "res://assets/slots/palettes/wayline_tower.png"
+	},
+	"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		192,
+		44
+	],
+	"size": [
+		48,
+		44
+	],
+	"slot_file": "town_tower",
+	"states": {
+		"flutter": [
+			4,
+			6
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

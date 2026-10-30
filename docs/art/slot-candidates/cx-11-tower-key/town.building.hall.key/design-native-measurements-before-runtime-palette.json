@@ -1,0 +1,32 @@
+{
+  "status": "DESIGN-ONLY native measurements; not official slot validation",
+  "size": [
+    216,
+    360
+  ],
+  "binary_alpha": true,
+  "opaque_pixels": 36657,
+  "color_count": 31,
+  "provisional_color_ceiling": 32,
+  "design_palette_subset": true,
+  "clear_top_and_sides": true,
+  "lowest_opaque_row": 359,
+  "source_raw_size": [
+    971,
+    1619
+  ],
+  "source_crop": [
+    0,
+    2,
+    961,
+    1619
+  ],
+  "source_content_fit": [
+    213,
+    359
+  ],
+  "adjacent_color_cleanup_pixels": 5664,
+  "isolated_alpha_specks_removed": 0,
+  "raw_sha256": "65e18dd4dd63da886dc0f4cc75dc17aa06282d468e69b43a8e844f524c459d59",
+  "native_sha256": "ab173706321c26fa5a7b5390d062cad7f12c4acbc9ae64eea671383be7b38bf6"
+}

@@ -1,0 +1,26 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-28 America/Chicago",
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-0400d721-7034-4267-8728-e6fc908d9304.png",
+  "raw_sha256": "cb3bf8ecf6e4dba2fba08564b1c73a323f290ed3e9e45c3e0c33a1aecfc586f8",
+  "raw_is_untouched": true,
+  "cost": "not exposed; no alternative generator",
+  "references": [
+    {
+      "tool_path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\cx-10-road-far\\road.backdrop.vista\\references\\target.png",
+      "snapshot": "references\\input-1.png",
+      "sha256": "ea7e7fadc03fcfacdcad5909feae719a149d904c71fb1f138db29dc22d442366"
+    },
+    {
+      "tool_path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\cx-10-road-far\\road.backdrop.vista\\references\\title-tree-layout.png",
+      "snapshot": "references\\input-2.png",
+      "sha256": "e29bbc1a2c713750af4ca1fcdb14647586583a016c5bfc1b675b6ed5f5b84085"
+    },
+    {
+      "tool_path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\cx-10-road-far\\road.backdrop.vista\\references\\palette.png",
+      "snapshot": "references\\input-3.png",
+      "sha256": "870fdde3267e78cca55cbec2570ede6cdc730701d2536b77c4dad87fd2a2b151"
+    }
+  ],
+  "pixel_cleanup": "Explicit prior Preston Python pixel cleanup approval"
+}

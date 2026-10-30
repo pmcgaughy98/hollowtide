@@ -41,8 +41,13 @@ func _initialize() -> void:
 		for d in tiles:
 			cols.append(d.x - base.position.x)
 			on_row = on_row and d.y == base.end.y - 1
-		var fits: bool = base.size == cls["base"] and on_row and cols == BT.TOWER_DOOR_COLS
-		print("v2: the Tower in %s on base %s, door tiles %s in base columns %s on its last row -> %s" % [Layout.area_of("hall"), base, tiles, cols, "ok" if fits else "WRONG"])
+		# Tower Rise's hall is the new Tower's foot since 2026-10-29 (RISE_CLIMB_SLICE.md): one row deep, the Stack's
+		# foot on the area's top row, still 12 wide with the doors in its columns 5 and 6.
+		var foot := String(BT.place_entry("hall").get("tower", "")) == "foot"
+		var want: Vector2i = Vector2i(cls["base"].x, 1) if foot else cls["base"]
+		var fits: bool = base.size == want and on_row and cols == BT.TOWER_DOOR_COLS and (not foot or base.position.y == 0)
+		print("v2: the Tower in %s on base %s (%s), door tiles %s in base columns %s on its last row -> %s" % [Layout.area_of("hall"),
+			base, "the new foot, one row on row 0" if foot else "12 x 3", tiles, cols, "ok" if fits else "WRONG"])
 		bad += 0 if fits else 1
 	print("RESULT: %s" % ("the hall door meets the steps" if bad == 0 else "%d problems" % bad))
 	quit()

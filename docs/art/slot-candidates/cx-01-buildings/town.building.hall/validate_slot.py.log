@@ -1,0 +1,16 @@
+C1   size          PASS  300x576, slot sheet 300x576
+C2   colours       PASS  30 colours (worst cell 30), budget 32
+C3   alpha         PASS  0 partial-alpha pixels
+C4   edges         PASS  clear
+C5   palette       PASS  0 colours over 20 from the palette; mean distance 0.0
+C7   foot row      PASS  lowest rows [575], foot row 575
+C8   frame health  PASS  opaque per cell [81472]; largest one-colour block 2% of a cell
+C9   specks        FAIL  12334 orphan pixels (15.14%), 27 light specks
+C10  doorway       PASS  door opaque True; door brightness 35, wall beside it 66
+C11  scale         PASS  door 48x64, galeshear 63x62 (needs height and 0.75 x width)
+C12  light side    PASS  upper-left edge 21, lower-right edge 19
+R1   review        -     no text, letters, numbers or signage lettering anywhere
+R2   review        -     nothing that reads as another game or franchise
+R3   review        -     no creature, animal or person unless the slot asks for one
+R4   review        -     sits in the scene: placeholder, candidate and in-game capture side by side
+FAIL: a scripted check failed

@@ -82,8 +82,8 @@ Drawn on the full 1152x648 canvas, not the 384x216 low-res view. Script chain: c
 | T01 | Launch card backdrop | opening_flow.gd:21, colour creature_opening.gd:113 | Code | flat ColorRect #161f1b | 1152x648 at (0,0) | until Enter | Placeholder: flat fill |
 | T02 | Launch wordmark | opening_flow.gd:26 | Code | reuses T08's texture | 768x168, centred, y 216 | static | Reads finished |
 | T03 | Launch captions | opening_flow.gd:34, :40; text set creature_opening.gd:119 | Code | font labels | full width at y 392, hint below | hint follows the input device | Reads finished |
-| T04 | Village painting | creature_opening.gd:39 | RD PNG | assets/sprites/menu/creature_village_2026_10_09.png, 256x144 | scaled 4.5x to 1152x648 at (0,0) | static | Reads finished: header calls the architecture a proposal; 4.5 is not a whole scale, so art pixels land 4 or 5 screen px wide |
-| T05 | Canopy shade | creature_opening.gd:47 | Code | ColorRect rgba(0.07,0.10,0.10,0.38) | 1152x150 at (0,0) | static | Placeholder: flat band |
+| T04 | Village painting | creature_opening.gd:39 | RD PNG | assets/sprites/menu/creature_village_2026_10_09.png, 256x144 | scaled 4.5x to 1152x648 at (0,0) | static | Reads finished: header calls the architecture a proposal; 4.5 is not a whole scale, so art pixels land 4 or 5 screen px wide. **2026-10-27:** retired from the title (now T16); kept as the reference for a future town on another map (Preston) |
+| T05 | Canopy shade | creature_opening.gd:47 | Code | ColorRect rgba(0.07,0.10,0.10,0.38) | 1152x150 at (0,0); **2026-10-27:** 936x150, ending at T16's shade_end anchor (312,50) x 3 so the Tower's lamp stays bright | static | Placeholder: flat band |
 | T06 | Legibility wash | creature_opening.gd:53 | Code | scripts/ui/title_legibility.gdshader | 1152x648 | static | Reads finished |
 | T07 | Fireflies | creature_opening.gd:68 | Code | six 3x3 squares | fixed homes between y 426 and 550 | pulse, drift 5 px | Reads finished |
 | T08 | Wordmark HOLLOWTIDE | creature_opening.gd:84, ui/hollowtide_wordmark.gd:89 | Code | font letters through a 3-band gradient shader, roots, burrow arch and leaves set pixel by pixel | 384x84 canvas at 2x = 768x168 at (192,0) | static | Reads finished: Codex has an uncommitted logo pass in docs/ui/title-logo-2026-10-26/ (not counted) |
@@ -94,6 +94,7 @@ Drawn on the full 1152x648 canvas, not the 384x216 low-res view. Script chain: c
 | T13 | New Game confirmation | main_menu.gd:499 | Tool PNG | frame/panel.png | 560 wide at (296,216) | yes/no | Finished |
 | T14 | Quit confirmation | main_menu.gd:643 | Tool PNG | frame/panel.png | 390 wide at (720,330) | yes/no | Finished |
 | T15 | Title fade | main_menu.gd:376 | Code | black ColorRect | 1152x648 | 0.6 s (0.2 under Reduce motion) | Reads finished |
+| T16 | Highbank title view (added 2026-10-27) | creature_opening.gd _build_scenery; slot title.backdrop.highbank | Code | scripts/art/placeholders/title_highbank.gd, 384x216: Highbank from across the river with the Wayline Tower prominent, built from the Tower's blockout and the Street's house slots | scaled 3x to 1152x648 at (0,0) | static | Placeholder: coded; Codex paints it in cx-06 after the Tower's key and crown |
 
 ## S. Storm cold open (scenes/storm_open.tscn)
 
@@ -182,7 +183,7 @@ Positions in tiles from town_layout.gd:42-72. World px = tiles x 24; screen px =
 
 | ID | Visual | Code | Source | Details | On screen | States | Reads as |
 |---|---|---|---|---|---|---|---|
-| B01 | Wayline Hall | building_exteriors.gd:117; town_layout.gd:46 | Codex PNG | wayline_hall_2026_10_10/wayline_hall_native.png 240x144 | 10x6 tiles at (19,1); 720x432 on screen | door 3 frames; door 2 tiles wide, art starts 48 px above the door tile | Finished |
+| B01 | Wayline Hall | building_exteriors.gd:117; town_layout.gd:46 | Codex PNG | wayline_hall_2026_10_10/wayline_hall_native.png 240x144 | 10x6 tiles at (19,1); 720x432 on screen | door 3 frames; door 2 tiles wide, art starts 48 px above the door tile | Finished. **2026-10-27:** v1 keeps this picture; with Highbank v2 the slot town.building.hall is the Wayline Tower's 300x192 depot (the door part), and the rest of the Tower is WT00 to WT20 below |
 | B02 | Home | building_exteriors.gd:117; home_painter.gd:6 | Codex PNG | home_2026_10_09/home_native.png 120x120 | 5x5 at (3,3); 360x360 | door 3 frames, mat | Finished: door art starts 36 px above the door tile |
 | B03 | Item Shop | building_exteriors.gd:117; item_shop_painter.gd:6 | Codex PNG | item_shop_2026_10_09/item_shop_native.png 144x120 | 6x5 at (31,3); 432x360 | shut: boards over the door (:235) | Finished: shut, and no interior exists (M19) |
 | B04 | Storage | building_exteriors.gd:117; storage_painter.gd | Codex PNG | storage_2026_10_10/storage_native.png 144x120 | 6x5 at (38,3) | crate sign; opens after Rootbank Warren | Finished |
@@ -201,6 +202,36 @@ Positions in tiles from town_layout.gd:42-72. World px = tiles x 24; screen px =
 | B17 | Foundations, grass seams, doorstep mats, pictogram signs | building_exteriors.gd:311 | Code | bag (shop), crate (storage), waymark (hall) signs | per building | static | Reads finished |
 | B18 | Shut boards, chain, rope | building_exteriors.gd:235, :264, :281 | Code | pixel art over the doors and gate | shop, scrolls, yard | static | Reads finished |
 | B19 | Place plaques | hub_town.gd:1859 | Code | dark plaque, 1 px brass rim, Silkscreen 8 px | 13 px tall, mid-left of a place | drawn only for a place with no installed exterior: 0 of 13 today (by code reading) | Dormant |
+
+## WT. The Wayline Tower in parts (added 2026-10-27)
+
+Approved design: docs/design/wayline-tower-2026-10-27/TOWER_DESIGN.md (The Reach and the Waiting Lamp). Shown with Highbank v2 (HT_HIGHBANK_V2=1) on Tower Rise, in scenes/debug/building_lineup.tscn and in the Tower scene; v1 keeps B01's picture. Every part is a coded blockout from scripts/town/tower_parts.gd until its painted file is installed; rows in scripts/art/slots/town_tower.gd. Sizes in world px; body parts are cut from one 432x720 frame. B01 (town.building.hall) is the depot, the door part.
+
+| ID | Slot | Owner | Size | What |
+|---|---|---|---|---|
+| WT00 | town.building.hall.key | Codex | 216x360 | style key, refs only, never installed (cx-11) |
+| WT01 | town.building.hall.drum | Codex | 225x236 | Sorting Drum |
+| WT02 | town.building.hall.hoist | Codex | 88x56 | hoist jib, 2 frames |
+| WT03 | town.building.hall.galleries | Codex | 217x206 | plaster galleries, walkway, perches |
+| WT04 | town.building.hall.root_vein | Codex | 60x296 | the root up the left face (overlay) |
+| WT05 | town.building.hall.chute | Codex | 88x290 | parcel chute (overlay) |
+| WT06 | town.building.hall.gable | Codex | 104x53 | Route Board gable over the arch |
+| WT07 | town.building.hall.reel_back | Codex | 225x93 | Reel Deck back half and the loft |
+| WT08 | town.building.hall.reach | Codex | 104x300 | the Reach, the root crook |
+| WT09 | town.building.hall.ring_front | Codex | 232x60 | Reel Deck front half and sheaves |
+| WT10 | town.building.hall.route_lantern | Grok | 12x20 | route lantern: lit, dark, quiet |
+| WT11 | town.building.hall.bell | Codex | 56x90 | flood bell gallows: rest, swing |
+| WT12 | town.building.hall.lamp | Codex | 32x42 | the Waiting Lamp: lit, dark |
+| WT13 | town.building.hall.vane | Codex | 48x44 | three-arm vane and pennant |
+| WT14 | town.building.hall.root_foot | Codex | 96x120 | Great Root buttress (ground) |
+| WT15 | town.building.hall.yard | Codex | 72x104 | hoist yard (ground) |
+| WT16 | town.prop.hall.wayline_post | Grok | 24x64 | wayline post: strung, waiting, quiet |
+| WT17 | town.prop.hall.rise_stair | Codex | 48x96 | painted rise stair at (12,9) |
+| WT18 | town.prop.hall.basket | Grok | 16x16 | hoist basket |
+| WT19 | town.prop.hall.cradle | Grok | 12x14 | cradle that rides a wayline |
+| WT20 | town.prop.hall.parcel | Grok | 10x8 | chute and cradle parcel |
+
+Coded and never painted: the waylines (Line2D), hoist rope, lamp glow and sway, chimney smoke, Route Board pegs and the long shadow. The Reach, the Waiting Lamp, the Route Board, the First Post and the dark lantern are working labels.
 
 ## R. Highbank: street props and scene marks
 

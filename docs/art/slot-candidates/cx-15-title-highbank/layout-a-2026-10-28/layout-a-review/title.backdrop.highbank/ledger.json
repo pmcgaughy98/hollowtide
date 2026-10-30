@@ -1,0 +1,28 @@
+{
+  "tool": "built-in image_gen edit",
+  "date": "2026-10-28 America/Chicago",
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-6365a551-3d9d-4438-8487-9dad2a780f67.png",
+  "raw_sha256": "817e87eb90de2f4c62e3ed49f7c465b612036cbfd87c597af85ebbf406b55fad",
+  "raw_is_untouched": true,
+  "cost": "not exposed; no alternate generator",
+  "references": [
+    {
+      "snapshot": "input-before.png",
+      "sha256": "3cc05c28e7f4f230942b4fee5a306fa3af6b04d2e37f50b827ca859f3c0dc0c8"
+    },
+    {
+      "snapshot": "references\\target.png",
+      "sha256": "e29bbc1a2c713750af4ca1fcdb14647586583a016c5bfc1b675b6ed5f5b84085"
+    },
+    {
+      "snapshot": "references\\morning-tree-style.png",
+      "sha256": "24e2b07673a016c5fb940bc6e0abf79d2c5c3ff84478252c79bbcbb00beb2f82"
+    },
+    {
+      "snapshot": "references\\palette.png",
+      "sha256": "d95a492d5995c151d9aabdfa81b5c748ec33a7e7ea58886771925cb097bfa788"
+    }
+  ],
+  "pixel_cleanup": "Preston prior explicit Python cleanup approval",
+  "source_palette_issue": "Published34color strip differs from real title_highbank.gd PALETTE47; preserving protected old art requires real source palette."
+}

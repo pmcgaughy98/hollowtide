@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/title.hud_piece.menu_cursor_card.png",
+ "out": "docs/art/slot-candidates/gb-05-menu/title.hud_piece.menu_cursor/raw.png",
+ "cost_usd": 0.05724852,
+ "turns": 4,
+ "text": "I'll read the style reference and the Imagine skill first, then generate the pointer once.The reference is a chunky pixel-art brass frame, a right-pointing stair-step cursor, and a cream-to-bronze palette. I'll generate the arrowhead once in that look.The generator saved a JPEG. I'll convert it to a real PNG and put it in this folder as `raw.png`.Saved at `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_a6ujwjmn\\raw.png` (1024\u00d71024 PNG, converted from the one Imagine JPEG). It was prompted as a single brass right-pointing arrowhead in the reference's chunky three-quarter pixel style on flat #FF00FF, and I did not re-open the result, so I cannot confirm the pixels, the hard edges, or that no text appeared.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_a6ujwjmn"
+}

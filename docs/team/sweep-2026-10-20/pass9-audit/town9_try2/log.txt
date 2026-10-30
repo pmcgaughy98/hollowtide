@@ -1,0 +1,98 @@
+[00000    0.0s w    2316] phase town9, keyboard, window (1152, 648), out C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/town9/
+[00000    0.0s w    2318] CLOCK real time, max fps 30
+[00000    0.0s w    2321] save C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/saves/s7_post.save -> C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/town9/slot.save
+[00001    0.0s w    2836] SCENE  -> none after 0.0 s game, 2.8 s wall in 
+[00002    0.1s w    3663] HITCH 827 ms for one frame in creature_opening.tscn (after start)
+[00002    0.1s w    3665] SCENE none -> creature_opening.tscn after 0.0 s game, 0.8 s wall in none
+[00089    3.0s w    5205] SHOT T01_title_boot scene creature_opening.tscn
+[00089    3.0s w    5247] SHOT T02_title_continue_focused scene creature_opening.tscn
+[00157    5.2s w    6494] SCENE creature_opening.tscn -> hub_town.tscn after 5.2 s game, 2.8 s wall in creature_opening.tscn
+[00417   13.9s w   11246] HITCH 416 ms for one frame in hub_town.tscn (after ui_accept(Enter))
+[00418   13.9s w   12022] HITCH 776 ms for one frame in hub_town.tscn (after ui_accept(Enter))
+[00438   14.6s w   12615] MARK highbank arrival (game 14.6 s, lines so far 0)
+[00438   14.6s w   12662] SHOT T03_arrive scene hub_town.tscn
+[00498   16.6s w   14129] SHOT T04_arrive_settled scene hub_town.tscn
+[00498   16.6s w   14132] TOWN npcs 0: []
+[00498   16.6s w   14133] STORY { "taught_wild": true, "taught_item": true, "taught_lantern": true, "parcel": "delivered", "road_talk": true, "met_crew": true, "guild_trial": true, "runner": true, "stone": "installed", "pilot_end_seen": true } beaten ["mouth", "first", "hollow"]
+[00522   17.4s w   14545] SHOT T05_pause_town scene hub_town.tscn
+[00662   22.1s w   17825] SCENE hub_town.tscn -> none after 16.8 s game, 11.3 s wall in hub_town.tscn
+[00663   22.1s w   17858] SCENE none -> town_room.tscn after 0.0 s game, 0.0 s wall in none
+[00670   22.3s w   18007] TIMED hall_door: shown 274 ms after the press, worst frame 115 ms
+[00690   23.0s w   18396] SHOT T06_hall scene town_room.tscn
+[00690   23.0s w   18403] HALL npcs ["grubbit@(17, 11)", "wayling@(14, 5)"]
+[00731   24.4s w   19093] SHOT T07_mole_before scene town_room.tscn
+[00733   24.4s w   19122] LINE [Grubbit] ...Oh! You walked right up on me.
+[00765   25.5s w   19695] SHOT T08_mole_talk scene town_room.tscn
+[00882   29.4s w   21595] LINE [Grubbit] Parcel for the bend, parcel for Highbank... I go by feel down here. Never misread one yet.
+[00895   29.8s w   21879] SHOT T09_mole_line0 scene town_room.tscn
+[01085   36.2s w   24992] PAGE 2 of [Parcel for the bend, parcel fo]
+[01098   36.6s w   25278] SHOT T10_mole_line1 scene town_room.tscn
+[01226   40.9s w   27433] SHOT T11_mole_line2 scene town_room.tscn
+[01289   43.0s w   28425] PANEL |Chart Table|The river and its Hollows, pinned where couriers have gone. A new pin sits on the water near Highbank.
+[01316   43.9s w   28940] SHOT T12_hall_chart_panel scene town_room.tscn
+[01366   45.5s w   29708] SCENE town_room.tscn -> none after 23.4 s game, 11.8 s wall in town_room.tscn
+[01366   45.5s w   29724] WALK no path from (-99, -99) to (10, 13) in town_room.tscn
+[01367   45.6s w   29804] SCENE none -> hub_town.tscn after 0.0 s game, 0.1 s wall in none
+[01387   46.2s w   30183] SHOT T13_hall_out scene hub_town.tscn
+[01403   46.8s w   30464] SHOT T14_board_before scene hub_town.tscn
+[01405   46.8s w   30516] PANEL board|Job Board|
+[01419   47.3s w   30725] TIMED board: shown 56 ms after the press, worst frame 52 ms
+[01439   48.0s w   31121] SHOT T15_board scene hub_town.tscn
+[01439   48.0s w   31123] VISIT board panel { "name": "Job Board", "service": "board", "sel": 0, "paid": [], "said": "", "rank_s": "Courier Rank 1    0 points  (60 for the next)", "taken_s": "Taken 0 / 4", "rows": [{ "job": { "id": "7_0", "kind": "delivery", "line": 8, "stage": 0, "floor": 1, "done": false, "reward": "lamp_oil", "count": 1, "pts": 25, "cond": "careful" }, "title": "Deliver to Canvaswing. It\'s waiting on a parcel.", "where"
+[01454   48.5s w   31382] SHOT T16_board_down scene hub_town.tscn
+[01570   52.3s w   33328] SHOT T17_shrine_before scene hub_town.tscn
+[01572   52.4s w   33356] PANEL evolve_ask|Growth Shrine|Tallowroot is ready to grow. Let it grow here?
+[01586   52.9s w   33573] TIMED shrine: shown 28 ms after the press, worst frame 23 ms
+[01606   53.5s w   33960] SHOT T18_shrine scene hub_town.tscn
+[01606   53.5s w   33962] VISIT shrine panel { "name": "Growth Shrine", "what": "Tallowroot is ready to grow. Let it grow here?", "service": "evolve_ask", "k": 1 }
+[01636   54.5s w   34461] SHOT T19_shrine_held scene hub_town.tscn
+[01836   61.2s w   37810] SHOT T20_yard_before scene hub_town.tscn
+[01838   61.3s w   37822] PANEL shut|Training Yard|There's a rope across the gate, and a board hung off it: "Yard's closed till the ground dries out."
+[01852   61.7s w   38040] TIMED yard: shown 15 ms after the press, worst frame 18 ms
+[01872   62.4s w   38427] SHOT T21_yard scene hub_town.tscn
+[01872   62.4s w   38430] VISIT yard panel { "name": "Training Yard", "what": "There\'s a rope across the gate, and a board hung off it: \"Yard\'s closed till the ground dries out.\"", "service": "shut" }
+[01939   64.6s w   39563] SHOT T22_scrolls_before scene hub_town.tscn
+[01984   66.1s w   40273] TIMED scrolls: shown -1 ms after the press, worst frame 18 ms
+[02004   66.8s w   40659] SHOT T23_scrolls scene hub_town.tscn
+[02004   66.8s w   40661] VISIT scrolls panel {  }
+[02115   70.5s w   42530] SHOT T24_lookout_before scene hub_town.tscn
+[02117   70.6s w   42541] PANEL view|Bluff Lookout|Where the river looks close. On a clear day you can see the next bend.
+[02131   71.0s w   42757] TIMED lookout: shown 12 ms after the press, worst frame 18 ms
+[02151   71.7s w   43147] SHOT T25_lookout scene hub_town.tscn
+[02151   71.7s w   43153] VISIT lookout panel { "id": "lookout", "name": "Bluff Lookout", "kind": "area", "rect": [P: (10, 2), S: (6, 4)], "door": (13, 5), "service": "view", "what": "Where the river looks close. On a clear day you can see the next bend." }
+[02333   77.8s w   46127] SCENE hub_town.tscn -> none after 32.2 s game, 16.3 s wall in hub_town.tscn
+[02334   77.8s w   46280] SCENE none -> town_room.tscn after 0.0 s game, 0.1 s wall in none
+[02354   78.5s w   46649] SHOT T26_storage_room scene town_room.tscn
+[02377   79.2s w   46980] PANEL storage|Storage|
+[02404   80.1s w   47490] SHOT T27_storage_panel scene town_room.tscn
+[02454   81.8s w   48275] SCENE town_room.tscn -> none after 4.0 s game, 2.0 s wall in town_room.tscn
+[02454   81.8s w   48290] WALK no path from (-99, -99) to (8, 12) in town_room.tscn
+[02455   81.8s w   48371] SCENE none -> hub_town.tscn after 0.0 s game, 0.1 s wall in none
+[02676   89.2s w   52026] SCENE hub_town.tscn -> none after 7.4 s game, 3.7 s wall in hub_town.tscn
+[02677   89.2s w   52054] SCENE none -> town_room.tscn after 0.0 s game, 0.0 s wall in none
+[02697   89.9s w   52446] SHOT T28_home scene town_room.tscn
+[02710   90.3s w   52609] PANEL |Table|A lantern, a map of the river, the parcel slip from the first job.
+[02737   91.2s w   53123] SHOT T29_home_table_panel scene town_room.tscn
+[02777   92.6s w   53725] SCENE town_room.tscn -> none after 3.3 s game, 1.7 s wall in town_room.tscn
+[02777   92.6s w   53740] WALK no path from (-99, -99) to (7, 9) in town_room.tscn
+[02778   92.6s w   53819] SCENE none -> hub_town.tscn after 0.0 s game, 0.1 s wall in none
+[02798   93.3s w   54196] SHOT T30_street_end scene hub_town.tscn
+[02820   94.0s w   54518] PANEL evolve_ask|Growth Shrine|Tallowroot is ready to grow. Let it grow here?
+[02847   94.9s w   55024] SHOT T31_growth_ask scene hub_town.tscn
+[02847   94.9s w   55027] MARK growth starts (game 94.9 s, lines so far 2)
+[02877   95.9s w   55714] SHOT T32_evo_00 scene hub_town.tscn
+[02922   97.4s w   56458] SHOT T33_evo_01 scene hub_town.tscn
+[02967   98.9s w   57211] SHOT T34_evo_02 scene hub_town.tscn
+[03012  100.4s w   57961] SHOT T35_evo_03 scene hub_town.tscn
+[03057  101.9s w   58712] SHOT T36_evo_04 scene hub_town.tscn
+[03102  103.4s w   59462] SHOT T37_evo_05 scene hub_town.tscn
+[03147  104.9s w   60211] SHOT T38_evo_06 scene hub_town.tscn
+[03192  106.4s w   60962] SHOT T39_evo_07 scene hub_town.tscn
+[03216  107.2s w   62442] HITCH 1149 ms for one frame in hub_town.tscn (after interact(E))
+[03216  107.2s w   62446] PANEL growth_done|Growth Shrine|Tallowroot has grown into Huskward! It learned Tail Club.
+[03236  107.9s w   62883] SHOT T40_evo_after scene hub_town.tscn
+[03236  107.9s w   62885] MARK growth ends (game 107.9 s, lines so far 2)
+[03281  109.4s w   63651] SHOT T41_evo_result scene hub_town.tscn
+[03320  110.7s w   64311] SHOT T42_evo_closed scene hub_town.tscn
+[03320  110.7s w   64327] MARKS [["highbank arrival", 438, 12615, 0], ["growth starts", 2847, 55027, 2], ["growth ends", 3236, 62885, 2]]
+[03320  110.7s w   64378] DONE phase town9 in 110.7 s game, 64.4 s wall

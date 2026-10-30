@@ -34,7 +34,7 @@ const SEAL := Color("#3fa79b")
 const FAMILY := {
 	"town_stone": STONE, "town_timber": WOOD, "lantern": LANTERN, "brass_ui": EDGE, "night_bank": Color("#1b2a33"),
 	"dawn": Color("#c9a77a"), "ruin": SLATE, "room_chamber": Color("#3f7f7a"), "room_runners": Color("#8a6a48"),
-	"room_shop": Color("#9a7853"), "room_scrolls_cellar": Color("#6f6a5e"),
+	"room_shop": Color("#9a7853"), "room_scrolls_cellar": Color("#6f6a5e"), "wayline_tower": Color("#e6c697"),
 }
 const KIND_BASE := {"building": STONE, "landmark": STONE, "ground": GRASS, "room": WOOD, "backdrop": Color("#3b4a3f"),
 	"prop": WOOD, "lamp": WOOD, "character": STONE, "hud_piece": EDGE, "hud_icon": EDGE, "frame9": EDGE, "effect": LANTERN}

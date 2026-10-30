@@ -41,3 +41,30 @@ The built-in browser pane has Preston's Opal sign-in. The app runs in a same-ori
 hidden file input inside that frame, so Claude hands it a file by patching the frame's `HTMLInputElement.click`
 for one call. Earlier results are fetched from their `https://opal.google/board/blobs/<id>` address and fed to
 the next run without touching the disk.
+
+## Hollowtide Evolution Forge v5.2 (2026-10-28)
+
+- Drive id `1R02I5-TXyAFPgmLJLwZyuiRgXRI8fdek` (open: https://opal.google/app/1R02I5-TXyAFPgmLJLwZyuiRgXRI8fdek),
+  built by `build_evolution_forge_v5.py` into `hollowtide-evolution-forge-v5.2.json`, uploaded as a new file in the
+  Opal Drive folder (`1VAIq61SUGN46b7xbZ2E0xbMLbmtlzkcf`) with the Drive connector. v5.1 is unchanged.
+- Adds the eight-view lessons of 2026-10-28 (true facing per cell, no face in the top row, even front and back,
+  mirrored row pairs, one size and body thickness, one palette), the per-line canvas, and the eight-angles-first mode
+  (the previous stage's sheet as POSE GUIDE when no front exists).
+- Running it from Chrome: the built-in pane lost its Opal sign-in on 2026-10-28 (Preston signed it back in the same
+  evening). In Chrome, Claude adds a visible file input to the top page, fills it with the extension's file upload, then
+  patches the frame's `HTMLInputElement.click` to hand one of those files to Opal's hidden input before clicking
+  "Upload from Device". The run's output is a public `https://opal.google/board/blobs/<id>` JPEG that curl can fetch.
+- First run: Riftfin VIEW: EIGHT. Opal still drew grid lines; the cells are cut 8 px inside the lines. Finished as a
+  whole sheet (one scale, one 28-colour palette, 160 canvas, feet row 124), it passed every sheet_judge check
+  (`docs/creatures/riftfin-redo-2026-10-28/forge/`).
+- v5.3 (Drive id `1Pvhte8t9aQWunG31IzH6IJpZ-PcCSMhz`) fixes a v5.2 mistake: the eight-angles-first rule said to take
+  only directions from the POSE GUIDE, so the first Riftfin lost Rimefin's face. v5.3 carries the guide's anchors (eye
+  and face motif, colour family, signature feature). Its first two runs (2026-10-28, about 9:50 PM) both ended in
+  Opal's "An unexpected internal error occurred" at the image step, cause unknown. Preston: run the Forge in the
+  built-in browser from now on.
+
+**Built-in browser run, 2026-10-28 late.** v5.3 ran clean in the built-in browser pane (blob
+666b0bdb-f8df-402e-924d-d404db74b0e2, `docs/creatures/riftfin-redo-2026-10-28/forge/sheet_try2.jpg`). Inputs reached
+Opal through `window.name` from a localhost handoff page (see the memory note forge-in-internal-browser). Result: the
+Rimefin face carried over, but the e/w cells copied the guide's swimming-fish side views (no legs, 54 px tall), and
+ne/nw show an eye. A guide whose side views are a different body plan pulls the side cells toward that body.

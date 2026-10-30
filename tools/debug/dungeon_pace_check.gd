@@ -51,7 +51,10 @@ func _run() -> void:
 				if e["hp"] <= 0:
 					continue
 				var dist: float = e["node"].position.distance_to(dg._tile_px(e["pos"]))
-				var key: int = dg.ents.find(e)
+				# Keyed by the creature's own sprite node, not its place in ents: when the team goes down on B1F the floor
+				# is built again with floor_n still 1, and a nest dropping in there (from 70 px up, unseen) took the old
+				# floor's places 5 to 9 and read as five pull-backs (pass 9 integration, seed 4242 after D3's run rolls).
+				var key: int = e["node"].get_instance_id()
 				if last_dist.has(key) and dist > last_dist[key] + 0.5 and dist > 3.0 and not dg.busy:
 					pulls += 1
 					if examples.size() < 12:

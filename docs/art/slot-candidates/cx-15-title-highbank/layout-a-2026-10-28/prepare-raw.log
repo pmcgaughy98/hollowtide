@@ -1,0 +1,2 @@
+prepared title.backdrop.highbank: 384x216, 32 colours, 82944 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-15-title-highbank\layout-a-2026-10-28\prepared-from-raw.png
+next: python tools/art/validate_slot.py title.backdrop.highbank C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-15-title-highbank\layout-a-2026-10-28\prepared-from-raw.png

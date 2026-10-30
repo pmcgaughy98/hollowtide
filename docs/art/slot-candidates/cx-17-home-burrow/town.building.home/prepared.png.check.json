@@ -1,0 +1,80 @@
+{
+ "slot": "town.building.home",
+ "candidate": "docs\\art\\slot-candidates\\cx-17-home-burrow\\town.building.home\\prepared.png",
+ "registry_sha256": "19fe5c2bff04900937c586b404bbe6042258f5630b79f36ad98ee7d0a1529390",
+ "pass": true,
+ "results": [
+  {
+   "id": "C1",
+   "name": "size",
+   "result": "PASS",
+   "detail": "132x192, slot sheet 132x192"
+  },
+  {
+   "id": "C2",
+   "name": "colours",
+   "result": "PASS",
+   "detail": "31 colours (worst cell 31), budget 32"
+  },
+  {
+   "id": "C3",
+   "name": "alpha",
+   "result": "PASS",
+   "detail": "0 partial-alpha pixels"
+  },
+  {
+   "id": "C4",
+   "name": "edges",
+   "result": "PASS",
+   "detail": "clear"
+  },
+  {
+   "id": "C5",
+   "name": "palette",
+   "result": "PASS",
+   "detail": "0 colours over 20 from the palette; mean distance 0.0"
+  },
+  {
+   "id": "C7",
+   "name": "foot row",
+   "result": "PASS",
+   "detail": "lowest rows [191], foot row 191"
+  },
+  {
+   "id": "C8",
+   "name": "frame health",
+   "result": "PASS",
+   "detail": "opaque per cell [17774]; largest one-colour block 23% of a cell"
+  },
+  {
+   "id": "C9",
+   "name": "specks",
+   "result": "PASS",
+   "detail": "5 orphan pixels (0.03%, limit 1%), 0 light specks"
+  },
+  {
+   "id": "C10",
+   "name": "doorway",
+   "result": "PASS",
+   "detail": "door opaque True; door brightness 27, wall beside it 129"
+  },
+  {
+   "id": "C11",
+   "name": "scale",
+   "result": "PASS",
+   "detail": "door 22x48, sparkjab 22x45 (needs height and 0.75 x width)"
+  },
+  {
+   "id": "C12",
+   "name": "light side",
+   "result": "PASS",
+   "detail": "upper-left edge 77, lower-right edge 56"
+  }
+ ],
+ "review": {
+  "R1": "no text, letters, numbers or signage lettering anywhere",
+  "R2": "nothing that reads as another game or franchise",
+  "R3": "no creature, animal or person unless the slot asks for one",
+  "R4": "sits in the scene: placeholder, candidate and in-game capture side by side"
+ }
+}

@@ -50,7 +50,11 @@ const RANK_STEPS := [0, 60, 150, 300, 500]   # points to reach Courier Rank 1..5
 ## Each client posts at most once a board while there are at least as many clients as requests (Claude, 2026-10-24,
 ## pass 4 T8 / LV-27: the first board was four Canvaswing jobs). A client already on the board is swapped for one
 ## that is not, from the same floor's creatures when one is left, else from the nearest floor's. The swap draws
-## from its own stream, so every floor, kind, item, condition and payment rolled here is the one it was.
+## from its own stream, so every kind, item, condition, reward and count rolled here is the one it was.
+## A swapped client takes its own floor (Grok task 7, 2026-10-26; pass 9 D4): the job's floor becomes the floor the
+## client was taken from, before the rank points and a quick delivery's turns are worked out, so a creature is only
+## ever posted on a floor whose spawn list has it, and the pay is that floor's. No met record: a client need not have
+## been met.
 static func post(seed: int) -> Array:
 	var c: Dictionary = load(DUNGEON).get_script_constant_map()
 	var spawns: Dictionary = c["FLOOR_SPAWNS"]
@@ -69,7 +73,9 @@ static func post(seed: int) -> Array:
 		var pool: Array = spawns.get(fl, spawns[1])
 		var who: Array = pool[rng.randi_range(0, pool.size() - 1)]
 		if once and posted.has(_client_key(who)):
-			who = _fresh_client(spawns, floors, fl, posted, swap)
+			var fresh: Array = _fresh_client(spawns, floors, fl, posted, swap)
+			who = fresh[0]
+			fl = int(fresh[1])   # the client's own floor, before the pay and the turns below
 		posted[_client_key(who)] = true
 		var kind: String = KINDS.keys()[rng.randi_range(0, KINDS.size() - 1)]
 		var job := {"id": "%d_%d" % [seed, k], "kind": kind, "line": who[0], "stage": who[1], "floor": fl, "done": false,
@@ -119,8 +125,8 @@ static func _client_key(who: Array) -> String:
 	return "%d_%d" % [int(who[0]), int(who[1])]
 
 
-## A client not on the board yet: from floor `fl`'s creatures if one is left, else the nearest floor's (the lower
-## first on a tie). The board keeps the floor it rolled, so the pay is the same.
+## A client not on the board yet, and the floor it lives on: [[line, stage], floor]. From floor `fl`'s creatures if
+## one is left, else the nearest floor's (the lower first on a tie).
 static func _fresh_client(spawns: Dictionary, floors: int, fl: int, posted: Dictionary, swap: RandomNumberGenerator) -> Array:
 	for dist in floors:
 		for f in [fl - dist, fl + dist]:
@@ -128,8 +134,8 @@ static func _fresh_client(spawns: Dictionary, floors: int, fl: int, posted: Dict
 				continue
 			var left: Array = spawns.get(f, spawns[1]).filter(func(w: Array) -> bool: return not posted.has(_client_key(w)))
 			if not left.is_empty():
-				return left[swap.randi_range(0, left.size() - 1)]
-	return spawns.get(fl, spawns[1])[0]   # every client is on the board already (the caller checks there are enough)
+				return [left[swap.randi_range(0, left.size() - 1)], f]
+	return [spawns.get(fl, spawns[1])[0], fl]   # every client is on the board already (the caller checks there are enough)
 
 
 ## The condition as the board asks it: "before the lantern goes out".
@@ -212,7 +218,7 @@ static func label(job: Dictionary) -> String:
 
 ## The Hollow a request is in (Claude, 2026-10-24, pass 5 T8 / LV-33). post() draws every client from Rootbank Warren's
 ## creatures (dungeon.gd FLOOR_SPAWNS, its "first" dungeon), so its requests are there; a job that names its own
-## "hollow" keeps it. (dungeon.gd still places a client on its floor of whichever Hollow the team runs.)
+## "hollow" keeps it. dungeon.gd _place_jobs places a client only in the Hollow this names, on its own floor.
 const HOLLOW := "first"
 
 

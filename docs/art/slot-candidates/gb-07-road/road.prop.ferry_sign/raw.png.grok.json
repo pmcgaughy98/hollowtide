@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/road.prop.ferry_sign_card.png",
+ "out": "docs/art/slot-candidates/gb-07-road/road.prop.ferry_sign/raw.png",
+ "cost_usd": 0.063784,
+ "turns": 4,
+ "text": "I'll read the game's style reference first, then generate the ferry sign once and save it as `raw.png`.The reference is muted pixel art: wood browns, tan, cream, dusty gray, and a little teal, with hard edges and light from the upper left. I'll generate the ferry sign once in that style.Saved to `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image__cjg2s1s\\raw.png` (864\u00d71152, a 3:4 PNG converted from the generated JPEG). It is the one generated leaning ferry-sign prop in the muted wood, tan, cream, gray, and teal pixel style of `style_ref.png`, and I did not open the result afterward, so I cannot confirm the boat picture, flood stain, broken corner, mud, pure magenta field, or that no letters appeared.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image__cjg2s1s"
+}

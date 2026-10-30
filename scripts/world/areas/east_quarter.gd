@@ -39,6 +39,15 @@ const AREA := {
 		{"slot": "town.prop.fence_v", "tile": Vector2i(29, 10), "solid": true},
 		{"slot": "town.prop.fence_v", "tile": Vector2i(29, 11), "solid": true},
 		{"slot": "town.prop.fence_v", "tile": Vector2i(29, 12), "solid": true},
+		# A wayline post waiting for its route (route 4, its lantern dark on the deck): it stands unlit, and its cable is
+		# strung only once the quarter opens (waylines below).
+		{"slot": "town.prop.hall.wayline_post", "tile": Vector2i(19, 6), "solid": true, "state": "waiting"},
+	],
+	# Waylines (TOWER_DESIGN.md section 7; the format is street.gd's). The Tower stands to the north-west, so the line
+	# comes in over the west edge (index.gd tower_edge()), high up. "needs": the story flag that opens its route, read
+	# as an exit's (TownLayout.exit_open): the quarter's own flag, so the line is strung when the road east opens.
+	"waylines": [
+		{"route": 4, "post": Vector2i(19, 6), "enter": 6, "sag": 26, "needs": "east_quarter_open"},
 	],
 	"lots": [
 		{"id": "lot_c", "name": "Shuttered Shop", "base": Rect2i(2, 5, 6, 2), "door": Vector2i(4, 6), "class": "shop",

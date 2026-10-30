@@ -1,0 +1,64 @@
+{
+  "reference_alpha_exact": true,
+  "tread_bands": [
+    [
+      0,
+      11
+    ],
+    [
+      12,
+      23
+    ],
+    [
+      24,
+      35
+    ],
+    [
+      36,
+      47
+    ],
+    [
+      48,
+      59
+    ],
+    [
+      60,
+      71
+    ],
+    [
+      72,
+      83
+    ],
+    [
+      84,
+      95
+    ]
+  ],
+  "root_origins_local": [
+    [
+      3,
+      46
+    ],
+    [
+      44,
+      70
+    ]
+  ],
+  "root_tips_local": [
+    [
+      14,
+      53
+    ],
+    [
+      33,
+      77
+    ]
+  ],
+  "crack_lip_rows": [
+    44,
+    68
+  ],
+  "reference_root_planes_exact_inside_drawn_side_ink": true,
+  "one_px_side_ink_exact": true,
+  "foot_row": 95
+}

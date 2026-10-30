@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-28",
+  "registry_sha256": "e88d4a4eea95e9698ca39bf5e4c26cc29be65526101234d1db4fb96399482c5c",
+  "pass": true,
+  "slots": [
+    "road.backdrop.highbank_far",
+    "road.backdrop.vista",
+    "story.backdrop.tower_sky"
+  ],
+  "prior54images_exact": true,
+  "runtime_protected_files_exact": true,
+  "review_pending": true,
+  "installed": false
+}

@@ -29,7 +29,7 @@
 	"lane": "codex-wire",
 	"legacy": "",
 	"light": "upper_left",
-	"notes": "today a flat #161f1b fill (opening_flow.gd:21); placeholder: that fill in 3 stepped bands",
+	"notes": "today a flat #18172c fill (opening_flow.gd:27); placeholder: that fill in 3 stepped bands",
 	"outline": "none",
 	"owner": "codex",
 	"palette": {
@@ -49,6 +49,9 @@
 		216
 	],
 	"slot_file": "title",
+	"state_order": [
+		"static"
+	],
 	"states": {
 		"static": [
 			1,
@@ -57,5 +60,5 @@
 	},
 	"status": "placeholder",
 	"tiling": "none",
-	"tint": "#161f1b"
+	"tint": "#18172c"
 }

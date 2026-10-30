@@ -28,6 +28,7 @@ Preston picked Skimlet 1, Ozbender 2, Valvekin 2. Turns, walks (five facings), a
 sets. Skimlet's south hurt take came back on white with a painted burst; it is in `actions-2026-10-09/rejected/` and the
 south hurt uses the side one. Data `data/creatures/2501_skimlet.tres`, `2601_ozbender.tres`, `2701_valvekin.tres`; lines
 103 to 105 in `scripts/creatures/lines.gd` (the one lookup the town, Team page, shrine and jobs use); placeholder kits in
-`arena_prototype.gd` KITS and `dungeon.gd` LEARN for Grok. Spawns: B1F Listener, Troughspine, Skimlet; B2F Listener,
-Troughspine, Ozbender, Valvekin. Check: `tools/debug/hollow_wilds_check.gd` (spawns, and a recruited Skimlet in town and
-back in a dungeon).
+`arena_prototype.gd` KITS and `dungeon.gd` LEARN for Grok. Spawns: the spawn list first written here was changed by
+Grok on 2026-10-12. The current rows, and why, are in `docs/design/pilot-story-2026-10-10.md` (the Hollow rows of its
+spawn table); `DUNGEONS["hollow"]["spawns"]` in `scripts/dungeon/dungeon.gd` is the source (Claude, 2026-10-27, pass 9
+D11). Check: `tools/debug/hollow_wilds_check.gd` (spawns, and a recruited Skimlet in town and back in a dungeon).

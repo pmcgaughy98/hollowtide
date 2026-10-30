@@ -13,6 +13,18 @@ Preston asks for something else, his request wins; slot it in and carry on after
 
 Status keys: **NOW** in progress · **NEXT** ready · **WAIT** needs a Preston decision first · **LATER** after its phase.
 
+**Where the live work is (2026-10-27, pass 9 R6).** The phase tables below are the September battle plan and are stale.
+Since 2026-10-22 Claude's work has run as the factory sweep in `docs/team/sweep-2026-10-20/`. Read these, newest first:
+
+- `PASS9_PLAN_2026-10-27.md`: the current pass (lanes, gates, items still open). Lane notes sit beside it in `pass9-*/`.
+- `PASS8_RESULT_2026-10-26.md`, `PASS7_RESULT_2026-10-26.md`, `PASS6_RESULT_2026-10-24.md`, `PASS5_RESULT_2026-10-24.md`,
+  `PASS4_RESULT_2026-10-24.md`, `PASS3_RESULT_2026-10-23.md`, `PASS2_RESULT_2026-10-23.md` and
+  `FACTORY_RESULT_2026-10-22.md`: what each pass did, verified, and left.
+- `before-pass9-checks.md` and the `after-*-checks.md` files: the check baselines. Run checks with
+  `python tools/debug/run_checks.py <names>`, which adds `--fixed-fps 30` itself.
+
+D3 (the project hygiene check, below) stays a candidate for a pass: no sweep has built it yet.
+
 ## Phase A: battle feel (current)
 
 | # | Task | Status | Done when |

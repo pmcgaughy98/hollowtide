@@ -1,0 +1,61 @@
+[00000    0.0s w    2885] phase hollowtime, keyboard, window (1152, 648), out C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/hollowtimenolum/
+[00000    0.0s w    2887] CLOCK real time, max fps 30
+[00000    0.0s w    2889] save C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/saves/s5_runner.save -> C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/hollowtimenolum/slot.save
+[00001    0.0s w    3416] SCENE  -> none after 0.0 s game, 3.4 s wall in 
+[00002    0.1s w    4275] HITCH 859 ms for one frame in creature_opening.tscn (after start)
+[00002    0.1s w    4277] SCENE none -> creature_opening.tscn after 0.0 s game, 0.9 s wall in none
+[00089    3.0s w    5754] SHOT X01_title_boot scene creature_opening.tscn
+[00089    3.0s w    5801] SHOT X02_title_continue_focused scene creature_opening.tscn
+[00163    5.4s w    7122] SCENE creature_opening.tscn -> hub_town.tscn after 5.4 s game, 2.8 s wall in creature_opening.tscn
+[00456   15.2s w   12238] HITCH 255 ms for one frame in hub_town.tscn (after ui_accept(Enter))
+[00837   27.9s w   18567] SCENE hub_town.tscn -> none after 22.5 s game, 11.4 s wall in hub_town.tscn
+[00837   27.9s w   18571] WALK no path from (-99, -99) to (33, 28) in hub_town.tscn
+[00838   27.9s w   18958] HITCH 391 ms for one frame in hollow_approach.tscn (after step (1, 0))
+[00838   27.9s w   18961] SCENE none -> hollow_approach.tscn after 0.0 s game, 0.4 s wall in none
+[00989   33.0s w   21450] SCENE hollow_approach.tscn -> none after 5.0 s game, 2.5 s wall in hollow_approach.tscn
+[00990   33.0s w   21467] SCENE none -> dungeon.tscn after 0.0 s game, 0.0 s wall in none
+[01116   37.2s w   24216] LOG The Hollow, B1F.
+[01163   38.8s w   24966] LOG Autopilot on.
+[01202   40.1s w   25616] LOG Water's coming up from the low end of the valley.
+[01239   41.3s w   26239] LOG Kithflare used Ember Shot!
+[01242   41.4s w   26295] LOG Tide shrugs off Ember.
+[01242   41.4s w   26301] LOG Cutbank Listener took 5 damage.
+[01244   41.5s w   26319] LOG Tallowroot used Root Snare!
+[01248   41.6s w   26384] LOG Cutbank Listener took 4 damage.
+[01254   41.8s w   26484] LOG Cutbank Listener used Echo Tap!
+[01258   41.9s w   26550] LOG Cutbank Listener took 4 damage.
+[01260   42.0s w   26584] LOG Cutbank Listener used Echo Tap!
+[01264   42.1s w   26651] LOG Kithflare took 4 damage.
+[01271   42.4s w   26767] LOG Kithflare used Ember Shot!
+[01274   42.5s w   26817] LOG Cutbank Listener took 5 damage.
+[01280   42.7s w   26917] LOG Cutbank Listener used Echo Tap!
+[01284   42.8s w   26984] LOG Cutbank Listener took 4 damage.
+[01289   43.0s w   27067] LOG Cutbank Listener used Echo Tap!
+[01293   43.1s w   27134] LOG Kithflare took 5 damage.
+[01299   43.3s w   27234] LOG Kithflare used Ember Shot!
+[01302   43.4s w   27285] LOG Cutbank Listener took 4 damage.
+[01304   43.5s w   27318] LOG Tallowroot used Seed Pod!
+[01308   43.6s w   27384] LOG Cutbank Listener took 12 damage.
+[01308   43.6s w   27385] LOG Cutbank Listener went down!
+[01308   43.6s w   27386] LOG Kithflare reached Lv 5!
+[01346   44.9s w   28016] LOG The water's rising.
+[01406   46.9s w   29016] LOG A nest! They're all awake.
+[01407   46.9s w   29038] LOG Kithflare used Ember Shot!
+[01410   47.0s w   29083] LOG Tide shrugs off Ember.
+[01410   47.0s w   29086] LOG Skimlet took 4 damage.
+[01417   47.2s w   29200] LOG Kithflare used Ember Shot!
+[01420   47.3s w   29250] LOG Skimlet took 5 damage.
+[01426   47.5s w   29350] LOG Skimlet used Needle Bite!
+[01430   47.7s w   29417] LOG Kithflare took 4 damage.
+[01435   47.8s w   29500] LOG Skimlet used Needle Bite!
+[01439   48.0s w   29567] LOG Kithflare took 4 damage.
+[01441   48.0s w   29600] LOG Kithflare used Ember Shot!
+[01444   48.1s w   29650] LOG Skimlet took 4 damage.
+[01446   48.2s w   29684] LOG Tallowroot used Root Snare!
+[01450   48.3s w   29750] LOG Cutbank Listener took 4 damage.
+[01450   48.3s w   29752] LOG Skimlet took 3 damage.
+[02638   87.9s w   51098] HITCH 320 ms for one frame in dungeon.tscn (after autopilot(Tab))
+[03590  119.7s w   68568] HITCH 1517 ms for one frame in dungeon.tscn (after autopilot(Tab))
+[03616  120.5s w   69043] SHOT X03_boss_floor scene dungeon.tscn
+[03616  120.5s w   69045] MARKS []
+[03616  120.5s w   69046] DONE phase hollowtime in 120.5 s game, 69.0 s wall

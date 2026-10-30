@@ -1,0 +1,2 @@
+prepared town.building.hall: 300x576, 30 colours, 81472 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-01-buildings\town.building.hall\prepared.png
+next: python tools/art/validate_slot.py town.building.hall C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-01-buildings\town.building.hall\prepared.png

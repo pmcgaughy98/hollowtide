@@ -1,0 +1,157 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+[00000    0.0s w    2347] phase v2, keyboard, window (1152, 648), out C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/v2/
+[00000    0.0s w    2349] CLOCK real time, max fps 30
+[00001    0.0s w    2361] SCENE  -> none after 0.0 s game, 2.4 s wall in 
+[00002    0.1s w    3134] HITCH 773 ms for one frame in none (after start)
+[00003    0.1s w    3398] HITCH 264 ms for one frame in hub_town.tscn (after start)
+[00003    0.1s w    3655] SCENE none -> hub_town.tscn after 0.1 s game, 1.3 s wall in none
+[00004    0.1s w    3864] HITCH 466 ms for one frame in hub_town.tscn (after start)
+[00067    2.2s w    5364] HITCH 353 ms for one frame in hub_town.tscn (after start)
+[00088    2.9s w    5956] V2 area street, v2 true
+[00088    2.9s w    5959] MARK street up (game 2.9 s, lines so far 0)
+[00088    2.9s w    6006] SHOT V01_street_arrive scene hub_town.tscn
+[00088    2.9s w    6008] TEAM V01_street_arrive area street: kithflare@(5, 7), tallowroot@(4, 8)
+[00133    4.4s w    6759] SHOT V02_street_settled scene hub_town.tscn
+[00133    4.4s w    6761] TEAM V02_street_settled area street: kithflare@(5, 7), tallowroot@(4, 8)
+[00184    6.1s w    7631] SHOT V03_v2_shrine_before scene hub_town.tscn
+[00184    6.1s w    7634] TEAM V03_v2_shrine_before area street: kithflare@(14, 11), tallowroot@(14, 10)
+[00186    6.2s w    8559] HITCH 923 ms for one frame in hub_town.tscn (after v2_shrine)
+[00186    6.2s w    8561] PANEL growth|Growth Shrine|The shrine is dark. At its heart is a round socket, empty, worn smooth, as if something sat there once.
+[00200    6.7s w    8839] TIMED v2_shrine: shown 930 ms after the press, worst frame 925 ms
+[00220    7.3s w    9222] SHOT V04_v2_shrine scene hub_town.tscn
+[00220    7.3s w    9224] TEAM V04_v2_shrine area street: kithflare@(14, 11), tallowroot@(14, 10)
+[00220    7.3s w    9226] VISIT v2_shrine panel { "name": "Growth Shrine", "what": "The shrine is dark. At its heart is a round socket, empty, worn smooth, as if something sat there once.", "service": "growth" }
+[00297    9.9s w   10508] SHOT V05_v2_yard_before scene hub_town.tscn
+[00297    9.9s w   10511] TEAM V05_v2_yard_before area street: kithflare@(24, 10), tallowroot@(23, 10)
+[00299   10.0s w   10518] PANEL shut|Training Yard|There's a rope across the gate, and a board hung off it: "Yard's closed till the ground dries out."
+[00313   10.4s w   10739] TIMED v2_yard: shown 11 ms after the press, worst frame 18 ms
+[00333   11.1s w   11126] SHOT V06_v2_yard scene hub_town.tscn
+[00333   11.1s w   11128] TEAM V06_v2_yard area street: kithflare@(24, 10), tallowroot@(23, 10)
+[00333   11.1s w   11129] VISIT v2_yard panel { "name": "Training Yard", "what": "There\'s a rope across the gate, and a board hung off it: \"Yard\'s closed till the ground dries out.\"", "service": "shut" }
+[00460   15.3s w   13259] SHOT V07_v2_lookout_before scene hub_town.tscn
+[00460   15.3s w   13262] TEAM V07_v2_lookout_before area street: kithflare@(4, 12), tallowroot@(4, 11)
+[00462   15.4s w   13270] PANEL view|Bluff Lookout|Where the river looks close. On a clear day you can see the next bend.
+[00476   15.9s w   13490] TIMED v2_lookout: shown 13 ms after the press, worst frame 18 ms
+[00496   16.5s w   13880] SHOT V08_v2_lookout scene hub_town.tscn
+[00496   16.5s w   13882] TEAM V08_v2_lookout area street: kithflare@(4, 12), tallowroot@(4, 11)
+[00496   16.5s w   13884] VISIT v2_lookout panel { "id": "lookout", "name": "Bluff Lookout", "kind": "area", "rect": [P: (1, 11), S: (6, 4)], "door": (4, 12), "service": "view", "what": "Where the river looks close. On a clear day you can see the next bend." }
+[00697   23.2s w   17242] SHOT V09_v2_street_east scene hub_town.tscn
+[00697   23.2s w   17247] TEAM V09_v2_street_east area street: kithflare@(40, 8), tallowroot@(39, 9)
+[00737   24.6s w   17925] SHOT V10_north_steps scene hub_town.tscn
+[00737   24.6s w   17927] TEAM V10_north_steps area street: kithflare@(46, 1), tallowroot@(45, 2)
+[00761   25.4s w   18273] MARK tower rise (game 25.4 s, lines so far 0)
+[00766   25.5s w   18593] HITCH 269 ms for one frame in hub_town.tscn (after step (0, -1))
+[00767   25.6s w   18640] SHOT V11_rise_arrive scene hub_town.tscn
+[00767   25.6s w   18641] TEAM V11_rise_arrive area hall_rise: kithflare@(12, 11), tallowroot@(12, 12)
+[00767   25.6s w   18676] SHOT V12_reveal_00 scene hub_town.tscn
+[00767   25.6s w   18677] TEAM V12_reveal_00 area hall_rise: kithflare@(12, 11), tallowroot@(12, 12)
+[00799   26.6s w   19397] LINE [] You tip your head back. Then further back.
+[00893   29.8s w   20925] LINE [Tallowroot] ...Oh. Oh, wow.
+[00906   30.2s w   21203] SHOT V13_reveal_01 scene hub_town.tscn
+[00906   30.2s w   21208] TEAM V13_reveal_01 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[01010   33.7s w   22892] LINE [Tallowroot] I've seen it from the river a hundred times. Never stood right under it.
+[01042   34.7s w   23469] SHOT V14_reveal_02 scene hub_town.tscn
+[01042   34.7s w   23472] TEAM V14_reveal_02 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[01082   36.1s w   24138] SHOT V15_reveal_03 scene hub_town.tscn
+[01082   36.1s w   24420] TEAM V15_reveal_03 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[01083   36.1s w   24576] HITCH 501 ms for one frame in hub_town.tscn (after interact(E))
+[01197   39.9s w   26478] LINE [Tallowroot] Look how far up it goes. My neck's gonna be sore tomorrow.
+[01219   40.6s w   26901] SHOT V16_reveal_04 scene hub_town.tscn
+[01219   40.6s w   26904] TEAM V16_reveal_04 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[01259   42.0s w   27563] SHOT V17_reveal_05 scene hub_town.tscn
+[01259   42.0s w   27566] TEAM V17_reveal_05 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[01386   46.2s w   29625] LINE [Tallowroot] Every route on the river starts at that door down there.
+[01395   46.5s w   29827] SHOT V18_reveal_06 scene hub_town.tscn
+[01395   46.5s w   29829] TEAM V18_reveal_06 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[01435   47.8s w   30496] SHOT V19_reveal_07 scene hub_town.tscn
+[01435   47.8s w   30499] TEAM V19_reveal_07 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[01475   49.2s w   31159] SHOT V20_reveal_08 scene hub_town.tscn
+[01475   49.2s w   31161] TEAM V20_reveal_08 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[01571   52.4s w   32724] LINE [Tallowroot] A runner takes whatever folks can't carry themselves. Letters. Medicine. Seed for the spring.
+[01611   53.7s w   33429] SHOT V21_reveal_09 scene hub_town.tscn
+[01611   53.7s w   33431] TEAM V21_reveal_09 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[01651   55.0s w   34097] SHOT V22_reveal_10 scene hub_town.tscn
+[01651   55.0s w   34099] TEAM V22_reveal_10 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[01691   56.4s w   34763] SHOT V23_reveal_11 scene hub_town.tscn
+[01691   56.4s w   34765] TEAM V23_reveal_11 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[01786   59.5s w   36291] PAGE 2 of [A runner takes whatever folks ]
+[01912   63.7s w   38412] LINE [Tallowroot] Even when the road's washed out. Even when there's a Hollow sitting in the way.
+[01926   64.2s w   38675] SHOT V24_reveal_12 scene hub_town.tscn
+[01926   64.2s w   38677] TEAM V24_reveal_12 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[01966   65.5s w   39345] SHOT V25_reveal_13 scene hub_town.tscn
+[01966   65.5s w   39347] TEAM V25_reveal_13 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[02006   66.9s w   40011] SHOT V26_reveal_14 scene hub_town.tscn
+[02006   66.9s w   40013] TEAM V26_reveal_14 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[02142   71.4s w   42278] SHOT V27_reveal_15 scene hub_town.tscn
+[02142   71.4s w   42280] TEAM V27_reveal_15 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[02182   72.7s w   42892] QUIET 0.75 s wall (1.50 s game) before this line (cutscene true)
+[02182   72.7s w   42944] SHOT V28_reveal_16 scene hub_town.tscn
+[02182   72.7s w   42946] TEAM V28_reveal_16 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[02183   72.8s w   42947] LINE [Tallowroot] See the lantern way up top? They light it when a runner's out late.
+[02222   74.1s w   43614] SHOT V29_reveal_17 scene hub_town.tscn
+[02222   74.1s w   43617] TEAM V29_reveal_17 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[02262   75.4s w   44274] SHOT V30_reveal_18 scene hub_town.tscn
+[02262   75.4s w   44280] TEAM V30_reveal_18 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[02387   79.6s w   46309] LINE [Tallowroot] So whoever's still out there knows somebody's waiting up on 'em.
+[02398   79.9s w   46544] SHOT V31_reveal_19 scene hub_town.tscn
+[02398   79.9s w   46550] TEAM V31_reveal_19 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[02438   81.3s w   47212] SHOT V32_reveal_20 scene hub_town.tscn
+[02438   81.3s w   47213] TEAM V32_reveal_20 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[02478   82.6s w   47876] SHOT V33_reveal_21 scene hub_town.tscn
+[02478   82.6s w   47878] TEAM V33_reveal_21 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[02587   86.2s w   49662] LINE [Tallowroot] ...Couriers don't get thanked much. The mail just shows up and folks forget somebody walked it there.
+[02614   87.1s w   50141] SHOT V34_reveal_22 scene hub_town.tscn
+[02614   87.1s w   50143] TEAM V34_reveal_22 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[02740   91.3s w   52191] PAGE 2 of [...Couriers don't get thanked ]
+[02751   91.7s w   52437] SHOT V35_reveal_23 scene hub_town.tscn
+[02751   91.7s w   52440] TEAM V35_reveal_23 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[02791   93.0s w   53102] SHOT V36_reveal_24 scene hub_town.tscn
+[02791   93.0s w   53103] TEAM V36_reveal_24 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[02831   94.4s w   53774] SHOT V37_reveal_25 scene hub_town.tscn
+[02831   94.4s w   53777] TEAM V37_reveal_25 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[02940   98.0s w   55542] LINE [Tallowroot] But somebody did. That's the whole job. You show up.
+[02967   98.9s w   56051] SHOT V38_reveal_26 scene hub_town.tscn
+[02967   98.9s w   56053] TEAM V38_reveal_26 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[03007  100.2s w   56722] SHOT V39_reveal_27 scene hub_town.tscn
+[03007  100.2s w   56725] TEAM V39_reveal_27 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[03119  104.0s w   58525] LINE [Tallowroot] ...Okay. Okay. My hands are shaking, look at that.
+[03143  104.8s w   58985] SHOT V40_reveal_28 scene hub_town.tscn
+[03143  104.8s w   58987] TEAM V40_reveal_28 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[03183  106.1s w   59651] SHOT V41_reveal_29 scene hub_town.tscn
+[03183  106.1s w   59654] TEAM V41_reveal_29 area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[03300  110.0s w   61556] MARK reveal over (game 110.0 s, lines so far 12)
+[03330  111.0s w   62106] SHOT V42_rise_after scene hub_town.tscn
+[03330  111.0s w   62108] TEAM V42_rise_after area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[03330  111.0s w   62109] STORY { "parcel": "saved", "met_crew": true, "tower_seen": true }
+[03330  111.0s w   62110] WALK no path from (12, 9) to (12, 9) in hub_town.tscn
+[03344  111.5s w   62293] SCENE hub_town.tscn -> none after 111.4 s game, 58.4 s wall in hub_town.tscn
+[03345  111.5s w   62316] SCENE none -> town_room.tscn after 0.0 s game, 0.0 s wall in none
+[03352  111.7s w   62440] TIMED tower_door: shown 148 ms after the press, worst frame 38 ms
+[03372  112.4s w   62833] SHOT V43_tower_room scene town_room.tscn
+[03372  112.4s w   62837] TEAM V43_tower_room area hall_rise: kithflare@(10, 11), tallowroot@(10, 12)
+[03388  112.9s w   63043] SCENE town_room.tscn -> none after 1.4 s game, 0.7 s wall in town_room.tscn
+[03388  112.9s w   63056] WALK no path from (-99, -99) to (10, 13) in town_room.tscn
+[03389  113.0s w   63142] SCENE none -> hub_town.tscn after 0.0 s game, 0.1 s wall in none
+[03429  114.3s w   63840] SHOT V44_tower_out scene hub_town.tscn
+[03429  114.3s w   63843] TEAM V44_tower_out area hall_rise: kithflare@(12, 9), tallowroot@(13, 9)
+[03455  115.2s w   64271] SHOT V45_rise_board_before scene hub_town.tscn
+[03455  115.2s w   64275] TEAM V45_rise_board_before area hall_rise: kithflare@(16, 10), tallowroot@(15, 10)
+[03457  115.2s w   64289] PANEL board|Job Board|
+[03471  115.7s w   64506] TIMED rise_board: shown 18 ms after the press, worst frame 18 ms
+[03491  116.4s w   64892] SHOT V46_rise_board scene hub_town.tscn
+[03491  116.4s w   64894] TEAM V46_rise_board area hall_rise: kithflare@(16, 10), tallowroot@(15, 10)
+[03491  116.4s w   64896] VISIT rise_board panel { "name": "Job Board", "service": "board", "sel": 0, "paid": [], "said": "", "rank_s": "Courier Rank 1    0 points  (60 for the next)", "taken_s": "Taken 0 / 4", "rows": [{ "job": { "id": "1_0", "kind": "lost_item", "line": 3, "stage": 0, "floor": 3, "done": false, "reward": "reedberry", "count": 2, "pts": 40, "item": "lamp_oil" }, "title": "Cinderhide dropped its Lamp Oil. Find it.", "where": "Ro
+[03563  118.8s w   66110] SHOT V47_street_from_rise scene hub_town.tscn
+[03563  118.8s w   66112] TEAM V47_street_from_rise area street: kithflare@(46, 1), tallowroot@(45, 1)
+[03704  123.5s w   68475] SHOT V48_ferry_ward scene hub_town.tscn
+[03704  123.5s w   68478] TEAM V48_ferry_ward area ferry_ward: kithflare@(6, 1), tallowroot@(5, 1)
+[03704  123.5s w   68479] V2 done in area ferry_ward
+[03704  123.5s w   68480] MARKS [["street up", 88, 5959, 0], ["tower rise", 761, 18273, 0], ["reveal over", 3300, 61556, 12]]
+[03704  123.5s w   68482] DONE phase v2 in 123.5 s game, 68.5 s wall
+WARNING: 152 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 4 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

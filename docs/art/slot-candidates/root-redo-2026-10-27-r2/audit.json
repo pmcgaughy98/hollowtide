@@ -1,0 +1,26 @@
+{
+  "revision": "R2",
+  "registry_sha256": "f4423acc8832bfc0361921cdaba3de3b3c2c1b635d3758f8372ec56c81b354be",
+  "checks": [
+    "town.building.hall.root_foot: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C12 PASS",
+    "town.building.hall.root_vein: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS"
+  ],
+  "other_candidate_images_unchanged": 52,
+  "original_redo_answers_preserved": true,
+  "new_packet_answers": "pending",
+  "installed": false,
+  "source_issues": [
+    "Shared registry/export changed concurrently; checks use the genuine f4423acc8832 export and matching copied registry sources with the normal hash guard. No shared source was edited.",
+    "Root note overrides old protruding-root/footing-stone art wording; Claude should reconcile references/brief text.",
+    "Launch backdrop tint changed to #18172c and road.backdrop.mid now requires the Tower gap. Their existing candidates need a separate follow-up. Other 52 PNGs are byte-exact; their older reports are not promoted to this contract version.",
+    "No in-game captures, Finish shader or runtime seam approval. This is a static art submission.",
+    "cx-10 remains held pending crown approval/current re-brief; no installs."
+  ],
+  "visual_inspection": [
+    "Comparison and static full Tower assembly viewed",
+    "Vein shoulders look recessed against gallery/drum, all windows visible",
+    "Foot bend smoothed and west entry retained",
+    "Comparison canvas extended to show complete lower tips"
+  ],
+  "raw_and_archive_hashes_verified": true
+}

@@ -1,0 +1,12 @@
+{
+ "batch": "cx-15-title-highbank",
+ "slots": {
+  "title.backdrop.highbank": {
+   "answer": "pending",
+   "date": "2026-10-29",
+   "candidate": "patch-repaint/candidate.png",
+   "sha256": "603395e2f50080df0a2acd43c98adb92d72499960797f4c6dd56333959681d24",
+   "why": "New woods/wire-area repaint. Preston explicitly requested review before installation. Earlier yes applies to the historical installed no-wires image; preserved in patch-repaint/review-before.json."
+  }
+ }
+}

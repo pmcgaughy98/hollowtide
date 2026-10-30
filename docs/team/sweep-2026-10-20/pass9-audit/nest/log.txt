@@ -1,0 +1,49 @@
+[00000    0.0s w    2325] phase nest, keyboard, window (1152, 648), out C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/nest/
+[00000    0.0s w    2327] CLOCK real time, max fps 30
+[00001    0.0s w    5964] SCENE  -> dungeon.tscn after 0.0 s game, 6.0 s wall in 
+[00001    0.0s w    5965] LOG Hollow Mouth, B1F.
+[00016    0.5s w    6207] NEST seed 11 floor 1 room [P: (0, 0), S: (0, 0)]
+[00017    0.6s w    6212] SCENE dungeon.tscn -> none after 0.5 s game, 0.2 s wall in dungeon.tscn
+[00019    0.6s w    6787] HITCH 562 ms for one frame in dungeon.tscn (after start)
+[00019    0.6s w    6790] SCENE none -> dungeon.tscn after 0.1 s game, 0.6 s wall in none
+[00019    0.6s w    6791] LOG Hollow Mouth, B1F.
+[00034    1.1s w    7023] NEST seed 23 floor 1 room [P: (0, 0), S: (0, 0)]
+[00035    1.2s w    7028] SCENE dungeon.tscn -> none after 0.5 s game, 0.2 s wall in dungeon.tscn
+[00037    1.2s w    7757] HITCH 716 ms for one frame in dungeon.tscn (after start)
+[00037    1.2s w    7760] SCENE none -> dungeon.tscn after 0.1 s game, 0.7 s wall in none
+[00037    1.2s w    7761] LOG Hollow Mouth, B1F.
+[00052    1.7s w    7990] NEST seed 37 floor 1 room [P: (0, 0), S: (0, 0)]
+[00053    1.8s w    7994] SCENE dungeon.tscn -> none after 0.5 s game, 0.2 s wall in dungeon.tscn
+[00055    1.8s w    8861] HITCH 853 ms for one frame in dungeon.tscn (after start)
+[00055    1.8s w    8864] SCENE none -> dungeon.tscn after 0.1 s game, 0.9 s wall in none
+[00055    1.8s w    8865] LOG Hollow Mouth, B1F.
+[00070    2.3s w    9090] NEST seed 41 floor 1 room [P: (20, 1), S: (7, 6)]
+[00090    3.0s w    9461] SHOT N01_nest_before scene dungeon.tscn
+[00090    3.0s w    9467] NEST sprung: banner rect [P: (360.0, 226.0), S: (792.0, 100.0)], hud rects [[P: (6.0, 6.0), S: (346.0, 54.0)], [P: (6.0, 62.0), S: (346.0, 256.0)]]
+[00091    3.0s w    9470] LOG A nest! They're all awake.
+[00091    3.0s w    9507] SHOT N02_nest_f00 scene dungeon.tscn
+[00091    3.0s w    9514] NEST f0 alpha 0.33 talk false
+[00096    3.2s w    9594] SHOT N03_nest_f05 scene dungeon.tscn
+[00096    3.2s w    9599] NEST f5 alpha 0.89 talk false
+[00101    3.4s w    9677] SHOT N04_nest_f10 scene dungeon.tscn
+[00101    3.4s w    9685] NEST f10 alpha 1.00 talk false
+[00106    3.5s w    9761] SHOT N05_nest_f15 scene dungeon.tscn
+[00106    3.5s w    9764] NEST f15 alpha 1.00 talk false
+[00111    3.7s w    9848] SHOT N06_nest_f20 scene dungeon.tscn
+[00111    3.7s w    9850] NEST f20 alpha 1.00 talk false
+[00116    3.9s w    9926] SHOT N07_nest_f25 scene dungeon.tscn
+[00116    3.9s w    9929] NEST f25 alpha 1.00 talk false
+[00121    4.0s w   10010] SHOT N08_nest_f30 scene dungeon.tscn
+[00121    4.0s w   10014] NEST f30 alpha 1.00 talk false
+[00126    4.2s w   10093] SHOT N09_nest_f35 scene dungeon.tscn
+[00126    4.2s w   10099] NEST f35 alpha 1.00 talk false
+[00131    4.4s w   10188] SHOT N10_nest_f40 scene dungeon.tscn
+[00131    4.4s w   10191] NEST f40 alpha 1.00 talk false
+[00136    4.5s w   10261] SHOT N11_nest_f45 scene dungeon.tscn
+[00136    4.5s w   10270] NEST f45 alpha 1.00 talk false
+[00141    4.7s w   10348] SHOT N12_nest_f50 scene dungeon.tscn
+[00141    4.7s w   10359] NEST f50 alpha 1.00 talk false
+[00146    4.9s w   10427] SHOT N13_nest_f55 scene dungeon.tscn
+[00146    4.9s w   10444] NEST f55 alpha 1.00 talk false
+[00150    5.0s w   10467] MARKS []
+[00150    5.0s w   10473] DONE phase nest in 5.0 s game, 10.5 s wall

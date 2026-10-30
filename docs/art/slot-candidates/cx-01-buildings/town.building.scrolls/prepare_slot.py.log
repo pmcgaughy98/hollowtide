@@ -1,0 +1,2 @@
+prepared town.building.scrolls: 156x144, 27 colours, 19904 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-01-buildings\town.building.scrolls\prepared.png
+next: python tools/art/validate_slot.py town.building.scrolls C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-01-buildings\town.building.scrolls\prepared.png

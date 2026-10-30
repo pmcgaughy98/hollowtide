@@ -1,0 +1,37 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-27",
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-9da82dae-13ec-4e95-8fd3-6183088219b3.png",
+  "raw_sha256": "8168cab2bcafa35e1b78101ae0f5f8983bd4472bc003b01a733bbe094e50ab23",
+  "raw_is_untouched": true,
+  "cost": "not exposed; no alternate generator",
+  "references": [
+    {
+      "tool_path": "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/root-redo-2026-10-27-r2/town.building.hall.root_vein/input-before.png",
+      "snapshot": "references\\1-input-before.png",
+      "sha256": "4c894164ae49ad1b9dff52b9f870b7d297744eb5db78af94d80f513dd72eedae"
+    },
+    {
+      "tool_path": "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/root-redo-2026-10-27-r2/masonry-without-vein.png",
+      "snapshot": "references\\2-masonry-without-vein.png",
+      "sha256": "010212b0fcdb8b3a4c72176c57bdef7e739f8341bc589f952b2acba28f9b2d13"
+    },
+    {
+      "tool_path": "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-11-tower-key/town.building.hall.key/prepared.png",
+      "snapshot": "references\\3-prepared.png",
+      "sha256": "08933cee846f3257a32558276d23bd999577ff4891b33fed611b2c5f50b129e4"
+    },
+    {
+      "tool_path": "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-14-tower-crown/static-assembled-reference.png",
+      "snapshot": "references\\4-static-assembled-reference.png",
+      "sha256": "71a59a7280bd9858f47fc9e4d3fec4bc8bf8811fb57704730c186f0c8857de29"
+    },
+    {
+      "tool_path": "C:/Users/pmcga/dev/hollowtide/docs/design/placeholder-factory-2026-10-26/refs/palettes/wayline_tower.png",
+      "snapshot": "references\\5-wayline_tower.png",
+      "sha256": "49dc8d51f946892a79fbdb613f8a58a155ea6fa161e4cd7129aa4f5c267e499e"
+    }
+  ],
+  "authorization": "Preston go to root-redo follow-up",
+  "pixel_cleanup": "Previously explicitly authorized"
+}

@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.bench_card.png",
+ "out": "docs/art/slot-candidates/gb-01-street/town.prop.bench/raw.png",
+ "cost_usd": 0.07501624,
+ "turns": 5,
+ "text": "I'll read the style reference and the Imagine skill first, then generate the bench once.The reference is readable: chunky pixel props, near-black outlines, cream-to-brown wood with cool gray stone, light from the upper left. Generating the bench once in that style.The generator wrote a JPEG. I'll convert it to `raw.png` in this folder, then look at it so the description is based on the file.Saved at `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_rbxq5ln0\\raw.png`. It shows one wooden plank street bench with a backrest on two gray stone-block feet, on a flat magenta background in a chunky pixel style. The generator returned a JPEG, so this PNG is a conversion of that file. The bench does not reach the edges of the frame, the view is steeper and more isometric than the reference's shallow top",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_rbxq5ln0"
+}

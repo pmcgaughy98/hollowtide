@@ -1,0 +1,24 @@
+{
+ "baseline_family": "res://assets/sprites/arena/%s/small/sw.png",
+ "baseline_new_height": 26,
+ "baseline_old_height": 25,
+ "baseline_scale": 3,
+ "candidate_family": "idle",
+ "candidate_scale": 2,
+ "new_height": 166,
+ "old_height": 155,
+ "on_screen_heights": [
+  310,
+  332
+ ],
+ "one_held_frame": true,
+ "pass": true,
+ "phases": [
+  "intro",
+  "whiten",
+  "trade",
+  "reveal",
+  "done"
+ ],
+ "prepared_texture_verified": true
+}

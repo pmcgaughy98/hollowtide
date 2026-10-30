@@ -1,0 +1,2 @@
+prepared town.prop.runners.window: 36x32, 18 colours, 698 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-05-room-fixes\town.prop.runners.window\prepared.png
+next: python tools/art/validate_slot.py town.prop.runners.window C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-05-room-fixes\town.prop.runners.window\prepared.png

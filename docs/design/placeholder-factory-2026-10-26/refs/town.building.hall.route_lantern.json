@@ -1,0 +1,74 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		6,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "town",
+	"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). A route lantern: a small brass hand lantern hung by its ring, one under each of the seven sheaves. Lit flickers over 3 frames; dark is unlit glass while the route is idle; quiet is dusty grey glass with no wick for the route that went quiet (an absence, never a ghost).",
+	"census": "WT10",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": [
+		"top"
+	],
+	"file": "res://assets/slots/town/building/hall_route_lantern.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 3,
+	"id": "town.building.hall.route_lantern",
+	"kind": "building",
+	"lane": "T",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "order 11; seven are hung at TowerParts.lantern_at(i), states from the story (Grok's set)",
+	"outline": "runtime_rim",
+	"owner": "grok",
+	"palette": {
+		"family": "wayline_tower",
+		"lock": true,
+		"max": 24,
+		"source": "res://assets/slots/palettes/wayline_tower.png"
+	},
+	"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+	"rows": 3,
+	"sheet_size": [
+		36,
+		60
+	],
+	"size": [
+		12,
+		20
+	],
+	"slot_file": "town_tower",
+	"states": {
+		"dark": [
+			1,
+			0
+		],
+		"lit": [
+			3,
+			6
+		],
+		"quiet": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

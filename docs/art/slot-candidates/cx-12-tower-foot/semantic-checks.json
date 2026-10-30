@@ -1,0 +1,72 @@
+{
+  "all_five_alpha_masks_exact": false,
+  "depot_door": [
+    126,
+    126,
+    48,
+    64
+  ],
+  "gable_peg_centres": [
+    [
+      42,
+      34
+    ],
+    [
+      36,
+      29
+    ],
+    [
+      51,
+      34
+    ],
+    [
+      51,
+      28
+    ],
+    [
+      51,
+      24
+    ],
+    [
+      60,
+      34
+    ],
+    [
+      68,
+      30
+    ],
+    [
+      51,
+      40
+    ]
+  ],
+  "gable_sockets": 8,
+  "stair_treads": 8,
+  "stair_tread_height": 12,
+  "yard_changed_pixels": 32,
+  "yard_difference_bbox": [
+    12,
+    46,
+    45,
+    48
+  ],
+  "yard_other_pixels_exact": true,
+  "in_game_verified": false,
+  "root_foot_alpha_override": "Approved west-entry revision deliberately changes old foot mask; other four unchanged",
+  "great_tree_revision": {
+    "west_woody_entry_rows": [
+      72,
+      110
+    ],
+    "west_woody_cross_section_px": 39,
+    "west_turf_rows": [
+      111,
+      119
+    ],
+    "upper_join_and_secondary_leg_rgba_exact": true,
+    "protected_region": "all pixels outside x0..55,y52..119",
+    "footing_stone_removed": "visual review",
+    "baseline": 119,
+    "old_reference_mask_intentionally_revised": true
+  }
+}

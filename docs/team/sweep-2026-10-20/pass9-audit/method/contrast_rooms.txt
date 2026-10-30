@@ -1,0 +1,102 @@
+hall chart panel body: panel #fff4e8 (36% of the box)
+    #232b24   4762 px  contrast 13.42
+    #101310   1728 px  contrast 17.24
+    #2a322b   1219 px  contrast 12.18
+    #1e251f   1207 px  contrast 14.45
+    #101210    434 px  contrast 17.34
+    #111411    430 px  contrast 17.10
+    highest-contrast common colour: 17.34
+home table panel body: panel #232b24 (35% of the box)
+    #fff4e8   5484 px  contrast 13.42
+    #101310   1697 px  contrast  1.28
+    #111411    430 px  contrast  1.27
+    #101210    397 px  contrast  1.29
+    highest-contrast common colour: 13.42
+T06_hall hud place: panel #e4ca8e (19% of the box)
+    #30352b    215 px  contrast  7.87
+    #2f342a    143 px  contrast  7.98
+    #2e332a    115 px  contrast  8.09
+    #232a23    107 px  contrast  9.21
+    #2a2e25     83 px  contrast  8.67
+    #30342a     57 px  contrast  7.96
+    highest-contrast common colour: 9.21
+T06_hall hud next: panel #be9c62 (28% of the box)
+    #1a1410   1878 px  contrast  7.05
+    #f0d696   1715 px  contrast  1.82
+    #80623a   1002 px  contrast  2.18
+    #2c2218    288 px  contrast  6.02
+    #175e5b     30 px  contrast  2.91
+    #1b625f     18 px  contrast  2.74
+    highest-contrast common colour: 7.05
+T06_hall key strip: panel #2c2218 (4% of the box)
+    #404135    380 px  contrast  1.50
+    #414135    369 px  contrast  1.51
+    #1a1410    294 px  contrast  1.17
+    #b4ab97    231 px  contrast  6.83
+    #be9c62    216 px  contrast  6.02
+    #b5ac98    204 px  contrast  6.91
+    highest-contrast common colour: 6.91
+T27_storage_room hud place: panel #e4ca8e (12% of the box)
+    #212922    171 px  contrast  9.35
+    #222922     99 px  contrast  9.33
+    #2e332a     91 px  contrast  8.09
+    #2d322a     72 px  contrast  8.20
+    #283029     68 px  contrast  8.50
+    #121411     54 px  contrast 11.59
+    highest-contrast common colour: 11.59
+T27_storage_room hud next: panel #be9c62 (28% of the box)
+    #1a1410   1878 px  contrast  7.05
+    #f0d696   1715 px  contrast  1.82
+    #80623a   1002 px  contrast  2.18
+    #2c2218    288 px  contrast  6.02
+    #035d61     27 px  contrast  2.96
+    #0b0e11     21 px  contrast  7.48
+    highest-contrast common colour: 7.48
+T27_storage_room key strip: panel #2c2218 (4% of the box)
+    #3e3f34    578 px  contrast  1.46
+    #414236    446 px  contrast  1.52
+    #1a1410    294 px  contrast  1.17
+    #424337    292 px  contrast  1.55
+    #3e4034    246 px  contrast  1.47
+    #1b1d18    229 px  contrast  1.09
+    highest-contrast common colour: 1.55
+T29_home hud place: panel #222923 (21% of the box)
+    #e4ca8e    182 px  contrast  9.32
+    #101310     58 px  contrast  1.26
+    #1a1410     18 px  contrast  1.22
+    #30342a     18 px  contrast  1.17
+    #0f120f     14 px  contrast  1.27
+    #111411     13 px  contrast  1.25
+    highest-contrast common colour: 9.32
+T29_home hud next: panel #be9c62 (28% of the box)
+    #1a1410   1887 px  contrast  7.05
+    #f0d696   1715 px  contrast  1.82
+    #80623a   1002 px  contrast  2.18
+    #2c2218    288 px  contrast  6.02
+    #15110f     21 px  contrast  7.26
+    #814b20     18 px  contrast  2.74
+    highest-contrast common colour: 7.26
+T29_home key strip: panel #212620 (6% of the box)
+    #b3aa95    324 px  contrast  6.68
+    #1a1410    294 px  contrast  1.18
+    #be9c62    216 px  contrast  5.96
+    #393526    201 px  contrast  1.26
+    #171915    144 px  contrast  1.15
+    #afa693    143 px  contrast  6.38
+    highest-contrast common colour: 6.68
+evo E CONTINUE: panel #222a23 (39% of the box)
+    #c9bfa9    356 px  contrast  8.08
+    #101310    192 px  contrast  1.27
+    #111411     51 px  contrast  1.26
+    #0f120f     41 px  contrast  1.28
+    #1a1410     12 px  contrast  1.24
+    #80623a      4 px  contrast  2.62
+    highest-contrast common colour: 8.08
+evo result line: panel #e4ca8e (26% of the box)
+    #222a23   3381 px  contrast  9.23
+    #222a24   1689 px  contrast  9.22
+    #101310   1252 px  contrast 11.70
+    #232a24   1022 px  contrast  9.20
+    #283129    830 px  contrast  8.41
+    #1c231d    817 px  contrast 10.05
+    highest-contrast common colour: 11.70

@@ -1,0 +1,38 @@
+[
+  {
+    "batch": "cx-12-tower-foot",
+    "sid": "town.building.hall.root_foot",
+    "size": [
+      96,
+      120
+    ],
+    "prompt": "Use case: precise-object-edit. Revise the existing hand-painted pixel-art game TREE-ROOT ARCHITECTURE in image1, not a new style. Reference roles:1 edit target;2 geometric or masonry context only;3 approved painted Tower key;4 current full Tower assembly, context only;5 locked wayline_tower palette. Native square-pixel clusters,3/4flat tones per material, parallel3/4topdown, upper-left light, coherent ochre bark and olive moss. No antialiasing, gradient, random specks, blur, outer outline, text/labels/numbers, creatures or other game imagery. True transparent background, one requested part only, not a scene or comparison.\nExact96x120canvas. Keep this tree-root support's already-correct WEST ARRIVAL: at native x0 actual woody section spans rows72..110,39pixels, followed by the ragged turf lip at111..119. Root enters from off-frame west-north-west, bends smoothly up to the existing diagonal. The remaining correction is the SHARP V/point where the incoming wood meets the diagonal: replace it with a NATURAL ROUNDED ELBOW, continuous curved bark grain, not two roots meeting at a notch, and not a separate flared/stumped base. Edit principally native x5..53,y65..113. Preserve entire upper diagonal, its existing knots/moss/treads, exact upper connection at native(90,10), and right-hand thin secondary leg. Preserve leftmost5columns and ground baseline119 exactly. No footing stone, no new roots or foliage. Image2 right-hand rough proposal shows arrival direction, but its sharp elbow is explicitly not final art; make the bend organic and continuous. No changes to canvas framing or scale.",
+    "refs": [
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/root-redo-2026-10-27-r2/town.building.hall.root_foot/input-before.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/design/great-tree-2026-10-27/final/final_root_foot_change_3x.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-11-tower-key/town.building.hall.key/prepared.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-14-tower-crown/static-assembled-reference.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/design/placeholder-factory-2026-10-26/refs/palettes/wayline_tower.png"
+    ],
+    "source": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-72a60790-6099-4c4f-9e9e-9ad2fcd7170a.png",
+    "output_hint": "Generated images are saved to C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412 as C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-72a60790-6099-4c4f-9e9e-9ad2fcd7170a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "batch": "cx-13-tower-body",
+    "sid": "town.building.hall.root_vein",
+    "size": [
+      60,
+      296
+    ],
+    "prompt": "Use case: precise-object-edit. Revise the existing hand-painted pixel-art game TREE-ROOT ARCHITECTURE in image1, not a new style. Reference roles:1 edit target;2 geometric or masonry context only;3 approved painted Tower key;4 current full Tower assembly, context only;5 locked wayline_tower palette. Native square-pixel clusters,3/4flat tones per material, parallel3/4topdown, upper-left light, coherent ochre bark and olive moss. No antialiasing, gradient, random specks, blur, outer outline, text/labels/numbers, creatures or other game imagery. True transparent background, one requested part only, not a scene or comparison.\nExact60x296canvas at Tower frame(80,326). Keep SAME WOOD ROOT PATH, THREE separate exposed runs and their interruptions. It currently resembles a root outlined by neat stone trim. Make it visibly HALF BURIED INTO MASONRY instead: irregular existing limestone courses partly cover BOTH SIDES of the wood, with shallow mortar lips and recessed contact shadows. Broad stone shoulder connects to the actual adjacent wall, NOT an even decorative border/tube. At the run breaks, the existing horizontal drum/gallery lips step OVER the bark as little overhangs. Visible central bark strip roughly9..17nativepx, still shows worn treads/moss/knots, suggesting a much thicker root hidden behind stone. Image2 shows actual painted wall WITHOUT root, use its cream/gray stone courses and value bands to blend shoulders. You may widen only the STONE LIPS by about3..6px horizontally into neighbouring empty pixels WITHIN this same60pxcanvas. Do not move root centreline, fill the transparent vertical gaps, paint a wall rectangle, or cover windows. No new footing, rootlets or woody branches. Return isolated overlay; masonry lips only next to the existing root runs, not a whole background. Keep native bounds and original relative placement.",
+    "refs": [
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/root-redo-2026-10-27-r2/town.building.hall.root_vein/input-before.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/root-redo-2026-10-27-r2/masonry-without-vein.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-11-tower-key/town.building.hall.key/prepared.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-14-tower-crown/static-assembled-reference.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/design/placeholder-factory-2026-10-26/refs/palettes/wayline_tower.png"
+    ],
+    "source": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-9da82dae-13ec-4e95-8fd3-6183088219b3.png",
+    "output_hint": "Generated images are saved to C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412 as C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-9da82dae-13ec-4e95-8fd3-6183088219b3.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  }
+]

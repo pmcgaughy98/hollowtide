@@ -1,0 +1,9 @@
+{
+  "shared_pass": false,
+  "only_failed_check": "C5",
+  "source_palette_diagnostic_pass": true,
+  "protected_exact": 36980,
+  "other56images_exact": true,
+  "review_answers_preserved": true,
+  "installed": false
+}

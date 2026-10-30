@@ -1,0 +1,89 @@
+{
+  "alpha": "binary",
+  "anchor": [
+    102,
+    191
+  ],
+  "anchor_mode": "foot",
+  "area": "town",
+  "brief": "Swaphoard's Item Shop, a hoarder's trading post, seen from above at three quarters the way the whole town is: ROOF FIRST. A clay-tile hip roof takes the top two thirds (128 of 192 px), its back plane past the ridge lit and narrowing away, a loft dormer in the front plane with a hoist beam and a crate hanging over the tiles, a tied sack on the ridge for the trade, a chimney on the back plane. Under a deep eave shadow, a short plank front (the bottom 64 px) on a stone sill: a shuttered window left, the door on base column 3 exactly at door_px, and an open counter right under a striped awning with stock on its sill. No goods heaps in the picture: the tables and crates out front are separate dooryard props. Lit from the upper left, 1 px dark outline.",
+  "building_class": "trading_post",
+  "census": "B03",
+  "checks": [
+    "C1",
+    "C10",
+    "C11",
+    "C12",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C7",
+    "C8",
+    "C9"
+  ],
+  "door_px": [
+    79,
+    142,
+    22,
+    48
+  ],
+  "drawn_at": 3,
+  "edges": "bottom",
+  "file": "res://assets/slots/town/building/shop.png",
+  "forbid": [
+    "text",
+    "creature",
+    "franchise"
+  ],
+  "frames": 1,
+  "id": "town.building.shop",
+  "kind": "building",
+  "lane": "B",
+  "legacy": "",
+  "legacy_misfit": true,
+  "legacy_v1": "res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png",
+  "legacy_v1_size": [
+    144,
+    120
+  ],
+  "light": "upper_left",
+  "notes": "Claude, 2026-10-28: the trading_post class (8x3 base, 204x192, door Rect2i(79, 142, 22, 48)), roof first after measuring Explorers of Sky's town (docs/design/town-map-2026-10-28/TOWN_SYNTHESIS.md); it replaced the lean_to of the same morning. The cx-01 box and the lean_to are both superseded.",
+  "optional_states": {
+    "open": [
+      3,
+      12
+    ]
+  },
+  "outline": "runtime_rim",
+  "owner": "codex",
+  "palette": {
+    "family": "town_stone",
+    "lock": false,
+    "max": 32,
+    "source": "res://assets/slots/palettes/town_stone.png"
+  },
+  "pass_creature": "sparkjab",
+  "placeholder": "res://scripts/town/building_template.gd:paint_slot",
+  "rows": 1,
+  "sheet_size": [
+    204,
+    192
+  ],
+  "size": [
+    204,
+    192
+  ],
+  "slot_file": "town_buildings",
+  "state_order": [
+    "closed"
+  ],
+  "states": {
+    "closed": [
+      1,
+      0
+    ]
+  },
+  "status": "placeholder",
+  "tiling": "none"
+}

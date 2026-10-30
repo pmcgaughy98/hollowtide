@@ -1,0 +1,10 @@
+{
+  "status": "READY FOR REVIEW",
+  "passing_slots": 6,
+  "active_cells": 17,
+  "padding_holds": 6,
+  "crown_approved": false,
+  "installed": false,
+  "next_ungated_batch": "cx-15-title-highbank",
+  "held": "cx-10 until crown approval"
+}

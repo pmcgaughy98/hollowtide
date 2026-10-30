@@ -1,0 +1,14 @@
+{
+ "slot": "town.prop.bench",
+ "source": "docs\\art\\slot-candidates\\gb-01-street\\town.prop.bench",
+ "date_tool": "clean_slot.py 2026-10-28",
+ "settings": {
+  "mixed": 0.5,
+  "keep": 40.0,
+  "flip": []
+ },
+ "notes": [
+  "79 orphans after the downscale, cleared",
+  "68 px re-shaded to break a flat (C8)"
+ ]
+}

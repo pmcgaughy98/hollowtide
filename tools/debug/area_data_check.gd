@@ -12,6 +12,7 @@ extends SceneTree
 const Layout := preload("res://scripts/town/town_layout.gd")
 const Areas := preload("res://scripts/world/areas/index.gd")
 const PLACE_IDS := ["hall", "board", "lookout", "home", "shop", "storage", "scrolls", "yard", "shrine", "plaza", "landing", "gate", "dock"]
+const V2_ONLY_PLACES := ["canopy_gap", "tree_way"]   # the Great Tree Path's (Claude, 2026-10-28)
 ## The anchors the checks and captures stand on: each in today's map and in one v2 area.
 const CHECK_ANCHORS := ["spawn", "return", "ferry_landing", "mouth_approach", "lane_walk", "home_walk", "yard_gate",
 	"yard_gate_front", "music_street", "music_ferry", "board_start", "board_follow", "view_street", "view_terrace", "view_landing"]
@@ -58,7 +59,8 @@ func _run() -> void:
 		for n in a.get("anchors", {}):
 			anchors[n] = anchors.get(n, []) + [id]
 		_area_checks(id, a, g)
-	_ok("v2: the 13 places of today's town, each once (%d)" % all_ids.size(), _each_once(all_ids), all_ids)
+	# 13 places of today's town and the Great Tree Path's two (2026-10-28).
+	_ok("v2: the 15 places, each once (%d)" % all_ids.size(), _each_once(all_ids, PLACE_IDS + V2_ONLY_PLACES), all_ids)
 	var shared: Array = anchors.keys().filter(func(n: String) -> bool: return anchors[n].size() > 1)
 	_ok("v2: no anchor name in two areas", shared.is_empty(), shared)
 	var v2_missing := CHECK_ANCHORS.filter(func(n: String) -> bool: return not anchors.has(n))
@@ -185,10 +187,10 @@ func _reach_areas() -> Array:
 	return got
 
 
-func _each_once(ids: Array) -> bool:
-	if ids.size() != PLACE_IDS.size():
+func _each_once(ids: Array, want: Array = PLACE_IDS) -> bool:
+	if ids.size() != want.size():
 		return false
-	for p in PLACE_IDS:
+	for p in want:
 		if ids.count(p) != 1:
 			return false
 	return true

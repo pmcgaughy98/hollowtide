@@ -1,0 +1,29 @@
+{
+  "lamp_anchor": [
+    333,
+    33
+  ],
+  "lamp_anchor_luma": 171.25499999999997,
+  "door_anchor": [
+    333,
+    160
+  ],
+  "door_anchor_luma": 71.46899999999998,
+  "adjacent_wall_luma": 77.011,
+  "shade_end": [
+    312,
+    50
+  ],
+  "shade_seam_max_channel_delta_after_canopy": 0.490000000000002,
+  "wordmark_sky_unique_colours": 3,
+  "house_order_visual": [
+    "home",
+    "shop",
+    "storage",
+    "scrolls"
+  ],
+  "in_game_verified": false,
+  "preview": "Current canopy and legibility-wash formulas, static calculation only",
+  "old_title_village_exact_to_HEAD": true,
+  "old_title_village_sha256": "f6a9ca44abe87744988460faf3cdcb442a9ab681e7bdbc8013fe1dbae412215d"
+}

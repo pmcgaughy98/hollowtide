@@ -1,6 +1,6 @@
 extends SceneTree
 ## The Punchybuns line in the arena (Claude, 2026-10-08): Star Guard shields the most hurt
-## ally, Guardian softens blows on allies beside it, Counter Jab dashes to the ally in trouble
+## ally, Counter Jab dashes to the ally in trouble
 ## and punches the enemy off, Static Dance charges a stunning jab and hastes allies, and
 ## Starshield shields and cleanses the team, throws enemies out of the star and leaves a star
 ## field where allies mend. A stage 1 Punchybun has two abilities and no signature.
@@ -65,12 +65,6 @@ func _initialize() -> void:
 	_check("Star Guard", sh > 0 and arena._fighters[a]["hp"] == a_hp and arena._fighters[a]["shield"] == sh - 20,
 		"shield %d on the hurt ally; a 20 blow left its HP %d->%d and the shield at %d" % [sh, a_hp, arena._fighters[a]["hp"], arena._fighters[a]["shield"]])
 	_save("star_guard")
-	# Guardian: the ally beside Starward takes less. How much less has no agreed check yet (Q11),
-	# so this line is printed, not judged. On 2026-10-24 no form carried the "guardian" passive
-	# (Starward's is "chain"), so the blow lands whole; the line says which.
-	var b_hp: int = arena._fighters[b]["hp"]
-	arena._hurt(b, 20, Vector2(1, 0), enemies[0])
-	print("Guardian (printed only): a 20 blow on the ally beside Starward took %d; Starward's passive is %s" % [b_hp - arena._fighters[b]["hp"], me["passive"]])
 	# Counter Jab: dash to the hurt ally, punch the enemy off it.
 	me["cds"]["counter_jab"] = 0.0
 	me["act"] = 0.0

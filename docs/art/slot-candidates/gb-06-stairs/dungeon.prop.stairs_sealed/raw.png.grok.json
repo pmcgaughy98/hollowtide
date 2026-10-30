@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/dungeon.prop.stairs_sealed_card.png",
+ "out": "docs/art/slot-candidates/gb-06-stairs/dungeon.prop.stairs_sealed/raw.png",
+ "cost_usd": 0.06082056,
+ "turns": 4,
+ "text": "I'll read the style reference and the Imagine skill first, then generate the sealed-stairs image once.The reference is limited-palette pixel art: slate gray, black outlines, and a teal-to-cyan seal with an upper-left highlight. I'll generate the sealed stair slab once in that look.The generator saved a JPEG. I'll convert that file to `raw.png` in this folder without opening it.`C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_vj3xa3_n\\raw.png`\n\nIt shows a slate slab sealing a stair opening with a teal ring set into it, in three-quarter top-down pixel art on magenta. I did not re-open the file after generation, and the tool returned a JPEG that I converted to PNG, so I cannot confirm pure `#FF00FF`, hard pixel edges, or that no stray lettering appeared.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_vj3xa3_n"
+}

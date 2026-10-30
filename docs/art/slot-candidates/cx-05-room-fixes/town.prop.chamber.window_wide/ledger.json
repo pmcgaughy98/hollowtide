@@ -1,0 +1,23 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-27",
+  "cost": "not exposed; no paid alternative called",
+  "raw_is_untouched": true,
+  "raw_sha256": "703eaf2b21d7f2efb923225c32a63814da976c1d5c8c196d2a99c876582acb03",
+  "raw_dimensions": [
+    2172,
+    724
+  ],
+  "target_dimensions": [
+    96,
+    32
+  ],
+  "references": [
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\placeholder-factory-2026-10-26\\refs\\town.prop.chamber.window_wide.png",
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\placeholder-factory-2026-10-26\\refs\\town.prop.chamber.window_wide_grid.png",
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\placeholder-factory-2026-10-26\\refs\\town.prop.chamber.window_wide_card.png"
+  ],
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-fe2aa412-c235-4187-be63-27653e2fa205.png",
+  "registry_sha256": "cb33c871f11f80980785e47e73ece64acf9e85ff607dc083c7a18639031a0434",
+  "pixel_cleanup": "Explicitly authorized by Preston, 2026-10-27. Raw untouched; native_input.png supplies repaired exact-size art to unchanged prepare_slot."
+}

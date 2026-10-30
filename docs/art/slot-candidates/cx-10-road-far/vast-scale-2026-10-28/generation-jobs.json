@@ -1,0 +1,46 @@
+[
+  {
+    "sid": "road.backdrop.highbank_far",
+    "size": [
+      160,
+      96
+    ],
+    "transparent": true,
+    "refs": [
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-10-road-far/road.backdrop.highbank_far/references/target.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-10-road-far/vast-scale-2026-10-28/vista-layout.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-10-road-far/road.backdrop.highbank_far/references/title-tree-layout.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-10-road-far/road.backdrop.highbank_far/references/palette.png"
+    ],
+    "prompt": "Use case: sketch-to-render. Repaint image1 as polished Hollowtide native pixel-game backdrop, EXACT160x96 transparent canvas. Image1 is the binding layout and silhouette, image2 the same giants closer in morning, image3 identifies the same great tree's even crown and branch structure (do NOT copy its cropped title Tower), image4 the exact24-color palette. Keep positions pixel-registered to image1. Two colossal landmarks stand above a dark forest band: tree LEFT, whole slender Wayline Tower RIGHT standing ALONE, Highbank's tiny roofs in a clearing WEST of Tower well clear of its plinth. Tower is70pixels tall from vane row5 to foot row75, axis x104, body within columns100..107 rows5..70; pale cylindrical stepped Stack with brass rings, dark mossy collar crossing a flat cloud band, very thin neck and a small living-root crook holding ONE amber lamp pixel exactly(105,7). A thin woody root climbs west face. Tree same centred even domed leaf crown as reference, about60pixels across and55tall total,14pixel trunk flaring into forest, small leaf-clusters each lit on upper/right arc. Morning low sun RIGHT, full unhazed color, no painted atmospheric fade on the giants. Tiny1-2pixel roofs at rows73,74 WEST of Tower. One1pixel cable from(101,70) to(84,73),3pixel sag at middle. Forest/town/plinth all above row76. Below, land rounds down toward both sides and thins into pale blue-grey valley mist, reaching bottom edge only. Transparent sky and margin: nothing opaque touches top, left or right edges. EXACT layout, tiny scale and restrained connected pixel clusters; use only supplied palette. No text, people, creatures, UI, stars, extra building beside Tower, old squat Tower, blur, grain or dithering. Do not enlarge micro landmarks to fill frame."
+  },
+  {
+    "sid": "road.backdrop.vista",
+    "size": [
+      384,
+      216
+    ],
+    "transparent": false,
+    "refs": [
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-10-road-far/road.backdrop.vista/references/target.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-10-road-far/road.backdrop.vista/references/title-tree-layout.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-10-road-far/road.backdrop.vista/references/palette.png"
+    ],
+    "prompt": "Use case: sketch-to-render. Repaint image1 as finished Hollowtide pixel-art hilltop vista at EXACT384x216 opaque native pixels. Image1 binding composition/geometry; image2 identifies the SAME great tree's centred crown and spreading limbs (ignore title's cropped Tower), image3 exact64-color palette. Keep all geometry and anchors in image1. Morning first light from RIGHT. View from last hill looking slightly up. RIGHT whole colossal Wayline Tower stands ALONE in OPEN ground: axis x285, plinth foot y200, vane y8, one amber Waiting Lamp centered exactly(286,11). Slender pale ROUND Stack about14to1, brass ring balconies, dark wet mossy collar crossing a FLAT layer of clouds at280to360tiles altitude, narrow neck, top living root crook holding lamp. No older squat tower in front, no building beside it. One thin sagging wayline as in target. LEFT giant tree340tiles further off, trunk x194 flares into forest, even ONE domed crown centred on trunk, crown roughlyx126..263 and y56..136 with visible branch tops and strong limbs spreading both sides beneath. Small leaf clusters have a lit top/right arc, morning greens, tree hazed one-third toward sky. Dark continuous forest canopy around both giant feet. Highbank's tiny2-3pixel rooftops occupy a clearing WEST of Tower and beyond it, with unlit dark house windows EXACTLY(224,191),(233,194),(236,189),(240,192),(246,193); runtime lights these, do not paint warm lamps there. Foreground party hill dark lower-left, leader foot point(84,148) free of objects. Framing willow trees only at extreme left/right, their lower edges do not cover Tower. Calm banded slate dawn sky, warm cream horizon, flat cloud wisps across collar level. Crisp connected pixel clusters, broad quiet planes, exact reference framing and micro scale, no noisy texture/dither/blur, no text, characters, creatures, logo or UI."
+  },
+  {
+    "sid": "story.backdrop.tower_sky",
+    "size": [
+      384,
+      216
+    ],
+    "transparent": false,
+    "refs": [
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-10-road-far/story.backdrop.tower_sky/references/target.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-10-road-far/vast-scale-2026-10-28/vista-layout.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-10-road-far/story.backdrop.tower_sky/references/title-tree-layout.png",
+      "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-10-road-far/story.backdrop.tower_sky/references/palette.png"
+    ],
+    "prompt": "Use case: sketch-to-render. Repaint image1 as finished Hollowtide pixel-art sky from atop a colossal Tower, EXACT384x216 opaque pixels. Image1 is binding composition; images2 and3 show same great tree's centred even crown (use morning greens from2, not title golden dusk); image4 exact32color palette. SKY BACKDROP ONLY. No Tower, lamp, house or town in painting; runtime draws Tower and amber lamp over it. First light low sun from RIGHT. Calm flat connected dawn color bands from deep blue at top through slate to pale grey-blue haze at horizon y146. Keep a17x17box centred on(192,127) completely calm COOL BLUE, no cloud or leaves or bright details, for runtime lamp contrast. Below y146 flat cloud sea, warm cream lit on right-facing tops, slate blue-grey undersides, layered lumps increase in scale toward bottom edge. LEFT great tree crown cap breaks through cloud: even centred dome on axis x100, top y156, roughly180pixels wide at y188, no visible trunk; the title's same broadleaf tree, leaf clusters with light top/right arcs in muted morning greens, slightly hazed toward sky. Cloud laps around its lower edge, tree stays clear of lamp box. Native pixel art with large connected color clusters, at most32supplied palette colors, absolutely no smooth gradients/dithering/grain/stipple or tiny checker texture. Preserve reference exact horizon/cap geometry and quiet sky, no sun disk, stars, text, people, creatures or UI."
+  }
+]

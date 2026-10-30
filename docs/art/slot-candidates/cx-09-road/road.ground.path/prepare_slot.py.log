@@ -1,0 +1,2 @@
+prepared road.ground.path: 192x80, 18 colours, 15360 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-09-road\road.ground.path\prepared.png
+next: python tools/art/validate_slot.py road.ground.path C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-09-road\road.ground.path\prepared.png

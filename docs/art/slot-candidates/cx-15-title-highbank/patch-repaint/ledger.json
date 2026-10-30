@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-29 America/Chicago",
+  "tool": "built-in image_gen edit",
+  "generation_count": 1,
+  "credit_authorization": "Preston approved one image edit in this chat",
+  "cost": "not exposed by tool",
+  "edit_target": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\slots\\title\\backdrop\\highbank.png",
+  "raw_source": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-f8abc405-c510-46d9-b0a7-e1d41dbed455.png",
+  "raw_untouched": true,
+  "native_preparation": "One whole-frame BOX reduction, mask composite, five-native-pixel palette-snapped join inside edit mask; source landmarks restored exactly. No foliage clones or mirroring. Existing clean_slot.py clear_orphans helper, keep=40, four passes, with protected pixels restored after each pass.",
+  "palette": "47-colour shared highbank_title; source unchanged",
+  "visual_approval": "pending",
+  "installed": false
+}

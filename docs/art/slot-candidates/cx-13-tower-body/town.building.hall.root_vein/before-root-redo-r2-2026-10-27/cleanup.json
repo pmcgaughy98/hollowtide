@@ -1,0 +1,40 @@
+{
+  "approved_note": "CODEX_ROOT_NOTE.md, Preston go",
+  "raw_untouched": true,
+  "native_size": [
+    60,
+    296
+  ],
+  "source_crop": [
+    203,
+    163,
+    515,
+    1910
+  ],
+  "target_box": [
+    3,
+    6,
+    60,
+    293
+  ],
+  "alpha_exact": true,
+  "masonry_overhang_row_bands": [
+    [
+      64,
+      66
+    ],
+    [
+      196,
+      198
+    ],
+    [
+      290,
+      292
+    ]
+  ],
+  "masonry_overhang": "Three-pixel stone lips cross the exposed bark at the existing breaks, within the unchanged mask.",
+  "post_prepare_registration": "restored exact native registration after tool centering, then validated final bytes",
+  "sequential_colour_joins": 706,
+  "new_colours": 26,
+  "prepared_sha256": "4c894164ae49ad1b9dff52b9f870b7d297744eb5db78af94d80f513dd72eedae"
+}

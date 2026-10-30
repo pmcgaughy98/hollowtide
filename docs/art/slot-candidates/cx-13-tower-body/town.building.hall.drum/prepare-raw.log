@@ -1,0 +1,2 @@
+prepared town.building.hall.drum: 225x236, 31 colours, 45365 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-13-tower-body\town.building.hall.drum\prepared-from-raw.png
+next: python tools/art/validate_slot.py town.building.hall.drum C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-13-tower-body\town.building.hall.drum\prepared-from-raw.png

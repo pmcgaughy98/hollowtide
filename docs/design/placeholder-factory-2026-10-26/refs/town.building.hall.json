@@ -2,25 +2,25 @@
 	"alpha": "binary",
 	"anchor": [
 		150,
-		575
+		191
 	],
 	"anchor_mode": "foot",
 	"anchors": {
+		"apex": [
+			117,
+			-527
+		],
 		"beacon": [
 			150,
-			8
+			-410
 		],
 		"door_mid": [
 			150,
-			542
-		],
-		"lantern": [
-			150,
-			80
+			158
 		]
 	},
 	"area": "town",
-	"brief": "The Wayline Tower, the couriers' landmark: a tall river-stone tower on a wide base with a double door, rising more than two and a half screens to a signal lantern on a beacon mast, so the whole town can see it. Keep the placeholder's stages (BuildingTemplate.TOWER_STAGES): base with terrace roof, shaft, lamp gallery, lantern room, cap, mast with the beacon at (150, 8).",
+	"brief": "The Wayline Tower's depot, the door part (read TOWER_DESIGN.md and the key, town.building.hall.key, first): the wide ground storey the tower stands on. Its roof deck seen from above (mostly under the drum) with a skylight, crates, an oilcloth stack and the mess chimney; a parapet lip; a limestone and loess-brick front on a boulder footing; the runners' porch on the left under a moss awning (satchel hooks, one empty, a bench, a round window); the First Post, an old relay stone worn pale by partners' hands, in the left jamb; the grand arch with its three-route fan-light and the 48 x 64 double door; and on the right the loading bay under its canopy, a chute bin, a burrow hatch and high-water cuts. Lit from the upper left, wayline_tower palette, no outer outline.",
 	"building_class": "hall",
 	"census": "B01",
 	"checks": [
@@ -38,17 +38,21 @@
 	],
 	"door_px": [
 		126,
-		510,
+		126,
 		48,
 		64
 	],
 	"drawn_at": 3,
-	"edges": "bottom",
+	"edges": "all",
 	"file": "res://assets/slots/town/building/hall.png",
 	"forbid": [
 		"text",
 		"creature",
 		"franchise"
+	],
+	"frame_at": [
+		66,
+		528
 	],
 	"frames": 1,
 	"id": "town.building.hall",
@@ -62,7 +66,7 @@
 		144
 	],
 	"light": "upper_left",
-	"notes": "canon 2026-10-26: the Hall is the Wayline Tower (ids unchanged); base 12x3 and doors kept, at least 540 px tall (576 = 24 tiles); door 48 wide so Galeshear (63 px wide) passes C11; open frames come from door_px when absent; legacy_v1 is the v1 picture",
+	"notes": "2026-10-27 approved tower (Reach and Waiting Lamp, defaults): this row is now the 300 x 192 depot at frame (66, 528) of the 432 x 720 tower; the other parts are scripts/art/slots/town_tower.gd. The 300 x 576 single-picture tower and Codex's cx-01 hall candidate (and the old 240 x 144 Hall) are superseded. beacon and apex are in the depot's px, above its top (negative y), so the reveal finds the lamp. Base 12x3 and doors kept; door 48 wide so Galeshear (63 px wide) passes C11; open frames come from door_px; legacy_v1 is still the v1 picture.",
 	"optional_states": {
 		"open": [
 			3,
@@ -72,21 +76,21 @@
 	"outline": "runtime_rim",
 	"owner": "codex",
 	"palette": {
-		"family": "town_stone",
-		"lock": false,
+		"family": "wayline_tower",
+		"lock": true,
 		"max": 32,
-		"source": "res://assets/slots/palettes/town_stone.png"
+		"source": "res://assets/slots/palettes/wayline_tower.png"
 	},
 	"pass_creature": "galeshear",
-	"placeholder": "res://scripts/town/building_template.gd:paint_slot",
+	"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
 	"rows": 1,
 	"sheet_size": [
 		300,
-		576
+		192
 	],
 	"size": [
 		300,
-		576
+		192
 	],
 	"slot_file": "town_buildings",
 	"states": {

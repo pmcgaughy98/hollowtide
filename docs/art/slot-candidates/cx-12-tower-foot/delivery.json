@@ -1,0 +1,45 @@
+{
+  "batch": "cx-12-tower-foot",
+  "date": "2026-10-27",
+  "slots": [
+    "town.building.hall",
+    "town.building.hall.gable",
+    "town.building.hall.root_foot",
+    "town.building.hall.yard",
+    "town.prop.hall.rise_stair"
+  ],
+  "check_lines": [
+    "town.building.hall: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C10 PASS, C11 PASS, C12 PASS",
+    "town.building.hall.gable: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+    "town.building.hall.root_foot: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C12 PASS",
+    "town.building.hall.yard: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C12 PASS",
+    "town.prop.hall.rise_stair: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C12 PASS"
+  ],
+  "source_issues": [
+    "The shared exported slots.json is stale after the later route.gd edit. These tools use the real candidate-only Godot export at registry 235abb6156b1, with the normal freshness check enabled. No registry was changed.",
+    "Built-in image_gen returned larger-than-native sources. Raw files are untouched; each has its exact prompt, references, source path and hash. Native cleanup was explicitly authorized by Preston.",
+    "prepare_slot recenters occupied bounds even for top_left and asymmetric foot art. That shifted gable/yard registration by one pixel. Exact blockout registration was restored after preparation, then final bytes were validated. See cleanup receipts and pre-restore PNGs.",
+    "The stair generation had seven treads. Native recutting produces eight 12px tread bands, repeating one quiet middle tread; this is documented and not claimed as recovered source drawing.",
+    "No neighbour-band reference exists for rise_stair. Its own target/grid, approved key, assembly and palette were used; it is placed separately from the Tower frame.",
+    "Yard frame 1 is derived from painted frame 0 with only the coded handle region changed. All other frame pixels match; the unused generated second-frame body remains in raw.png.",
+    "No in-game capture or Finish-shader/seam approval is claimed. The assembly is static art with unchanged upper-part blockouts. Future upper parts must own their three-pixel contact-shadow seams.",
+    "No install. Key approval opens production; cx-12 slot answers remain pending Preston. cx-10 still waits for crown approval.",
+    "Approved great-tree root revision supersedes the earlier root description. See ../root-revision-2026-10-27/DELIVERY.md. Other four slot images are exact."
+  ],
+  "images": 6,
+  "installed": false,
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "ROOT_R2_SUBMISSION": {
+    "slot": "town.building.hall.root_foot",
+    "candidate_sha256": "1224d0995c6233938b2e12dd6bf8794af974f43a87a694f38c72ffaf4e1d82fb",
+    "review_packet": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\root-redo-2026-10-27-r2\\root-redo-r2-review",
+    "answer": "pending; previous redo preserved"
+  },
+  "PASS9_REFRESH": {
+    "slot": "town.prop.hall.rise_stair",
+    "registry_sha256": "ee9c03563b1c2a8bd6adc2abe1df32d2d1a993bdcba109f1d7e9d2c5d060489c",
+    "prepared_sha256": "f0f6a911a92b46e37ea4003460447c1619fe4a343009b8d3daffe265b3f054d0",
+    "review_packet": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\pass9-reach-stair-2026-10-28\\pass9-reach-stair-review",
+    "answer": "pending"
+  }
+}

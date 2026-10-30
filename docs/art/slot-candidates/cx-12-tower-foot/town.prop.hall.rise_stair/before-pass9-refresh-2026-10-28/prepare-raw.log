@@ -1,0 +1,2 @@
+prepared town.prop.hall.rise_stair: 48x96, 27 colours, 3869 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-12-tower-foot\town.prop.hall.rise_stair\prepared-from-raw.png
+next: python tools/art/validate_slot.py town.prop.hall.rise_stair C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-12-tower-foot\town.prop.hall.rise_stair\prepared-from-raw.png

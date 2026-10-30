@@ -1,0 +1,24 @@
+{
+ "batch": "cx-08-stages",
+ "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+ "slots": {
+  "ui.backdrop.stage_blight": {
+   "answer": "pending"
+  },
+  "ui.backdrop.stage_hollow": {
+   "answer": "pending"
+  },
+  "ui.backdrop.stage_ice": {
+   "answer": "pending"
+  },
+  "ui.backdrop.stage_loam": {
+   "answer": "pending"
+  },
+  "ui.backdrop.stage_murk": {
+   "answer": "pending"
+  },
+  "ui.backdrop.stage_sinew": {
+   "answer": "pending"
+  }
+ }
+}

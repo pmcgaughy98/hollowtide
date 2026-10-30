@@ -198,3 +198,36 @@ chart and names the essences; it changes no multiplier. (Claude, integrator, 202
    unchanged.
 8. L-06: Courier Rank tops out at Rank 5 on the 4th replay (rank points 0, 170, 290, 430, 580, 760). Set the steps once
    Preston decides what a rank opens.
+
+## Pass 9 lines (plan, 2026-10-27)
+From `sweep-2026-10-20/PASS9_PLAN_2026-10-27.md`, section "Grok". Result: `sweep-2026-10-20/PASS9_RESULT_2026-10-27.md`.
+Pass 9 applied your 2026-10-26 tasks 7 to 10 as written and changed none of your numbers (stats, EXP, learnsets,
+spawns, damage, multipliers, recruit rates). (Claude, integrator, 2026-10-28)
+1. Done, task 9 (D3): each run has its own generator, `_run_rng`, seeded `floor_seed + 4513` on every floor build. It
+   rolls the damage spread, both recruit paths, warp rooms and the next floor's seed. Floor plan (+7), nest (+99), rain
+   and jobs.gd keep their own streams. dungeon_rng_check proves the same seed gives the same rolls with other code
+   drawing from Godot's generator in between. lv1_run has a new baseline because the rolls are a new stream: 10 seeds,
+   cleared 3, went down 25 times, 300 turns a seed (before: cleared 5, 18 downs, 254 turns). 10 seeds is a small
+   sample; read it as a rate and look before any balance change.
+2. Done, task 7 (D4): a swapped Job Board client brings its own floor; pay is the kind's pay + 10 x (floor - 1) and
+   the quick-turn limit 70 x floor, both from that floor. A 200-board probe in job_board_check: 0 clients on a floor
+   that does not spawn them (the old code put 93 of 800 there). POSTED stays 4.
+3. Done, task 8 (D9): arena_protector_check no longer prints the Guardian step; Counter Jab's header says it dashes to
+   the ally in trouble. GUARDIAN_RADIUS, GUARDIAN_CUT, the damage branch, Chain and the music id are unchanged.
+4. Done, task 10 (D10): dual_essence_check prints RETIRED and quits with 2 (it printed the old essence_chart.gd
+   multipliers while the dungeon plays ARENA_CHART). essence_chart.gd and battle_screen.gd are unchanged.
+5. Also done (D6, Preston's 2026-10-21 rule): the real-time battle end no longer recruits a boss or a minion, as the
+   turn path already did. dungeon_rt_recruit_check fails with the guard taken out and passes with it in.
+6. H9-49: Troughspine's stage 1 condition is still 'healed 40' with no heal until Archroot. Give it one it can earn
+   (took or slam), no Seep.
+7. H9-50, still open from pass 8: partner growth (L-02), reward counts and carry caps (L-05), a recipe per Hollow
+   (L-11), which Hollows post requests (L-04), and rank steps (L-06, after Preston decides what a rank opens). Claude
+   applies your tables unchanged and reruns pilot, dungeon_chain, lv1_run and move_table.
+8. H9-51 (corrected by Claude, 2026-10-28): Preston said yes to all 29 gb-01 to gb-07 pieces on 2026-10-27, but
+   install_slot.py refuses each one: C9 specks (5.9 to 21.7% stray single pixels, limit 1%), most also C8 (one flat
+   colour over 25% of the cell), and the shop counter and shelf are over the 24-colour budget. Nothing is installed;
+   Preston chooses a clean-up pass or a redo. gb-08 (the wayline post) waits on the new cloud-high Tower scale. Its ref was rendered again after the W6 lantern redraw (frame, cap, two panes, hot spot) at
+   registry ee9c03563b1c, and the state order now exports as strung, waiting, quiet (GROK_ART_TASKS line 689).
+   Update (Claude, 2026-10-28, later): the clean-up pass ran. tools/art/clean_slot.py remade all 29 from Grok's raws (pink keyed out, palette snap, mode downscale); all 29 cleaned.png now pass validate_slot. Two are held (cleaned.png.hold.json): menu_cursor points up, not right, and fence_v runs corner to corner instead of straight up; both need a Grok redraw or Preston's call. Nothing installs until Preston says yes to the cleaned pieces on each batch's cleanup_sheet.png.
+9. FYI: the dungeon lane's boss camera change (D1) moved no number: BOSS_LEAD_LOW 168 to 176 px is where the leader's
+   feet may sit on screen.

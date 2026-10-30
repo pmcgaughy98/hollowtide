@@ -1,0 +1,13 @@
+{
+  "authorized": "Preston reply Yes, use Python pixel cleanup",
+  "changed_rgb_pixels": 100,
+  "alpha_changed_pixels": 0,
+  "isolated_alpha_specks_removed": 0,
+  "size": [
+    48,
+    28
+  ],
+  "door_box": null,
+  "raw_unchanged": true,
+  "native_map_repair": "Restore generated paper/frame to native 46x27 content on unchanged48x28 canvas; redraw its single three-bend river as2px contiguous line in existing palette blue #3c5f71, no text"
+}

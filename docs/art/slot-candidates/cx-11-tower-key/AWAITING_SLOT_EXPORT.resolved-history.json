@@ -1,0 +1,12 @@
+{
+  "status": "OFFICIAL PREPARATION/VALIDATION REFUSED: slots.json is stale",
+  "slot": "town.building.hall.key",
+  "design_artwork_ready": true,
+  "official_contract_available": false,
+  "installed": false,
+  "registry_sha256": "cb33c871f11f80980785e47e73ece64acf9e85ff607dc083c7a18639031a0434",
+  "next": "Run prepare_slot.py with native key and validate_slot.py when Claude exports the official key contract; obtain key review before body parts.",
+  "runtime_and_slot_definitions_present": true,
+  "current_native_colors": 29,
+  "latest_status": "../CONTINUATION_2026-10-27.md"
+}

@@ -1,0 +1,23 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-27",
+  "cost": "not exposed; no paid alternative called",
+  "raw_is_untouched": true,
+  "raw_sha256": "4eb43d12f9201bd9dac97e0f70090a5e73e1069319aff2858d270261f956799a",
+  "raw_dimensions": [
+    1672,
+    941
+  ],
+  "target_dimensions": [
+    384,
+    216
+  ],
+  "references": [
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\placeholder-factory-2026-10-26\\refs\\story.backdrop.dawn_bank.png",
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\placeholder-factory-2026-10-26\\refs\\story.backdrop.dawn_bank_grid.png",
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\placeholder-factory-2026-10-26\\refs\\story.backdrop.dawn_bank_card.png"
+  ],
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-8e5ed06a-46cc-4c93-824e-cacb2a3dc6fa.png",
+  "registry_sha256": "cb33c871f11f80980785e47e73ece64acf9e85ff607dc083c7a18639031a0434",
+  "pixel_cleanup": "Explicitly authorized by Preston, 2026-10-27. Raw untouched; native_input.png supplies repaired exact-size art to unchanged prepare_slot."
+}

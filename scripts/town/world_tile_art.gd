@@ -198,9 +198,10 @@ static func _lane_below(door:Vector2i)->int:
 	for y in range(door.y+1,mini(rows,door.y+6)):
 		if path(door.x,y):return y
 	return mini(rows,door.y+2)
+## The Crossroads' clearing. The Job Board's worn earth pad is gone (Claude, 2026-10-27, pass 9 T7 / H9-15): it painted
+## a square of bare earth under the board's tile that read as a patch pasted on the grass.
 static func clearings(img:Image)->void:
 	var stone:=image("lane")
-	var earth:=image("earth")
 	for place in places:
 		if place.id=="plaza" and stone!=null:
 			var at:Vector2i=place.rect.position*T
@@ -215,13 +216,3 @@ static func clearings(img:Image)->void:
 					var edge:=mini(x-left,right-1-x)
 					var c:=sample(stone,pos.x,pos.y)
 					img.set_pixelv(pos,img.get_pixelv(pos).lerp(c,0.38) if edge<3 else c)
-		if place.id=="board" and earth!=null:
-			var at:Vector2i=place.door*T
-			# The reading pad covers its tile and its sides wander 1 to 3 px out into the grass, dithered, where they
-			# were ruled 42% blends down the tile's edges (Claude, 2026-10-24, A1). The board and the street bound it.
-			for y in T:
-				var h:=13.0+2.0*R._noise(at.x,at.y+y,5.0,171)
-				for x in range(-4,T+4):
-					var pos:=at+Vector2i(x,y)
-					if path(pos.x/T,pos.y/T) or in_place(pos.x/T,pos.y/T):continue
-					if worn(pos.x,pos.y,at.x+12.0,h):img.set_pixelv(pos,sample(earth,pos.x,pos.y))

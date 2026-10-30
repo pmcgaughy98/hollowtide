@@ -1,0 +1,394 @@
+{
+ "tallowroot": {
+  "dungeon": {
+   "s": {
+    "boil_before": 0.62,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 25,
+    "leg_zone_px": 16
+   },
+   "se": {
+    "boil_before": 0.59,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 25,
+    "leg_zone_px": 8
+   },
+   "e": {
+    "boil_before": 0.45,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 25,
+    "leg_zone_px": 12
+   },
+   "ne": {
+    "boil_before": 0.52,
+    "boil_after": 0.04,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 25,
+    "leg_zone_px": 27
+   },
+   "n": {
+    "boil_before": 0.47,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 25,
+    "leg_zone_px": 13
+   },
+   "nw": {
+    "boil_before": 0.52,
+    "boil_after": 0.03,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 25,
+    "leg_zone_px": 29
+   },
+   "w": {
+    "boil_before": 0.45,
+    "boil_after": 0.02,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 25,
+    "leg_zone_px": 14
+   },
+   "sw": {
+    "boil_before": 0.59,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 25,
+    "leg_zone_px": 12
+   }
+  },
+  "town": {
+   "s": {
+    "boil_before": 0.62,
+    "boil_after": 0.02,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 38,
+    "leg_zone_px": 30
+   },
+   "se": {
+    "boil_before": 0.63,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 38,
+    "leg_zone_px": 18
+   },
+   "e": {
+    "boil_before": 0.47,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 39,
+    "leg_zone_px": 18
+   },
+   "ne": {
+    "boil_before": 0.54,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 40,
+    "leg_zone_px": 12
+   },
+   "n": {
+    "boil_before": 0.52,
+    "boil_after": 0.0,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 40,
+    "leg_zone_px": 12
+   },
+   "nw": {
+    "boil_before": 0.54,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 39,
+    "leg_zone_px": 18
+   },
+   "w": {
+    "boil_before": 0.47,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 38,
+    "leg_zone_px": 27
+   },
+   "sw": {
+    "boil_before": 0.63,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 38,
+    "leg_zone_px": 25
+   }
+  },
+  "small": {
+   "s": {
+    "boil_before": 0.46,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 32,
+    "leg_zone_px": 18
+   },
+   "se": {
+    "boil_before": 0.51,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 32,
+    "leg_zone_px": 12
+   },
+   "e": {
+    "boil_before": 0.27,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 32,
+    "leg_zone_px": 15
+   },
+   "ne": {
+    "boil_before": 0.37,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 33,
+    "leg_zone_px": 10
+   },
+   "n": {
+    "boil_before": 0.33,
+    "boil_after": 0.0,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 33,
+    "leg_zone_px": 8
+   },
+   "nw": {
+    "boil_before": 0.37,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 33,
+    "leg_zone_px": 10
+   },
+   "w": {
+    "boil_before": 0.27,
+    "boil_after": 0.02,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 32,
+    "leg_zone_px": 28
+   },
+   "sw": {
+    "boil_before": 0.51,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "hip_row": 32,
+    "leg_zone_px": 16
+   }
+  }
+ }
+}

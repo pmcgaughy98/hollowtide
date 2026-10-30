@@ -1,0 +1,6 @@
+{
+ "slot": "title.hud_piece.menu_cursor",
+ "hold": true,
+ "reason": "it points up, not right at the menu item, and at 3x on the title it reads as a cream blob. Prepared (your yes) was just as unclear, and mirroring will not fix it. Needs a redraw from Grok that points right, or your call.",
+ "date_tool": "clean_slot.py --hold 2026-10-28"
+}

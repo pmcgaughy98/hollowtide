@@ -1,0 +1,21 @@
+{
+ "batch": "cx-03-shop-room",
+ "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+ "slots": {
+  "town.room.shop.floor": {
+   "answer": "pending"
+  },
+  "town.room.shop.north": {
+   "answer": "pending"
+  },
+  "town.room.shop.south": {
+   "answer": "pending"
+  },
+  "town.room.shop.west": {
+   "answer": "pending"
+  },
+  "town.room.shop.east": {
+   "answer": "pending"
+  }
+ }
+}

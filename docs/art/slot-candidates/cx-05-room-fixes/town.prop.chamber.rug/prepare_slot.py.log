@@ -1,0 +1,2 @@
+prepared town.prop.chamber.rug: 216x120, 16 colours, 21101 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-05-room-fixes\town.prop.chamber.rug\prepared.png
+next: python tools/art/validate_slot.py town.prop.chamber.rug C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-05-room-fixes\town.prop.chamber.rug\prepared.png

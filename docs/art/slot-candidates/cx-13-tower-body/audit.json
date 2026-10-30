@@ -1,0 +1,137 @@
+{
+  "date_utc": "2026-10-27T20:02:49.310479+00:00",
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "slots": [
+    {
+      "slot": "town.building.hall.drum",
+      "pass": true,
+      "check_line": "town.building.hall.drum: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+      "prepared_sha256": "8eac61b5ea56f7c10c230f71020609c7cb948006c2ff125c85a1dda596ec7df8",
+      "raw_sha256": "0d17fe01aab2be40cf239b6910780661f742f799709158609cf9dcdb6389d00b",
+      "alpha_matches_blockout": true
+    },
+    {
+      "slot": "town.building.hall.galleries",
+      "pass": true,
+      "check_line": "town.building.hall.galleries: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+      "prepared_sha256": "92a5f6765fa03036b6cbc8a895c067f4abe5a0d20f0bd70673207b288650ed94",
+      "raw_sha256": "5861359df05724d6f49f2888e557182b20414946a20cd255bd4d03a89f720414",
+      "alpha_matches_blockout": true
+    },
+    {
+      "slot": "town.building.hall.hoist",
+      "pass": true,
+      "check_line": "town.building.hall.hoist: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+      "prepared_sha256": "a8d15153effc712688e9ffdc5c8183f3f305174b6ec59352a6a19f13d4010a0f",
+      "raw_sha256": "705e35193fcdf07e4dbe7be28489226e66bc7ae10c2a355da7f4191f6c943a97",
+      "alpha_matches_blockout": true
+    },
+    {
+      "slot": "town.building.hall.root_vein",
+      "pass": true,
+      "check_line": "town.building.hall.root_vein: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+      "prepared_sha256": "4c894164ae49ad1b9dff52b9f870b7d297744eb5db78af94d80f513dd72eedae",
+      "raw_sha256": "689a0e0aec191ee2cd0237b7679ec130cfccbc20d12e71ba277b7056a3631d43",
+      "alpha_matches_blockout": true
+    },
+    {
+      "slot": "town.building.hall.chute",
+      "pass": true,
+      "check_line": "town.building.hall.chute: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+      "prepared_sha256": "252ce02021e54de73a428b6d7e138ba6adbb45841b1e2654b8440ffe701c3647",
+      "raw_sha256": "29952998f5c4979776ec18c1e8fa7347479ff8de9f0a1ecea28c1a6a69f69d82",
+      "alpha_matches_blockout": true
+    }
+  ],
+  "semantic": {
+    "all_five_alpha_masks_exact": true,
+    "hoist_changed_pixels": 16,
+    "hoist_difference_bbox": [
+      77,
+      19,
+      83,
+      25
+    ],
+    "hoist_outside_sheave_exact": true,
+    "hoist_rope_entry_local": [
+      81,
+      28
+    ],
+    "hoist_rope_entry_frame": [
+      385,
+      488
+    ],
+    "root_run_row_intervals": [
+      [
+        6,
+        66
+      ],
+      [
+        79,
+        198
+      ],
+      [
+        204,
+        292
+      ]
+    ],
+    "chute_mouth_local": [
+      18,
+      8
+    ],
+    "chute_spout_local": [
+      78,
+      276
+    ],
+    "chute_mouth_frame": [
+      262,
+      344
+    ],
+    "chute_spout_frame": [
+      322,
+      612
+    ],
+    "visual_feature_review": {
+      "drum_windows": 3,
+      "drum_cubbies": "6 columns x 3 rows, empty at row0/col4 and row2/col1",
+      "gallery_windows": "2-1-2",
+      "flyer_landing_boards": 2
+    },
+    "in_game_verified": false
+  },
+  "protected_registry_files_changed": [],
+  "installed": false,
+  "great_tree_revision": {
+    "alpha_mask_exact": true,
+    "root_run_intervals": [
+      [
+        6,
+        66
+      ],
+      [
+        79,
+        198
+      ],
+      [
+        204,
+        292
+      ]
+    ],
+    "no_new_opaque_window_coverage": true,
+    "masonry_lips_both_edges": "visual review",
+    "stone_overhang_bands": [
+      [
+        64,
+        66
+      ],
+      [
+        196,
+        198
+      ],
+      [
+        290,
+        292
+      ]
+    ]
+  }
+}

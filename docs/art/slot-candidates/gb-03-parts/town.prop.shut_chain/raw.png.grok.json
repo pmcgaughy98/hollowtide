@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.shut_chain_card.png",
+ "out": "docs/art/slot-candidates/gb-03-parts/town.prop.shut_chain/raw.png",
+ "cost_usd": 0.0767652,
+ "turns": 5,
+ "text": "I'll read the style reference first, then generate the chain and padlock once and save it as `raw.png`.The reference is a muted pixel prop: warm brown wood, brass and iron grays, hard pixels, light from the upper left. Generating the door, chain, and padlock once in that style.The generator saved a JPEG. I'll convert it to `raw.png` in this folder and check size and background colour so I don't guess about the result.`C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_qlb7o78r\\raw.png` shows one shut brown wooden door in chunky pixel art, 864\u00d71152, with iron chain runs crossed on the face and a brass padlock, light from the upper left, and no lettering. The background samples about RGB 240, 58, 202 because the generator wrote a JPEG, so it is not flat #FF00FF, the chain reads as two crossed runs",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_qlb7o78r"
+}

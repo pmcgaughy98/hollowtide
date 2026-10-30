@@ -1,0 +1,18 @@
+{
+  "batch": "launch-road-review",
+  "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+  "slots": {
+    "road.backdrop.mid": {
+      "answer": "pending",
+      "candidate_sha256": "ebc61432a1e46dfe33ce9886157c1580232a4f3c5795d4accb08c1e721207fad",
+      "source_batch": "cx-09-road",
+      "revision": "launch-road-refresh-2026-10-27"
+    },
+    "title.backdrop.launch": {
+      "answer": "pending",
+      "candidate_sha256": "0b9ad9a29ec1fcc164f1cd54a5dffbd28251d01addce84e7a54d6e077de7a36c",
+      "source_batch": "cx-06-title",
+      "revision": "launch-road-refresh-2026-10-27"
+    }
+  }
+}

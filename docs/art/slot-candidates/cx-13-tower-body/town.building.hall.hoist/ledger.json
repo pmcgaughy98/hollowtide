@@ -1,0 +1,26 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-27",
+  "cost": "not exposed; no paid alternative used",
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-57e410a1-f49f-4763-a82f-3348496a451f.png",
+  "raw_sha256": "705e35193fcdf07e4dbe7be28489226e66bc7ae10c2a355da7f4191f6c943a97",
+  "raw_is_untouched": true,
+  "raw_dimensions": [
+    2172,
+    724
+  ],
+  "target_dimensions": [
+    176,
+    56
+  ],
+  "references": [
+    "C:/Users/pmcga/dev/hollowtide/docs/design/placeholder-factory-2026-10-26/refs/town.building.hall.hoist.png",
+    "C:/Users/pmcga/dev/hollowtide/docs/design/placeholder-factory-2026-10-26/refs/town.building.hall.hoist_band.png",
+    "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-11-tower-key/town.building.hall.key/prepared.png",
+    "C:/Users/pmcga/dev/hollowtide/docs/design/placeholder-factory-2026-10-26/refs/wayline_tower/assembled_blockout.png",
+    "C:/Users/pmcga/dev/hollowtide/docs/design/placeholder-factory-2026-10-26/refs/palettes/wayline_tower.png"
+  ],
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "key_approved_by": "Preston: approval go",
+  "cleanup_authorization": "Preston: Yes, use Python pixel cleanup"
+}

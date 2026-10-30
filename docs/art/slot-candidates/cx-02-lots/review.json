@@ -1,0 +1,15 @@
+{
+ "batch": "cx-02-lots",
+ "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+ "slots": {
+  "town.building.lot_before_stall": {
+   "answer": "pending"
+  },
+  "town.building.lot_before_shop": {
+   "answer": "pending"
+  },
+  "town.landmark.lot_before_plot": {
+   "answer": "pending"
+  }
+ }
+}

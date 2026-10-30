@@ -1,0 +1,17 @@
+{
+  "horizon": 146,
+  "crown_cap_green_mask_matches_reference": true,
+  "calm_lamp_box": [
+    184,
+    119,
+    17,
+    17
+  ],
+  "calm_box_colours": 1,
+  "calm_box_rgb": [
+    115,
+    143,
+    151
+  ],
+  "no_tower_lamp_or_town_painted": true
+}

@@ -1209,8 +1209,21 @@ static func dir8() -> Vector2i:
 	return Vector2i(x, y)
 
 
+## Judge a stick's motion event once, whatever reads it (Claude, 2026-10-27, pass 9 R4 / H9-35). pressed() counts a
+## push when the stick crosses TAP_DEAD from inside it, so it must also see the stick come back: the event that brings
+## it back to the centre is no action's press, and before this pressed() returned on it before _motion_edge looked, so
+## the next push the same way read as the old push still held and was dropped (stick_edge_check measured 1 of 2 pushes,
+## and 0 of 5 on a screen shaped like the Team page). pressed() calls this for every event, and so does note_input,
+## which the InputPrefs autoload runs on every event before any node sees it, so a screen that drops non-presses
+## before it asks (the Team page) still follows the stick. Codex's three screens fed _motion_edge by hand for this.
+static func track_stick(event: InputEvent) -> void:
+	if event is InputEventJoypadMotion:
+		_motion_edge(event)
+
+
 ## `event` is a fresh press of `action`, chord rule kept. For _input and _unhandled_input.
 static func pressed(event: InputEvent, action: StringName) -> bool:
+	track_stick(event)   # the centre too, so a second push the same way counts (R4)
 	if event == null or event.is_echo() or not InputMap.has_action(action) or not event.is_action_pressed(action, false, false):
 		return false
 	if event is InputEventJoypadButton:
@@ -1229,6 +1242,7 @@ static func last_device() -> String:
 
 ## Note the device behind `event` (the InputPrefs autoload calls this for every event). True when it changed.
 static func note_input(event: InputEvent) -> bool:
+	track_stick(event)   # every motion event, before any screen reads it (R4)
 	var d := ""
 	if (event is InputEventKey or event is InputEventMouseButton) and event.pressed:
 		d = "keyboard"   # the mouse reads as the keyboard: its hints are the keyboard's

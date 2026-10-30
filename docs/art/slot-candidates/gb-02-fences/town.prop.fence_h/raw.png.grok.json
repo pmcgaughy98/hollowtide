@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.fence_h_card.png",
+ "out": "docs/art/slot-candidates/gb-02-fences/town.prop.fence_h/raw.png",
+ "cost_usd": 0.06262528,
+ "turns": 4,
+ "text": "I'll read the style reference first, then generate one fence span from what it actually shows.The reference is chunky pixel art: warm oak browns, tan highlights, a near-black outline, and light from the upper left on a three-quarter top-down chest. I'll generate one fence span in that look.The generator returned a JPEG. I'll convert it to a real PNG and save it as `raw.png` in this folder.Saved to `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_1_bnuwla\\raw.png`: one low timber fence span, rails running left to right so it can tile, in the reference's warm-brown three-quarter pixel-art look on magenta. The generator returned a JPEG, so this PNG is a conversion of that file and may have softened the hard pixel edges, and I did not re-open the pixels after generation.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_1_bnuwla"
+}

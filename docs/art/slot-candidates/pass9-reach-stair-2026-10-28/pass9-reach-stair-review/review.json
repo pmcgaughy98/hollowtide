@@ -1,0 +1,18 @@
+{
+  "batch": "pass9-reach-stair-review",
+  "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+  "slots": {
+    "town.building.hall.reach": {
+      "answer": "pending",
+      "candidate_sha256": "8ae5af4206b94cb8cb0e995be4ba1526403a129f36ee95356638c2520a343622",
+      "source_batch": "cx-14-tower-crown",
+      "revision": "pass9-reach-stair-2026-10-28"
+    },
+    "town.prop.hall.rise_stair": {
+      "answer": "pending",
+      "candidate_sha256": "f0f6a911a92b46e37ea4003460447c1619fe4a343009b8d3daffe265b3f054d0",
+      "source_batch": "cx-12-tower-foot",
+      "revision": "pass9-reach-stair-2026-10-28"
+    }
+  }
+}

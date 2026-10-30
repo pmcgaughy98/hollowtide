@@ -1,0 +1,11 @@
+{
+  "door_px": [
+    144,
+    192,
+    24,
+    24
+  ],
+  "source": "town_room.gd room door tile",
+  "changed_pixels": 2360,
+  "raw_untouched": true
+}

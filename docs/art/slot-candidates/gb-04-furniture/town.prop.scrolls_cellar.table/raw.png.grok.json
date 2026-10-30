@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.scrolls_cellar.table_card.png",
+ "out": "docs/art/slot-candidates/gb-04-furniture/town.prop.scrolls_cellar.table/raw.png",
+ "cost_usd": 0.08107368,
+ "turns": 6,
+ "text": "I'll read the style reference first, then generate the table once and save it as `raw.png`.The reference is chunky pixel-art wood: warm oak and walnut, cream parchment, gray, a teal accent, near-black outlines, and light from the upper left. I'll generate the table once in that look.The file is saved. I'll sample the background so I can say whether it is actually pure magenta.Saved at `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_1ri8cbuf\\raw.png`. It shows a low wooden table in three-quarter view with a blank open scroll and two gray stones, and the background samples near #F540B6 because the generator wrote a JPEG, with an extra teal cloth on the near corner.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_1ri8cbuf"
+}

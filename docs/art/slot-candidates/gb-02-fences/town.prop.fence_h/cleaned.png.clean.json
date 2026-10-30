@@ -1,0 +1,15 @@
+{
+ "slot": "town.prop.fence_h",
+ "source": "docs\\art\\slot-candidates\\gb-02-fences\\town.prop.fence_h",
+ "date_tool": "clean_slot.py 2026-10-28",
+ "settings": {
+  "mixed": 0.5,
+  "keep": 40.0,
+  "flip": []
+ },
+ "notes": [
+  "h span levelled: its far edge sat +6 px from its near edge",
+  "34 orphans after the downscale, cleared",
+  "h seam matched (6 pixels)"
+ ]
+}

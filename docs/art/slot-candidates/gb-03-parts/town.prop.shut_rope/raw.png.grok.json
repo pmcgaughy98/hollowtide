@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.shut_rope_card.png",
+ "out": "docs/art/slot-candidates/gb-03-parts/town.prop.shut_rope/raw.png",
+ "cost_usd": 0.06202008,
+ "turns": 4,
+ "text": "I'll read the style reference first, then generate the rope once and save it as `raw.png`.The reference is chunky pixel art: black outlines, warm wood browns, cream and tan rope, light from the upper left. Generating the rope-and-gate prop once in that style.The generator wrote a JPEG. I'll convert it to `raw.png` in this folder.Saved to `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_yxebyy9f\\raw.png`: a closed wooden gate with two stakes and a hemp rope slung between them, prompted in the reference's chunky pixel-art palette on magenta, and I did not re-open the file so I cannot confirm the background is exact `#FF00FF` or that no letters slipped in.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_yxebyy9f"
+}

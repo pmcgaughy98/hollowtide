@@ -1,0 +1,319 @@
+{
+  "checked_at_utc": "2026-10-27T14:22:08.418832+00:00",
+  "registry_current": "0ddcf5ba5d11e5ccf57c303de962f6061d3b7c82f56166f405c3601f70d22eb2",
+  "registry_export": "cb33c871f11f80980785e47e73ece64acf9e85ff607dc083c7a18639031a0434",
+  "fresh_export": false,
+  "tower_key_palette": {
+    "date": "2026-10-27",
+    "authorized": "Preston explicitly permitted Python native pixel cleanup",
+    "source": "scripts/town/tower_parts.gd PALETTE",
+    "source_sha256": "d1d9c2e45cca19976c0bc80204670c6290c2ff6414a0f307564a1ac2414b8d58",
+    "palette_colors": 36,
+    "candidate_colors": 29,
+    "remapped": [
+      {
+        "from": [
+          147,
+          131,
+          96
+        ],
+        "to": [
+          142,
+          127,
+          94
+        ],
+        "pixels": 207
+      },
+      {
+        "from": [
+          155,
+          138,
+          105
+        ],
+        "to": [
+          156,
+          140,
+          104
+        ],
+        "pixels": 1311
+      }
+    ],
+    "alpha_exact": true,
+    "canvas": [
+      216,
+      360
+    ],
+    "raw_untouched": true,
+    "native_sha256": "9d403cc003bcf245fe5850e082834688955e92259cdf3212e3d0298b5bc62c46",
+    "status": "runtime palette reconciliation only; official export/check still required"
+  },
+  "tower_tools": [
+    {
+      "tool": "prepare_slot.py",
+      "exit": 2,
+      "stdout": "",
+      "stderr": "refused: slots.json is stale (stamp cb33c871f11f, registry 0ddcf5ba5d11); export it again: godot --headless --path . --script res://tools/art/render_slot_refs.gd -- --export-only\n"
+    },
+    {
+      "tool": "validate_slot.py",
+      "exit": 2,
+      "stdout": "",
+      "stderr": "refused: slots.json is stale (stamp cb33c871f11f, registry 0ddcf5ba5d11); export it again: godot --headless --path . --script res://tools/art/render_slot_refs.gd -- --export-only\n"
+    }
+  ],
+  "existing_slots": [
+    {
+      "slot": "town.building.home",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.building.home: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C10 PASS, C11 PASS, C12 PASS"
+    },
+    {
+      "slot": "town.building.shop",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.building.shop: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C10 PASS, C11 PASS, C12 PASS"
+    },
+    {
+      "slot": "town.building.storage",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.building.storage: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C10 PASS, C11 PASS, C12 PASS"
+    },
+    {
+      "slot": "town.building.scrolls",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.building.scrolls: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C10 PASS, C11 PASS, C12 PASS"
+    },
+    {
+      "slot": "town.building.lot_before_stall",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.building.lot_before_stall: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C12 PASS"
+    },
+    {
+      "slot": "town.building.lot_before_shop",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.building.lot_before_shop: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C12 PASS"
+    },
+    {
+      "slot": "town.landmark.lot_before_plot",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.landmark.lot_before_plot: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C9 PASS, C12 WARN"
+    },
+    {
+      "slot": "town.room.shop.floor",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.room.shop.floor: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "town.room.shop.north",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.room.shop.north: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "town.room.shop.south",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.room.shop.south: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "town.room.shop.west",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.room.shop.west: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "town.room.shop.east",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.room.shop.east: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "town.room.scrolls_cellar.floor",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.room.scrolls_cellar.floor: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "town.room.scrolls_cellar.north",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.room.scrolls_cellar.north: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "town.room.scrolls_cellar.south",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.room.scrolls_cellar.south: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "town.room.scrolls_cellar.west",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.room.scrolls_cellar.west: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "town.room.scrolls_cellar.east",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.room.scrolls_cellar.east: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "town.prop.chamber.rug",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.prop.chamber.rug: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 WARN"
+    },
+    {
+      "slot": "town.prop.chamber.window_wide",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.prop.chamber.window_wide: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C12 PASS"
+    },
+    {
+      "slot": "town.prop.runners.window",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.prop.runners.window: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C12 PASS"
+    },
+    {
+      "slot": "town.prop.runners.river_map",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "town.prop.runners.river_map: previous PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C12 PASS"
+    },
+    {
+      "slot": "title.backdrop.launch",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "title.backdrop.launch: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "story.backdrop.dawn_bank",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "story.backdrop.dawn_bank: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "story.backdrop.river_below",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "story.backdrop.river_below: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C6 PASS, C9 PASS"
+    },
+    {
+      "slot": "ui.backdrop.stage_blight",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "ui.backdrop.stage_blight: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "ui.backdrop.stage_hollow",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "ui.backdrop.stage_hollow: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "ui.backdrop.stage_ice",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "ui.backdrop.stage_ice: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "ui.backdrop.stage_loam",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "ui.backdrop.stage_loam: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "ui.backdrop.stage_murk",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "ui.backdrop.stage_murk: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "ui.backdrop.stage_sinew",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "ui.backdrop.stage_sinew: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "road.backdrop.sky",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "road.backdrop.sky: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS"
+    },
+    {
+      "slot": "road.backdrop.far",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "road.backdrop.far: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C6 PASS, C9 PASS"
+    },
+    {
+      "slot": "road.backdrop.river",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "road.backdrop.river: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C6 PASS, C9 PASS"
+    },
+    {
+      "slot": "road.backdrop.mid",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "road.backdrop.mid: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C6 PASS, C9 PASS"
+    },
+    {
+      "slot": "road.backdrop.near",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "road.backdrop.near: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C6 PASS, C9 PASS"
+    },
+    {
+      "slot": "road.ground.path",
+      "previous_check_pass": true,
+      "raw_hash_exact": true,
+      "check_current": false,
+      "check_line": "road.ground.path: previous PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C6 PASS, C9 PASS"
+    }
+  ],
+  "installed": false
+}

@@ -1,0 +1,72 @@
+{
+  "alpha": "binary",
+  "anchor": [
+    0,
+    0
+  ],
+  "anchor_mode": "top_left",
+  "area": "town",
+  "brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The Waiting Lamp on its short chain from the Reach's hook: the bail, a vented brass cap, amber panes with a centre bar, and the drip pan. The glass centre is the beacon (frame 216, 118). Lit flickers over 4 frames (the hot pane changes shape); dark is cold glass with one glint. The glow and the sway are coded.",
+  "census": "WT12",
+  "checks": [
+    "C1",
+    "C12",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C7",
+    "C8",
+    "C9"
+  ],
+  "drawn_at": 3,
+  "edges": "all",
+  "file": "res://assets/slots/town/building/hall_lamp.png",
+  "forbid": [
+    "text",
+    "creature",
+    "franchise"
+  ],
+  "frame_at": [
+    200,
+    92
+  ],
+  "frames": 4,
+  "id": "town.building.hall.lamp",
+  "kind": "building",
+  "lane": "T",
+  "legacy": "",
+  "light": "upper_left",
+  "notes": "order 13; TowerParts.BEACON (batch cx-14)",
+  "outline": "runtime_rim",
+  "owner": "codex",
+  "palette": {
+    "family": "wayline_tower",
+    "lock": true,
+    "max": 32,
+    "source": "res://assets/slots/palettes/wayline_tower.png"
+  },
+  "placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+  "rows": 2,
+  "sheet_size": [
+    128,
+    84
+  ],
+  "size": [
+    32,
+    42
+  ],
+  "slot_file": "town_tower",
+  "states": {
+    "dark": [
+      1,
+      0
+    ],
+    "lit": [
+      4,
+      8
+    ]
+  },
+  "status": "placeholder",
+  "tiling": "none"
+}

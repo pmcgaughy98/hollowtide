@@ -1,0 +1,13 @@
+{
+  "status": "READY FOR REVIEW",
+  "passing_slots": 1,
+  "installed": false,
+  "all_unheld_batches_prepared": true,
+  "remaining_batch": "cx-10-road-far",
+  "gate": "Preston crown approval and current far-view brief",
+  "all_review_work_complete": false,
+  "recorded_redo": [
+    "town.building.hall.root_foot",
+    "town.building.hall.root_vein"
+  ]
+}

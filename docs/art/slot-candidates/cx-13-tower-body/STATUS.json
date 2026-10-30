@@ -1,0 +1,8 @@
+{
+  "status": "READY FOR REVIEW",
+  "passing_slots": 5,
+  "images": 6,
+  "installed": false,
+  "next_batch": "cx-14-tower-crown",
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b"
+}

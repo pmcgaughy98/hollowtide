@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+51 dialogue faces; 39 roster forms, 0 without a dialogue face yet (they use portrait.png): 
+ok    every creature with a dialogue face has a FACE_AT row (51)
+ok    every FACE_AT row names a face that exists
+ok    every cut stays inside its face (51)
+ok    every cut sits on the creature, at least 45% drawn (the least: stillwade, 50%)
+ok    portrait_3x gives every face a 48 x 48 picture
+contact sheet: C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/dialogue-faces-2026-10-28/all-faces-check.png (OK), in order: archroot, cairnshell, caller, canvaswing, cinderhide, clinkerhide, crawdukes, dustkite, fusern, galeshear, grubbit, gruntle, highsignal, huskward, inkhoot, ironvent, kithflare, listener, mirekit, muskin, oathfen, oxbowarchon, ozbender, pouchbill, preostmar, punchybun, rampartroot, riftfin, rimefin, rinsepaw, scourmaw, skimlet, slagglass, slipjaw, sparkjab, sparkwick, springvault, starward, stillwade, stormwick, swaphoard, tallowroot, troughspine, valvekin, vitrecrag, warden, wayling, waywhistle, whinet, wickglow, windcut
+face crops: all ok (0 failed)

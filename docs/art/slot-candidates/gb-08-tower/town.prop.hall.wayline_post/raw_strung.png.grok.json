@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.hall.wayline_post_card.png",
+ "out": "docs/art/slot-candidates/gb-08-tower/town.prop.hall.wayline_post/raw_strung.png",
+ "cost_usd": 0.07354744,
+ "turns": 5,
+ "text": "I'll read the style reference and the Imagine skill first, then generate the post once from what I actually see.The style reference is a chunky pixel-art crate: walnut timber, brass hardware, cream and teal cloth, hard pixel shadows from the upper left, and a limited earth-and-brass strip. The three-route mark is not in that image, so I will draw it as a branching shape. Generating the strung post once.The generator saved a JPEG. I'll convert it to `raw_strung.png` in this folder and check the pixel size against the 1:2 request.Saved at `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_e33rwr1x\\raw_strung.png` (704\u00d71408, 1:2): it is the one generated strung wayline post, a timber post on a boulder foot with a brass three-route plate, a brass pulley taking the cable, and a small lantern meant t",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_e33rwr1x"
+}

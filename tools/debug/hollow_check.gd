@@ -104,6 +104,8 @@ func _run() -> void:
 			if f["team"] == 0 and f != lead and f["hp"] > 0 and f["body"].position.distance_to(lead["body"].position) > 160.0:
 				partner_far += 1
 	print("Autopilot on B1F: %s after %.0f s; %d wild creatures woke, %d were downed; frames with a creature inside a wall: %d; frames with the partner more than 160 px behind: %d" % ["reached B%dF" % hollow.floor_n if hollow.floor_n > 1 else ("fainted" if hollow._winner == 1 else "still on B1F (WRONG)"), frames / 30.0, woke, downed, in_wall, partner_far])
+	if hollow.floor_n == 1 and hollow._winner < 0:
+		_stall_state(hollow)
 	await _frames(20)
 	_save("b2f_start")
 	var team_hp := []
@@ -112,6 +114,27 @@ func _run() -> void:
 			team_hp.append("%s %d/%d" % [f["name"], f["hp"], f["max_hp"]])
 	print("B2F: the team carried its health down: %s; a fresh floor with %d wild creatures asleep" % [str(team_hp), hollow._fighters.filter(func(f: Dictionary) -> bool: return f["team"] == 1 and not f.get("awake", true)).size()])
 	quit()
+
+
+## A stall on B1F prints what the autopilot was doing (Claude, 2026-10-27, pass 9 D7, H9-32): it walks the leader to
+## the nearest wild creature still standing, then to the stairs (hollow_floor.gd _move_ai). The stall was not seen in
+## eight runs with HT_HIGHBANK_V2=1 on 2026-10-27, so the next one says where everyone stood and what the leader chased.
+func _stall_state(hollow: Node2D) -> void:
+	var lead: Dictionary = hollow._fighters[hollow.controlled]
+	var here: Vector2 = lead["body"].position
+	var stairs: Vector2 = hollow._px(hollow._data["stairs"])
+	var rows: Array = []
+	var goal := stairs
+	var best := INF
+	for f in hollow._fighters:
+		var at: Vector2 = f["body"].position
+		rows.append("%s %s hp %d at (%.0f, %.0f)%s%s" % ["you" if f["team"] == 0 else "wild", f["name"], f["hp"], at.x, at.y,
+			"" if f["team"] == 0 else (" awake" if f.get("awake", true) else " asleep"), " IN A WALL" if hollow._wall_px(at) else ""])
+		if f["team"] == 1 and f["hp"] > 0 and at.distance_to(here) < best:
+			best = at.distance_to(here)
+			goal = at
+	print("STALL STATE: the leader chases (%.0f, %.0f), %.0f px away, in sight %s; the stairs at (%.0f, %.0f), %.0f px away; on the stairs %.1f s; auto_you %s; %s" % [
+		goal.x, goal.y, here.distance_to(goal), hollow._sight(here, goal), stairs.x, stairs.y, here.distance_to(stairs), hollow._on_stairs, hollow.auto_you, "; ".join(rows)])
 
 
 func _frames(n: int) -> void:

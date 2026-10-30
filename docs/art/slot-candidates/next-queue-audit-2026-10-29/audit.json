@@ -1,0 +1,307 @@
+{
+  "date": "2026-10-29",
+  "eligible_batches": [],
+  "all_listed_batches_have_delivery": true,
+  "sail_slash_source_sha256": "895a57cffa4c6c9f33b224436b6a8a6b75df396c3403c5cb9f0411edf78eab56",
+  "sail_slash_blank_source_frames": [
+    4,
+    8,
+    12
+  ],
+  "sail_slash_all_runtime_frames_nonempty": true,
+  "frames": [
+    {
+      "frame": 0,
+      "source_alpha_pixels": 471,
+      "source_box": [
+        27,
+        20,
+        64,
+        62
+      ],
+      "source_edge_contacts": [
+        "right"
+      ],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 128
+    },
+    {
+      "frame": 1,
+      "source_alpha_pixels": 227,
+      "source_box": [
+        0,
+        23,
+        64,
+        58
+      ],
+      "source_edge_contacts": [
+        "left",
+        "right"
+      ],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 66
+    },
+    {
+      "frame": 2,
+      "source_alpha_pixels": 166,
+      "source_box": [
+        0,
+        20,
+        64,
+        58
+      ],
+      "source_edge_contacts": [
+        "left",
+        "right"
+      ],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 49
+    },
+    {
+      "frame": 3,
+      "source_alpha_pixels": 333,
+      "source_box": [
+        0,
+        13,
+        31,
+        56
+      ],
+      "source_edge_contacts": [
+        "left"
+      ],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 91
+    },
+    {
+      "frame": 4,
+      "source_alpha_pixels": 0,
+      "source_box": null,
+      "source_edge_contacts": [],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 91,
+      "is_exact_previous_frame_hold": true
+    },
+    {
+      "frame": 5,
+      "source_alpha_pixels": 143,
+      "source_box": [
+        45,
+        53,
+        64,
+        64
+      ],
+      "source_edge_contacts": [
+        "bottom",
+        "right"
+      ],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 42
+    },
+    {
+      "frame": 6,
+      "source_alpha_pixels": 120,
+      "source_box": [
+        0,
+        54,
+        21,
+        64
+      ],
+      "source_edge_contacts": [
+        "bottom",
+        "left"
+      ],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 35
+    },
+    {
+      "frame": 7,
+      "source_alpha_pixels": 73,
+      "source_box": [
+        5,
+        35,
+        16,
+        61
+      ],
+      "source_edge_contacts": [],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 23
+    },
+    {
+      "frame": 8,
+      "source_alpha_pixels": 0,
+      "source_box": null,
+      "source_edge_contacts": [],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 23,
+      "is_exact_previous_frame_hold": true
+    },
+    {
+      "frame": 9,
+      "source_alpha_pixels": 61,
+      "source_box": [
+        42,
+        0,
+        64,
+        64
+      ],
+      "source_edge_contacts": [
+        "top",
+        "bottom",
+        "right"
+      ],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 18
+    },
+    {
+      "frame": 10,
+      "source_alpha_pixels": 45,
+      "source_box": [
+        0,
+        0,
+        25,
+        64
+      ],
+      "source_edge_contacts": [
+        "top",
+        "bottom",
+        "left"
+      ],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 14
+    },
+    {
+      "frame": 11,
+      "source_alpha_pixels": 26,
+      "source_box": [
+        14,
+        57,
+        21,
+        64
+      ],
+      "source_edge_contacts": [
+        "bottom"
+      ],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 7
+    },
+    {
+      "frame": 12,
+      "source_alpha_pixels": 0,
+      "source_box": null,
+      "source_edge_contacts": [],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 7,
+      "is_exact_previous_frame_hold": true
+    },
+    {
+      "frame": 13,
+      "source_alpha_pixels": 231,
+      "source_box": [
+        37,
+        0,
+        64,
+        26
+      ],
+      "source_edge_contacts": [
+        "top",
+        "right"
+      ],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 63
+    },
+    {
+      "frame": 14,
+      "source_alpha_pixels": 135,
+      "source_box": [
+        0,
+        0,
+        22,
+        16
+      ],
+      "source_edge_contacts": [
+        "top",
+        "left"
+      ],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 40
+    },
+    {
+      "frame": 15,
+      "source_alpha_pixels": 20,
+      "source_box": [
+        16,
+        0,
+        23,
+        7
+      ],
+      "source_edge_contacts": [
+        "top"
+      ],
+      "runtime_size": [
+        32,
+        32
+      ],
+      "runtime_alpha_pixels": 6
+    }
+  ],
+  "hollow_shared_slot": "story.backdrop.hollow_entrance",
+  "hollow_modes": [
+    "flood -> mouth",
+    "teleport -> hollow"
+  ],
+  "home_current_contract": {
+    "class": "cottage",
+    "size": [
+      132,
+      144
+    ],
+    "brief": "The team's home: a low river-stone cottage with a moss roof, a framed door with warm lamplight inside and a step in front."
+  },
+  "runtime_assets_modified": false,
+  "generation_calls": 0
+}

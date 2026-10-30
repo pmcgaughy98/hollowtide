@@ -10,6 +10,12 @@ median cut), and places the content so its lowest row sits on the slot's foot ro
 not touch. Backdrops, rooms and ground (opaque slots) are centre-cropped to the slot's aspect instead and keep no
 transparency. It does not repaint, sharpen or re-outline: Preston's 2026-10-13 call was that heavy finishing made
 generated art worse. Then run tools/art/validate_slot.py on the result.
+
+2026-10-28: a raw already at exactly the slot's sheet size (how Codex paints: "paint to the exact size; never resize
+the canvas") keeps every pixel where it is. It is only keyed, hardened and snapped, never cropped, scaled or moved, so
+the anchors its target fixes still hold; C4 and C7 report an edge or foot row it misses. A backdrop that does not tile
+(road.backdrop.highbank_far, a picture stood on a point of its bottom row) is fitted as a whole frame like an opaque
+one, keyed and hardened, so a raw of another size keeps its layout instead of being re-centred on its content.
 """
 import argparse
 import sys
@@ -44,19 +50,34 @@ def shrink(img: Image.Image, w: int, h: int) -> Image.Image:
     return img.convert("RGBa").resize((max(1, w), max(1, h)), Image.BOX).convert("RGBA")
 
 
+def is_picture(s: dict) -> bool:
+    """A slot fitted as a whole frame: every opaque slot, and a backdrop that does not tile (its anchors are points in
+    its layout, not the middle of its content)."""
+    return s["alpha"] == "opaque" or (s["kind"] == "backdrop" and s.get("tiling", "none") == "none")
+
+
+def fit_frame(raw: Image.Image, s: dict) -> Image.Image:
+    """The whole raw centre-cropped to the slot's aspect and box-downscaled: the layout scales, nothing re-centres."""
+    cw, ch = s["size"]
+    if s["alpha"] != "opaque":
+        raw = key_magenta(raw)
+    rw, rh = raw.size
+    want = cw / ch
+    if rw / rh > want:
+        nw = int(round(rh * want))
+        raw = raw.crop(((rw - nw) // 2, 0, (rw - nw) // 2 + nw, rh))
+    else:
+        nh = int(round(rw / want))
+        raw = raw.crop((0, (rh - nh) // 2, rw, (rh - nh) // 2 + nh))
+    if s["alpha"] == "opaque":
+        return raw.convert("RGB").resize((cw, ch), Image.BOX).convert("RGBA")
+    return harden(shrink(raw, cw, ch))
+
+
 def fit_cell(raw: Image.Image, s: dict) -> Image.Image:
     cw, ch = s["size"]
-    if s["alpha"] == "opaque":
-        rw, rh = raw.size
-        want = cw / ch
-        if rw / rh > want:
-            nw = int(round(rh * want))
-            raw = raw.crop(((rw - nw) // 2, 0, (rw - nw) // 2 + nw, rh))
-        else:
-            nh = int(round(rw / want))
-            raw = raw.crop((0, (rh - nh) // 2, rw, (rh - nh) // 2 + nh))
-        out = raw.convert("RGB").resize((cw, ch), Image.BOX).convert("RGBA")
-        return out
+    if is_picture(s):
+        return fit_frame(raw, s)
     keyed = key_magenta(raw)
     box = keyed.getchannel("A").point(lambda v: 255 if v >= 128 else 0).getbbox()
     cell = Image.new("RGBA", (cw, ch), (0, 0, 0, 0))
@@ -119,7 +140,11 @@ def prepare(slot_id: str, raw_path: Path, out_path: Path) -> Image.Image:
     cw, ch = s["size"]
     sheet = Image.new("RGBA", (sw, sh), (0, 0, 0, 0))
     rows, frames = s["rows"], s["frames"]
-    if rows * frames == 1:
+    if raw.size == (sw, sh):
+        # Painted at exactly the slot's size: every pixel stays where it is (2026-10-28, the far view's anchors moved
+        # when this was cropped to its content and refitted 4.4% larger).
+        sheet = raw.convert("RGB").convert("RGBA") if s["alpha"] == "opaque" else harden(key_magenta(raw))
+    elif rows * frames == 1:
         sheet = fit_cell(raw, s)
     else:
         # A sheet: the raw is cut into the same grid of frames and state rows, each cell prepared alone.

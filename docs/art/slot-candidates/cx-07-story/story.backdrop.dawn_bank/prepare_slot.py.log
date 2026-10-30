@@ -1,0 +1,2 @@
+prepared story.backdrop.dawn_bank: 384x216, 34 colours, 82944 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-07-story\story.backdrop.dawn_bank\prepared.png
+next: python tools/art/validate_slot.py story.backdrop.dawn_bank C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-07-story\story.backdrop.dawn_bank\prepared.png

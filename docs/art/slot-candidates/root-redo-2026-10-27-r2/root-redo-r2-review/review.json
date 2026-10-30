@@ -1,0 +1,26 @@
+{
+  "batch": "root-redo-r2-review",
+  "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+  "slots": {
+    "town.building.hall.root_foot": {
+      "answer": "pending",
+      "candidate_sha256": "1224d0995c6233938b2e12dd6bf8794af974f43a87a694f38c72ffaf4e1d82fb",
+      "source_batch": "cx-12-tower-foot",
+      "responds_to": {
+        "answer": "redo",
+        "date": "2026-10-27",
+        "why": "Root comes from a separate great tree: run it out the west edge at full girth, no flared base or footing stone (CODEX_ROOT_NOTE.md)"
+      }
+    },
+    "town.building.hall.root_vein": {
+      "answer": "pending",
+      "candidate_sha256": "3ff1773191b3fe85f8c31cf5e4f737123b59b2d65e572e61fda88c134e76fb9f",
+      "source_batch": "cx-13-tower-body",
+      "responds_to": {
+        "answer": "redo",
+        "date": "2026-10-27",
+        "why": "Root comes from a separate great tree: paint it half sunk in the masonry so it reads as a root about 34 px thick (CODEX_ROOT_NOTE.md)"
+      }
+    }
+  }
+}

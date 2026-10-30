@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.sign_storage_card.png",
+ "out": "docs/art/slot-candidates/gb-03-parts/town.prop.sign_storage/raw.png",
+ "cost_usd": 0.0639132,
+ "turns": 5,
+ "text": "The reference is chunky pixel art: warm oak, cream, and dark walnut, with hard edges and light from the upper left. Generating the hanging plank sign once in that palette.Saved at `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_gh9y9yfh\\raw.png`. It is the one 1024\u00d71024 generation of a hanging oak plank sign with a carved crate pictogram on magenta, and I did not reopen the file, so I cannot confirm pure `#FF00FF`, hard pixel edges, or that no letters appeared.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_gh9y9yfh"
+}

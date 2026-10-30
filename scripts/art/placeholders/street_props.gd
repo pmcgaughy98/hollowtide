@@ -26,6 +26,7 @@ const GLASS := Color("#3a4652")       # an unlit pane
 const GLINT := Color("#a9d4d6")       # highbank_painter.gd GLINT: light on dark glass
 const ROPE := Color("#c9a77a")        # PlaceholderPainter's dawn family
 const WATER := Color("#3b6f7c")       # highbank_painter.gd MID
+const BERRY := Color("#b8433a")       # building_template.gd BERRY: the Item Shop's stock
 const LEAF := Color("#5b8a3c")        # valley_painter.gd MEADOW[1], the one grass
 const ROUTES := [Color("#a99870"), Color("#ceb386"), Color("#eee0bf")]   # crossroads_painter.gd _marker's three tints
 
@@ -269,6 +270,77 @@ static func waymark(_id: String, spec: Dictionary) -> Image:
 
 ## The slot's whole sheet: `paint` draws each cell (its state's name and frame index), then the edges its rule keeps
 ## clear are cleared, so a stray pixel can never fail C4.
+## town.prop.forest_trunk: one trunk of the great tree's forest on a flared foot of roots, moss on its lit side, and the
+## canopy's dark underside across the top, so the trunk reads as running on up out of sight (Claude, 2026-10-28).
+static func forest_trunk(_id: String, spec: Dictionary) -> Image:
+	return _sheet(spec, func(img: Image, _state: String, _f: int) -> void:
+		var w := img.get_width()
+		var h := img.get_height()
+		var br := _ramp(POST)
+		var lr := _ramp(LEAF)
+		PlaceholderPainter.block(img, Rect2i(11, 10, w - 22, h - 16), POST)      # the trunk
+		PlaceholderPainter.block(img, Rect2i(4, h - 12, w - 8, 11), POST)        # the flared foot
+		for x in [17, 23, 29]:
+			_rect(img, Rect2i(x, 14, 1, h - 30), br[3])                           # bark furrows
+		_rect(img, Rect2i(w - 17, 12, 4, h - 26), br[2])                          # the shaded right side
+		_rect(img, Rect2i(13, 12, 2, h - 28), br[0])                              # the lit left edge
+		for i in 5:
+			_rect(img, Rect2i(12, 24 + i * 12, 3 + i % 2 * 2, 3), lr[1])          # moss on the lit side
+		for x in [7, w / 2 - 3, w - 13]:
+			_rect(img, Rect2i(x, h - 4, 6, 4), br[3])                             # root toes, down to the foot row
+		PlaceholderPainter.block(img, Rect2i(1, 1, w - 2, 12), lr[3])             # the canopy's underside
+		for x in range(3, w - 4, 7):
+			_rect(img, Rect2i(x, 12, 4, 2), lr[3])                                # leaves hanging from it
+			_px(img, x + 1, 2 + x % 5, lr[2]))
+
+
+## The dooryard pieces (Claude, 2026-10-28; TOWN_SYNTHESIS.md): what lies on the ground in front of a building and says
+## what it does before its sign does. Seen from above like the town: a table's top shows deep.
+## town.prop.goods_table: a trestle table of stock, two tiles wide.
+static func goods_table(_id: String, spec: Dictionary) -> Image:
+	return _sheet(spec, func(img: Image, _state: String, _f: int) -> void:
+		var w := img.get_width()
+		var h := img.get_height()
+		var tr := _ramp(TIMBER)
+		for x in [4, w - 8]:
+			_rect(img, Rect2i(x, h - 14, 4, 14), tr[2])                            # legs to the foot row
+		PlaceholderPainter.block(img, Rect2i(1, 9, w - 2, 18), TIMBER)            # the top, seen from above
+		_rect(img, Rect2i(2, 27, w - 4, 4), tr[2])                                 # its front edge
+		_rect(img, Rect2i(2, 25, w - 4, 1), tr[0])                                 # the lit lip where the top turns down
+		_rect(img, Rect2i(2, 31, w - 4, 1), INK)                                   # the dark line under the front edge
+		for x in [4, w - 8]:
+			_rect(img, Rect2i(x, 32, 1, h - 33), tr[1])                           # the legs' lit west side
+			_rect(img, Rect2i(x - 1, h - 1, 6, 1), INK)                           # where they meet the ground
+		PlaceholderPainter.block(img, Rect2i(5, 5, 13, 10), ROPE)                 # a basket of berries
+		for i in 5:
+			_rect(img, Rect2i(7 + i * 2, 6 + i % 2, 2, 2), BERRY)
+		for i in 3:
+			PlaceholderPainter.block(img, Rect2i(21 + i * 6, 3, 5, 10), LANTERN)  # jars of lamp oil
+		PlaceholderPainter.block(img, Rect2i(w - 12, 10, 9, 7), LIMESTONE))       # a heap of stones
+
+
+## town.prop.crate_stack: two crates and a sack against a wall.
+static func crate_stack(_id: String, spec: Dictionary) -> Image:
+	return _sheet(spec, func(img: Image, _state: String, _f: int) -> void:
+		var h := img.get_height()
+		var tr := _ramp(TIMBER)
+		PlaceholderPainter.block(img, Rect2i(1, h - 16, 22, 16), TIMBER)
+		_rect(img, Rect2i(3, h - 9, 18, 1), tr[2])
+		PlaceholderPainter.block(img, Rect2i(4, h - 30, 16, 14), TIMBER)
+		_rect(img, Rect2i(6, h - 23, 12, 1), tr[2])
+		PlaceholderPainter.block(img, Rect2i(7, h - 39, 11, 10), ROPE)
+		_rect(img, Rect2i(9, h - 36, 7, 1), INK))
+
+
+## town.prop.rock_cluster: three rocks, one big and two small.
+static func rock_cluster(_id: String, spec: Dictionary) -> Image:
+	return _sheet(spec, func(img: Image, _state: String, _f: int) -> void:
+		PlaceholderPainter.block(img, Rect2i(3, 7, 13, 17), STONE)
+		_rect(img, Rect2i(7, 12, 1, 4), _ramp(LEAF)[2])                          # moss in a crack
+		PlaceholderPainter.block(img, Rect2i(14, 14, 9, 10), LIMESTONE)
+		PlaceholderPainter.block(img, Rect2i(1, 18, 6, 6), STONE))
+
+
 static func _sheet(spec: Dictionary, paint: Callable) -> Image:
 	var want: Vector2i = spec.get("sheet_size", spec.get("size", Vector2i(24, 24)))
 	var size: Vector2i = spec.get("size", want)

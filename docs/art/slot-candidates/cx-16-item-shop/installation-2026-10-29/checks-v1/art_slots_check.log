@@ -1,0 +1,47 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+art slots: 189 in 9 files ["dungeon.gd", "route.gd", "story.gd", "title.gd", "town_buildings.gd", "town_rooms.gd", "town_street.gd", "town_tower.gd", "ui.gd"]
+ids: 189 unique, well formed, middle part = kind -> ok
+owners, kinds and statuses known -> ok
+specs complete (anchor in the cell, door in the wall, states, margins) -> ok
+doors clear their pass creature, read from town/s.png (C11) -> ok
+building slots match BuildingTemplate's class canvas and door -> ok
+forbid holds text, creature, franchise -> ok
+placeholders: exactly sheet_size, binary or opaque alpha, clear of forbidden edges (C1, C3, C4) -> ok
+placeholders within their colour budget -> ok
+files: one per slot under res://assets/slots/ (Claude's frames in their kit folder) -> ok
+legacy art present at its declared size -> ok
+installed files match their recorded hash -> ok
+nothing in a creature folder -> ok
+every slot resolves to a texture of its declared size -> ok
+every slot draws from the source its status expects -> ok
+today's map (TownLayout.area()) passes AreaSchema.validate -> ok
+TownLayout answers for the map shown (v2 false, area highbank_v1, area_of(hall) highbank_v1, return (24, 8)) -> ok
+sources: 189 slots, 107 on placeholder, 76 on legacy, 6 on file
+by lane (new / keep): B 16 / 8, C 16 / 6, D 14 / 0, R 18 / 53, S 12 / 0, T 21 / 0, U 12 / 8, codex-wire 4 / 1
+registry e4505c70e661; slots.json fresh
+installed 1 of 189
+  installed 0 of 12  dungeon.effect
+  installed 0 of 1  dungeon.hud_piece
+  installed 0 of 1  dungeon.prop
+  installed 0 of 7  road.backdrop
+  installed 0 of 1  road.ground
+  installed 0 of 3  road.prop
+  installed 0 of 5  story.backdrop
+  installed 0 of 3  title.backdrop
+  installed 0 of 1  title.hud_piece
+  installed 1 of 23  town.building
+  installed 0 of 7  town.ground
+  installed 0 of 1  town.lamp
+  installed 0 of 8  town.landmark
+  installed 0 of 70  town.prop
+  installed 0 of 29  town.room
+  installed 0 of 12  ui.backdrop
+  installed 0 of 5  ui.frame9
+  installed 1 of 133  owner codex
+  installed 0 of 38  owner grok
+  installed 0 of 18  owner claude
+hard-coded art paths left in scripts/: 110 distinct in 36 scripts (114 when the plan was written)
+art_slots_check took 5465 ms
+RESULT: every slot resolves
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)

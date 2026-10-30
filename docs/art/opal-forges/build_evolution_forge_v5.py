@@ -1,4 +1,4 @@
-"""Build Hollowtide Evolution Forge v5.1 (v5 plus Preston's evolve-not-grow rule, 2026-10-14), an Opal workflow (Claude, 2026-10-14).
+"""Build Hollowtide Evolution Forge v5.3 (v5.2 fix 2026-10-28: a POSE GUIDE keeps its anchors; v5.2 was v5.1 plus the eight-view consistency rules and per-line canvas, 2026-10-28; v5.1 added Preston's evolve-not-grow rule, 2026-10-14), an Opal workflow (Claude, 2026-10-14).
 
 Preston: "Skill up and update evolution forge. Then evolve new flintram." The September original (Drive id
 13O5Xm_9Go-u1cKn9TUCWAZhAXDe6OKbV) stays unchanged; this writes a new workflow file beside it. Same four inputs and
@@ -36,13 +36,14 @@ Do not trace the previous pose, enlarge it, or bolt on armour, shoulder pads, sa
 
 VIEW: BACK: the Approved Evolved Front is this exact form; use its identity, not its pose. The camera is behind the rear end and a little above; the creature walks away toward the upper right. Rear end and hind legs are nearest and largest; the side shows only at a steep angle; hide the face or show at most a thin far-side sliver. Move each marking, plate and limb to its correct rear position; each visible limb keeps its own foot. Match the front's scale, palette and baseline. Never mirror, grow again or redesign. If the brief labels the Previous Stage Front a POSE GUIDE, copy only its camera angle, body placement and leg positions.
 
-VIEW: EIGHT: the Approved Evolved Front is this exact form. One square sheet in a regular 3x3 grid, one complete creature per cell, the centre cell empty. Row 1, left to right: walking away toward the upper right (back three-quarter); straight back view; walking away toward the upper left. Row 2: side profile facing right; empty centre; side profile facing left. Row 3: three-quarter front facing down and to the right; straight front view; three-quarter front facing down and to the left. Use the SAME art-pixel size as the Approved Evolved Front: each cell is as wide as that front's whole canvas, so each view is as tall in art pixels as the front. Keep every plate, spike, groove and marking as the same separate piece in the same place on the body; never merge separate plates into one shell or smooth dome. Same camera height, upper-left light, scale and baseline row in every cell; neutral standing pose; generous spacing; nothing touching a cell edge; no overlaps; no grid lines.
+VIEW: EIGHT: the Approved Evolved Front is this exact form. If there is no Approved Evolved Front and the brief labels the Previous Stage Front a POSE GUIDE (eight angles first: the sheet settles the new design before any front exists), design the new stage from the brief. The guide shows the stage before: take its directions, camera and leg placement, and carry its anchors into the new stage as the VIEW: FRONT rules say (the eye shape and face motif, the colour family and the signature feature, each evolved, never dropped); change everything else as the brief says. One square sheet in a regular 3x3 grid, one complete creature per cell, the centre cell empty. Row 1, left to right: walking away toward the upper right (back three-quarter); straight back view; walking away toward the upper left. Row 2: side profile facing right; empty centre; side profile facing left. Row 3: three-quarter front facing down and to the right; straight front view; three-quarter front facing down and to the left. Use the SAME art-pixel size as the Approved Evolved Front: each cell is as wide as that front's whole canvas, so each view is as tall in art pixels as the front. Keep every plate, spike, groove and marking as the same separate piece in the same place on the body; never merge separate plates into one shell or smooth dome. Same camera height, upper-left light, scale and baseline row in every cell; neutral standing pose; generous spacing; nothing touching a cell edge; no overlaps; no grid lines.
+EIGHT-VIEW CONSISTENCY (measured on the game's sheets, 2026-10-28): every cell faces exactly its named direction; the straight back cell is never a back three-quarter turned to one side. The top row shows no face: no eyes, mouth or face markings, only the back of the head, the back, the tail root and the limbs. The straight back view and the straight front view are even left to right, with the body, the tail and anything the creature carries centred on the middle line. Each row's left and right cells are mirror images of each other (the same pose flipped), unless the brief names a part found on one side only. Every cell is the same creature at the same overall size, with the same body thickness and the same leg length; a long side profile keeps the body as thick as the front views show it. One shared palette in all eight cells.
 
 HOUSE QUALITY STANDARD: the Style Anchor (the approved Tallowroot, or the line's own approved stage) controls pixel craft only: a substantial dark outline around the whole silhouette, large coherent colour clusters, stepped directional shading across material planes, specific material texture, restrained focal accents and planted weight. Never copy the anchor's anatomy, markings or palette into another species. Avoid pillow shading, parallel colour bands, single-pixel confetti, fuzzy edges and floating contacts. Mature grounded folklore; never cute, chibi or toy-like.
 
 HOLLOWTIDE RULES: These are not Earth animals; use the brief's palette as fantasy colours, not a real animal's natural colours. The Hollow essence means absence (hollows, gaps, missing pieces, quiet), never ghosts or glowing phantoms. Every body part the brief names must stay clearly visible, because a creature's moves come from its body parts. Wild creatures carry no tools, bags or clothing unless the brief says it is a town character.
 
-GAME SCALE: Stage II on a 144x144 logical grid, the creature about 85 to 100 cells tall; Stage III and kings on 160x160, about 105 to 125 tall. A BACK matches its front's size. Every logical cell is one flat colour, hard edges, about 20 to 36 colours, clean clusters with very few lone pixels. No gradients, blur, anti-aliasing, noise or subpixel detail. Match the approved creature's brightness; only its own glowing parts are brighter.
+GAME SCALE: use the canvas the brief names, which matches the line's own sprites (Rimefin 128, Riftfin and Scourmaw 160). Without one: Stage II on a 144x144 logical grid, the creature about 85 to 100 cells tall; Stage III and kings on 160x160, about 105 to 125 tall. A BACK matches its front's size. Every logical cell is one flat colour, hard edges, about 20 to 36 colours, clean clusters with very few lone pixels. No gradients, blur, anti-aliasing, noise or subpixel detail. Match the approved creature's brightness; only its own glowing parts are brighter.
 
 RIG-READY: one intact organism with readable head and neck, shoulder, hip, tail and limb roots, and clear near and far overlaps of limbs and plates. No artificial cut seams or detached parts. In BACK mode never invent a spike or flip a slab toward the head when the front points it rearward.
 
@@ -86,7 +87,7 @@ def graph():
     return {
         "metadata": {"intent": "", "tags": ["creative", "gaming", "creature-generator", "sprite", "creature", "art", "generation", "pixel-art", "design"], "parameters": {}},
         "assets": {},
-        "title": "Hollowtide Evolution Forge v5.1",
+        "title": "Hollowtide Evolution Forge v5.3",
         "description": ("Evolve approved Hollowtide creatures into clearly different Stage II and III forms at the game's scale, then make "
                         "true rear views and eight-view sheets from their approved fronts. Updated by Claude 2026-10-14; the "
                         "original Evolution Forge is unchanged."),
@@ -106,7 +107,7 @@ def graph():
                 "new stage, VIEW: BACK for the approved form's rear view, or VIEW: EIGHT for its eight-view sheet.", "Text", 300),
             inp("ask_user_previous_stage_front", "Previous Stage Front / Pose Guide",
                 "For VIEW: FRONT, upload the approved front of the stage just before. For VIEW: BACK, leave empty unless the "
-                "brief labels this input POSE GUIDE. Leave empty for VIEW: EIGHT.", "Image", 450),
+                "brief labels this input POSE GUIDE. For VIEW: EIGHT, leave empty, or upload the previous stage's eight-view sheet labelled POSE GUIDE in the brief when no front exists yet.", "Image", 450),
             inp("ask_user_approved_evolved_front", "Approved Evolved Front",
                 "For VIEW: BACK and VIEW: EIGHT, upload the approved front of this exact stage. Leave empty for VIEW: FRONT.", "Image", 600),
             inp("ask_user_style_anchor", "Style Anchor",
@@ -118,7 +119,7 @@ def graph():
 
 
 if __name__ == "__main__":
-    out = os.path.join(HERE, "hollowtide-evolution-forge-v5.1.json")
+    out = os.path.join(HERE, "hollowtide-evolution-forge-v5.3.json")
     s = json.dumps(graph(), ensure_ascii=False, separators=(",", ":"))
     json.loads(s)
     open(out, "w", encoding="utf-8").write(s)

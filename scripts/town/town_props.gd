@@ -21,6 +21,7 @@ extends RefCounted
 
 const T := 24
 const FOOTPRINT := {"town.prop.well": Vector2i(2, 2), "town.prop.bench": Vector2i(2, 1), "town.prop.road_barrier": Vector2i(1, 2)}
+const SHADOW_DITHER := [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5]   # a 4 x 4 ordered dither for its rim
 const SHADOW := Color(0, 0, 0, 0.33)   # a third darker than the ground (building_exteriors.gd's contact shadow rule)
 ## The lit lamp's glow: stepped rings (town_room.gd's lantern) in the lantern's warm light, between two levels at the
 ## wick's uneven moments; each lamp starts somewhere else in the list, so a row of them never flickers as one.
@@ -52,7 +53,7 @@ static func build(area: Dictionary, parent: Node) -> Array:
 		node.set_meta("slot", slot)
 		node.set_meta("tile", p.get("tile", Vector2i.ZERO))
 		parent.add_child(node)
-		node.add_child(_shadow(spec))
+		node.add_child(_shadow(spec, slot, bool(p.get("flat", false))))
 		var art := Sprite2D.new()
 		art.name = "Art"
 		art.centered = false
@@ -218,20 +219,26 @@ static func _mark(into: Dictionary, r: Rect2i, what: String, open: Array) -> voi
 				into[Vector2i(x, y)] = what
 
 
-## The ground shadow under a prop, falling to the lower right: a stepped oval at its foot for a standing prop, a low
-## band the width of the cell for a fence span that tiles. Never in the slot's art.
-static func _shadow(spec: Dictionary) -> Sprite2D:
+## The ground shadow under a prop, falling to the lower right (the light is high in the west): a solid oval at its foot
+## with a dithered rim, wide and low enough to show past the prop's own base, for a standing prop; a low band the width
+## of the cell for a fence span that tiles. Never in the slot's art. (Preston, 2026-10-29: the props looked painted on
+## the ground, "cuts off rather than has an edge"; the old oval sat almost wholly under the prop's own picture.)
+## A standing prop taller than it is wide (a post, a lamp) casts its own shape instead: see _cast.
+static func _shadow(spec: Dictionary, slot := "", flat := false) -> Sprite2D:
 	var cell: Vector2i = spec.get("size", Vector2i(T, T))
 	var band := String(spec.get("tiling", "none")) != "none"
-	var w := cell.x if band else maxi(8, cell.x - 6)
-	var h := 3 if band else clampi(cell.x / 4, 4, 9)
+	if slot != "" and not band and not flat and cell.y > cell.x and ArtSlots.has(slot):
+		return _cast(slot, spec)
+	var w := cell.x if band else maxi(10, cell.x - 2)
+	var h := 4 if band else clampi(cell.x / 3, 5, 12)
 	var key := "%dx%dx%s" % [w, h, band]
 	if not _shadows.has(key):
 		var img := Image.create(w, h, false, Image.FORMAT_RGBA8)
 		for y in h:
 			for x in w:
 				var d := Vector2((x + 0.5 - w * 0.5) / (w * 0.5), (y + 0.5 - h * 0.5) / (h * 0.5)).length()
-				if band or d <= 1.0:
+				var rim: bool = (SHADOW_DITHER[(y & 3) * 4 + (x & 3)] + 0.5) / 16.0 < 0.5
+				if (band and (y < h - 1 or rim)) or (not band and (d <= 0.75 or (d <= 1.0 and rim))):
 					img.set_pixel(x, y, Color.WHITE)
 		_shadows[key] = ImageTexture.create_from_image(img)
 	var s := Sprite2D.new()
@@ -241,9 +248,57 @@ static func _shadow(spec: Dictionary) -> Sprite2D:
 	s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	s.modulate = SHADOW
 	var anchor: Vector2i = spec.get("anchor", Vector2i(cell.x / 2, cell.y - 1))
-	s.position = Vector2(-anchor.x, -h / 2) if band else Vector2(-w / 2 + 2, -h / 2 - 1)   # 2 px to the right
+	s.position = Vector2(-anchor.x, -h / 2) if band else Vector2(-w / 2 + 3, -h / 2 + 1)   # 3 px right, half below the foot
 	s.z_as_relative = false
 	s.z_index = 1   # over the ground picture, under every creature and prop
+	return s
+
+
+## A tall prop's cast shadow (Gemini's read of the town, 2026-10-29: posts and lamps had only a small oval, so they
+## did not stand up): the foot oval, and the prop's own silhouette laid on the ground away from the light, each pixel
+## moved east by CAST.x and south by CAST.y of its height above the foot, solid until it thins out at its tip.
+## Made once per slot from its first cell.
+const CAST := Vector2(0.45, 0.3)   # 0.16 south laid the shadow almost flat: a dotted smear the grass hid
+const CAST_SHADOW := Color(0, 0, 0, 0.42)   # darker than the oval: a thin shape on busy ground needs it to read
+
+
+static func _cast(slot: String, spec: Dictionary) -> Sprite2D:
+	var cell: Vector2i = spec.get("size", Vector2i(T, T))
+	var anchor: Vector2i = spec.get("anchor", Vector2i(cell.x / 2, cell.y - 1))
+	var w := maxi(10, cell.x - 2)
+	var oh := clampi(cell.x / 3, 5, 12)
+	var origin := Vector2i(-anchor.x - 2, -oh / 2 - 1)   # the shadow picture's top left, from the foot
+	var key := "cast|" + slot
+	if not _shadows.has(key):
+		var src := ArtSlots.image(slot).get_region(Rect2i(Vector2i.ZERO, cell))
+		var img := Image.create(cell.x + ceili(anchor.y * CAST.x) + 8, oh + ceili(anchor.y * CAST.y) + 4, false, Image.FORMAT_RGBA8)
+		var put := func(p: Vector2i, density: float) -> void:
+			var q := p - origin
+			if q.x >= 0 and q.y >= 0 and q.x < img.get_width() and q.y < img.get_height():
+				if (SHADOW_DITHER[(q.y & 3) * 4 + (q.x & 3)] + 0.5) / 16.0 < density:
+					img.set_pixel(q.x, q.y, Color.WHITE)
+		for y in oh:   # the foot oval, as a short prop's
+			for x in w:
+				var d := Vector2((x + 0.5 - w * 0.5) / (w * 0.5), (y + 0.5 - oh * 0.5) / (oh * 0.5)).length()
+				put.call(Vector2i(-w / 2 + 3 + x, -oh / 2 + 1 + y), 1.0 if d <= 0.75 else (0.5 if d <= 1.0 else 0.0))
+		for y in range(0, mini(anchor.y + 1, cell.y)):
+			var up := anchor.y - y
+			for x in cell.x:
+				if src.get_pixel(x, y).a > 0.5:   # a pixel wider than the prop, so a thin post's shadow still reads
+					var at := Vector2i(x - anchor.x + roundi(up * CAST.x), roundi(up * CAST.y))
+					var density := 1.0 - 1.6 * maxf(0.0, float(up) / maxf(1.0, anchor.y) - 0.7)   # solid, thinning at the tip
+					put.call(at, density)
+					put.call(at + Vector2i(1, 0), density)
+		_shadows[key] = ImageTexture.create_from_image(img)
+	var s := Sprite2D.new()
+	s.name = "Shadow"
+	s.texture = _shadows[key]
+	s.centered = false
+	s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	s.modulate = CAST_SHADOW
+	s.position = Vector2(origin)
+	s.z_as_relative = false
+	s.z_index = 1
 	return s
 
 

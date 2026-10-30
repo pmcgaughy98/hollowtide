@@ -1,0 +1,2 @@
+prepared road.backdrop.mid: 384x112, 16 colours, 13104 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\launch-road-refresh-2026-10-27\road.backdrop.mid\prepared-from-raw.png
+next: python tools/art/validate_slot.py road.backdrop.mid C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\launch-road-refresh-2026-10-27\road.backdrop.mid\prepared-from-raw.png

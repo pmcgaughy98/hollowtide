@@ -1,0 +1,18 @@
+{
+  "road.backdrop.far": {
+    "rgba_endpoints_exact": true
+  },
+  "road.backdrop.river": {
+    "rgba_endpoints_exact": true
+  },
+  "road.backdrop.mid": {
+    "rgba_endpoints_exact": true
+  },
+  "road.backdrop.near": {
+    "rgba_endpoints_exact": true,
+    "top12_rows_clear": true
+  },
+  "road.ground.path": {
+    "rgba_endpoints_exact": true
+  }
+}

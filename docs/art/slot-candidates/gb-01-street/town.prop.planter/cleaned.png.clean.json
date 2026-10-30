@@ -1,0 +1,13 @@
+{
+ "slot": "town.prop.planter",
+ "source": "docs\\art\\slot-candidates\\gb-01-street\\town.prop.planter",
+ "date_tool": "clean_slot.py 2026-10-28",
+ "settings": {
+  "mixed": 0.5,
+  "keep": 40.0,
+  "flip": []
+ },
+ "notes": [
+  "97 orphans after the downscale, cleared"
+ ]
+}

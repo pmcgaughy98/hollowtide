@@ -1,0 +1,7 @@
+frame	scene	action	since	stream	bus	db
+1	dungeon.tscn	start	1	sfx/dungeon/floor_arrive.wav	SFX	-4.0
+9	dungeon.tscn	start	9	music/hollow.mp3	Music	-39.1
+19	dungeon.tscn	start	19	sfx/dungeon/floor_arrive.wav	SFX	-4.0
+37	dungeon.tscn	start	37	sfx/dungeon/floor_arrive.wav	SFX	-4.0
+55	dungeon.tscn	start	55	sfx/dungeon/floor_arrive.wav	SFX	-4.0
+91	dungeon.tscn	start	91	sfx/dungeon/monster_ambush.wav	SFX	-2.0

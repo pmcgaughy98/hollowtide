@@ -1,0 +1,2 @@
+prepared road.backdrop.mid: 384x112, 12 colours, 18075 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-09-road\road.backdrop.mid\prepared.png
+next: python tools/art/validate_slot.py road.backdrop.mid C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-09-road\road.backdrop.mid\prepared.png

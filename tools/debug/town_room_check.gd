@@ -22,6 +22,7 @@ const UI := preload("res://scripts/ui/ui_style.gd")
 const OUT := "res://docs/world/highbank-rooms-2026-10-10/"
 const GuildCrew := preload("res://scripts/town/guild_crew.gd")
 const GuildScene := preload("res://scripts/town/guild_scene.gd")
+const SceneKit := preload("res://scripts/town/scene_kit.gd")
 const FOUR := [[0, 1], [1, 0], [10, 0], [2, 0]]   # Sparkwick leads, then Tallowroot, Troughspine and Rimefin
 var fails := 0
 var steps := 0
@@ -335,9 +336,277 @@ func _run() -> void:
 			town_now.queue_free()
 			await _frames(2)
 	await _four()
+	await _talks()
+	await _cold()
+	await _cast()
 	await _slots()
 	print("ROOMS: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))
 	quit()
+
+
+## A word with each crew member at their post (Claude, 2026-10-27, pass 9 R1 / A9-05: in the Hall Grubbit's feet met the
+## talk box's top edge and the leader, on the tile under him, covered him). In the Hall and on the lower floor the leader
+## stands on every open tile round each crew member in turn, faces them and talks (act_use, the real path), and the box
+## the room picks (town_room.gd talk_box_for) must keep its frame, portrait and name tab clear of both pictures on screen.
+## For Grubbit the leader also must never stand in front of him: from every tile it can talk to him from, the leader's
+## picture, when drawn over his, covers at most OVERLAP_MAX of it.
+func _talks() -> void:
+	TeamState.start(FOUR.duplicate(true))
+	TeamState.data["story"] = {"met_crew": true, "parcel": "delivered", "guild_trial": true, "runner": true}
+	TeamState.data["story"]["mail_call"] = GuildCrew.stage_of(TeamState.data)   # no mail call: the crew at their posts
+	var bad: Array = []
+	var words := 0
+	var tops := 0
+	var grubbit_worst := 0.0
+	var grubbit_from: Array = []
+	for spec in [["hall"], ["hall_low", Vector2i(24, 14), "w"]]:
+		var r := await _room(String(spec[0]), spec[1] if spec.size() > 1 else Vector2i(-1, -1), String(spec[2]) if spec.size() > 2 else "s")
+		var lead: Dictionary = r.team[0]
+		for n: Dictionary in r.npcs.duplicate():
+			if not n.has("lines"):
+				continue
+			for d: Vector2i in r.DIRS:
+				var t: Vector2i = n["pos"] + d
+				if not r._open(t) or not r._link_at(t).is_empty() or r.npcs.any(func(o: Dictionary) -> bool: return o["pos"] == t):
+					continue
+				var exit: Rect2i = r.room().get("exit_rect", Rect2i(r.room()["door"], Vector2i.ONE))
+				if r.room()["door"].x >= 0 and exit.has_point(t):
+					continue
+				for e in r.team.slice(1):   # the others out of the way, on the leader's old tile's far side
+					e["pos"] = Vector2i(-5, -5)
+					r._place(e)
+				lead["pos"] = t
+				lead["facing"] = r._facing_of(-d)
+				r._place(lead)
+				await _frames(2)   # the camera follows the leader
+				var used: Dictionary = r.act_use()
+				if not String(used.get("id", "")).begins_with("talk_"):
+					bad.append("%s: no word with %s from %s" % [spec[0], n["form"], t])
+					continue
+				words += 1
+				var box: Rect2 = r.talk_box
+				if box == Room.TALK_BOX_TOP:
+					tops += 1
+				var reach := Rect2(box.position - Vector2(0, Room.TALK_REACH), box.size + Vector2(0, Room.TALK_REACH))
+				for who: Dictionary in [lead, n]:
+					var sb: Rect2 = r.screen_box(who)
+					if reach.intersects(sb):
+						bad.append("%s: %s from %s, the box at y %.0f covers %s (%s)" % [spec[0], n["form"], t, box.position.y, who["form"], sb])
+				if n["form"] == "grubbit":
+					grubbit_from.append(t)
+					var front: bool = lead["node"].z_index > n["node"].z_index   # the leader drawn in front of him
+					var cover := _covered(lead, n) if front else 0.0
+					print("GRUBBIT word from %s: leader %s him, %.2f of his picture's pixels under the leader's" % [t, "in front of" if front else "behind or level with", cover])
+					grubbit_worst = maxf(grubbit_worst, cover)
+					if d == Vector2i(-1, 0) or d == Vector2i(0, -1):   # windowed: the word from beside him and from above
+						await _frames(20)
+						await _snap("hall_grubbit_word_%s" % r._facing_of(-d))
+				r.talk.clear()   # the word read through
+				await _frames(3)
+				if r.cutscene:
+					bad.append("%s: the word with %s from %s did not end" % [spec[0], n["form"], t])
+					r.cutscene = false
+		if spec[0] == "hall":   # for the record, not judged: his old post (17, 11) with the leader on the tile under him
+			for e in r.npcs:
+				if e["form"] == "grubbit":
+					e["pos"] = Vector2i(17, 11)
+					r._place(e)
+					lead["pos"] = Vector2i(17, 12)
+					lead["facing"] = "n"
+					r._place(lead)
+					await _frames(2)
+					print("GRUBBIT before (pass 8 post (17, 11), leader under him on (17, 12)): %.2f of his picture's pixels under the leader's" % _covered(lead, e))
+		await _free(r)
+	_ok("Crew words: %d, from every open tile round each crew member in the Hall and the lower floor (%d in the top box), the box, portrait and name tab clear of both%s" % [words, tops, "" if bad.is_empty() else "; " + ", ".join(bad.slice(0, 6))], bad.is_empty() and words >= 20)
+	_ok("Grubbit at %s: spoken to from %s, the leader in front covers at most %.2f of his picture (%.2f allowed)" % [str(GuildCrew.POSTS["hall"][0][1]), str(grubbit_from), grubbit_worst, Room.OVERLAP_MAX], not grubbit_from.is_empty() and grubbit_worst <= Room.OVERLAP_MAX)
+
+
+## A room entered before its picture is made (Claude, 2026-10-27, pass 9 R2 / A9-12: the street's warm-up had not reached
+## it, and the Hall's door held one frame 0.3 to 0.5 s and the stairs 0.9 to 1.75 s while the picture was painted). Each
+## room a worker may paint is built with its kept picture, shapes and desk forgotten and the worker path on (headless
+## checks build in one frame unless asked): every frame from the room's arrival until its curtain is gone stays under
+## FRAME_MAX, the curtain is fully black on every frame until the room is built, and the finished room matches the same
+## room built warm (its lifted furniture, crew and team, the picture's size).
+const FRAME_MAX := 250.0
+
+
+func _cold() -> void:
+	TeamState.start(FOUR.duplicate(true))
+	TeamState.data["story"] = {"met_crew": true, "parcel": "delivered", "guild_trial": true, "runner": true}
+	TeamState.data["story"]["mail_call"] = GuildCrew.stage_of(TeamState.data)
+	var bad: Array = []
+	var notes: Array = []
+	# The team's pictures held for the whole section, as Highbank holds them for the session (hub_town.gd _kept): a freed
+	# room let them go, and every build here read them from disk again (200 to 330 ms, which play never meets).
+	_kept_team.clear()
+	var w0 := await _room("storage")
+	for e in w0.team:
+		_kept_team.append_array((e["still"] as Dictionary).values())
+		for f in e["walk"]:
+			_kept_team.append_array(e["walk"][f])
+	await _free(w0)
+	for spec in [["hall"], ["hall_low", Vector2i(24, 14), "w"], ["home"], ["chamber", Vector2i(8, 8), "n"], ["runners", Vector2i(1, 5), "e"]]:
+		var id := String(spec[0])
+		Room._pictures.erase(id)
+		Room._lift_shapes.erase(id)
+		if id == "hall":
+			Room._desk_art = []
+		Room.paint_on_worker = 1
+		var r: Node2D = load("res://scenes/town_room.tscn").instantiate()
+		r.room_id = id
+		r.poll_input = false
+		if spec.size() > 1:
+			r.arrive = spec[1]
+			r.arrive_facing = spec[2]
+		var t0 := Time.get_ticks_msec()
+		var last := t0
+		var worst := 0.0
+		var frames := 0
+		var lit_early := false
+		var worst_when := ""
+		root.add_child(r)
+		var went_cold: bool = r.curtain != null
+		while (r.curtain != null or frames < 2) and Time.get_ticks_msec() - t0 < 20000:   # by the clock: headless frames are free
+			var built_before: bool = not r.team.is_empty()
+			await process_frame
+			frames += 1
+			var now := Time.get_ticks_msec()
+			if now - last > worst:
+				worst_when = "frame %d at %d ms, %s" % [frames, now - t0, "built" if built_before else ("the build" if not r.team.is_empty() else "painting")]
+			worst = maxf(worst, now - last)
+			last = now
+			if r.curtain != null and r.team.is_empty() and ((r.curtain.get_child(0) as ColorRect).color.a < 1.0):
+				lit_early = true   # the curtain thinned before the room was built
+		Room.paint_on_worker = -1
+		var cold_state := [r.lifts.size(), r.npcs.size(), r.team.size(), r.busy, r.is_processing()]
+		notes.append("%s %d frames, worst %.0f ms (%s), steps %s" % [id, frames, worst, worst_when, str(r.ready_ms)])
+		await _free(r)
+		var w := await _room(id, spec[1] if spec.size() > 1 else Vector2i(-1, -1), String(spec[2]) if spec.size() > 2 else "s")
+		var warm_state := [w.lifts.size(), w.npcs.size(), w.team.size(), false, true]
+		await _free(w)
+		if not went_cold:
+			bad.append("%s built in one frame (no curtain)" % id)
+		if worst > FRAME_MAX:
+			bad.append("%s held a %.0f ms frame" % [id, worst])
+		if lit_early:
+			bad.append("%s showed through its curtain before it was built" % id)
+		if cold_state != warm_state:
+			bad.append("%s cold %s, warm %s (lifts, crew, team, busy, processing)" % [id, str(cold_state), str(warm_state)])
+	print("COLD rooms: " + "; ".join(notes))
+	Room.paint_on_worker = -1
+	_ok("Rooms entered before their picture is made (pass 9 R2): painted on a worker behind black, every frame under %.0f ms, built as a warm entry builds them%s" % [FRAME_MAX, "" if bad.is_empty() else "; " + ", ".join(bad)], bad.is_empty())
+
+
+var _kept_team: Array = []   # the team's pictures, held from _cold through _cast (see _cold)
+
+
+## The mail call's cast (pass 9 R2): its eight creatures' 582 pictures. With the lower floor's picture made, the stairs
+## still held one frame 1.4 to 1.9 s in a window while the call's spawn waited for them. Now the Hall asks for them as it
+## is built, a creature a frame, and keeps each as it is read; hall_low holds its curtain until all are kept. Both are
+## measured here by the clock with the keep emptied first: no frame over FRAME_MAX, nothing read in the spawn.
+func _cast() -> void:
+	TeamState.start(FOUR.duplicate(true))
+	TeamState.data["story"] = {"met_crew": true, "parcel": "delivered", "guild_trial": true, "runner": true}   # the call waits
+	var forms: Array = GuildCrew.cast_of("hall_low")
+	var bad: Array = []
+	var notes: Array = []
+	for step in ["hall", "hall_low"]:
+		for form in forms:
+			for path: String in GuildCrew._pictures_of(String(form)):
+				SceneKit._sprites.erase(path)
+		Room.paint_on_worker = 1
+		var r: Node2D = load("res://scenes/town_room.tscn").instantiate()
+		r.room_id = step
+		r.poll_input = false
+		if step == "hall_low":
+			r.arrive = Vector2i(24, 14)
+			r.arrive_facing = "w"
+		var a0 := Time.get_ticks_msec()
+		root.add_child(r)
+		var add_ms := Time.get_ticks_msec() - a0   # the Hall's own crew read here as its door would (hub_town reads them ahead)
+		var t0 := Time.get_ticks_msec()
+		var last := t0
+		var worst := 0.0
+		var frames := 0
+		var held: bool = r.curtain != null
+		var spawned_early := false
+		if step == "hall_low" and add_ms > FRAME_MAX:
+			bad.append("hall_low took %d ms to add" % add_ms)
+		while (r.curtain != null or not GuildCrew.cast_kept(forms) or frames < 2) and Time.get_ticks_msec() - t0 < 20000:
+			if r.curtain != null and not r.team.is_empty() and not GuildCrew.cast_kept(forms):
+				spawned_early = true   # built (and the crew placed) while pictures were still being read
+			await process_frame
+			frames += 1
+			var now := Time.get_ticks_msec()
+			worst = maxf(worst, now - last)
+			last = now
+		Room.paint_on_worker = -1
+		var kept := GuildCrew.cast_kept(forms)
+		notes.append("%s: added in %d ms, then %d frames, %d ms, worst %.0f ms, curtain %s, cast kept %s, steps %s" % [step, add_ms, frames, Time.get_ticks_msec() - t0, worst, str(held), str(kept), str(r.ready_ms)])
+		await _free(r)
+		if not kept:
+			bad.append("%s left the cast unread" % step)
+		if worst > FRAME_MAX:
+			bad.append("%s held a %.0f ms frame" % [step, worst])
+		if step == "hall_low" and not held:
+			bad.append("hall_low built before its cast was read (no curtain)")
+		if spawned_early:
+			bad.append("%s built before its cast was read" % step)
+	# Taking the whole cast from the keep, as the call's spawn does, now reads nothing.
+	var t1 := Time.get_ticks_usec()
+	for form in forms:
+		for path: String in GuildCrew._pictures_of(String(form)):
+			SceneKit._sprite(path)
+	var take_ms := (Time.get_ticks_usec() - t1) / 1000.0
+	notes.append("taking all %d creatures' pictures afterwards %.1f ms" % [forms.size(), take_ms])
+	if take_ms > 50.0:
+		bad.append("taking the kept cast cost %.1f ms" % take_ms)
+	# A quit while a room is painted ahead (T1's hook, music.gd keep_for): the work is reported and waited for, and the
+	# painter then lets it go without keeping anything or waiting a second time.
+	Room._pictures.erase("hall_low")
+	Room._lift_shapes.erase("hall_low")
+	Room.paint_on_worker = 1
+	Room.paint_ahead("hall_low")
+	await _frames(2)
+	var was_running := Room._work_left(false)
+	var q0 := Time.get_ticks_msec()
+	Room._work_left(true)
+	var quit_ms := Time.get_ticks_msec() - q0
+	var after := Room._work_left(false)
+	await _frames(3)
+	Room.paint_on_worker = -1
+	notes.append("a quit while painting: running %s, waited %d ms, then running %s, painting %s, kept %s" % [str(was_running), quit_ms, str(after), str(Room.painting()), str(Room._pictures.has("hall_low"))])
+	if not was_running or after or Room.painting() or not Room._tasks.is_empty():
+		bad.append("a quit did not wait for the painting cleanly")
+	print("CAST: " + "; ".join(notes))
+	_ok("The mail call's cast read ahead from the Hall and waited for behind hall_low's curtain (pass 9 R2): every frame under %.0f ms, nothing read at the spawn%s" % [FRAME_MAX, "" if bad.is_empty() else "; " + ", ".join(bad)], bad.is_empty())
+
+
+## The share of `back`'s opaque pixels that `front`'s opaque pixels cover, each picture where _place draws it (the
+## sprite is centred on its node's offset). Pixels, not boxes: a winged leader's box is two tiles wide and mostly air.
+func _covered(front: Dictionary, back: Dictionary) -> float:
+	var imgs: Array = []
+	var tops: Array = []
+	for e: Dictionary in [front, back]:
+		var spr: Sprite2D = e["sprite"]
+		var img: Image = spr.texture.get_image()
+		if img.is_compressed():
+			img.decompress()
+		imgs.append(img)
+		tops.append((e["node"] as Node2D).position + spr.position - Vector2(img.get_size()) * 0.5)
+	var fi: Image = imgs[0]
+	var bi: Image = imgs[1]
+	var total := 0
+	var hid := 0
+	for y in bi.get_height():
+		for x in bi.get_width():
+			if bi.get_pixel(x, y).a < 0.5:
+				continue
+			total += 1
+			var p := Vector2i((tops[1] + Vector2(x, y) - tops[0]).round())
+			if p.x >= 0 and p.y >= 0 and p.x < fi.get_width() and p.y < fi.get_height() and fi.get_pixel(p.x, p.y).a >= 0.5:
+				hid += 1
+	return float(hid) / maxf(1.0, float(total))
 
 
 ## A room built by hand, `arrive` and `facing` for a stair or inner door (none: the town door), scenes on or off.

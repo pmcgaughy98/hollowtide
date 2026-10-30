@@ -1,0 +1,2 @@
+prepared town.room.scrolls_cellar.east: 24x144, 19 colours, 3456 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-04-cellar\town.room.scrolls_cellar.east\prepared.png
+next: python tools/art/validate_slot.py town.room.scrolls_cellar.east C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-04-cellar\town.room.scrolls_cellar.east\prepared.png

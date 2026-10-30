@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.scrolls_cellar.rack_card.png",
+ "out": "docs/art/slot-candidates/gb-04-furniture/town.prop.scrolls_cellar.rack/raw.png",
+ "cost_usd": 0.0615706,
+ "turns": 4,
+ "text": "I'll read the style reference first, then generate one tall scroll-rack image in that style and save it as `raw.png`.The reference is a small wooden chest in three-quarter view: warm brown wood, tan highlights, dark outlines, cream and teal cloth, olive and amber accents, light from the upper left. Generating the scroll rack once in that palette.The generator saved a JPEG. I'll convert it to a real PNG and put it in this folder as `raw.png`.Saved at `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_6tm3rlxn\\raw.png` (832\u00d71248, a 2:3 PNG converted from the one generated image). It is the tall wooden pigeonhole rack of rolled cream scrolls I asked for, in the chest's brown, tan, teal, and olive pixel-art look on magenta, and I did not re-open the file after saving, so I cannot confirm the backgr",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_6tm3rlxn"
+}

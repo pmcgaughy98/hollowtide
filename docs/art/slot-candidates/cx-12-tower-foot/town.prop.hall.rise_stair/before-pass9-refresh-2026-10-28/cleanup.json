@@ -1,0 +1,48 @@
+{
+  "authorization": "Preston explicit Python pixel cleanup",
+  "native_dimensions": [
+    48,
+    96
+  ],
+  "raw_unchanged": true,
+  "registration": [
+    {
+      "frame": 0,
+      "raw_crop": [
+        97,
+        92,
+        790,
+        1709
+      ],
+      "target_box": [
+        0,
+        0,
+        48,
+        96
+      ],
+      "target_alpha_mask_exact": true
+    }
+  ],
+  "precision": [
+    "Drawn 1px side outline per prop contract, unlike building parts.",
+    {
+      "generated_treads": 7,
+      "delivered_treads": 8,
+      "band_map": [
+        0,
+        1,
+        2,
+        3,
+        3,
+        4,
+        5,
+        6
+      ],
+      "method": "Recut painted tread bands to eight 12px risers, repeating one quiet middle tread. No new raw paint claimed."
+    }
+  ],
+  "alpha_matches_target": true,
+  "rgb_changed_pixels": 4608,
+  "palette_family": "wayline_tower",
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b"
+}

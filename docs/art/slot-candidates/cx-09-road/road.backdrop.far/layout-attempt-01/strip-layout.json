@@ -1,0 +1,12 @@
+{
+  "canvas": [
+    384,
+    88
+  ],
+  "clear_top_rows": 0,
+  "raw_lateral_crop": [
+    0,
+    2172
+  ],
+  "strategy": "fixed strip width; no placeholder canvas resized; source alpha preserved then hardened by prepare_slot"
+}

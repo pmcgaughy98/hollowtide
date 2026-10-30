@@ -1,0 +1,41 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-27",
+  "cost": "not exposed; no alternate generator",
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-0c3f67ff-9d7b-4393-bd69-1c71c7d1bfb8.png",
+  "raw_sha256": "7ff0b8ccfc73ada4f6d16f6bb6a8e2e1a9ebc750eb6ed5acee31a93476d6d86e",
+  "raw_is_untouched": true,
+  "raw_dimensions": [
+    1548,
+    1016
+  ],
+  "requested_dimensions": [
+    128,
+    84
+  ],
+  "references": [
+    {
+      "path": "C:/Users/pmcga/dev/hollowtide/docs/design/placeholder-factory-2026-10-26/refs/town.building.hall.lamp.png",
+      "sha256": "ba845bca40ecf15d3daa7da90d544858bde9850a6315094080f470b2aecc2184"
+    },
+    {
+      "path": "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-14-tower-crown/town.building.hall.lamp/painted-neighbour-band.png",
+      "sha256": "89f0debc883eaab7364d67320b55df5111fd2dbea41ac5cb2120bc2f0148e0fb"
+    },
+    {
+      "path": "C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-11-tower-key/town.building.hall.key/prepared.png",
+      "sha256": "08933cee846f3257a32558276d23bd999577ff4891b33fed611b2c5f50b129e4"
+    },
+    {
+      "path": "C:/Users/pmcga/dev/hollowtide/docs/design/placeholder-factory-2026-10-26/refs/wayline_tower/assembled_blockout.png",
+      "sha256": "56f2127c831b17b36a70f035de66c5ba41b8173d013ad5e4268db1888b2ac22e"
+    },
+    {
+      "path": "C:/Users/pmcga/dev/hollowtide/docs/design/placeholder-factory-2026-10-26/refs/palettes/wayline_tower.png",
+      "sha256": "49dc8d51f946892a79fbdb613f8a58a155ea6fa161e4cd7129aa4f5c267e499e"
+    }
+  ],
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "key_approval": "Preston approval go",
+  "pixel_cleanup_approval": "Preston Yes, use Python pixel cleanup"
+}

@@ -1,0 +1,23 @@
+# Launch tint and road Tower-clearance refresh, 2026-10-27
+
+Both candidates pass. Nothing installed. Other52 candidate images are byte-exact, including both root R2 images.
+
+[Review sheet](launch-road-review/review_sheet.png) | [Before/after](comparison.png) | [Two road tiles](road-two-tile-preview.png) | [Clearance envelope](road-clearance-preview.png)
+
+- title.backdrop.launch: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS
+- road.backdrop.mid: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C6 PASS, C9 PASS
+
+Launch:384x216,9colours,24,755pixels at #18172c. Road:384x112,14colours,two willows in x60..225. Zero opaque pixels in x228..383 and0..58 above row52; RGBA wrap seam exact.
+
+Built-in image_gen edits; exact prompts and input snapshots are in each slot folder. Raw outputs retained. New review answers pending; original answers unchanged.
+
+Source issues for Claude:
+
+- Generated outputs were larger than requested native dimensions. Raw files are untouched; native recutting, palette snapping, colour joins and grass wrap cleanup were explicitly authorized.
+- prepare_slot bounding-box fit can move asymmetrically arranged transparent strips. Native road registration was restored after preparation and final bytes validated.
+- The source corridor is empty in the candidate and the wrap endpoints match exactly. No live candidate injection or runtime four-talk visibility check was run; review sheet captures remain absent.
+- Launch source brief still says dark greens and river blues while the updated tint/reference is #18172c. Candidate uses the updated nine-colour night palette and retains green banks and blue water.
+- Only these two reports were refreshed at ee9c03563b1c. Other52 PNGs and their earlier checks were preserved; no blanket claim that all54 meet every latest brief.
+- No install. cx-10-road-far still waits for explicit crown approval/current re-brief. Previous root redo decisions remain intact; root R2 is pending in its own review packet.
+
+Next safe step: Preston reviews this packet and the pending root/crown art. cx-10 stays held.

@@ -1,0 +1,32 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-27",
+  "cost": "not exposed; no paid alternative called",
+  "raw_is_untouched": true,
+  "raw_sha256": "b3251dbdb3d8d41223c3bae998cf2c6116be1ace2ec12f2b665ec75a697a8d77",
+  "raw_dimensions": [
+    1484,
+    1060
+  ],
+  "target_dimensions": [
+    288,
+    168
+  ],
+  "references": [
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\_references_cx-03-shop-room.png"
+  ],
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-e0e766d3-5f19-478d-8852-d7ba8698d0bf.png",
+  "registry_sha256": "cb33c871f11f80980785e47e73ece64acf9e85ff607dc083c7a18639031a0434",
+  "shared_generation": "one whole-room image generation shared by these five strips",
+  "native_master_size": [
+    336,
+    240
+  ],
+  "native_crop_box": [
+    24,
+    48,
+    312,
+    216
+  ],
+  "pixel_cleanup": "Explicitly authorized by Preston, 2026-10-27. Raw untouched; native_input.png supplies repaired exact-size art to unchanged prepare_slot."
+}

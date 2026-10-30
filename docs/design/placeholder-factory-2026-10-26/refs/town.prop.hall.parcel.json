@@ -1,0 +1,68 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		5,
+		7
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "A parcel sliding down the tower's chute: oilcloth with a moss-green top, or brown paper, tied with twine. No outer outline (the game rims it). wayline_tower palette.",
+	"census": "WT20",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/town/prop/hall_parcel.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.hall.parcel",
+	"kind": "prop",
+	"lane": "T",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "order 21; one slides down the chute every 12 to 20 s (Grok's set)",
+	"outline": "runtime_rim",
+	"owner": "grok",
+	"palette": {
+		"family": "wayline_tower",
+		"lock": true,
+		"max": 24,
+		"source": "res://assets/slots/palettes/wayline_tower.png"
+	},
+	"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+	"rows": 2,
+	"sheet_size": [
+		10,
+		16
+	],
+	"size": [
+		10,
+		8
+	],
+	"slot_file": "town_tower",
+	"states": {
+		"oilcloth": [
+			1,
+			0
+		],
+		"paper": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

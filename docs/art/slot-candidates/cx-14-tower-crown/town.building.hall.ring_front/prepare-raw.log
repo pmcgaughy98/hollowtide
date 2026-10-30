@@ -1,0 +1,2 @@
+prepared town.building.hall.ring_front: 232x60, 27 colours, 7654 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-14-tower-crown\town.building.hall.ring_front\prepared-from-raw.png
+next: python tools/art/validate_slot.py town.building.hall.ring_front C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-14-tower-crown\town.building.hall.ring_front\prepared-from-raw.png

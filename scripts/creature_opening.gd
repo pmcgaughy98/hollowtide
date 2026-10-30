@@ -1,11 +1,13 @@
 extends "res://scripts/opening_flow.gd"
-## Creature-player launch from an original Retro Diffusion village painting.
-## Village architecture is a visual proposal; the awakening and dungeon flow remain.
+## Creature-player launch over a view of Highbank with the Wayline Tower (Claude, 2026-10-27; Preston: the title's
+## town must be a real town in the game, with Wayline Tower prominent). The awakening and dungeon flow remain.
+## The old village painting is kept on disk as the reference for a future town on another map.
 const PROLOGUE = preload("res://scenes/creature_prologue.tscn")
 # New Game opens the soul prologue first (Claude, 2026-10-10; Preston: the soul arrives in Hollowtide
 # and chooses its creature), which then hands over to PROLOGUE with the starter chosen.
 const SOUL = preload("res://scenes/storm_open.tscn")   # Claude, 2026-10-10: the storm cold open plays first, then the soul prologue (Preston)
-const VILLAGE = preload("res://assets/sprites/menu/creature_village_2026_10_09.png")
+const Slots := preload("res://scripts/art/art_slots.gd")
+const BACKDROP := "title.backdrop.highbank"   # Highbank from the river (scripts/art/slots/title.gd), 384 x 216 at 3x
 const FRAME_TRIM = preload("res://scripts/ui/title_panel_trim.gd")
 const ControlsText := preload("res://scripts/ui/controls_text.gd")
 const LEGIBILITY = preload("res://scripts/ui/title_legibility.gdshader")
@@ -37,16 +39,18 @@ func _ready() -> void:
 
 func _build_scenery() -> void:
 	var town:=Sprite2D.new()
-	town.name="CreatureVillage"
-	town.texture=VILLAGE
+	town.name="Highbank"
+	town.texture=Slots.texture(BACKDROP)
 	town.centered=false
-	town.scale=Vector2(1152.0/256.0,648.0/144.0)
+	town.scale=Vector2(1152.0/town.texture.get_width(),648.0/town.texture.get_height())
 	town.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
 	add_child(town)
-	# Keep the title legible against the willow canopy without shifting the town.
+	# Keep the wordmark legible on the sky. The shade stops at the slot's "shade_end" corner, so the Tower's crook and
+	# lamp at the right stay bright; the backdrop paints its own sky past that corner already shaded.
 	var shade:=ColorRect.new()
 	shade.name="CanopyShade"
-	shade.size=Vector2(1152,150)
+	var corner:Vector2i=Slots.spec(BACKDROP).get("anchors",{}).get("shade_end",Vector2i(384,50))
+	shade.size=Vector2(corner)*town.scale
 	shade.color=Color(0.07,0.10,0.10,0.38)
 	shade.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	add_child(shade)

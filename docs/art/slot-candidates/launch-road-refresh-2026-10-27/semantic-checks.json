@@ -1,0 +1,20 @@
+{
+  "title.backdrop.launch": {
+    "updated_night_tint": "#18172c",
+    "exact_tint_pixel_count": 24755,
+    "colours": 9,
+    "opaque": true
+  },
+  "road.backdrop.mid": {
+    "tower_corridor_opaque_pixels": 0,
+    "corridor_columns": "228..383 and0..58",
+    "corridor_rows": "0..51",
+    "willow_group_x": [
+      60,
+      225
+    ],
+    "outside_group_above_row104_opaque": 0,
+    "rgba_wrap_endpoints_exact": true,
+    "tower_in_game_visibility": "Not tested; this measures the candidate against the source clearance envelope."
+  }
+}

@@ -1,0 +1,202 @@
+{
+ "archroot": {
+  "dungeon": {
+   "s": {
+    "boil_before": 0.54,
+    "boil_after": 0.03,
+    "bob": [
+     0,
+     -1,
+     -1,
+     -1,
+     0,
+     -1,
+     -1,
+     -1
+    ],
+    "hip_row": 29,
+    "leg_zone_px": 34
+   },
+   "ne": {
+    "boil_before": 0.51,
+    "boil_after": 0.03,
+    "bob": [
+     0,
+     -1,
+     -1,
+     -1,
+     0,
+     -1,
+     -1,
+     -1
+    ],
+    "hip_row": 29,
+    "leg_zone_px": 30
+   },
+   "n": {
+    "boil_before": 0.54,
+    "boil_after": 0.03,
+    "bob": [
+     0,
+     -1,
+     -1,
+     -1,
+     0,
+     -1,
+     -1,
+     -1
+    ],
+    "hip_row": 27,
+    "leg_zone_px": 47
+   },
+   "nw": {
+    "boil_before": 0.51,
+    "boil_after": 0.02,
+    "bob": [
+     0,
+     -1,
+     -1,
+     -1,
+     0,
+     -1,
+     -1,
+     -1
+    ],
+    "hip_row": 29,
+    "leg_zone_px": 23
+   }
+  },
+  "town": {
+   "s": {
+    "boil_before": 0.59,
+    "boil_after": 0.02,
+    "bob": [
+     0,
+     -1,
+     -1,
+     -1,
+     0,
+     -1,
+     -1,
+     -1
+    ],
+    "hip_row": 44,
+    "leg_zone_px": 64
+   },
+   "ne": {
+    "boil_before": 0.57,
+    "boil_after": 0.03,
+    "bob": [
+     0,
+     -1,
+     -1,
+     -1,
+     0,
+     -1,
+     -1,
+     -1
+    ],
+    "hip_row": 44,
+    "leg_zone_px": 58
+   },
+   "n": {
+    "boil_before": 0.57,
+    "boil_after": 0.01,
+    "bob": [
+     0,
+     -1,
+     -1,
+     -1,
+     0,
+     -1,
+     -1,
+     -1
+    ],
+    "hip_row": 43,
+    "leg_zone_px": 53
+   },
+   "nw": {
+    "boil_before": 0.57,
+    "boil_after": 0.02,
+    "bob": [
+     0,
+     -1,
+     -1,
+     -1,
+     0,
+     -1,
+     -1,
+     -1
+    ],
+    "hip_row": 44,
+    "leg_zone_px": 43
+   }
+  },
+  "small": {
+   "s": {
+    "boil_before": 0.6,
+    "boil_after": 0.03,
+    "bob": [
+     0,
+     -1,
+     -1,
+     -1,
+     0,
+     -1,
+     -1,
+     -1
+    ],
+    "hip_row": 41,
+    "leg_zone_px": 58
+   },
+   "ne": {
+    "boil_before": 0.57,
+    "boil_after": 0.02,
+    "bob": [
+     0,
+     -1,
+     -1,
+     -1,
+     0,
+     -1,
+     -1,
+     -1
+    ],
+    "hip_row": 41,
+    "leg_zone_px": 50
+   },
+   "n": {
+    "boil_before": 0.57,
+    "boil_after": 0.02,
+    "bob": [
+     0,
+     -1,
+     -1,
+     -1,
+     0,
+     -1,
+     -1,
+     -1
+    ],
+    "hip_row": 39,
+    "leg_zone_px": 71
+   },
+   "nw": {
+    "boil_before": 0.57,
+    "boil_after": 0.02,
+    "bob": [
+     0,
+     -1,
+     -1,
+     -1,
+     0,
+     -1,
+     -1,
+     -1
+    ],
+    "hip_row": 40,
+    "leg_zone_px": 57
+   }
+  }
+ }
+}

@@ -1,0 +1,94 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+[00000    0.0s w    2384] phase mouth9, keyboard, window (1152, 648), out C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/mouth9/
+[00000    0.0s w    2386] CLOCK real time, max fps 30
+[00000    0.0s w    2388] save C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/saves/s7_post.save -> C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/mouth9/slot.save
+[00001    0.0s w    2901] SCENE  -> none after 0.0 s game, 2.9 s wall in 
+[00002    0.1s w    3764] HITCH 863 ms for one frame in creature_opening.tscn (after start)
+[00002    0.1s w    3768] SCENE none -> creature_opening.tscn after 0.0 s game, 0.9 s wall in none
+[00089    3.0s w    5306] SHOT D01_title_boot scene creature_opening.tscn
+[00089    3.0s w    5341] SHOT D02_title_continue_focused scene creature_opening.tscn
+[00158    5.3s w    6587] SCENE creature_opening.tscn -> hub_town.tscn after 5.2 s game, 2.8 s wall in creature_opening.tscn
+[00435   14.5s w   11450] HITCH 262 ms for one frame in hub_town.tscn (after ui_accept(Enter))
+[00436   14.5s w   12329] HITCH 878 ms for one frame in hub_town.tscn (after ui_accept(Enter))
+[00456   15.2s w   12894] MARK town up (game 15.2 s, lines so far 0)
+[00810   27.0s w   21171] PANEL way_pick|The way down|Where to?
+[00830   27.7s w   21579] SHOT D03_way_pick scene hub_town.tscn
+[00830   27.7s w   21585] TEAM D03_way_pick area highbank_v1: sparkwick@(33, 28), tallowroot@(32, 29), listener@(30, 29), skimlet@(28, 29)
+[00830   27.7s w   21587] WAY { "name": "The way down", "what": "Where to?", "service": "way_pick", "sel": 0, "marks": [{ "floors": "B4F", "cleared": true, "faces": [] }, { "floors": "B3F", "cleared": true, "faces": [] }, { "floors": "B2F", "cleared": true, "faces": [] }] }
+[00838   27.9s w   21765] SCENE hub_town.tscn -> none after 22.7 s game, 15.2 s wall in hub_town.tscn
+[00839   28.0s w   21783] SCENE none -> dungeon.tscn after 0.0 s game, 0.0 s wall in none
+[00902   30.1s w   23726] LOG Hollow Mouth, B1F.
+[00902   30.1s w   23733] MARK dungeon up (game 30.1 s, lines so far 0)
+[00907   30.2s w   23834] SHOT D04_floor_card scene dungeon.tscn
+[00942   31.4s w   24366] LOG Sparkwick wants to learn Wick Bolt, but it knows four moves.
+[00967   32.2s w   24846] SHOT D05_b1f scene dungeon.tscn
+[00967   32.2s w   24889] SHOT D06_teach_panel scene dungeon.tscn
+[01014   33.8s w   25647] LOG Sparkwick forgot Rake and learned Wick Bolt!
+[01031   34.4s w   25913] RUN dungeon mouth floors 4
+[01274   42.5s w   29962] BAG before { "lamp_oil": 5, "river_stone": 6, "rally_seed": 2 }
+[01295   43.2s w   30360] SHOT D07_bag_open scene dungeon.tscn
+[01297   43.2s w   30386] LOG The lantern burns brighter.
+[01319   44.0s w   30774] SHOT D08_item_used scene dungeon.tscn
+[01319   44.0s w   30776] BAG after { "lamp_oil": 4, "river_stone": 6, "rally_seed": 2 }
+[01321   44.0s w   30787] LOG Autopilot on.
+[01372   45.7s w   31610] LOG A nest! They're all awake.
+[01373   45.8s w   31854] LOG Sparkwick used Wick Bolt!
+[01376   45.9s w   32128] HITCH 252 ms for one frame in dungeon.tscn (after autopilot(Tab))
+[01376   45.9s w   32131] LOG Electric is strong against Tide!
+[01376   45.9s w   32132] LOG Cutbank Listener took 11 damage.
+[01387   46.2s w   32318] LOG Sparkwick used Ember Shot!
+[01390   46.3s w   32367] LOG Tide shrugs off Ember.
+[01390   46.3s w   32369] LOG Skimlet took 5 damage.
+[01392   46.4s w   32402] LOG Tallowroot used Seed Pod!
+[01396   46.5s w   32467] LOG Skimlet took 10 damage.
+[01402   46.7s w   32567] LOG Cutbank Listener used Echo Tap!
+[01406   46.9s w   32634] LOG Skimlet took 5 damage.
+[01412   47.1s w   32734] LOG Skimlet used Needle Bite!
+[01416   47.2s w   32802] LOG Sparkwick took 4 damage.
+[01422   47.4s w   32901] LOG Sparkwick used Ember Shot!
+[01425   47.5s w   32950] LOG Skimlet took 5 damage.
+[01425   47.5s w   32951] LOG Skimlet went down!
+[01427   47.6s w   32985] LOG Tallowroot used Root Snare!
+[01431   47.7s w   33050] LOG Bloom is strong against Tide!
+[01431   47.7s w   33052] LOG Cutbank Listener took 4 damage.
+[01431   47.7s w   33053] LOG Cutbank Listener took 4 damage.
+[01437   47.9s w   33151] LOG Cutbank Listener used Echo Tap!
+[01441   48.0s w   33217] LOG Cutbank Listener took 4 damage.
+[01443   48.1s w   33251] LOG Cutbank Listener used Echo Tap!
+[01447   48.2s w   33318] LOG Sparkwick took 5 damage.
+[01453   48.4s w   33417] LOG Cutbank Listener used Echo Tap!
+[01457   48.6s w   33485] LOG Sparkwick took 5 damage.
+[01464   48.8s w   33602] LOG Sparkwick used Ember Shot!
+[01467   48.9s w   33650] LOG Cutbank Listener took 5 damage.
+[01469   49.0s w   33684] LOG Cutbank Listener used Echo Tap!
+[01473   49.1s w   33750] LOG Cutbank Listener took 5 damage.
+[01475   49.2s w   33785] LOG Cutbank Listener used Echo Tap!
+[01479   49.3s w   33850] LOG Sparkwick took 4 damage.
+[01485   49.5s w   33950] LOG Cutbank Listener used Echo Tap!
+[01489   49.6s w   34017] LOG Sparkwick took 5 damage.
+[01496   49.9s w   34135] LOG Sparkwick used Ember Shot!
+[02636   87.9s w   53183] SHOT D09_stairs_card scene dungeon.tscn
+[02666   88.9s w   53690] SHOT D10_b2f scene dungeon.tscn
+[02965   98.8s w   58672] SHOT D11_B2F_turn355 scene dungeon.tscn
+[03265  108.8s w   63692] SHOT D12_B3F_turn401 scene dungeon.tscn
+[03565  118.8s w   68690] SHOT D13_B3F_turn457 scene dungeon.tscn
+[03865  128.8s w   73895] SHOT D14_B4F_turn493 scene dungeon.tscn
+[04165  138.8s w   78889] SHOT D15_B4F_turn556 scene dungeon.tscn
+[04465  148.8s w   83893] SHOT D16_B4F_turn625 scene dungeon.tscn
+[04541  151.4s w   85103] SCENE dungeon.tscn -> none after 123.4 s game, 63.3 s wall in dungeon.tscn
+[04541  151.4s w   85470] RUN ENDED, scene none
+[04542  151.4s w   85565] HITCH 462 ms for one frame in hub_town.tscn (after autopilot(Tab))
+[04542  151.4s w   85567] SCENE none -> hub_town.tscn after 0.0 s game, 0.1 s wall in none
+[04542  151.4s w   85568] PANEL news|Back in Highbank|Hollow Mouth is cleared. The bag and the new partners came home.
+[04542  151.4s w   85574] MARK back in town (game 151.4 s, lines so far 0)
+[04542  151.4s w   85611] SHOT D17_back_town scene hub_town.tscn
+[04542  151.4s w   85613] TEAM D17_back_town area highbank_v1: sparkwick@(24, 8), tallowroot@(23, 8), listener@(22, 8), skimlet@(23, 7)
+[04559  152.0s w   85913] PAUSE FOCUS Resume
+[04632  154.4s w   87188] SHOT D18_quit_confirm scene hub_town.tscn
+[04632  154.4s w   87190] TEAM D18_quit_confirm area highbank_v1: sparkwick@(24, 8), tallowroot@(23, 8), listener@(22, 8), skimlet@(23, 7)
+[04632  154.4s w   87191] QUIT REQUEST via pause menu at w87191
+WARNING: 25 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)

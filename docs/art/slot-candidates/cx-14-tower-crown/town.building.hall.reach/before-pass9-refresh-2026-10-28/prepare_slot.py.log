@@ -1,0 +1,2 @@
+prepared town.building.hall.reach: 104x300, 19 colours, 10561 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-14-tower-crown\town.building.hall.reach\prepared.png
+next: python tools/art/validate_slot.py town.building.hall.reach C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-14-tower-crown\town.building.hall.reach\prepared.png

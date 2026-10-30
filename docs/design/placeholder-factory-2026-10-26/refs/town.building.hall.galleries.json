@@ -1,0 +1,68 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "town",
+	"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The Galleries: a timber-and-plaster drum set left of the stone drum, stone under the plaster, timber bands and posts, five round shuttered lit windows in a 2-1-2 pattern, the timber walkway wrapping the front right where the parcel chute starts, two empty flyer landing boards and a brass ring perch on the left face, and its deck.",
+	"census": "WT03",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/town/building/hall_galleries.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frame_at": [
+		88,
+		252
+	],
+	"frames": 1,
+	"id": "town.building.hall.galleries",
+	"kind": "building",
+	"lane": "T",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "order 4; owns its seam on the drum's deck (batch cx-13)",
+	"outline": "runtime_rim",
+	"owner": "codex",
+	"palette": {
+		"family": "wayline_tower",
+		"lock": true,
+		"max": 32,
+		"source": "res://assets/slots/palettes/wayline_tower.png"
+	},
+	"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		217,
+		206
+	],
+	"size": [
+		217,
+		206
+	],
+	"slot_file": "town_tower",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

@@ -1,0 +1,23 @@
+{
+  "docs\\design\\placeholder-factory-2026-10-26\\slots.json": "833422285c51ba7c7e7a267d42ab1232bc93108d43d6bf94f06ce3afaa99958a",
+  "scripts\\art\\art_slots.gd": "2fc684f1bec499b531ca3b111ac38b563751aeffcdb1d233f8b8305a51ab6fb9",
+  "scripts\\art\\slots\\dungeon.gd": "488b05cea4278b76b205e66e547c41689fdbb6677fc4179dc4b9a76d8292ecdb",
+  "scripts\\art\\slots\\route.gd": "9838e59a457a2fbc4be167add6b2bca48497fdab0d471c6388ec68ecee28d056",
+  "scripts\\art\\slots\\story.gd": "47610c02eb89686e39f21ff06cb1699d3cf28a64aac2a67af791369ca8dac64b",
+  "scripts\\art\\slots\\title.gd": "24130ea0b38e33e33706db0d807c68674f9e66756b7bf59e5c6d62b8da2c23d8",
+  "scripts\\art\\slots\\town_buildings.gd": "23ee96a705e3ac64af3e58733aa0dcae4e040f80f3b2cc10b99a70667a9cfb84",
+  "scripts\\art\\slots\\town_rooms.gd": "d9ff65bf6de5a4be92b66f548253322f4f383a92a74654c8eafc57310844e854",
+  "scripts\\art\\slots\\town_street.gd": "4e4b9d391625b4bd173d15b06290f131abc29f5df1f1cc4bd845e67dce7f4c39",
+  "scripts\\art\\slots\\town_tower.gd": "c2da36f3a3ae72cfa1a24f441ee228dfa4615da7bee1d22e95be901b13dbec04",
+  "scripts\\art\\slots\\ui.gd": "619bf537153102e87c9748a72ce513a9fd8f79f435c6dc40658db5aad86aa083",
+  "docs\\art\\slot-candidates\\cx-12-tower-foot\\town.building.hall\\prepared.png": "2f25c90d287db8ec842d8a28cc5bc0851ddf6ab86cdb2433d4fb680c18f20d5f",
+  "docs\\art\\slot-candidates\\cx-12-tower-foot\\town.building.hall.gable\\prepared.png": "7b9f45a254c2ee94f935f46737857dd4ad6c59a56c01708b180877c8fcf09cbd",
+  "docs\\art\\slot-candidates\\cx-12-tower-foot\\town.building.hall.root_foot\\prepared.png": "c6e94f29b0dc9bd904aee9cb7792b8f5b4518043e449123c5446034546b3aaef",
+  "docs\\art\\slot-candidates\\cx-12-tower-foot\\town.building.hall.yard\\prepared.png": "b9c9a20481b6ed6dd82585bbbd9ef5a0f6480f5852e83cdf7f6459c1dc34aa61",
+  "docs\\art\\slot-candidates\\cx-12-tower-foot\\town.prop.hall.rise_stair\\prepared.png": "9b36a28c53d2b174c11870120fc46a8602fbf7437dc4e0104c5b1fcf119a4444",
+  "docs\\art\\slot-candidates\\cx-13-tower-body\\town.building.hall.chute\\prepared.png": "252ce02021e54de73a428b6d7e138ba6adbb45841b1e2654b8440ffe701c3647",
+  "docs\\art\\slot-candidates\\cx-13-tower-body\\town.building.hall.drum\\prepared.png": "8eac61b5ea56f7c10c230f71020609c7cb948006c2ff125c85a1dda596ec7df8",
+  "docs\\art\\slot-candidates\\cx-13-tower-body\\town.building.hall.galleries\\prepared.png": "92a5f6765fa03036b6cbc8a895c067f4abe5a0d20f0bd70673207b288650ed94",
+  "docs\\art\\slot-candidates\\cx-13-tower-body\\town.building.hall.hoist\\prepared.png": "a8d15153effc712688e9ffdc5c8183f3f305174b6ec59352a6a19f13d4010a0f",
+  "docs\\art\\slot-candidates\\cx-13-tower-body\\town.building.hall.root_vein\\prepared.png": "4c894164ae49ad1b9dff52b9f870b7d297744eb5db78af94d80f513dd72eedae"
+}

@@ -1,0 +1,15 @@
+{
+  "docs\\design\\placeholder-factory-2026-10-26\\slots.json": "833422285c51ba7c7e7a267d42ab1232bc93108d43d6bf94f06ce3afaa99958a",
+  "scripts\\art\\art_slots.gd": "2fc684f1bec499b531ca3b111ac38b563751aeffcdb1d233f8b8305a51ab6fb9",
+  "scripts\\art\\slots\\dungeon.gd": "488b05cea4278b76b205e66e547c41689fdbb6677fc4179dc4b9a76d8292ecdb",
+  "scripts\\art\\slots\\route.gd": "9838e59a457a2fbc4be167add6b2bca48497fdab0d471c6388ec68ecee28d056",
+  "scripts\\art\\slots\\story.gd": "47610c02eb89686e39f21ff06cb1699d3cf28a64aac2a67af791369ca8dac64b",
+  "scripts\\art\\slots\\title.gd": "3fca0b2e53c19b06bfacf738d4d8a86a9072ad074a5dcacf8a426512bd54a769",
+  "scripts\\art\\slots\\town_buildings.gd": "23ee96a705e3ac64af3e58733aa0dcae4e040f80f3b2cc10b99a70667a9cfb84",
+  "scripts\\art\\slots\\town_rooms.gd": "d9ff65bf6de5a4be92b66f548253322f4f383a92a74654c8eafc57310844e854",
+  "scripts\\art\\slots\\town_street.gd": "4e4b9d391625b4bd173d15b06290f131abc29f5df1f1cc4bd845e67dce7f4c39",
+  "scripts\\art\\slots\\town_tower.gd": "c2da36f3a3ae72cfa1a24f441ee228dfa4615da7bee1d22e95be901b13dbec04",
+  "scripts\\art\\slots\\ui.gd": "619bf537153102e87c9748a72ce513a9fd8f79f435c6dc40658db5aad86aa083",
+  "scripts\\town\\tower_parts.gd": "88e42fe95fba0372731c2013d8f69f7f487d48c02be25fa241d05e13f3383659",
+  "scripts\\creature_opening.gd": "9ecc2b5a4f841bf5406416e3ed21a7df3b54d489c820482e42d86e02a790ceb9"
+}

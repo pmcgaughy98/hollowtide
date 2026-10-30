@@ -1,0 +1,2 @@
+prepared story.backdrop.tower_sky: 384x216, 18 colours, 82944 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-10-road-far\story.backdrop.tower_sky\prepared.png
+next: python tools/art/validate_slot.py story.backdrop.tower_sky C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-10-road-far\story.backdrop.tower_sky\prepared.png

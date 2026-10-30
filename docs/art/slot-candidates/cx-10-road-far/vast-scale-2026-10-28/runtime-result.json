@@ -1,0 +1,21 @@
+{
+  "exit_code": 0,
+  "elapsed_s": 3.89,
+  "argv": [
+    "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+    "--headless",
+    "--fixed-fps",
+    "30",
+    "--audio-driver",
+    "Dummy",
+    "--path",
+    "C:\\Users\\pmcga\\dev\\hollowtide",
+    "--script",
+    "res://docs/art/slot-candidates/cx-10-road-far/vast-scale-2026-10-28/candidate_road_check.gd",
+    "--log-file",
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\cx-10-road-far\\vast-scale-2026-10-28\\candidate-runtime-godot.log"
+  ],
+  "pass": true,
+  "cache_verified": true,
+  "installed": false
+}

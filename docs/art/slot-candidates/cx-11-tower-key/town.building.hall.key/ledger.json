@@ -1,0 +1,15 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-27",
+  "cost": "not exposed; no paid alternative used",
+  "raw_sha256": "65e18dd4dd63da886dc0f4cc75dc17aa06282d468e69b43a8e844f524c459d59",
+  "raw_is_untouched": true,
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-b636b0e5-7c79-4fb2-ada0-bfe8a7184479.png",
+  "references": [
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\cx-11-tower-key\\town.building.hall.key\\reference-key-216x360.png",
+    "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\growth_shrine_2026_10_10\\shrine_native.png",
+    "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\cx-11-tower-key\\town.building.hall.key\\provisional-design-palette.png"
+  ],
+  "status": "design-reference artwork; official slot contract pending; never installed",
+  "native_preparation": "Preston-authorized Python native cleanup; fixed216x360 canvas, provisional approved-design41-color family,31 outputcolors. Official registry absent; design measurements are not slot validation."
+}

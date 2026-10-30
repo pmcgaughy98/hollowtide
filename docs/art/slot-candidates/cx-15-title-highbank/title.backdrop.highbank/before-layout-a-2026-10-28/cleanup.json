@@ -1,0 +1,31 @@
+{
+  "authorization": "Preston Yes, use Python pixel cleanup",
+  "raw_untouched": true,
+  "size": [
+    384,
+    216
+  ],
+  "sequential_colour_joins": 8706,
+  "changed_rgb_pixels": 16973,
+  "sky": "two calm source-palette bands behind wordmark; right side pre-shaded using title canopy treatment; Tower colours retained",
+  "lamp_registration": {
+    "from": [
+      334,
+      32
+    ],
+    "to": [
+      333,
+      33
+    ],
+    "delta": [
+      -1,
+      1
+    ]
+  },
+  "door_anchor": [
+    333,
+    160
+  ],
+  "alpha_opaque": true,
+  "all_changes_native_only": true
+}

@@ -1,0 +1,2 @@
+prepared town.building.lot_before_stall: 108x120, 19 colours, 8004 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-02-lots\town.building.lot_before_stall\prepared.png
+next: python tools/art/validate_slot.py town.building.lot_before_stall C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-02-lots\town.building.lot_before_stall\prepared.png

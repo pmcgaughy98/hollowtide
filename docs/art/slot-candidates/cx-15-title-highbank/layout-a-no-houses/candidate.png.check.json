@@ -1,0 +1,44 @@
+{
+ "slot": "title.backdrop.highbank",
+ "candidate": "docs\\art\\slot-candidates\\cx-15-title-highbank\\layout-a-no-houses\\candidate.png",
+ "registry_sha256": "bbe2e8d405626aad87c5fd6a2c2b5b2c24ebff09e6f17847c039ce891ec666c2",
+ "pass": true,
+ "results": [
+  {
+   "id": "C1",
+   "name": "size",
+   "result": "PASS",
+   "detail": "384x216, slot sheet 384x216"
+  },
+  {
+   "id": "C2",
+   "name": "colours",
+   "result": "PASS",
+   "detail": "47 colours (worst cell 47), budget 48"
+  },
+  {
+   "id": "C3",
+   "name": "alpha",
+   "result": "PASS",
+   "detail": "0 pixels not fully opaque"
+  },
+  {
+   "id": "C5",
+   "name": "palette",
+   "result": "PASS",
+   "detail": "0 colours over 20 from the palette; mean distance 0.0"
+  },
+  {
+   "id": "C9",
+   "name": "specks",
+   "result": "PASS",
+   "detail": "486 orphan pixels (0.59%, limit 1%), 84 light specks"
+  }
+ ],
+ "review": {
+  "R1": "no text, letters, numbers or signage lettering anywhere",
+  "R2": "nothing that reads as another game or franchise",
+  "R3": "no creature, animal or person unless the slot asks for one",
+  "R4": "sits in the scene: placeholder, candidate and in-game capture side by side"
+ }
+}

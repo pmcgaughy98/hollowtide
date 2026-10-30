@@ -1,0 +1,13 @@
+{
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "real_export_snapshot": "../../final-contract-check/slots.json",
+  "exporter": "tools/art/render_slot_refs.gd inherited _export, destination overridden only",
+  "tools": "unchanged prepare_slot.py, validate_slot.py and review_sheet.py main functions via candidate snapshot path; freshness checks enabled",
+  "raw_preparation": "prepared-from-raw.png",
+  "authorized_cleanup_input": "key-native.png",
+  "prepared_sha256": "08933cee846f3257a32558276d23bd999577ff4891b33fed611b2c5f50b129e4",
+  "raw_sha256": "65e18dd4dd63da886dc0f4cc75dc17aa06282d468e69b43a8e844f524c459d59",
+  "raw_untouched": true,
+  "installed": false,
+  "refs_only": true
+}

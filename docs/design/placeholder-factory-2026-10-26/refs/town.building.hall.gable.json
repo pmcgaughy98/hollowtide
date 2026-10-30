@@ -1,0 +1,68 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "town",
+	"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The Route Board gable over the arch: an arched stone gable with a moss lip and brick ends, holding a brass board with three waymark arms meeting at a knot and 8 dark peg sockets (two and three along the arms, one at the knot). Paint the sockets dark: the game lights the pegs.",
+	"census": "WT06",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/town/building/hall_gable.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frame_at": [
+		164,
+		560
+	],
+	"frames": 1,
+	"id": "town.building.hall.gable",
+	"kind": "building",
+	"lane": "T",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "order 7; peg sockets at TowerParts.route_pegs() (batch cx-12)",
+	"outline": "runtime_rim",
+	"owner": "codex",
+	"palette": {
+		"family": "wayline_tower",
+		"lock": true,
+		"max": 32,
+		"source": "res://assets/slots/palettes/wayline_tower.png"
+	},
+	"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		104,
+		53
+	],
+	"size": [
+		104,
+		53
+	],
+	"slot_file": "town_tower",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

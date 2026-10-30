@@ -1,0 +1,33 @@
+{
+  "status": "DESIGN-ONLY native measurements after runtime palette reconciliation; official stale-export refusal remains",
+  "size": [
+    216,
+    360
+  ],
+  "binary_alpha": true,
+  "opaque_pixels": 36657,
+  "color_count": 29,
+  "provisional_color_ceiling": 32,
+  "design_palette_subset": true,
+  "clear_top_and_sides": true,
+  "lowest_opaque_row": 359,
+  "source_raw_size": [
+    971,
+    1619
+  ],
+  "source_crop": [
+    0,
+    2,
+    961,
+    1619
+  ],
+  "source_content_fit": [
+    213,
+    359
+  ],
+  "adjacent_color_cleanup_pixels": 5664,
+  "isolated_alpha_specks_removed": 0,
+  "raw_sha256": "65e18dd4dd63da886dc0f4cc75dc17aa06282d468e69b43a8e844f524c459d59",
+  "native_sha256": "9d403cc003bcf245fe5850e082834688955e92259cdf3212e3d0298b5bc62c46",
+  "runtime_palette_cleanup_receipt": "runtime-palette-cleanup.json"
+}

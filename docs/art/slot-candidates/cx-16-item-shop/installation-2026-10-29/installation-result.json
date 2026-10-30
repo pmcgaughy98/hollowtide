@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-29",
+  "candidate_sha256": "b229d8f8024d7ba6535bd970347ca153212c0b9e04fa30bfc258dff9bbca6beb",
+  "installed_sha256": "b229d8f8024d7ba6535bd970347ca153212c0b9e04fa30bfc258dff9bbca6beb",
+  "registry_after": "e4505c70e661914feeae028a0475354d6b8d1061a321aa7b871122cd99d4a963",
+  "status": "installed",
+  "size": [
+    204,
+    192
+  ],
+  "review_answer": "yes",
+  "checks": {
+    "v1": {
+      "art_slots": "PASS",
+      "building_template": "PASS",
+      "hub_town": "PASS"
+    },
+    "v2": {
+      "art_slots": "PASS",
+      "building_template": "PASS",
+      "hub_town": "PASS"
+    }
+  },
+  "fixed_fps": 30,
+  "protected_dirty_files_before": 298,
+  "changed_preexisting_files": [
+    "assets/slots/town/building/shop.png",
+    "docs/design/placeholder-factory-2026-10-26/installed.json",
+    "docs/design/placeholder-factory-2026-10-26/slots.json",
+    "scripts/art/slots/town_buildings.gd"
+  ],
+  "unexpected_preexisting_changes": [],
+  "unexpected_new_tracked_changes": [],
+  "slot_file_change_only": "town.building.shop status placeholder -> installed",
+  "committed": false
+}

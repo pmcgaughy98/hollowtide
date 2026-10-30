@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.shop.shelf_card.png",
+ "out": "docs/art/slot-candidates/gb-04-furniture/town.prop.shop.shelf/raw.png",
+ "cost_usd": 0.0724948,
+ "turns": 5,
+ "text": "I'll read the style reference and the Imagine skill first, then generate the shelf once and save it as `raw.png`.The reference is warm oak pixel art with teal and cream cloth, amber glass, and hard upper-left light. Generating the shelf once in that palette.The generator saved a JPEG. I'll look at it, then write a real PNG as `raw.png` in this folder.Saved at `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_ebh2zwv0\\raw.png`. It shows one tall oak pixel-art shop shelf in a three-quarter view, stocked with amber and green jars, cream and teal bundles, and small tan sacks, with no lettering. The background samples as hot pink near `#F949C5`, and the shelf leaves a margin around it.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_ebh2zwv0"
+}

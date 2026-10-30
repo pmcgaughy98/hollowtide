@@ -1,0 +1,22 @@
+{
+ "slots": {
+  "title.backdrop.highbank": {
+   "batch": "cx-15-title-highbank",
+   "date": "2026-10-29",
+   "file": "res://assets/slots/title/backdrop/highbank.png",
+   "sha256": "603395e2f50080df0a2acd43c98adb92d72499960797f4c6dd56333959681d24"
+  },
+  "town.building.home": {
+   "batch": "cx-17-home-burrow",
+   "date": "2026-10-29",
+   "file": "res://assets/slots/town/building/home.png",
+   "sha256": "d02e2935540ffd2346f553b198254fedc75dd8fd8213ebcf2080b53f4d4f6ef4"
+  },
+  "town.building.shop": {
+   "batch": "cx-16-item-shop",
+   "date": "2026-10-29",
+   "file": "res://assets/slots/town/building/shop.png",
+   "sha256": "b229d8f8024d7ba6535bd970347ca153212c0b9e04fa30bfc258dff9bbca6beb"
+  }
+ }
+}

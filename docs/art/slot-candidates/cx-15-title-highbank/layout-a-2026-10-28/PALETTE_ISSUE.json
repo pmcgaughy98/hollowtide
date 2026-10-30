@@ -1,0 +1,140 @@
+{
+  "published_palette_colours": 34,
+  "real_source_palette_colours": 47,
+  "protected_colours_failing_C5": [
+    {
+      "rgb": [
+        0,
+        49,
+        58
+      ],
+      "nearest_exported_distance": 36.986
+    },
+    {
+      "rgb": [
+        11,
+        14,
+        17
+      ],
+      "nearest_exported_distance": 35.707
+    },
+    {
+      "rgb": [
+        35,
+        24,
+        14
+      ],
+      "nearest_exported_distance": 26.702
+    },
+    {
+      "rgb": [
+        45,
+        158,
+        159
+      ],
+      "nearest_exported_distance": 44.643
+    },
+    {
+      "rgb": [
+        93,
+        75,
+        52
+      ],
+      "nearest_exported_distance": 20.224
+    },
+    {
+      "rgb": [
+        102,
+        63,
+        35
+      ],
+      "nearest_exported_distance": 24.104
+    },
+    {
+      "rgb": [
+        107,
+        79,
+        31
+      ],
+      "nearest_exported_distance": 21.307
+    },
+    {
+      "rgb": [
+        107,
+        111,
+        29
+      ],
+      "nearest_exported_distance": 31.464
+    },
+    {
+      "rgb": [
+        124,
+        74,
+        38
+      ],
+      "nearest_exported_distance": 30.48
+    },
+    {
+      "rgb": [
+        144,
+        137,
+        64
+      ],
+      "nearest_exported_distance": 27.368
+    },
+    {
+      "rgb": [
+        146,
+        114,
+        75
+      ],
+      "nearest_exported_distance": 23.367
+    },
+    {
+      "rgb": [
+        196,
+        146,
+        67
+      ],
+      "nearest_exported_distance": 29.223
+    },
+    {
+      "rgb": [
+        198,
+        187,
+        42
+      ],
+      "nearest_exported_distance": 52.82
+    },
+    {
+      "rgb": [
+        242,
+        210,
+        122
+      ],
+      "nearest_exported_distance": 31.702
+    },
+    {
+      "rgb": [
+        245,
+        217,
+        168
+      ],
+      "nearest_exported_distance": 28.583
+    },
+    {
+      "rgb": [
+        251,
+        212,
+        144
+      ],
+      "nearest_exported_distance": 23.791
+    }
+  ],
+  "protected_pixels_changed_by_published_palette_prepare": 28019,
+  "shared_validation": "FAIL C5; all other checks pass",
+  "source_palette_diagnostic": "PASS all5checks; explicitly not shared validation",
+  "replacement_strip": "source-palette-contract/refs/palettes/highbank_title.png",
+  "source": "scripts/art/placeholders/title_highbank.gd PALETTE",
+  "shared_files_edited": false
+}

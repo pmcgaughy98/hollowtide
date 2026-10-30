@@ -1,0 +1,50 @@
+{
+ "slot": "road.backdrop.mid",
+ "candidate": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\launch-road-refresh-2026-10-27\\road.backdrop.mid\\prepared-from-raw.png",
+ "registry_sha256": "ee9c03563b1c2a8bd6adc2abe1df32d2d1a993bdcba109f1d7e9d2c5d060489c",
+ "pass": false,
+ "results": [
+  {
+   "id": "C1",
+   "name": "size",
+   "result": "PASS",
+   "detail": "384x112, slot sheet 384x112"
+  },
+  {
+   "id": "C2",
+   "name": "colours",
+   "result": "PASS",
+   "detail": "16 colours (worst cell 16), budget 32"
+  },
+  {
+   "id": "C3",
+   "name": "alpha",
+   "result": "PASS",
+   "detail": "0 partial-alpha pixels"
+  },
+  {
+   "id": "C5",
+   "name": "palette",
+   "result": "PASS",
+   "detail": "0 colours over 20 from the palette; mean distance 0.0"
+  },
+  {
+   "id": "C6",
+   "name": "seams",
+   "result": "PASS",
+   "detail": "left/right mean 0.3 max 28"
+  },
+  {
+   "id": "C9",
+   "name": "specks",
+   "result": "FAIL",
+   "detail": "1124 orphan pixels (8.58%), 0 light specks"
+  }
+ ],
+ "review": {
+  "R1": "no text, letters, numbers or signage lettering anywhere",
+  "R2": "nothing that reads as another game or franchise",
+  "R3": "no creature, animal or person unless the slot asks for one",
+  "R4": "sits in the scene: placeholder, candidate and in-game capture side by side"
+ }
+}

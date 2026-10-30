@@ -1,0 +1,13 @@
+{
+ "slot": "town.prop.shop.shelf",
+ "source": "docs\\art\\slot-candidates\\gb-04-furniture\\town.prop.shop.shelf",
+ "date_tool": "clean_slot.py 2026-10-28",
+ "settings": {
+  "mixed": 0.5,
+  "keep": 40.0,
+  "flip": []
+ },
+ "notes": [
+  "528 orphans after the downscale, cleared"
+ ]
+}

@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.sign_hall_card.png",
+ "out": "docs/art/slot-candidates/gb-03-parts/town.prop.sign_hall/raw.png",
+ "cost_usd": 0.06244916,
+ "turns": 4,
+ "text": "I'll read the style reference and the Imagine skill first, then generate the sign once and save it as `raw.png`.The reference is chunky pixel art: warm oak and tan wood, cream carvings, dark outlines, light from the upper left, three-quarter top-down. Generating the hanging plank sign once on pure magenta.The generator wrote a JPEG. I'll convert it to a real PNG and save it as `raw.png` in this folder.Saved to `C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_bh395n5n\\raw.png`. It is the one generated hanging plank sign with a carved waymark arrow, and I did not reopen the result, so I cannot confirm the pure magenta field, the hard pixel edges, or that no letters appeared.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_bh395n5n"
+}

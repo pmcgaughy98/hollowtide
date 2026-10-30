@@ -193,7 +193,7 @@ const KITS := {
 		"passive": "bound_slabs", "profile": "kite", "far_bonus": 1.15},   # Grok, 2026-10-10: was 1.3. Far hits stay harder. The rail was winning 10-0.
 	# Punchybuns line (Electric; Claude, 2026-10-08; Grok's numbers): a ferret who protects the
 	# people it loves. Punchybun: the round kit: jabs, dances, and already puts its star on a
-	# friend. Sparkjab: the boxer: Counter Jab arrives; Guardian. Starward: Starshield.
+	# friend. Sparkjab: the boxer: Counter Jab arrives. Starward: Starshield.
 	"punchybun": {"moves": ["jab"], "abilities": ["static_dance", "star_guard"], "speed": 1.1, "hp": 0.95, "profile": "escort"},
 	"sparkjab": {"moves": ["jab"], "abilities": ["static_dance", "star_guard", "counter_jab"], "speed": 1.15, "hp": 1.05,
 		"passive": "chain", "profile": "escort"},

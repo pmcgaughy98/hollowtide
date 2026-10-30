@@ -1,0 +1,89 @@
+{
+  "alpha": "binary",
+  "anchor": [
+    66,
+    191
+  ],
+  "anchor_mode": "foot",
+  "area": "town",
+  "brief": "The team's home, dug into the river bluff: a broad grass bank is the roof (the top two thirds of the picture), lit on its crown, a stovepipe standing out of the turf right of centre. Under the turf's hanging lip, a short face of river stone between the bank's grassy flanks: a round lit window either side, the arched doorway under a thick stone ring that cuts up into the turf, a lantern hung by the door, a tied parcel waiting under the right window (a courier team lives here), a flat stone step. Seen from above and in front like the trading post; no cottage walls, no tiled roof.",
+  "building_class": "burrow",
+  "census": "B02",
+  "checks": [
+    "C1",
+    "C10",
+    "C11",
+    "C12",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C7",
+    "C8",
+    "C9"
+  ],
+  "door_px": [
+    55,
+    142,
+    22,
+    48
+  ],
+  "drawn_at": 3,
+  "edges": "bottom",
+  "file": "res://assets/slots/town/building/home.png",
+  "forbid": [
+    "text",
+    "creature",
+    "franchise"
+  ],
+  "frames": 1,
+  "id": "town.building.home",
+  "kind": "building",
+  "lane": "B",
+  "legacy": "",
+  "legacy_misfit": true,
+  "legacy_v1": "res://assets/sprites/world/home_2026_10_09/home_native.png",
+  "legacy_v1_size": [
+    120,
+    120
+  ],
+  "light": "upper_left",
+  "notes": "Claude, 2026-10-29: the burrow class (5x3 base, 132x192, door Rect2i(55, 142, 22, 48)), Home dug into the bluff per docs/design/town-map-2026-10-28/TOWN_MAP.md; it replaces the cottage brief (132x144), so Codex's cx-01 home candidate is superseded. The doorway stays dark inside door_px (the game draws the leaves); open frames come from door_px when absent; legacy_v1 is the v1 picture.",
+  "optional_states": {
+    "open": [
+      3,
+      12
+    ]
+  },
+  "outline": "runtime_rim",
+  "owner": "codex",
+  "palette": {
+    "family": "town_stone",
+    "lock": false,
+    "max": 32,
+    "source": "res://assets/slots/palettes/town_stone.png"
+  },
+  "pass_creature": "sparkjab",
+  "placeholder": "res://scripts/town/building_template.gd:paint_slot",
+  "rows": 1,
+  "sheet_size": [
+    132,
+    192
+  ],
+  "size": [
+    132,
+    192
+  ],
+  "slot_file": "town_buildings",
+  "state_order": [
+    "closed"
+  ],
+  "states": {
+    "closed": [
+      1,
+      0
+    ]
+  },
+  "status": "placeholder",
+  "tiling": "none"
+}

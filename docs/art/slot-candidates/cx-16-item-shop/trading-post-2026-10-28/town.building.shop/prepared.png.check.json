@@ -1,0 +1,80 @@
+{
+ "slot": "town.building.shop",
+ "candidate": "docs\\art\\slot-candidates\\cx-16-item-shop\\trading-post-2026-10-28\\town.building.shop\\prepared.png",
+ "registry_sha256": "2d9b461262c916bc1555519d5181ded20a2b692668e25e741ace2a69ec6a959e",
+ "pass": true,
+ "results": [
+  {
+   "id": "C1",
+   "name": "size",
+   "result": "PASS",
+   "detail": "204x192, slot sheet 204x192"
+  },
+  {
+   "id": "C2",
+   "name": "colours",
+   "result": "PASS",
+   "detail": "26 colours (worst cell 26), budget 32"
+  },
+  {
+   "id": "C3",
+   "name": "alpha",
+   "result": "PASS",
+   "detail": "0 partial-alpha pixels"
+  },
+  {
+   "id": "C4",
+   "name": "edges",
+   "result": "PASS",
+   "detail": "clear"
+  },
+  {
+   "id": "C5",
+   "name": "palette",
+   "result": "PASS",
+   "detail": "0 colours over 20 from the palette; mean distance 0.0"
+  },
+  {
+   "id": "C7",
+   "name": "foot row",
+   "result": "PASS",
+   "detail": "lowest rows [191], foot row 191"
+  },
+  {
+   "id": "C8",
+   "name": "frame health",
+   "result": "PASS",
+   "detail": "opaque per cell [26731]; largest one-colour block 11% of a cell"
+  },
+  {
+   "id": "C9",
+   "name": "specks",
+   "result": "PASS",
+   "detail": "2 orphan pixels (0.01%, limit 1%), 0 light specks"
+  },
+  {
+   "id": "C10",
+   "name": "doorway",
+   "result": "PASS",
+   "detail": "door opaque True; door brightness 28, wall beside it 94"
+  },
+  {
+   "id": "C11",
+   "name": "scale",
+   "result": "PASS",
+   "detail": "door 22x48, sparkjab 22x45 (needs height and 0.75 x width)"
+  },
+  {
+   "id": "C12",
+   "name": "light side",
+   "result": "PASS",
+   "detail": "upper-left edge 56, lower-right edge 35"
+  }
+ ],
+ "review": {
+  "R1": "no text, letters, numbers or signage lettering anywhere",
+  "R2": "nothing that reads as another game or franchise",
+  "R3": "no creature, animal or person unless the slot asks for one",
+  "R4": "sits in the scene: placeholder, candidate and in-game capture side by side"
+ }
+}

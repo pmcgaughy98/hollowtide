@@ -1,0 +1,13 @@
+TITLE lens: f 270 px, camera 50 tiles S of the Tower looking 27.6 deg west of north; tree at screen x 177, 0.708 px per tile, 382 tiles away; Tower 6.09 px per tile
+TITLE colours 47 (before 47); outside the highbank_title palette: 0
+TITLE tree px 13078; changed in the menu box 0; changed right of x 288 (room for the taller Tower) 0
+TITLE wordmark box (x 90-295, y 0-52) colour edges before 412 after 1429
+TITLE trunk 75 px wide (x 140 to 215); full tree would be 255 px tall (runs off the top); crown underside y 7 at centre, rim y 30; flare 184 px across at the ground
+VISTA lens: f 270 px, camera 46 tiles S of the Tower looking 15.7 deg west of north; tree at screen x 118, 0.739 px per tile, 379 tiles away
+VISTA colours 158 (capture 143); colours added 15, all from the dawn palette: True; not in dawn: []
+VISTA tree px 15109; changed right of x 226 (room for the taller Tower) 0
+VISTA trunk 79 px wide; crown underside y 4 at centre, rim y 28; crown would reach x -92 to 233
+BASE starter kithflare_back.png: 38x36 px, feet at y 192
+BASE starter cinderhide_back.png: 30x32 px, feet at y 184
+BASE colours 61; painted 31, of which outside highbank_title+dawn: 0 []; 30 colours added by the two game sprites (sprite colours 30)
+BASE trunk 300 px wide at the top edge of a 384 px frame (about 3 px per tile, so 100 tiles); trees on the roots 5 to 14 px

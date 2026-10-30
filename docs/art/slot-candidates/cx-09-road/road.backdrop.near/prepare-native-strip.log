@@ -1,0 +1,2 @@
+prepared road.backdrop.near: 384x56, 11 colours, 5881 opaque pixels -> C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-09-road\road.backdrop.near\prepared.png
+next: python tools/art/validate_slot.py road.backdrop.near C:\Users\pmcga\dev\hollowtide\docs\art\slot-candidates\cx-09-road\road.backdrop.near\prepared.png

@@ -1,7 +1,7 @@
 {
-	"count": 163,
+	"count": 189,
 	"note": "Written by tools/art/render_slot_refs.gd; do not edit. Edit scripts/art/slots/*.gd and export again.",
-	"registry_sha256": "cb33c871f11f80980785e47e73ece64acf9e85ff607dc083c7a18639031a0434",
+	"registry_sha256": "05fc60aebc364e4ede0b01895a8885c83a6b6583a317ae8e06368fe4c46caebe",
 	"slot_files": [
 		"dungeon.gd",
 		"route.gd",
@@ -10,6 +10,7 @@
 		"town_buildings.gd",
 		"town_rooms.gd",
 		"town_street.gd",
+		"town_tower.gd",
 		"ui.gd"
 	],
 	"slots": {
@@ -64,6 +65,9 @@
 				6
 			],
 			"slot_file": "dungeon",
+			"state_order": [
+				"fly"
+			],
 			"states": {
 				"fly": [
 					3,
@@ -125,6 +129,9 @@
 				6
 			],
 			"slot_file": "dungeon",
+			"state_order": [
+				"fly"
+			],
 			"states": {
 				"fly": [
 					3,
@@ -186,6 +193,9 @@
 				6
 			],
 			"slot_file": "dungeon",
+			"state_order": [
+				"fly"
+			],
 			"states": {
 				"fly": [
 					3,
@@ -247,6 +257,9 @@
 				6
 			],
 			"slot_file": "dungeon",
+			"state_order": [
+				"fly"
+			],
 			"states": {
 				"fly": [
 					3,
@@ -308,6 +321,9 @@
 				6
 			],
 			"slot_file": "dungeon",
+			"state_order": [
+				"fly"
+			],
 			"states": {
 				"fly": [
 					3,
@@ -369,6 +385,9 @@
 				6
 			],
 			"slot_file": "dungeon",
+			"state_order": [
+				"fly"
+			],
 			"states": {
 				"fly": [
 					3,
@@ -430,6 +449,9 @@
 				6
 			],
 			"slot_file": "dungeon",
+			"state_order": [
+				"fly"
+			],
 			"states": {
 				"fly": [
 					3,
@@ -491,6 +513,9 @@
 				6
 			],
 			"slot_file": "dungeon",
+			"state_order": [
+				"fly"
+			],
 			"states": {
 				"fly": [
 					3,
@@ -552,6 +577,9 @@
 				6
 			],
 			"slot_file": "dungeon",
+			"state_order": [
+				"fly"
+			],
 			"states": {
 				"fly": [
 					3,
@@ -613,6 +641,9 @@
 				6
 			],
 			"slot_file": "dungeon",
+			"state_order": [
+				"fly"
+			],
 			"states": {
 				"fly": [
 					3,
@@ -674,6 +705,9 @@
 				6
 			],
 			"slot_file": "dungeon",
+			"state_order": [
+				"fly"
+			],
 			"states": {
 				"fly": [
 					3,
@@ -735,6 +769,9 @@
 				6
 			],
 			"slot_file": "dungeon",
+			"state_order": [
+				"fly"
+			],
 			"states": {
 				"fly": [
 					3,
@@ -798,6 +835,9 @@
 				8
 			],
 			"slot_file": "dungeon",
+			"state_order": [
+				"bob"
+			],
 			"states": {
 				"bob": [
 					3,
@@ -862,6 +902,9 @@
 				24
 			],
 			"slot_file": "dungeon",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -931,6 +974,9 @@
 				88
 			],
 			"slot_file": "route",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -943,18 +989,26 @@
 		"road.backdrop.highbank_far": {
 			"alpha": "binary",
 			"anchor": [
-				80,
+				104,
 				95
 			],
 			"anchor_mode": "foot",
 			"anchors": {
 				"beacon": [
-					92,
-					6
+					105,
+					7
+				],
+				"wayline_end": [
+					84,
+					73
+				],
+				"wayline_top": [
+					101,
+					70
 				]
 			},
 			"area": "road",
-			"brief": "Highbank seen from miles down the river: a flat-topped bluff with a few rows of roofs on it, and the Wayline Tower rising over the town more than three times its height, a beacon mast and lantern at the very top (the beacon anchor). Silhouette-level detail only: no windows, no doors. The bluff runs off the bottom edge.",
+			"brief": "Highbank and the two giants from about 3,000 tiles down the river, as docs/design/vast-scale-2026-10-27/VAST_SCALE_DESIGN.md lays out the far view (the target is this slot's placeholder, the vast-scale mock final/road_far_slot_1x.png there; final/slot_highbank_far.png is the picture itself). Both giants stand over a dark forest band. On the right the whole Wayline Tower, all 480 tiles in 70 px from its vane (row 5) to its foot (row 75, axis x 104): a slender pale Stack with brass rings, the dark wet collar in a flat cloud layer (280 to 360 tiles up), the narrow neck, and at the top a root's crook holding the Waiting Lamp, one amber px (the beacon anchor). A thin root climbs its west side. It stands alone in open ground: no other building by the Tower (Preston, 2026-10-28). Left of it and farther off, the great tree, the same tree as the title's (scripts/art/placeholders/title_giants.gd): its crown one even dome centred on its trunk (Preston, 2026-10-28), about 60 px across, leaf clusters each with a lit top arc, lit from the east in the morning's greens, the trunk about 14 px wide flaring into the forest. Highbank's roofs, 1 or 2 px each, sit in a pale clearing west of the Tower on rows 73 and 74, between it and the tree, well clear of its foot. One broken 1 px wayline runs from the Low Reel (5 px up the Tower's west side) down to a roof in the middle of the town, from wayline_top to wayline_end, sagging 3 px at its middle (the scene's glint runs along that curve). Keep the forest band, the town, the wayline and the Tower's foot above row 76: the scene stands the bottom row (the foot anchor) at y 108, behind its far hills, which can hide anything below row 76, but where they dip the land shows down to about row 90. So under the band the land thins into valley mist the colour of the hazed hills and runs off the bottom edge, and toward both sides its top rounds down into the mist: only the bottom edge may be touched. Sky transparent. Paint in full colour, unhazed: the scene hazes the layer. No text.",
 			"census": "new",
 			"checks": [
 				"C1",
@@ -976,15 +1030,16 @@
 			"kind": "backdrop",
 			"lane": "S",
 			"legacy": "",
-			"light": "upper_left",
-			"notes": "drawn at 0.82x growing to 1x as the party nears the rise, hazed by the scene (0.5 down to 0.3); the coded beacon glint sits on anchors.beacon",
+			"light": "right",
+			"notes": "drawn at 0.82x growing to 1x as the party nears the rise (the foot anchor at x 300 to 236, y 108), hazed by the scene (0.5 down to 0.3); the game draws the Waiting Lamp unhazed on anchors.beacon (it breathes) and a slow glint of light running down the wayline from anchors.wayline_top to anchors.wayline_end; road_check and road_tower_view_check measure the Tower's body in RouteScene.FAR_BODY (x 100 to 107, rows 5 to 70), so a repaint keeps the Tower there; the placeholder is the vast-scale mock (final_mocks.py mock_road_far, exported to assets/placeholders/road_highbank_far.png); names are working labels",
 			"outline": "none",
 			"owner": "codex",
 			"palette": {
-				"family": "dawn",
+				"exact": true,
+				"family": "vast_far",
 				"lock": false,
 				"max": 24,
-				"source": "res://assets/slots/palettes/dawn.png"
+				"source": "res://assets/slots/palettes/vast_far.png"
 			},
 			"placeholder": "res://scripts/story/route_scene.gd:paint_slot",
 			"rows": 1,
@@ -997,6 +1052,10 @@
 				96
 			],
 			"slot_file": "route",
+			"specks": 0.1,
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1014,7 +1073,7 @@
 			],
 			"anchor_mode": "tiled",
 			"area": "road",
-			"brief": "The wooded river trail: weeping willows with long hanging strands, their trunks down to the trail, flood debris caught in them (a snapped branch in a fork, driftwood at a root, a tangle of reeds). Gaps between the trees show the river and hills behind. Tiles left to right.",
+			"brief": "The wooded river trail: weeping willows with long hanging strands, their trunks down to the trail, flood debris caught in them (a snapped branch in a fork, driftwood at a root, a tangle of reeds). Gaps between the trees show the river and hills behind. Keep a gap where the far Tower stands: both willows between x 60 and 226, and from x 228 round to x 58 nothing above row 52 (low reeds and debris are fine), so the far Tower shows clear at each trail talk. Tiles left to right.",
 			"census": "new",
 			"checks": [
 				"C1",
@@ -1042,7 +1101,7 @@
 			"lane": "S",
 			"legacy": "",
 			"light": "upper_left",
-			"notes": "parallax 0.45, hazed 0.1; fades out near the rise (the trees open)",
+			"notes": "parallax 0.45, hazed 0.1; fades out near the rise (the trees open). Pass 9 (W3): the far Tower falls on columns 229 to 370 of this picture, rows 0 to 51, at the four trail talks; tools/debug/road_tower_view_check.gd measures it.",
 			"outline": "none",
 			"owner": "codex",
 			"palette": {
@@ -1066,6 +1125,9 @@
 				112
 			],
 			"slot_file": "route",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1135,6 +1197,9 @@
 				56
 			],
 			"slot_file": "route",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1203,6 +1268,9 @@
 				24
 			],
 			"slot_file": "route",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1267,6 +1335,9 @@
 				216
 			],
 			"slot_file": "route",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1285,44 +1356,28 @@
 			"anchor_mode": "top_left",
 			"anchors": {
 				"beacon": [
-					268,
-					8
-				],
-				"chimney_1": [
-					202,
-					126
-				],
-				"chimney_2": [
-					308,
-					124
-				],
-				"chimney_3": [
-					355,
-					125
-				],
-				"chimney_4": [
-					248,
-					136
+					286,
+					11
 				],
 				"lamp_1": [
-					154,
-					152
+					224,
+					191
 				],
 				"lamp_2": [
-					211,
-					141
+					233,
+					194
 				],
 				"lamp_3": [
-					286,
-					140
+					236,
+					189
 				],
 				"lamp_4": [
-					313,
-					154
+					240,
+					192
 				],
 				"lamp_5": [
-					250,
-					168
+					246,
+					193
 				],
 				"party": [
 					84,
@@ -1330,7 +1385,7 @@
 				]
 			},
 			"area": "road",
-			"brief": "The rise at first light: the willows open on both sides and Highbank lies below on its bluff, rows of roofs and chimneys, and over all of it the Wayline Tower, a tall river-stone tower with a beacon mast and lantern at the top (the beacon anchor). Grassy ground in the near left where the two stand (the party anchor is the leader's feet). Street lamps at the lamp anchors (paint them unlit: the game lights them and puts them out one by one) and chimney tops at the chimney anchors (the game draws the smoke).",
+			"brief": "The rise at first light, the last hill of the road home, as docs/design/vast-scale-2026-10-27/VAST_SCALE_DESIGN.md lays it out (the target is this slot's placeholder, the vast-scale mock final/slot_vista.png there). The willows open on both sides. On the right the whole Wayline Tower, all 480 tiles from its foot (y 200, axis x 285) to its vane (y 8): a slender round Stack about 14 to 1, banded with brass rings, a flat cloud layer level with its collar (280 to 360 tiles), the Waiting Lamp lit near the top (the beacon anchor is the lamp's middle) and one wayline sagging away west, down to Highbank's roofs (both waylines run west to the town; VAST_SCALE_DESIGN, 2026-10-28). It stands alone on open ground: no other building by the Tower (Preston, 2026-10-28). Left of it and 340 tiles further off, the great tree in its forest, the same tree as the title's (scripts/art/placeholders/title_giants.gd): its crown one even dome centred on its trunk (Preston, 2026-10-28), leaf clusters each with a lit top arc, lit from the east in the morning's greens and hazed a third toward the sky, the trunk flaring to the ground. Highbank's roofs, 2 or 3 px each, sit in a clearing west of the Tower and beyond it, well clear of its foot, with house lamps at the lamp anchors (paint them unlit: the game lights them and puts them out one by one). The party's hill dark in the near left (the party anchor is the leader's feet). No text.",
 			"census": "new",
 			"checks": [
 				"C1",
@@ -1352,15 +1407,16 @@
 			"kind": "backdrop",
 			"lane": "S",
 			"legacy": "",
-			"light": "upper_left",
-			"notes": "held view at the rise; coded effects: lamps going out one by one, chimney smoke, the beacon glint",
+			"light": "right",
+			"notes": "held view at the rise; coded effects: the house lamps going out one by one while the Waiting Lamp stays lit and breathes; the placeholder is the vast-scale mock (final_mocks.py mock_vista, exported to assets/placeholders/road_vista.png); names are working labels",
 			"outline": "none",
 			"owner": "codex",
 			"palette": {
-				"family": "dawn",
+				"exact": true,
+				"family": "vast_vista",
 				"lock": false,
-				"max": 48,
-				"source": "res://assets/slots/palettes/dawn.png"
+				"max": 64,
+				"source": "res://assets/slots/palettes/vast_vista.png"
 			},
 			"place_at": [
 				0,
@@ -1377,6 +1433,10 @@
 				216
 			],
 			"slot_file": "route",
+			"specks": 0.02,
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1442,6 +1502,9 @@
 				80
 			],
 			"slot_file": "route",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1506,6 +1569,9 @@
 				48
 			],
 			"slot_file": "route",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1570,6 +1636,9 @@
 				20
 			],
 			"slot_file": "route",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1634,6 +1703,9 @@
 				56
 			],
 			"slot_file": "route",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1694,6 +1766,9 @@
 				216
 			],
 			"slot_file": "story",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1755,6 +1830,9 @@
 				216
 			],
 			"slot_file": "story",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1820,6 +1898,9 @@
 				40
 			],
 			"slot_file": "story",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1837,8 +1918,14 @@
 				0
 			],
 			"anchor_mode": "top_left",
+			"anchors": {
+				"beacon": [
+					192,
+					127
+				]
+			},
 			"area": "story",
-			"brief": "A clear morning sky over Highbank, deep blue at the top paling toward the bottom, two or three long thin clouds. Sky only. Seen behind the Wayline Tower while the camera pans up it; it does not scroll.",
+			"brief": "The sky behind the Wayline Tower's top while the Tower scene's camera holds there, as docs/design/vast-scale-2026-10-27/VAST_SCALE_DESIGN.md lays it out (the target is this slot's placeholder, the vast-scale mock final/slot_tower_sky.png there; final/hold_1x.png shows it with Codex's crown and the lamp's glow over it). First light, seen from the Waiting Lamp 475 tiles up. Flat dawn bands from a deep blue at the top through slate to a pale grey-blue haze at the horizon (y 146). The Waiting Lamp's glass hangs at the beacon anchor: keep the sky in a 17 px box round it a calm cool blue, no cloud or leaf in it, so the amber stands out. Below the horizon a flat sea of cloud fills the bottom: the cloud layer's top (360 tiles), lit warm cream from the east by the low sun, its lumps growing toward the bottom edge. On the left the great tree's crown cap breaks the sea, the same tree as the title's (scripts/art/placeholders/title_giants.gd): one even dome centred on its trunk at x 100, its top at y 156, about 180 px wide where it meets the cloud at y 188, leaf clusters each with a lit top arc, in the morning's greens, lit from the east (the right), hazed a little toward the sky; cloud laps round its foot. No building and no town: the town is under the clouds and nothing stands by the Tower. Sky only, no tower or lamp painted in: the scene draws the Tower, the lamp and its glow over it. It does not scroll.",
 			"census": "new",
 			"checks": [
 				"C1",
@@ -1860,15 +1947,16 @@
 			"kind": "backdrop",
 			"lane": "S",
 			"legacy": "",
-			"light": "upper_left",
-			"notes": "shown only during the Tower scene, behind the town's world, above the area's top edge",
+			"light": "right",
+			"notes": "shown only during the Tower scene, behind the town's world, above the area's top edge (the whole view from the second leg of the climb to the hold); the placeholder is the vast-scale mock (final_mocks.py hold_backdrop, exported to assets/placeholders/tower_sky.png); the climb still runs up TowerParts' 30-tile tower, so the cloud sea shows behind its drum and Reel Deck until the town's Tower is redesigned and the reveal retimed; names are working labels",
 			"outline": "none",
 			"owner": "codex",
 			"palette": {
-				"family": "dawn",
+				"exact": true,
+				"family": "vast_sky",
 				"lock": false,
 				"max": 32,
-				"source": "res://assets/slots/palettes/dawn.png"
+				"source": "res://assets/slots/palettes/vast_sky.png"
 			},
 			"place_at": [
 				0,
@@ -1885,6 +1973,9 @@
 				216
 			],
 			"slot_file": "route",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1945,6 +2036,9 @@
 				216
 			],
 			"slot_file": "story",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -1952,6 +2046,79 @@
 				]
 			},
 			"status": "keep",
+			"tiling": "none"
+		},
+		"title.backdrop.highbank": {
+			"alpha": "opaque",
+			"anchor": [
+				0,
+				0
+			],
+			"anchor_mode": "top_left",
+			"anchors": {
+				"door": [
+					333,
+					160
+				],
+				"shade_end": [
+					312,
+					50
+				]
+			},
+			"area": "title",
+			"brief": "Highbank seen from across the river at the golden hour, the old title village's time of day and mood. Layout A of docs/design/vast-scale-2026-10-27/VAST_SCALE_DESIGN.md (the target is this slot's placeholder; the mock final/title_1x.png there still has the older off-centre crown and floating root). The Wayline Tower is the hero at its full 480 tiles, so only its foot fits: the round Stack (2.6 px a tile, west face at x 313) runs off the top and the right edge and comes down to Tower Rise on its two plinth steps (x 289 and 302 to the edge, foot on row 167), with brass rails on the ledges, the doors at the top of the Rise stair (x 327 to 339), the Low Reel deck at y 80 with its ring (no cables leave it here), and the great tree's root coming up out of the Rise at the first step's west corner, short roots gripping the ground either side, then up the steps and the Stack's west face off the top; no lamp in frame. Behind the town the great tree with its whole crown, one even dome centred on its trunk (x 130 to 288, top y 6), a short stretch of trunk and four limbs under it spreading both ways, painted only over sky and far hills, lit low from the west. Below, along the bluff, the edge of the woods and no buildings at all (the Tower stands alone; Preston, 2026-10-29), the Crossroads and the Rise stair under the Tower's doors, no waylines, cables or posts (Preston, 2026-10-29: \"get rid of those wires too\"), the bluff face with the switchbacks and the ferry dock, and the river in front. Keep the sky calm behind the wordmark (x 90 to 295, y 0 to 52; the crown there is only its dark body and a 1 px rim) and keep the Stack right of x 312, where the title's canopy shade stops; paint everything right of x 312 above row 50 already shaded (the sky one band darker, the Stack and root about x0.62) so it meets the shaded sky with no edge; the lower left (x 0 to 140, y 100 down) sits under the menu and its dark wash, so keep it quiet. No text.",
+			"census": "T16",
+			"checks": [
+				"C1",
+				"C2",
+				"C3",
+				"C5",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/title/backdrop/highbank.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frames": 1,
+			"id": "title.backdrop.highbank",
+			"kind": "backdrop",
+			"lane": "codex-wire",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "Placeholder (layout A, Preston 2026-10-28): the giant Tower's foot and the great tree painted in code by title_giants.gd from the vast-scale mock's numbers; the house slot pictures shrunk to 0.225 and placed from the Street's area data; sky, hills, bluff and river painted in code (45 colours, PALETTE in the painter). The old shrunken tower blockout is no longer drawn here. The tower names are working labels.",
+			"outline": "none",
+			"owner": "codex",
+			"palette": {
+				"family": "highbank_title",
+				"lock": false,
+				"max": 48,
+				"source": "res://assets/slots/palettes/highbank_title.png"
+			},
+			"placeholder": "res://scripts/art/placeholders/title_highbank.gd:paint",
+			"rows": 1,
+			"sheet_size": [
+				384,
+				216
+			],
+			"size": [
+				384,
+				216
+			],
+			"slot_file": "title",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "installed",
 			"tiling": "none"
 		},
 		"title.backdrop.launch": {
@@ -1985,7 +2152,7 @@
 			"lane": "codex-wire",
 			"legacy": "",
 			"light": "upper_left",
-			"notes": "today a flat #161f1b fill (opening_flow.gd:21); placeholder: that fill in 3 stepped bands",
+			"notes": "today a flat #18172c fill (opening_flow.gd:27); placeholder: that fill in 3 stepped bands",
 			"outline": "none",
 			"owner": "codex",
 			"palette": {
@@ -2005,6 +2172,9 @@
 				216
 			],
 			"slot_file": "title",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -2013,7 +2183,7 @@
 			},
 			"status": "placeholder",
 			"tiling": "none",
-			"tint": "#161f1b"
+			"tint": "#18172c"
 		},
 		"title.backdrop.village": {
 			"alpha": "opaque",
@@ -2046,7 +2216,7 @@
 			"lane": "codex-wire",
 			"legacy": "res://assets/sprites/menu/creature_village_2026_10_09.png",
 			"light": "upper_left",
-			"notes": "drawn at 4.5x, not a whole scale (Preston call 8)",
+			"notes": "drawn at 4.5x, not a whole scale (Preston call 8). Retired from the title 2026-10-27; kept as the reference for a future town on another map (Preston). The title now draws title.backdrop.highbank.",
 			"outline": "none",
 			"owner": "codex",
 			"palette": {
@@ -2066,6 +2236,9 @@
 				144
 			],
 			"slot_file": "title",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -2128,6 +2301,9 @@
 				9
 			],
 			"slot_file": "title",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -2141,25 +2317,25 @@
 			"alpha": "binary",
 			"anchor": [
 				150,
-				575
+				191
 			],
 			"anchor_mode": "foot",
 			"anchors": {
+				"apex": [
+					117,
+					-527
+				],
 				"beacon": [
 					150,
-					8
+					-410
 				],
 				"door_mid": [
 					150,
-					542
-				],
-				"lantern": [
-					150,
-					80
+					158
 				]
 			},
 			"area": "town",
-			"brief": "The Wayline Tower, the couriers' landmark: a tall river-stone tower on a wide base with a double door, rising more than two and a half screens to a signal lantern on a beacon mast, so the whole town can see it. Keep the placeholder's stages (BuildingTemplate.TOWER_STAGES): base with terrace roof, shaft, lamp gallery, lantern room, cap, mast with the beacon at (150, 8).",
+			"brief": "The Wayline Tower's depot, the door part (read TOWER_DESIGN.md and the key, town.building.hall.key, first): the wide ground storey the tower stands on. Its roof deck seen from above (mostly under the drum) with a skylight, crates, an oilcloth stack and the mess chimney; a parapet lip; a limestone and loess-brick front on a boulder footing; the runners' porch on the left under a moss awning (satchel hooks, one empty, a bench, a round window); the First Post, an old relay stone worn pale by partners' hands, in the left jamb; the grand arch with its three-route fan-light and the 48 x 64 double door; and on the right the loading bay under its canopy, a chute bin, a burrow hatch and high-water cuts. Lit from the upper left, wayline_tower palette, no outer outline.",
 			"building_class": "hall",
 			"census": "B01",
 			"checks": [
@@ -2177,17 +2353,21 @@
 			],
 			"door_px": [
 				126,
-				510,
+				126,
 				48,
 				64
 			],
 			"drawn_at": 3,
-			"edges": "bottom",
+			"edges": "all",
 			"file": "res://assets/slots/town/building/hall.png",
 			"forbid": [
 				"text",
 				"creature",
 				"franchise"
+			],
+			"frame_at": [
+				66,
+				528
 			],
 			"frames": 1,
 			"id": "town.building.hall",
@@ -2201,7 +2381,7 @@
 				144
 			],
 			"light": "upper_left",
-			"notes": "canon 2026-10-26: the Hall is the Wayline Tower (ids unchanged); base 12x3 and doors kept, at least 540 px tall (576 = 24 tiles); door 48 wide so Galeshear (63 px wide) passes C11; open frames come from door_px when absent; legacy_v1 is the v1 picture",
+			"notes": "2026-10-27 approved tower (Reach and Waiting Lamp, defaults): this row is now the 300 x 192 depot at frame (66, 528) of the 432 x 720 tower; the other parts are scripts/art/slots/town_tower.gd. The 300 x 576 single-picture tower and Codex's cx-01 hall candidate (and the old 240 x 144 Hall) are superseded. beacon and apex are in the depot's px, above its top (negative y), so the reveal finds the lamp. Base 12x3 and doors kept; door 48 wide so Galeshear (63 px wide) passes C11; open frames come from door_px; legacy_v1 is still the v1 picture.",
 			"optional_states": {
 				"open": [
 					3,
@@ -2211,23 +2391,26 @@
 			"outline": "runtime_rim",
 			"owner": "codex",
 			"palette": {
-				"family": "town_stone",
-				"lock": false,
+				"family": "wayline_tower",
+				"lock": true,
 				"max": 32,
-				"source": "res://assets/slots/palettes/town_stone.png"
+				"source": "res://assets/slots/palettes/wayline_tower.png"
 			},
 			"pass_creature": "galeshear",
-			"placeholder": "res://scripts/town/building_template.gd:paint_slot",
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
 			"rows": 1,
 			"sheet_size": [
 				300,
-				576
+				192
 			],
 			"size": [
 				300,
-				576
+				192
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"closed"
+			],
 			"states": {
 				"closed": [
 					1,
@@ -2237,16 +2420,1166 @@
 			"status": "placeholder",
 			"tiling": "none"
 		},
+		"town.building.hall.bell": {
+			"alpha": "binary",
+			"anchor": [
+				0,
+				0
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). Stillwade's flood bell off the deck's left end: a timber gallows with a moss-topped hood, the bronze bell on an iron yoke, and its rope hanging down. Swing moves the bell and rope 2 px each way over 4 frames.",
+			"census": "WT11",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_bell.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frame_at": [
+				40,
+				232
+			],
+			"frames": 4,
+			"id": "town.building.hall.bell",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 12 (batch cx-14)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 2,
+			"sheet_size": [
+				224,
+				180
+			],
+			"size": [
+				56,
+				90
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"rest",
+				"swing"
+			],
+			"states": {
+				"rest": [
+					1,
+					0
+				],
+				"swing": [
+					4,
+					8
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.chute": {
+			"alpha": "binary",
+			"anchor": [
+				0,
+				0
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The parcel chute: a timber trough with brass edges and iron brackets running from the galleries' walkway down the drum's front right to a bin on the depot's deck, with a parcel waiting at the spout. An overlay that hides the right-hand seams.",
+			"census": "WT05",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_chute.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frame_at": [
+				244,
+				336
+			],
+			"frames": 1,
+			"id": "town.building.hall.chute",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 6; the sliding parcel is coded (batch cx-13)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 1,
+			"sheet_size": [
+				88,
+				290
+			],
+			"size": [
+				88,
+				290
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.drum": {
+			"alpha": "binary",
+			"anchor": [
+				0,
+				0
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The Sorting Drum: the cream river-stone cylinder on the depot's deck, its own contact shadow on that deck, a root-beam ring, three round lit windows, the 6 x 3 sorting-cubby wall (two dark and empty), the hoist door on its right flank, moss on the lower courses, and its round deck seen from above with a working landing (rail, crate, parcel) on the right.",
+			"census": "WT01",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_drum.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frame_at": [
+				104,
+				368
+			],
+			"frames": 1,
+			"id": "town.building.hall.drum",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 2; overlaps the depot's roof deck and owns that seam (batch cx-13)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 1,
+			"sheet_size": [
+				225,
+				236
+			],
+			"size": [
+				225,
+				236
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.gable": {
+			"alpha": "binary",
+			"anchor": [
+				0,
+				0
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The Route Board gable over the arch: an arched stone gable with a moss lip and brick ends, holding a brass board with three waymark arms meeting at a knot and 8 dark peg sockets (two and three along the arms, one at the knot). Paint the sockets dark: the game lights the pegs.",
+			"census": "WT06",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_gable.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frame_at": [
+				164,
+				560
+			],
+			"frames": 1,
+			"id": "town.building.hall.gable",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 7; peg sockets at TowerParts.route_pegs() (batch cx-12)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 1,
+			"sheet_size": [
+				104,
+				53
+			],
+			"size": [
+				104,
+				53
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.galleries": {
+			"alpha": "binary",
+			"anchor": [
+				0,
+				0
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The Galleries: a timber-and-plaster drum set left of the stone drum, stone under the plaster, timber bands and posts, five round shuttered lit windows in a 2-1-2 pattern, the timber walkway wrapping the front right where the parcel chute starts, two empty flyer landing boards and a brass ring perch on the left face, and its deck.",
+			"census": "WT03",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_galleries.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frame_at": [
+				88,
+				252
+			],
+			"frames": 1,
+			"id": "town.building.hall.galleries",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 4; owns its seam on the drum's deck (batch cx-13)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 1,
+			"sheet_size": [
+				217,
+				206
+			],
+			"size": [
+				217,
+				206
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.hoist": {
+			"alpha": "binary",
+			"anchor": [
+				0,
+				0
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The hoist jib out of the drum's right flank: a root-wood stub, a timber arm with iron straps, a diagonal brace and the brass pulley block at its end. Two frames turn the pulley's sheave while the rope runs (the rope and basket are coded).",
+			"census": "WT02",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_hoist.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frame_at": [
+				304,
+				460
+			],
+			"frames": 2,
+			"id": "town.building.hall.hoist",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 3; the rope hangs from TowerParts.PULLEY (batch cx-13)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 1,
+			"sheet_size": [
+				176,
+				56
+			],
+			"size": [
+				88,
+				56
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"turn"
+			],
+			"states": {
+				"turn": [
+					2,
+					4
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.key": {
+			"alpha": "binary",
+			"anchor": [
+				108,
+				359
+			],
+			"anchor_mode": "foot",
+			"area": "town",
+			"brief": "The whole Wayline Tower at half size (432 x 720 shown as 216 x 360): the style key every part is painted to. A rooted river-stone tower built in eras round a living root, the Reach, that climbs the left face and curls over the top to hold the Waiting Lamp on its chain right above the double door. Match the blockout's layout and silhouette exactly; settle materials, light and the shading columns here once.",
+			"census": "WT00",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_key.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frames": 1,
+			"id": "town.building.hall.key",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "refs only: never installed and never placed; the parts are painted to it (batch cx-11)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 41,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 1,
+			"sheet_size": [
+				216,
+				360
+			],
+			"size": [
+				216,
+				360
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.lamp": {
+			"alpha": "binary",
+			"anchor": [
+				0,
+				0
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The Waiting Lamp on its short chain from the Reach's hook: the bail, a vented brass cap, amber panes with a centre bar, and the drip pan. The glass centre is the beacon (frame 216, 118). Lit flickers over 4 frames (the hot pane changes shape); dark is cold glass with one glint. The glow and the sway are coded.",
+			"census": "WT12",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_lamp.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frame_at": [
+				200,
+				92
+			],
+			"frames": 4,
+			"id": "town.building.hall.lamp",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 13; TowerParts.BEACON (batch cx-14)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 2,
+			"sheet_size": [
+				128,
+				84
+			],
+			"size": [
+				32,
+				42
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"lit",
+				"dark"
+			],
+			"states": {
+				"dark": [
+					1,
+					0
+				],
+				"lit": [
+					4,
+					8
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.reach": {
+			"alpha": "binary",
+			"anchor": [
+				0,
+				0
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The Reach: the living root rising through the deck's moss collar with a gentle S and a flared foot, then curling over to the right like a shepherd's crook to hold the lamp's chain on the door axis (the hook at frame 216, 96). Rootlets binding the loft, three knots, moss on the lit side and along the top of the curl, three worn brass bands, two small leaf tufts and the chain hook. The curl tapers as it turns down to the hook (about 24 px thick leaving the shaft, 13 at the hook) and carries two worn brass lashings square across it and two knots, so it reads as the same tended root and never as a bent pipe.",
+			"census": "WT08",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_reach.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frame_at": [
+				128,
+				24
+			],
+			"frames": 1,
+			"id": "town.building.hall.reach",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 9 (batch cx-14)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 1,
+			"sheet_size": [
+				104,
+				300
+			],
+			"size": [
+				104,
+				300
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.reel_back": {
+			"alpha": "binary",
+			"anchor": [
+				0,
+				0
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The Reel Deck ring's back half (planks, radial joints, the back rail) and the dispatcher's loft standing in its middle: timber and brass, one big round lit window with three spokes, under a moss dome.",
+			"census": "WT07",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_reel_back.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frame_at": [
+				88,
+				198
+			],
+			"frames": 1,
+			"id": "town.building.hall.reel_back",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 8 (batch cx-14)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 1,
+			"sheet_size": [
+				225,
+				93
+			],
+			"size": [
+				225,
+				93
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.ring_front": {
+			"alpha": "binary",
+			"anchor": [
+				0,
+				0
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The Reel Deck ring's front half: planks, the rim face with its brass band, the front rail at creature hip height, the 7 brass sheaves where the waylines tie off (TowerParts.sheave), and the moss collar where the Reach rises. Leave the loft's footprint clear.",
+			"census": "WT09",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_ring_front.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frame_at": [
+				84,
+				286
+			],
+			"frames": 1,
+			"id": "town.building.hall.ring_front",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 10 (batch cx-14)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 1,
+			"sheet_size": [
+				232,
+				60
+			],
+			"size": [
+				232,
+				60
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.root_foot": {
+			"alpha": "binary",
+			"anchor": [
+				48,
+				119
+			],
+			"anchor_mode": "foot",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The Great Root buttress, the tower's left ground wing: the root arching out of the turf onto the depot's left corner where the Climb starts, rootlets into the turf, treads, knots, moss and a stone at its foot.",
+			"census": "WT14",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_root_foot.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frame_at": [
+				0,
+				600
+			],
+			"frames": 1,
+			"id": "town.building.hall.root_foot",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 15; ground layer, sorts one step in front of the body (batch cx-12)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 1,
+			"sheet_size": [
+				96,
+				120
+			],
+			"size": [
+				96,
+				120
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.root_vein": {
+			"alpha": "binary",
+			"anchor": [
+				0,
+				0
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The Climb: the living root running up the tower's left face in three runs, with worn treads every few px, rootlets gripping the stone, two knots, ink lips where it dives into the stone, and moss. An overlay that hides the depot to drum and drum to galleries seams on the left.",
+			"census": "WT04",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_root_vein.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frame_at": [
+				80,
+				326
+			],
+			"frames": 1,
+			"id": "town.building.hall.root_vein",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 5 (batch cx-13)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 1,
+			"sheet_size": [
+				60,
+				296
+			],
+			"size": [
+				60,
+				296
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.route_lantern": {
+			"alpha": "binary",
+			"anchor": [
+				6,
+				0
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). A route lantern: a small brass hand lantern hung by its ring, one under each of the seven sheaves. Lit flickers over 3 frames; dark is unlit glass while the route is idle; quiet is dusty grey glass with no wick for the route that went quiet (an absence, never a ghost).",
+			"census": "WT10",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": [
+				"top"
+			],
+			"file": "res://assets/slots/town/building/hall_route_lantern.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frames": 3,
+			"id": "town.building.hall.route_lantern",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 11; seven are hung at TowerParts.lantern_at(i), states from the story (Grok's set)",
+			"outline": "runtime_rim",
+			"owner": "grok",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 24,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 3,
+			"sheet_size": [
+				36,
+				60
+			],
+			"size": [
+				12,
+				20
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"lit",
+				"dark",
+				"quiet"
+			],
+			"states": {
+				"dark": [
+					1,
+					0
+				],
+				"lit": [
+					3,
+					6
+				],
+				"quiet": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.vane": {
+			"alpha": "binary",
+			"anchor": [
+				0,
+				0
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The three-arm route vane at the apex (its tip is the tower's top, frame 183, 1) with a teal courier pennant and its fold, which lifts and drops 1 px over 4 frames.",
+			"census": "WT13",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_vane.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frame_at": [
+				164,
+				0
+			],
+			"frames": 4,
+			"id": "town.building.hall.vane",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 14; TowerParts.APEX (batch cx-14)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 1,
+			"sheet_size": [
+				192,
+				44
+			],
+			"size": [
+				48,
+				44
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"flutter"
+			],
+			"states": {
+				"flutter": [
+					4,
+					6
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.building.hall.yard": {
+			"alpha": "binary",
+			"anchor": [
+				36,
+				103
+			],
+			"anchor_mode": "foot",
+			"area": "town",
+			"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The hoist yard, the tower's right ground wing: a timber dock on legs with the capstan winch (its handle swings over 2 frames while the rope runs), parcels, a crate, a barrow wheel and a barrel with a teal lid.",
+			"census": "WT15",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/building/hall_yard.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frame_at": [
+				360,
+				616
+			],
+			"frames": 2,
+			"id": "town.building.hall.yard",
+			"kind": "building",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 16; ground layer (batch cx-12)",
+			"outline": "runtime_rim",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 1,
+			"sheet_size": [
+				144,
+				104
+			],
+			"size": [
+				72,
+				104
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"winch"
+			],
+			"states": {
+				"winch": [
+					2,
+					4
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
 		"town.building.home": {
 			"alpha": "binary",
 			"anchor": [
 				66,
-				143
+				191
 			],
 			"anchor_mode": "foot",
 			"area": "town",
-			"brief": "The team's home: a low river-stone cottage with a moss roof, a framed door with warm lamplight inside and a step in front.",
-			"building_class": "cottage",
+			"brief": "The team's home, dug into the river bluff: a broad grass bank is the roof (the top two thirds of the picture), lit on its crown, a stovepipe standing out of the turf right of centre. Under the turf's hanging lip, a short face of river stone between the bank's grassy flanks: a round lit window either side, the arched doorway under a thick stone ring that cuts up into the turf, a lantern hung by the door, a tied parcel waiting under the right window (a courier team lives here), a flat stone step. Seen from above and in front like the trading post; no cottage walls, no tiled roof.",
+			"building_class": "burrow",
 			"census": "B02",
 			"checks": [
 				"C1",
@@ -2263,7 +3596,7 @@
 			],
 			"door_px": [
 				55,
-				94,
+				142,
 				22,
 				48
 			],
@@ -2287,7 +3620,7 @@
 				120
 			],
 			"light": "upper_left",
-			"notes": "open frames come from door_px when absent; legacy_v1 is the v1 picture",
+			"notes": "Claude, 2026-10-29: the burrow class (5x3 base, 132x192, door Rect2i(55, 142, 22, 48)), Home dug into the bluff per docs/design/town-map-2026-10-28/TOWN_MAP.md; it replaces the cottage brief (132x144), so Codex's cx-01 home candidate is superseded. The doorway stays dark inside door_px (the game draws the leaves); open frames come from door_px when absent; legacy_v1 is the v1 picture.",
 			"optional_states": {
 				"open": [
 					3,
@@ -2307,20 +3640,23 @@
 			"rows": 1,
 			"sheet_size": [
 				132,
-				144
+				192
 			],
 			"size": [
 				132,
-				144
+				192
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"closed"
+			],
 			"states": {
 				"closed": [
 					1,
 					0
 				]
 			},
-			"status": "placeholder",
+			"status": "installed",
 			"tiling": "none"
 		},
 		"town.building.lot_before_shop": {
@@ -2379,6 +3715,9 @@
 				144
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -2444,6 +3783,9 @@
 				120
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -2530,6 +3872,9 @@
 				144
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"closed"
+			],
 			"states": {
 				"closed": [
 					1,
@@ -2542,13 +3887,13 @@
 		"town.building.shop": {
 			"alpha": "binary",
 			"anchor": [
-				78,
-				143
+				102,
+				191
 			],
 			"anchor_mode": "foot",
 			"area": "town",
-			"brief": "The Item Shop: a plank-walled shopfront with a gable roof and an awning over the door, where berries, lamp oil and stones are sold.",
-			"building_class": "shop",
+			"brief": "Swaphoard's Item Shop, a hoarder's trading post, seen from above at three quarters the way the whole town is: ROOF FIRST. A clay-tile hip roof takes the top two thirds (128 of 192 px), its back plane past the ridge lit and narrowing away, a loft dormer in the front plane with a hoist beam and a crate hanging over the tiles, a tied sack on the ridge for the trade, a chimney on the back plane. Under a deep eave shadow, a short plank front (the bottom 64 px) on a stone sill: a shuttered window left, the door on base column 3 exactly at door_px, and an open counter right under a striped awning with stock on its sill. No goods heaps in the picture: the tables and crates out front are separate dooryard props. Lit from the upper left, 1 px dark outline.",
+			"building_class": "trading_post",
 			"census": "B03",
 			"checks": [
 				"C1",
@@ -2564,8 +3909,8 @@
 				"C9"
 			],
 			"door_px": [
-				55,
-				94,
+				79,
+				142,
 				22,
 				48
 			],
@@ -2589,7 +3934,7 @@
 				120
 			],
 			"light": "upper_left",
-			"notes": "open frames come from door_px when absent; legacy_v1 is the v1 picture",
+			"notes": "Claude, 2026-10-28: the trading_post class (8x3 base, 204x192, door Rect2i(79, 142, 22, 48)), roof first after measuring Explorers of Sky's town (docs/design/town-map-2026-10-28/TOWN_SYNTHESIS.md); it replaced the lean_to of the same morning. The cx-01 box and the lean_to are both superseded.",
 			"optional_states": {
 				"open": [
 					3,
@@ -2608,21 +3953,24 @@
 			"placeholder": "res://scripts/town/building_template.gd:paint_slot",
 			"rows": 1,
 			"sheet_size": [
-				156,
-				144
+				204,
+				192
 			],
 			"size": [
-				156,
-				144
+				204,
+				192
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"closed"
+			],
 			"states": {
 				"closed": [
 					1,
 					0
 				]
 			},
-			"status": "placeholder",
+			"status": "installed",
 			"tiling": "none"
 		},
 		"town.building.storage": {
@@ -2702,6 +4050,9 @@
 				144
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"closed"
+			],
 			"states": {
 				"closed": [
 					1,
@@ -2763,6 +4114,9 @@
 				24
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -2824,6 +4178,9 @@
 				24
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -2885,6 +4242,9 @@
 				192
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -2946,6 +4306,9 @@
 				192
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3007,6 +4370,9 @@
 				192
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3068,6 +4434,9 @@
 				96
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3129,6 +4498,9 @@
 				72
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3197,6 +4569,10 @@
 				48
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"unlit",
+				"lit"
+			],
 			"states": {
 				"lit": [
 					1,
@@ -3263,6 +4639,9 @@
 				48
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3325,6 +4704,9 @@
 				72
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3387,6 +4769,9 @@
 				108
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3449,6 +4834,9 @@
 				96
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3511,6 +4899,9 @@
 				96
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3573,6 +4964,9 @@
 				48
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3641,6 +5035,9 @@
 				120
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3703,6 +5100,9 @@
 				120
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3767,6 +5167,9 @@
 				28
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3831,6 +5234,9 @@
 				32
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3895,6 +5301,9 @@
 				52
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -3959,6 +5368,9 @@
 				32
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4023,6 +5435,9 @@
 				120
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4088,6 +5503,9 @@
 				32
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4096,6 +5514,73 @@
 			},
 			"status": "placeholder",
 			"style_ref": "res://assets/sprites/world/hall_floors_2026_10_11/window_wide.png",
+			"tiling": "none"
+		},
+		"town.prop.crate_stack": {
+			"alpha": "binary",
+			"anchor": [
+				12,
+				39
+			],
+			"anchor_mode": "foot",
+			"area": "town",
+			"brief": "Two wooden crates stacked against a wall with a tied sack on top, one tile, the top crate set back so the stack reads from above. Lit from the upper left, 1 px dark outline.",
+			"census": "F03",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "bottom",
+			"file": "res://assets/slots/town/prop/crate_stack.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frames": 1,
+			"id": "town.prop.crate_stack",
+			"kind": "prop",
+			"lane": "C",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "Claude, 2026-10-28: a dooryard piece (docs/design/town-map-2026-10-28/TOWN_SYNTHESIS.md), first in the Item Shop's; 1 x 1 tile, solid",
+			"outline": "drawn",
+			"owner": "grok",
+			"palette": {
+				"family": "town_timber",
+				"lock": false,
+				"max": 24,
+				"source": "res://assets/slots/palettes/town_timber.png"
+			},
+			"placeholder": "res://scripts/art/placeholders/street_props.gd:crate_stack",
+			"rows": 1,
+			"sheet_size": [
+				24,
+				40
+			],
+			"size": [
+				24,
+				40
+			],
+			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
 			"tiling": "none"
 		},
 		"town.prop.crates": {
@@ -4153,6 +5638,9 @@
 				24
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4220,6 +5708,9 @@
 				24
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4289,6 +5780,9 @@
 				24
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4357,6 +5851,9 @@
 				24
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4365,6 +5862,214 @@
 			},
 			"status": "placeholder",
 			"tiling": "v"
+		},
+		"town.prop.forest_trunk": {
+			"alpha": "binary",
+			"anchor": [
+				24,
+				95
+			],
+			"anchor_mode": "foot",
+			"area": "town",
+			"brief": "One trunk of the old forest round the great tree, on the Great Tree Path: thick dark bark with deep furrows, moss on its lit left side, a foot of flared roots gripping the ground two tiles wide, and the dark underside of the canopy closing over the top of the sheet. No ground shadow: the game draws it.",
+			"census": "F01",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "bottom",
+			"file": "res://assets/slots/town/prop/forest_trunk.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frames": 1,
+			"id": "town.prop.forest_trunk",
+			"kind": "prop",
+			"lane": "C",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "Claude, 2026-10-28: the forest interior (docs/design/town-map-2026-10-28/TOWN_MAP.md); 2 x 1 tiles, solid",
+			"outline": "drawn",
+			"owner": "grok",
+			"palette": {
+				"family": "town_timber",
+				"lock": false,
+				"max": 24,
+				"source": "res://assets/slots/palettes/town_timber.png"
+			},
+			"placeholder": "res://scripts/art/placeholders/street_props.gd:forest_trunk",
+			"rows": 1,
+			"sheet_size": [
+				48,
+				96
+			],
+			"size": [
+				48,
+				96
+			],
+			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.prop.goods_table": {
+			"alpha": "binary",
+			"anchor": [
+				24,
+				39
+			],
+			"anchor_mode": "foot",
+			"area": "town",
+			"brief": "A trestle table of the Item Shop's stock, two tiles wide, seen from above so its top shows deep: a basket of red berries, three jars of lamp oil, a heap of pale stones. Legs to the ground, lit from the upper left, 1 px dark outline.",
+			"census": "F02",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "bottom",
+			"file": "res://assets/slots/town/prop/goods_table.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frames": 1,
+			"id": "town.prop.goods_table",
+			"kind": "prop",
+			"lane": "C",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "Claude, 2026-10-28: a dooryard piece (docs/design/town-map-2026-10-28/TOWN_SYNTHESIS.md), first in the Item Shop's; 2 x 1 tiles, solid",
+			"outline": "drawn",
+			"owner": "grok",
+			"palette": {
+				"family": "town_timber",
+				"lock": false,
+				"max": 24,
+				"source": "res://assets/slots/palettes/town_timber.png"
+			},
+			"placeholder": "res://scripts/art/placeholders/street_props.gd:goods_table",
+			"rows": 1,
+			"sheet_size": [
+				48,
+				40
+			],
+			"size": [
+				48,
+				40
+			],
+			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.prop.hall.basket": {
+			"alpha": "binary",
+			"anchor": [
+				8,
+				0
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "The hoist basket hung from its rope by the top middle: a wicker basket on two rope slings, carrying an oilcloth parcel when full. No outer outline (the game rims it). wayline_tower palette.",
+			"census": "WT18",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": [
+				"top"
+			],
+			"file": "res://assets/slots/town/prop/hall_basket.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frames": 1,
+			"id": "town.prop.hall.basket",
+			"kind": "prop",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 19; rides the hoist rope, about 10 s a round trip (Grok's set)",
+			"outline": "runtime_rim",
+			"owner": "grok",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 24,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 2,
+			"sheet_size": [
+				16,
+				32
+			],
+			"size": [
+				16,
+				16
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"full",
+				"empty"
+			],
+			"states": {
+				"empty": [
+					1,
+					0
+				],
+				"full": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
 		},
 		"town.prop.hall.bench": {
 			"alpha": "binary",
@@ -4421,6 +6126,9 @@
 				70
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4485,6 +6193,9 @@
 				42
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4492,6 +6203,80 @@
 				]
 			},
 			"status": "keep",
+			"tiling": "none"
+		},
+		"town.prop.hall.cradle": {
+			"alpha": "binary",
+			"anchor": [
+				6,
+				2
+			],
+			"anchor_mode": "top_left",
+			"area": "town",
+			"brief": "A cradle riding a wayline: a brass trolley wheel on the cable (its middle is the hang point), a twine sling and an oilcloth parcel (none when empty). The sling sways 1 px over 2 frames. No outer outline (the game rims it). wayline_tower palette.",
+			"census": "WT19",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": [
+				"top"
+			],
+			"file": "res://assets/slots/town/prop/hall_cradle.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frames": 2,
+			"id": "town.prop.hall.cradle",
+			"kind": "prop",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 20; one rides each strung line about every 12 s (Grok's set)",
+			"outline": "runtime_rim",
+			"owner": "grok",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 24,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 2,
+			"sheet_size": [
+				24,
+				28
+			],
+			"size": [
+				12,
+				14
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"loaded",
+				"empty"
+			],
+			"states": {
+				"empty": [
+					2,
+					4
+				],
+				"loaded": [
+					2,
+					4
+				]
+			},
+			"status": "placeholder",
 			"tiling": "none"
 		},
 		"town.prop.hall.desk": {
@@ -4549,6 +6334,9 @@
 				52
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4613,6 +6401,9 @@
 				32
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4620,6 +6411,78 @@
 				]
 			},
 			"status": "keep",
+			"tiling": "none"
+		},
+		"town.prop.hall.parcel": {
+			"alpha": "binary",
+			"anchor": [
+				5,
+				7
+			],
+			"anchor_mode": "foot",
+			"area": "town",
+			"brief": "A parcel sliding down the tower's chute: oilcloth with a moss-green top, or brown paper, tied with twine. No outer outline (the game rims it). wayline_tower palette.",
+			"census": "WT20",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/prop/hall_parcel.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frames": 1,
+			"id": "town.prop.hall.parcel",
+			"kind": "prop",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 21; one slides down the chute every 12 to 20 s (Grok's set)",
+			"outline": "runtime_rim",
+			"owner": "grok",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 24,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 2,
+			"sheet_size": [
+				10,
+				16
+			],
+			"size": [
+				10,
+				8
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"oilcloth",
+				"paper"
+			],
+			"states": {
+				"oilcloth": [
+					1,
+					0
+				],
+				"paper": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
 			"tiling": "none"
 		},
 		"town.prop.hall.parcels": {
@@ -4677,6 +6540,9 @@
 				26
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4741,6 +6607,9 @@
 				46
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4805,6 +6674,9 @@
 				42
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4812,6 +6684,156 @@
 				]
 			},
 			"status": "keep",
+			"tiling": "none"
+		},
+		"town.prop.hall.rise_stair": {
+			"alpha": "binary",
+			"anchor": [
+				24,
+				95
+			],
+			"anchor_mode": "foot",
+			"area": "town",
+			"brief": "The painted stair up Tower Rise's south cliff, two tiles wide and four tall: eight worn stone steps, roots through two risers and the three-route mark inlaid in the top step as a shape. Replaces the coded steps at tile (12, 9). wayline_tower palette.",
+			"census": "WT17",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "all",
+			"file": "res://assets/slots/town/prop/hall_rise_stair.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frames": 1,
+			"id": "town.prop.hall.rise_stair",
+			"kind": "prop",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 18 (batch cx-12). Outline: drawn, the prop default, kept in pass 9 (W8): Codex's cx-12 candidate draws its own 1 px ink sides, and the town's prop builder puts no runtime rim on props.",
+			"outline": "drawn",
+			"owner": "codex",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 32,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 1,
+			"sheet_size": [
+				48,
+				96
+			],
+			"size": [
+				48,
+				96
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.prop.hall.wayline_post": {
+			"alpha": "binary",
+			"anchor": [
+				12,
+				63
+			],
+			"anchor_mode": "foot",
+			"anchors": {
+				"pulley": [
+					12,
+					7
+				]
+			},
+			"area": "town",
+			"brief": "A wayline post where a cable from the tower comes down to the ground: a boulder foot, a timber post, a brass plate with the three-route mark as a shape (no letters), a brass pulley at the top (the cable ties to it) and a small lantern on a hook. Strung: lantern lit; waiting: unlit; quiet: dusty grey glass. wayline_tower palette.",
+			"census": "WT16",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "bottom",
+			"file": "res://assets/slots/town/prop/hall_wayline_post.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frames": 1,
+			"id": "town.prop.hall.wayline_post",
+			"kind": "prop",
+			"lane": "T",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "order 17; Tower Rise stands two at tiles (2, 10) and (24, 10) (Grok's set). Outline: drawn, the prop default, kept in pass 9 (W8) because the town's prop builder (town_props.gd) puts no runtime rim on props; runtime_rim waits on that.",
+			"outline": "drawn",
+			"owner": "grok",
+			"palette": {
+				"family": "wayline_tower",
+				"lock": true,
+				"max": 24,
+				"source": "res://assets/slots/palettes/wayline_tower.png"
+			},
+			"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+			"rows": 3,
+			"sheet_size": [
+				24,
+				192
+			],
+			"size": [
+				24,
+				64
+			],
+			"slot_file": "town_tower",
+			"state_order": [
+				"strung",
+				"waiting",
+				"quiet"
+			],
+			"states": {
+				"quiet": [
+					1,
+					0
+				],
+				"strung": [
+					1,
+					0
+				],
+				"waiting": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
 			"tiling": "none"
 		},
 		"town.prop.hall_low.banner": {
@@ -4869,6 +6891,9 @@
 				38
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4933,6 +6958,9 @@
 				28
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -4997,6 +7025,9 @@
 				82
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5061,6 +7092,9 @@
 				48
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5125,6 +7159,9 @@
 				18
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5189,6 +7226,9 @@
 				82
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5253,6 +7293,9 @@
 				50
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5317,6 +7360,9 @@
 				46
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5381,6 +7427,9 @@
 				93
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5445,6 +7494,9 @@
 				128
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5509,6 +7561,9 @@
 				52
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5573,6 +7628,9 @@
 				48
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5637,6 +7695,9 @@
 				48
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5701,6 +7762,9 @@
 				82
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5765,6 +7829,9 @@
 				32
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5829,6 +7896,9 @@
 				36
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5893,6 +7963,9 @@
 				24
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -5957,6 +8030,76 @@
 				60
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
+			"states": {
+				"static": [
+					1,
+					0
+				]
+			},
+			"status": "placeholder",
+			"tiling": "none"
+		},
+		"town.prop.rock_cluster": {
+			"alpha": "binary",
+			"anchor": [
+				12,
+				23
+			],
+			"anchor_mode": "foot",
+			"area": "town",
+			"brief": "Three rocks in a cluster, one big and two small, closing the end of a dooryard: weathered river stone, moss in the cracks of the big one. Lit from the upper left, 1 px dark outline.",
+			"census": "F04",
+			"checks": [
+				"C1",
+				"C12",
+				"C2",
+				"C3",
+				"C4",
+				"C5",
+				"C7",
+				"C8",
+				"C9"
+			],
+			"drawn_at": 3,
+			"edges": "bottom",
+			"file": "res://assets/slots/town/prop/rock_cluster.png",
+			"forbid": [
+				"text",
+				"creature",
+				"franchise"
+			],
+			"frames": 1,
+			"id": "town.prop.rock_cluster",
+			"kind": "prop",
+			"lane": "C",
+			"legacy": "",
+			"light": "upper_left",
+			"notes": "Claude, 2026-10-28: a dooryard piece (docs/design/town-map-2026-10-28/TOWN_SYNTHESIS.md), first in the Item Shop's; 1 x 1 tile, solid",
+			"outline": "drawn",
+			"owner": "grok",
+			"palette": {
+				"family": "town_timber",
+				"lock": false,
+				"max": 24,
+				"source": "res://assets/slots/palettes/town_timber.png"
+			},
+			"placeholder": "res://scripts/art/placeholders/street_props.gd:rock_cluster",
+			"rows": 1,
+			"sheet_size": [
+				24,
+				24
+			],
+			"size": [
+				24,
+				24
+			],
+			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6021,6 +8164,9 @@
 				52
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6085,6 +8231,9 @@
 				52
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6149,6 +8298,9 @@
 				22
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6213,6 +8365,9 @@
 				28
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6278,6 +8433,9 @@
 				48
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6342,6 +8500,9 @@
 				32
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6407,6 +8568,9 @@
 				72
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6471,6 +8635,9 @@
 				40
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6535,6 +8702,9 @@
 				48
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6599,6 +8769,9 @@
 				72
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6663,6 +8836,9 @@
 				50
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6727,6 +8903,9 @@
 				36
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6795,6 +8974,9 @@
 				20
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6859,6 +9041,9 @@
 				24
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6923,6 +9108,9 @@
 				24
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -6987,6 +9175,9 @@
 				24
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7051,6 +9242,9 @@
 				24
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7115,6 +9309,9 @@
 				24
 			],
 			"slot_file": "town_buildings",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7179,6 +9376,9 @@
 				40
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7243,6 +9443,9 @@
 				96
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7307,6 +9510,9 @@
 				96
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7371,6 +9577,9 @@
 				60
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7435,6 +9644,9 @@
 				48
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7499,6 +9711,9 @@
 				32
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7563,6 +9778,9 @@
 				48
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7627,6 +9845,9 @@
 				56
 			],
 			"slot_file": "town_street",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7688,6 +9909,9 @@
 				192
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7749,6 +9973,9 @@
 				192
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7810,6 +10037,9 @@
 				48
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7871,6 +10101,9 @@
 				24
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7932,6 +10165,9 @@
 				192
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -7993,6 +10229,9 @@
 				336
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8054,6 +10293,9 @@
 				360
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8115,6 +10357,9 @@
 				360
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8176,6 +10421,9 @@
 				48
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8237,6 +10485,9 @@
 				24
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8298,6 +10549,9 @@
 				360
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8359,6 +10613,9 @@
 				240
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8420,6 +10677,9 @@
 				168
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8481,6 +10741,9 @@
 				168
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8542,6 +10805,9 @@
 				48
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8603,6 +10869,9 @@
 				24
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8664,6 +10933,9 @@
 				168
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8725,6 +10997,9 @@
 				144
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8786,6 +11061,9 @@
 				144
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8847,6 +11125,9 @@
 				48
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8908,6 +11189,9 @@
 				24
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -8969,6 +11253,9 @@
 				144
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9030,6 +11317,9 @@
 				168
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9091,6 +11381,9 @@
 				168
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9152,6 +11445,9 @@
 				48
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9213,6 +11509,9 @@
 				24
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9274,6 +11573,9 @@
 				168
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9335,6 +11637,9 @@
 				312
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9396,6 +11701,9 @@
 				312
 			],
 			"slot_file": "town_rooms",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9456,6 +11764,9 @@
 				252
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9517,6 +11828,9 @@
 				252
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9577,6 +11891,9 @@
 				252
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9637,6 +11954,9 @@
 				256
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9697,6 +12017,9 @@
 				256
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9757,6 +12080,9 @@
 				252
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9818,6 +12144,9 @@
 				252
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9879,6 +12208,9 @@
 				252
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -9940,6 +12272,9 @@
 				252
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -10001,6 +12336,9 @@
 				252
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -10062,6 +12400,9 @@
 				256
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -10122,6 +12463,9 @@
 				252
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -10189,6 +12533,9 @@
 				36
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -10256,6 +12603,9 @@
 				6
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -10322,6 +12672,9 @@
 				9
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -10388,6 +12741,9 @@
 				24
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,
@@ -10454,6 +12810,9 @@
 				18
 			],
 			"slot_file": "ui",
+			"state_order": [
+				"static"
+			],
 			"states": {
 				"static": [
 					1,

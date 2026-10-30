@@ -21,6 +21,14 @@ const COALESCE := 0.25
 const CLOSE_GRACE_MS := 40   # release()'s wait on a window close (Claude, 2026-10-26, pass 8 U7)
 
 static var _inst: Node = null
+## Work other scripts leave running on threads when the game closes (Claude, 2026-10-27, pass 9 T1 for A9-01 / H9-12).
+## Highbank's warm-up paints rooms and the walkway on worker threads and reads scenes on loader threads after the
+## arrival, and a quit during it cut that work off: a window close 0.4 s after arriving printed 7 ERROR lines (scripts
+## read half way), and a quit 9 s after arriving ended with exit 139 (a worker still painting as the engine shut down).
+## A script with such work hands keep_for a Callable: called with false it says whether the work still runs, called
+## with true it waits for all of it, there and then. `closing` (set by release) tells those scripts to start nothing new.
+static var closing := false
+static var _work: Array[Callable] = []
 
 var current := ""   # the track playing, or the one waiting to start (the checks read it)
 var want := ""      # the last track asked for (the town's street music reads it)
@@ -63,6 +71,7 @@ static func jingle(tree: SceneTree, name: String) -> void:
 ## the blips, the icons, the frames, the bar styles and the 3x faces). Called on the window's close request
 ## (_notification) and by the pause menu's Quit just before get_tree().quit().
 static func release(tree: SceneTree) -> void:
+	closing = true   # no new thread work after this (T1)
 	if tree == null or tree.root == null:
 		return
 	for kind in ["AudioStreamPlayer", "AudioStreamPlayer2D", "AudioStreamPlayer3D"]:
@@ -75,12 +84,49 @@ static func release(tree: SceneTree) -> void:
 		cache.clear()
 
 
+## Thread work to be waited for before the game closes (T1). Kept once per Callable; the node is made if it is not yet,
+## since it is the one that hears the window's close and the tree's end. Hand it a script's static method, never a
+## lambda: a lambda kept here outlives its script when that script is let go (the town's, in a dungeon), and the engine
+## crashed freeing it at exit (exit 139).
+static func keep_for(tree: SceneTree, work: Callable) -> void:
+	if tree != null:
+		_node(tree)
+	if not _work.has(work):
+		_work.append(work)
+
+
+## Whether any kept thread work still runs (the pause menu's Quit waits a frame at a time while it does).
+static func working() -> bool:
+	for w in _work:
+		if w.is_valid() and bool(w.call(false)):
+			return true
+	return false
+
+
+## Wait for all kept thread work, on this thread, now: the last step before the game ends.
+static func finish_work() -> void:
+	for w in _work:
+		if w.is_valid():
+			w.call(true)
+	_work.clear()   # all waited for; nothing is held into the engine's exit
+
+
 ## The window's close button: the tree quits at the end of this frame, so the audio thread is given a moment to mix the
-## stopped sounds out before the frame's audio update lets them go (no frame can be waited for here).
+## stopped sounds out before the frame's audio update lets them go (no frame can be waited for here). Thread work still
+## running is waited for first (T1), and on any other way out (a check's quit, the title's Quit) as the tree lets this
+## node go, so no worker or loader thread is cut off by the engine's exit.
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST and is_inside_tree():
 		release(get_tree())
+		finish_work()
 		OS.delay_msec(CLOSE_GRACE_MS)
+	elif what == NOTIFICATION_EXIT_TREE:
+		# The tree is ending some other way (a check's or a probe's quit(), a Quit that did not release first): the same
+		# release and wait. A quit 1.1 s after arriving left highbank.mp3 held at exit ("1 resources still in use").
+		if not closing:
+			release(get_tree())
+			OS.delay_msec(CLOSE_GRACE_MS)
+		finish_work()
 
 
 func _ready() -> void:

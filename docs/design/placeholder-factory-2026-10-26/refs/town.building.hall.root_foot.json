@@ -1,0 +1,68 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		48,
+		119
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The Great Root buttress, the tower's left ground wing: the root arching out of the turf onto the depot's left corner where the Climb starts, rootlets into the turf, treads, knots, moss and a stone at its foot.",
+	"census": "WT14",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/town/building/hall_root_foot.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frame_at": [
+		0,
+		600
+	],
+	"frames": 1,
+	"id": "town.building.hall.root_foot",
+	"kind": "building",
+	"lane": "T",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "order 15; ground layer, sorts one step in front of the body (batch cx-12)",
+	"outline": "runtime_rim",
+	"owner": "codex",
+	"palette": {
+		"family": "wayline_tower",
+		"lock": true,
+		"max": 32,
+		"source": "res://assets/slots/palettes/wayline_tower.png"
+	},
+	"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		96,
+		120
+	],
+	"size": [
+		96,
+		120
+	],
+	"slot_file": "town_tower",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

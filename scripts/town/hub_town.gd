@@ -61,7 +61,21 @@ var scene_fx := {}            # bubbles and props for scenes built on scripts/to
 ## first arrival and every exit); the Tower scene at the Tower's foot (lane S) starts from it.
 signal area_arrived(id: String)
 var cam_lift := 0.0           # px the camera may rise above the area's top; only a scene lifts it (the pan up the Tower)
-var area_art := {}            # v2: building, lot or place id -> the node drawing it where building_exteriors.gd did not
+## The look-up at the Tower's doors (Claude, 2026-10-27; TOWER_DESIGN.md section 7, Preston's default yes): while the
+## leader stands in the area's "lean" box (Tower Rise: cols 11 to 14, rows 1 to 4, the landing under the doors) facing
+## one of its ways (north), the view eases up to TowerParts.CAMERA_LEAN px over LEAN_TIME, so more of the Tower shows in
+## normal play, and eases back when the leader turns or walks out. It never takes the leader's feet nearer the bottom
+## edge than LEAN_FEET px, nor the view past the area's top plus its painted "headroom" and the lean (headroom()), so no
+## empty sky shows. With v2 off no area has a box and the camera is as it always was.
+const LEAN_TIME := 0.4
+const LEAN_FEET := 30.0
+## While the view leans, the place and "Next:" panels slide up this far, in step with the lean, so they leave the Route
+## Board and the cubbies clear (the 2026-10-27 look pass); they come back as the lean lets go.
+const HUD_TUCK := 104.0
+var cam_lean := 0.0           # px the view is raised right now (tower_lean_check and the Tower scene read it)
+var _lean_t := 0.0            # 0 to 1: how far the lean has eased in (eased again with smoothstep)
+var _lean_scene := false      # a scene played last frame (the lean takes up the view a scene hands back)
+var area_art := {}            # v2: building, lot or place id -> the node drawing it where building_exteriors.gd did not (plus "path_<slot>" and "waylines")
 var _area_root: Node2D = null
 var _tower_due := false       # v2: the Tower scene waits for the street to be free (no panel, scene or step)
 ## Arrival timing (Claude, 2026-10-23, T1 / LO-03): each step of _ready in milliseconds, in order, for
@@ -79,8 +93,10 @@ static var _arrived := false
 ## so the picture is saved once under user:// and read back in a later session. Its file is named by _street_key():
 ## the layout, STREET_VERSION, and the modified times of the painters and the art they read (in the editor a change to
 ## any of them paints afresh; an exported game reads 0 for them all). Raise STREET_VERSION whenever a street painter
-## changes what it draws. 1 was the street before pass 5's T9; 2 before pass 8's T10 (the Job Board's worn earth).
-const STREET_VERSION := 3
+## changes what it draws. 1 was the street before pass 5's T9; 2 before pass 8's T10 (the Job Board's worn earth); 3
+## before pass 9's T7 (Claude, 2026-10-27, H9-15 and H9-30: that worn earth taken out again, and the key now covers the
+## art slots' painters and installed art and the v2 areas' files, which an area's picture is drawn from).
+const STREET_VERSION := 6
 const STREET_DIR := "user://street"
 const STREET_SOURCES := [
 	"res://scripts/town/hub_town.gd", "res://scripts/town/town_layout.gd", "res://scripts/town/highbank_ground_painter.gd",
@@ -97,6 +113,7 @@ const STREET_SOURCES := [
 	"res://assets/sprites/world/wayline_hall_2026_10_09/", "res://assets/sprites/world/hollow_mouth_2026_10_10/",
 	"res://assets/sprites/world/training_yard_2026_10_10/", "res://assets/sprites/world/job_board_2026_10_10/",
 	"res://assets/sprites/world/job_board_selout_2026_10_10/", "res://assets/tilesets/dungeon_tiles_2026_10_10/",
+	"res://scripts/art/slots/", "res://assets/slots/", "res://scripts/world/areas/",   # T7 / H9-30
 ]
 static var _sources_stamp := ""   # STREET_SOURCES' modified times, read once a session
 var street_from_disk := false     # this arrival read the street picture from disk (the checks read it)
@@ -177,7 +194,7 @@ func _ready() -> void:
 		await _collect(get_tree(), STREET_ART_SCRIPTS)   # street_on_thread reads their art on this thread
 		await street_on_thread(get_tree(), ready_ms)
 		await _collect(get_tree(), reads)
-		if not is_inside_tree():
+		if not is_inside_tree() or Music.closing:   # the game closing under the card: no street painted here (T1)
 			return
 		_card_settle()
 		_lap("street and sprites on threads")
@@ -255,8 +272,12 @@ func _ready() -> void:
 	# The return panels name the place the run went to (dungeon.gd writes last_run; Claude, 2026-10-22, GS-15).
 	var went: String = String(TeamState.data.get("last_run", "the Hollow"))
 	went = went.left(1).to_upper() + went.substr(1)   # it starts the sentence
+	var joined := _joined_names()   # who came along this run (T4); read before the record is saved below
+	TeamState.data.erase("set_out_with")
 	if news == "cleared":
-		panel = {"name": "Back in Highbank", "what": "%s is cleared. The bag and the new partners came home." % went, "service": "news"}
+		# New partners only when one joined (Claude, 2026-10-27, pass 9 T4 / A9-04: every clear said "the new partners
+		# came home"). Proposal lines, Preston's to veto.
+		panel = {"name": "Back in Highbank", "what": (NEWS_JOINED % [went, joined]) if joined != "" else (NEWS_CLEARED % went), "service": "news"}
 		var parcel := String(_record().get("story", {}).get("parcel", ""))
 		if parcel == "saved":
 			panel = {"name": "Highbank", "what": "Out of the Hollow, up the far bank, and into a town above the flood. %s still has the parcel, dry. Couriers post their work on the Job Board." % _partner_name(), "service": "news"}
@@ -352,7 +373,11 @@ func _warm_finish() -> void:
 ## before it is done leaves it to finish quietly, with no town to come back to.
 static func _warm_up(tree: SceneTree) -> void:
 	await tree.create_timer(UI.motion_secs(0.25)).timeout
-	await _read_on_thread(tree, [Jobs.DUNGEON, ROOM_SCENE])
+	if Music.closing:   # the game is closing: nothing new is started (T1)
+		return
+	# The party's creature records first (their forms now and next), which the Growth Shrine's page reads (T2): each one
+	# read on the main thread held the shrine's first open for 100 to 170 ms.
+	await _read_on_thread(tree, _party_records() + [Jobs.DUNGEON, ROOM_SCENE])
 	# Each client's creature record (its name for the title), with the moves and pictures it pulls in: the first
 	# Cinderhide read alone took about 400 ms on the main thread.
 	var jobs := _board_preview()
@@ -363,10 +388,26 @@ static func _warm_up(tree: SceneTree) -> void:
 			clients.append(path)
 	await _read_on_thread(tree, clients)
 	for j in jobs:
+		if Music.closing:
+			return
 		_bits_of(j)
 		await tree.process_frame
 	await _rooms_ahead(tree)
+	if Music.closing:
+		return
 	await _walkway_ahead(tree)
+
+
+## The party's creature records, each form now and the one it grows into, for the warm-up to read on a thread
+## (Claude, 2026-10-27, pass 9 T2): the Growth Shrine's page names both (shrine_info.gd creature()).
+static func _party_records() -> Array:
+	var out: Array = []
+	for m: Array in TeamState.data.get("party", []):
+		var forms: Array = Lines.of(int(m[0]))["forms"]
+		for st in [int(m[1]), int(m[1]) + 1]:
+			if st < forms.size() and not out.has(forms[st][1]):
+				out.append(forms[st][1])
+	return out
 
 
 ## The Hollow's walkway made ahead (Claude, 2026-10-26, pass 8 T6 / LH8-09): setting out for The Hollow held one frame
@@ -408,19 +449,18 @@ static func _walkway_ahead(tree: SceneTree) -> void:
 	var need_bank: bool = bank_img != null and (bank.get("_finished") == null or int(bank.get("_finished_key")) != bank_key)
 	var need_mask: bool = bank_img != null and (bank.get("_mask") == null or int(bank.get("_mask_key")) != bank_key)
 	var need_ent: bool = ent_img != null and ((entrance.get("_kept_pair") as Array).is_empty() or int(entrance.get("_kept_key")) != ent_key)
-	if not (need_bank or need_mask or need_ent):
+	if not (need_bank or need_mask or need_ent) or Music.closing:
 		return
 	var made := {}
-	var task := WorkerThreadPool.add_task(func() -> void:
+	await _on_worker(tree, func() -> void:
 		if need_bank:
 			made["bank"] = bank_finish.finished_image(bank_img)
 		if need_mask:
 			made["mask"] = bank_finish.mask(bank_img)
 		if need_ent:
-			made["ent"] = [entrance.finished_image(ent_img), entrance.mask(ent_img)], false, "Hollow walkway")
-	while not WorkerThreadPool.is_task_completed(task):
-		await tree.process_frame
-	WorkerThreadPool.wait_for_task_completion(task)
+			made["ent"] = [entrance.finished_image(ent_img), entrance.mask(ent_img)], "Hollow walkway", made)
+	if Music.closing:
+		return
 	if made.has("bank"):
 		bank.set("_finished", ImageTexture.create_from_image(made["bank"]))
 		bank.set("_finished_key", bank_key)
@@ -465,15 +505,108 @@ static func _rooms_ahead(tree: SceneTree) -> void:
 	if rooms == null or not rooms.call("art_off_main"):
 		return
 	for id: String in ROOMS_AHEAD:
+		if Music.closing:
+			return
 		if rooms.call("prepared", id):
 			continue
 		var made := {}
-		var task := WorkerThreadPool.add_task(func() -> void: made["parts"] = rooms.call("prepared_parts", id), false, "Highbank's room " + id)
-		while not WorkerThreadPool.is_task_completed(task):
-			await tree.process_frame
-		WorkerThreadPool.wait_for_task_completion(task)
+		await _on_worker(tree, func() -> void: made["parts"] = rooms.call("prepared_parts", id), "Highbank's room " + id, made)
+		if Music.closing:
+			return
 		rooms.call("keep_prepared", id, made.get("parts", []))
 		await tree.process_frame
+
+
+## The town's thread work, held so a quit can wait for it (Claude, 2026-10-27, pass 9 T1 for A9-01 / H9-12). A window
+## close 0.4 s after arriving cut the warm-up's reads short (7 ERROR lines, from dungeon.gd and the room scene read half
+## way), and a quit 9 s after arriving ended with exit 139 while a room was still being painted on a worker. Every worker
+## task (_on_worker) and every path asked for on a loader thread (_request) is kept here; Music (music.gd keep_for) asks
+## _work_left whether any still runs, and on a quit waits for it before the game ends. Music.closing stops new work.
+static var _tasks: Array[int] = []
+static var _asked: Array[String] = []
+static var _quit_held := false
+## What each running task writes its results into (the caller's own dictionary), so a quit can let them go: a quit while
+## a room was being painted waited for the worker, then left its texture, material and shader held by the caller, which
+## never ran again, and the engine listed them as leaked at exit (5 ERROR lines).
+static var _made := {}
+## The frame beat the tasks' waits listen to: the tree's process_frame passed on, plus one extra beat from a quit, so a
+## caller left waiting on a worker the quit already waited for runs to its end (it sees Music.closing and stops)
+## instead of staying parked, which kept this script and town_room.gd held at exit ("2 resources still in use").
+static var _beat: _Beat = null
+
+
+class _Beat extends RefCounted:
+	signal tick
+
+
+## Run `job` on a worker thread and wait for it a frame at a time, its handle kept in _tasks while it runs. `made` is the
+## dictionary the job writes into; a quit empties it once the job is done. Nothing starts once the game is closing.
+static func _on_worker(tree: SceneTree, job: Callable, what: String, made: Dictionary = {}) -> void:
+	if Music.closing:
+		return
+	_hold_quit(tree)
+	var task := WorkerThreadPool.add_task(job, false, what)
+	_tasks.append(task)
+	_made[task] = made
+	if _beat == null:
+		_beat = _Beat.new()
+	if not tree.process_frame.is_connected(_beat.tick.emit):
+		tree.process_frame.connect(_beat.tick.emit)
+	while _tasks.has(task) and not WorkerThreadPool.is_task_completed(task):
+		await _beat.tick   # each frame, and once more when a quit has waited for the task (_work_left)
+	_made.erase(task)
+	if _tasks.has(task):   # else a quit has waited for it already (_work_left)
+		_tasks.erase(task)
+		WorkerThreadPool.wait_for_task_completion(task)   # done already; this lets the pool free the task
+
+
+## Music waits on _work_left when the game closes (registered once a session).
+static func _hold_quit(tree: SceneTree) -> void:
+	if not _quit_held:
+		_quit_held = true
+		# The static method itself, not a lambda around it: a lambda kept in Music outlived this script once the team
+		# left town (the script is let go in a dungeon), and the engine crashed freeing it at exit (exit 139 on every
+		# quit from a dungeon entered from Highbank, town_loop_check, pass 9).
+		Music.keep_for(tree, _work_left)
+
+
+## Whether a worker task or a loader thread the town started still runs. With `finish`, wait for each of them here
+## (a worker to its end, a read to its result, which is let go) and answer false.
+static func _work_left(finish: bool) -> bool:
+	# Waited for here, the renderer's queue is run meanwhile: a room's worker makes its picture into a texture, which
+	# waits on this thread to run that queue, so blocked in wait_for_task_completion alone the two waited on each other
+	# until the process was killed. Up to 5 s in all; whatever is still running after that is left to the engine.
+	var until := Time.get_ticks_msec() + 5000
+	var running := false
+	for path: String in _asked.duplicate():
+		var state := ResourceLoader.load_threaded_get_status(path)
+		while finish and state == ResourceLoader.THREAD_LOAD_IN_PROGRESS and Time.get_ticks_msec() < until:
+			RenderingServer.force_sync()
+			OS.delay_msec(2)
+			state = ResourceLoader.load_threaded_get_status(path)
+		if state == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+			running = true
+			continue
+		if state == ResourceLoader.THREAD_LOAD_LOADED:
+			if not finish:
+				continue   # read, and waiting for the one that asked (_collect, _scene_of)
+			ResourceLoader.load_threaded_get(path)   # taken and let go, so the loader holds nothing at exit
+		_asked.erase(path)   # taken, failed or never started
+	for task in _tasks.duplicate():
+		if finish:
+			while not WorkerThreadPool.is_task_completed(task) and Time.get_ticks_msec() < until:
+				RenderingServer.force_sync()
+				OS.delay_msec(2)
+			_tasks.erase(task)
+			if WorkerThreadPool.is_task_completed(task):
+				WorkerThreadPool.wait_for_task_completion(task)
+				(_made.get(task, {}) as Dictionary).clear()   # its results let go: the caller never runs again
+				_made.erase(task)
+		elif not WorkerThreadPool.is_task_completed(task):
+			running = true
+	if finish and _beat != null:
+		_beat.tick.emit()   # the callers left waiting run on, see Music.closing and end
+	return running and not finish
 
 
 ## Ask for each path on a thread, wait for them all a frame at a time, and keep them for the session.
@@ -483,11 +616,18 @@ static func _read_on_thread(tree: SceneTree, paths: Array) -> void:
 
 
 ## The two halves of _read_on_thread (Claude, 2026-10-26, pass 7 T1), so an arrival can ask for its sprites before the
-## street is painted and collect them after: a path kept, or asked for already, is not asked for again.
+## street is painted and collect them after: a path kept, or asked for already, is not asked for again. Each path asked
+## for is held in _asked until it is read (T1); nothing is asked for once the game is closing.
 static func _request(paths: Array) -> void:
+	if Music.closing:
+		return
 	for path: String in paths:
 		if not _kept.has(path) and ResourceLoader.load_threaded_get_status(path) == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
 			ResourceLoader.load_threaded_request(path)
+			if not _asked.has(path):
+				_asked.append(path)
+	if not _asked.is_empty():
+		_hold_quit(Engine.get_main_loop() as SceneTree)
 
 
 static func _collect(tree: SceneTree, paths: Array) -> void:
@@ -501,6 +641,7 @@ static func _collect(tree: SceneTree, paths: Array) -> void:
 static func _keep(path: String) -> Resource:
 	if not _kept.has(path) and ResourceLoader.load_threaded_get_status(path) == ResourceLoader.THREAD_LOAD_LOADED:
 		_kept[path] = ResourceLoader.load_threaded_get(path)
+		_asked.erase(path)
 	return _kept.get(path, null)
 
 
@@ -731,10 +872,9 @@ static func _street_on_thread(tree: SceneTree, key: String, steps: Dictionary) -
 	_street_art()
 	steps["street: art read"] = _since(t)
 	var job := {"steps": {}}
-	var task := WorkerThreadPool.add_task(func() -> void: _street_images(key, job), false, "Highbank's street")
-	while not WorkerThreadPool.is_task_completed(task):
-		await tree.process_frame
-	WorkerThreadPool.wait_for_task_completion(task)   # done already; this lets the pool free the task
+	await _on_worker(tree, func() -> void: _street_images(key, job), "Highbank's street", job)   # its handle kept for a quit (T1)
+	if Music.closing:
+		return   # a quit waited for the worker and let its picture go
 	steps.merge(job["steps"])
 	if not _street.has(key) and job.get("img") is Image:   # a check that painted on the main thread meanwhile keeps its own
 		_street_keep(key, job, steps)
@@ -803,7 +943,9 @@ static func _street_key(version := STREET_VERSION) -> String:
 	if _sources_stamp == "":
 		var times := PackedStringArray()
 		for path: String in STREET_SOURCES:
-			if path.ends_with("/"):
+			if path.ends_with("/") and not DirAccess.dir_exists_absolute(path):
+				times.append("-")   # a folder not made yet (assets/slots/ until art is installed) counts once it is
+			elif path.ends_with("/"):
 				for f in DirAccess.get_files_at(path):
 					times.append("%s=%d" % [f, FileAccess.get_modified_time(path + f)])
 			else:   # a script an export has remapped is not there by this name: it counts as unchanged
@@ -880,13 +1022,22 @@ static func _since(t: int) -> float:
 ## Shut open-air places keep their ground closed (Claude, 2026-10-23, T5 / LO-04): while SHUT holds the Training
 ## Yard, its gate and its ring are solid, so the leader stops at the rope and E, facing the gate, reads the board.
 ## Only this street's grid: town_layout.gd's contract keeps the Yard an open area for when it opens.
+## Shut buildings keep their door tiles closed the same way (Claude, 2026-10-27, pass 9 T5 / A9-06): the leader could
+## step onto the Scroll Keeper's door and stood drawn on its roof. Now it stops on the tile in front, where E, facing
+## the door, reads the sign (act_use reads the place on the faced tile).
 func _close_shut_areas() -> void:
+	var w := Layout.size().x
 	for p in Layout.PLACES:
-		if p["kind"] == "area" and SHUT.has(p["service"]):
+		if not SHUT.has(p["service"]):
+			continue
+		if p["kind"] == "area":
 			var r: Rect2i = p["rect"]
 			for y in range(r.position.y, r.end.y):
 				for x in range(r.position.x, r.end.x):
-					grid[y * Layout.size().x + x] = Layout.WALL
+					grid[y * w + x] = Layout.WALL
+		elif p["kind"] == "building":
+			for d: Vector2i in Layout.door_tiles(p):
+				grid[d.y * w + d.x] = Layout.WALL
 
 
 ## The stand-in picture: terrain bands, cliffs, the river, lanes, then each place as a block. Codex
@@ -1500,6 +1651,9 @@ func act_use() -> Dictionary:
 		# building_exteriors.gd keeps the door shut (Claude, 2026-10-22, GS-12).
 		panel = {"name": p["name"], "what": SHUT[p["service"]], "service": "shut"}
 		return p
+	if p["service"] == "growth" and _still_reading(_shrine_paths()):
+		_open_shrine_when_read(p)   # the warm-up is still reading what the page needs (T2)
+		return p
 	panel = p
 	if p["service"] == "growth":
 		panel = _shrine_panel(p)
@@ -1573,6 +1727,7 @@ func way_marks() -> Array:
 func start_replay(id: String) -> void:
 	panel = {}
 	TeamState.data["party"] = party.duplicate(true)
+	_note_set_out()   # T4
 	TeamState.autosave()   # what the town changed (jobs, story) is kept even if the run is abandoned
 	UI.toast(get_tree(), "The run is kept.")   # setting out, as enter_hollow says it (GS-11; Claude, 2026-10-23, T6)
 	if is_inside_tree() and get_tree().current_scene == self:
@@ -1787,6 +1942,46 @@ func _ui_sfx(name: String) -> void:
 	UI.tick(name)
 
 
+## The Growth Shrine used before the warm-up has read what its page needs (Claude, 2026-10-27, pass 9 T2 / H9-11 and
+## A9-02): dungeon.gd (the growth rules and learnsets) and the party's creature records. Read on the main thread while
+## a loader thread still had them, the first open held one frame for 410 to 690 ms. Now the page opens when the reads
+## land, a frame at a time (the street keeps drawing), up to 3 s; the team stands still meanwhile.
+var _shrine_waiting := false
+
+
+func _shrine_paths() -> Array:
+	return [Evolution.DUNGEON] + _party_records()
+
+
+static func _still_reading(paths: Array) -> bool:
+	for path: String in paths:
+		if not _kept.has(path) and ResourceLoader.load_threaded_get_status(path) == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+			return true
+	return false
+
+
+func _open_shrine_when_read(p: Dictionary) -> void:
+	if _shrine_waiting:
+		return
+	_shrine_waiting = true
+	busy = true
+	var tree := get_tree()
+	var paths := _shrine_paths()
+	var until := Time.get_ticks_msec() + 3000
+	while _still_reading(paths) and Time.get_ticks_msec() < until and not Music.closing:
+		await tree.process_frame
+		if not is_inside_tree():
+			return
+	_shrine_waiting = false
+	busy = false
+	if Music.closing:
+		return
+	for path: String in paths:
+		_keep(path)   # taken from the threads now, so the page's load() finds each one read
+	if panel.is_empty() and not cutscene:
+		panel = _shrine_panel(p)
+
+
 func _shrine_panel(p: Dictionary) -> Dictionary:
 	# The shrine sleeps until the pond stone is set in it (the pilot's payoff, docs/design/pilot-story-2026-10-10.md).
 	match stone_state():
@@ -1846,6 +2041,38 @@ func _partner_name() -> String:
 	if party.size() < 2:
 		return "Your partner"
 	return load(Lines.of(party[1][0])["forms"][party[1][1]][1]).creature_name
+
+
+## The homecoming's news after a clear (T4 / A9-04; proposals): the second only when a creature joined on the run.
+const NEWS_CLEARED := "Well, %s's cleared. Everything in the bag made it home."
+const NEWS_JOINED := "Well, %s's cleared. The bag made it home, and %s came along too."
+
+
+## The lines the team and the roster held when the team set out (enter_hollow, start_replay), kept in the record
+## through the run (TeamState.take_from writes only its own keys), so the homecoming can tell who joined (T4).
+func _note_set_out() -> void:
+	var lines: Array = []
+	for m in party + roster:
+		lines.append(int(m[0]))
+	TeamState.data["set_out_with"] = lines
+
+
+## The names of the creatures that joined since the team set out ("A", "A and B", "A, B and C"), or "" for none or
+## when the record does not say what the team set out with (an older save).
+func _joined_names() -> String:
+	if not TeamState.data.has("set_out_with"):
+		return ""
+	var before: Array = (TeamState.data["set_out_with"] as Array).duplicate()
+	var names: Array = []
+	for m in party + roster:
+		var at := before.find(int(m[0]))
+		if at >= 0:
+			before.remove_at(at)   # one of the team that set out (a line counted once per member)
+		else:
+			names.append(String(load(Lines.of(int(m[0]))["forms"][int(m[1])][1]).creature_name))
+	if names.size() <= 1:
+		return "".join(names)
+	return ", ".join(names.slice(0, -1)) + " and " + String(names[-1])
 
 
 ## The pilot's story state carried in the team record: the pond stone is "", "carried" or "installed".
@@ -2047,8 +2274,7 @@ func end_card() -> void:
 func _leave_to(next: String, lifts_itself := false, setup := Callable()) -> void:
 	busy = true   # no steps while the screen goes dark
 	var tree := get_tree()
-	if not _kept.has(next):
-		ResourceLoader.load_threaded_request(next)
+	_request([next])   # held for a quit meanwhile (T1)
 	# A toast still up from the arrival ("Highbank remembers.") goes before the black, so it does not ride into the
 	# Home or the Hall (Claude, 2026-10-24, pass 4 T3 / L32). Every way out comes through here, enter_room too.
 	var toast := tree.root.get_node_or_null(UI.TOAST_NAME)
@@ -2124,6 +2350,8 @@ func enter_area(id: String, at: String = "", facing := "", sfx := "") -> void:
 		team[k]["pos"] = placed[k]
 		_place(team[k])
 	cam_focus = null
+	_lean_t = 0.0   # a new area starts with the camera level (the look-up eases in again if its box says so)
+	cam_lean = 0.0
 	_music_update(true)
 	busy = false
 	if live:
@@ -2212,6 +2440,10 @@ func _rebuild_area() -> void:
 	_area_root = null
 	_building_exteriors = null
 	for e in npcs:
+		# The idle walk's tween belongs to the town, not the creature, so it would outlive the node and step a freed
+		# one ("Lambda capture at index 0 was freed").
+		if e.get("idle_tw") is Tween and e["idle_tw"].is_valid():
+			e["idle_tw"].kill()
 		if is_instance_valid(e.get("node")):
 			e["node"].queue_free()
 	npcs.clear()
@@ -2281,6 +2513,54 @@ func _dress_area() -> void:
 	if props.is_empty():
 		for p in shown["props"]:
 			_slot_on(String(p["slot"]), Rect2i(p["tile"], TownProps.footprint(p)), root)
+	_path_art(a, root)
+	_area_waylines(rec, root)
+
+
+## A path's own picture (its "art" slot, e.g. Tower Rise's painted rise stair) laid over the ground at its rect's
+## top-left. It is ground, so it sorts as an open-air place does: under anyone standing on it. (Not a prop: props are
+## kept off door approaches and anchors, and the stair is the door approach.)
+func _path_art(a: Dictionary, root: Node2D) -> void:
+	for p in a.get("paths", []):
+		var slot := String(p.get("art", ""))
+		if slot == "" or not ArtSlots.has(slot):
+			continue
+		var r: Rect2i = p["rect"]
+		var s := Sprite2D.new()
+		s.name = "PathArt_" + slot.replace(".", "_")
+		s.centered = false
+		s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		s.texture = ArtSlots.frame(slot, "")
+		s.position = Vector2(r.position * T)
+		s.z_index = r.position.y * T
+		root.add_child(s)
+		area_art["path_" + slot] = s
+
+
+## The Wayline Tower's cables that reach this area (TOWER_DESIGN.md section 7): each comes in over the edge facing the
+## Tower and ties off at a wayline post (Areas.waylines). A line whose route is not open yet ("needs") is not strung.
+## They hang in the air over everything standing, as on Tower Rise, where the Tower hangs its own (Areas.waylines
+## gives nothing there).
+func _area_waylines(rec: Dictionary, root: Node2D) -> void:
+	var lines: Array = Layout.Areas.waylines(Layout.area_id())
+	if lines.is_empty():
+		return
+	var holder := Node2D.new()
+	holder.name = "Waylines"
+	holder.z_as_relative = false
+	holder.z_index = BuildingTemplate.TP.WAYLINE_Z
+	for l in lines:
+		if String(l["needs"]) != "" and not Layout.exit_open(l, rec):
+			continue
+		var line: Line2D = BuildingTemplate.TP.wayline(l["from"], l["to"], l["sag"])
+		line.name = "Wayline%d" % int(l["route"])
+		line.set_meta("quiet", l["quiet"])
+		holder.add_child(line)
+	if holder.get_child_count() == 0:
+		holder.free()
+		return
+	root.add_child(holder)
+	area_art["waylines"] = holder
 
 
 ## One art slot's first frame standing on `on` (tiles): a foot anchor at the rect's bottom middle, a top-left one
@@ -2327,6 +2607,7 @@ func enter_hollow() -> void:
 	if TeamState.data.is_empty():
 		TeamState.start(party)
 	TeamState.data["party"] = party.duplicate(true)
+	_note_set_out()   # who set out, so the homecoming can name who joined (T4)
 	TeamState.autosave()   # setting out: the town's changes are kept even if the run is abandoned
 	# The next dungeon whose boss is not beaten (the town has one way down for now; Codex's layout
 	# can give each its own entrance later).
@@ -2402,10 +2683,15 @@ func _process(_delta: float) -> void:
 			look = cam_focus
 		# The area's edges hold the camera. A scene may lift the top (the pan up the Tower, v2): by cam_lift, or into the
 		# area's sky (Tower Rise's "sky") while a scene steers the camera there.
+		# An area with a painted "headroom" over its top (Tower Rise: the Stack's foot over the doors on row 0) always
+		# shows that much, and the look-up may rise CAMERA_LEAN more into it.
+		var head := headroom()
 		var lift := cam_lift
 		if lift <= 0.0 and cutscene and cam_focus != null and Layout.v2():
 			lift = float(Layout.area().get("sky", 0))
+		lift = maxf(lift, head)
 		var focus: Vector2 = look.clamp(half - Vector2(0, lift), Vector2(Layout.size()) * T - half)
+		focus.y -= _lean_rise(_delta, focus, half.y - maxf(lift, _lean_head(head)))   # the look-up at the Tower's doors (v2)
 		shake = maxf(0.0, shake - _delta * 12.0)
 		_world.position = (half - focus + Vector2(randf_range(-1, 1), randf_range(-1, 1)) * shake).round()
 	# The Menu button under the walk keys' strip and as wide as it, never over it, as dungeon.gd places it; a scene
@@ -2420,6 +2706,77 @@ func _process(_delta: float) -> void:
 		menu.hint.size = Vector2(ks.size.x, 52)
 	_labels.queue_redraw()
 	_hud.queue_redraw()
+
+
+## px the camera shows above the area's top in normal play: its "headroom" (Tower Rise's 72, the Stack's foot over the
+## doors on row 0), 0 elsewhere and with v2 off.
+func headroom() -> float:
+	return float(Layout.area().get("headroom", 0)) if Layout.v2() else 0.0
+
+
+## How high above the area's top the look-up may take the view: CAMERA_LEAN more of the painted headroom, or the top
+## itself where an area has none (as before the Rise had any).
+func _lean_head(head: float) -> float:
+	return head + float(BuildingTemplate.TP.CAMERA_LEAN) if head > 0.0 else 0.0
+
+
+## How far the view is raised this frame for the look-up at the Tower's doors (see cam_lean). `focus` is the view's
+## middle before the lean, `top` the highest its middle may go (the area's clamp). The lean eases toward its full height
+## while the leader stands in the area's "lean" box facing one of its ways and no scene, shrine page or steered camera
+## is up, and toward none otherwise; what shows is capped so the leader's feet (the bottom of its picture's opaque box)
+## stay LEAN_FEET px above the bottom edge and the view stays inside the clamp. When a scene hands the camera back here,
+## the lean takes up from wherever the scene left the view (none if it ended level, all of it if it ended on the
+## leaned look), so the hand-back never jumps.
+func _lean_rise(delta: float, focus: Vector2, top: float) -> float:
+	var box: Dictionary = Layout.area().get("lean", {}) if Layout.v2() else {}
+	var handed_back := _lean_scene and not cutscene
+	_lean_scene = cutscene
+	if box.is_empty() and _lean_t <= 0.0:
+		cam_lean = 0.0
+		return 0.0
+	var full := float(BuildingTemplate.TP.CAMERA_LEAN)
+	if handed_back and not box.is_empty():
+		var rise := clampf(focus.y - (VIEW.y * 0.5 - _world.position.y), 0.0, full)   # how far above level the scene left it
+		_lean_t = 0.5 - sin(asin(1.0 - 2.0 * rise / full) / 3.0)   # smoothstep run backwards: the ease that shows `rise`
+	var lead: Dictionary = team[0]
+	var on: bool = not box.is_empty() and not cutscene and cam_focus == null and not shrine_view and not evolving_now \
+		and (box["rect"] as Rect2i).has_point(lead["pos"]) and String(lead["facing"]) in box.get("facing", ["n"])
+	_lean_t = move_toward(_lean_t, 1.0 if on else 0.0, delta / LEAN_TIME)
+	var want := full * smoothstep(0.0, 1.0, _lean_t)
+	cam_lean = clampf(want, 0.0, _lean_room(focus, top, lead["node"].position.y))
+	return cam_lean
+
+
+## How far the view may rise above `focus` (its middle) for the look-up: until the leader's feet (the bottom of its
+## picture's opaque box, its node standing at `node_y`) are LEAN_FEET px above the bottom edge, or the view's middle
+## reaches `top`.
+func _lean_room(focus: Vector2, top: float, node_y: float) -> float:
+	var lead: Dictionary = team[0]
+	var feet: float = node_y + _extent_of(lead["still"][lead["facing"]]).end.y - (focus.y - VIEW.y * 0.5)
+	return maxf(0.0, minf(VIEW.y - LEAN_FEET - feet, focus.y - top))
+
+
+## How far up the place and "Next:" panels have slid this frame (HUD_TUCK at the full lean, none when level).
+func hud_tuck() -> float:
+	return roundf(HUD_TUCK * clampf(cam_lean / float(BuildingTemplate.TP.CAMERA_LEAN), 0.0, 1.0))
+
+
+## The rise the look-up settles at once the leader stands on its tile (even mid-step, it reads the tile it is stepping
+## to), whether or not a scene is up: 0 outside the area's box or facing away. A scene that hands the camera back at the
+## Tower's doors (tower_reveal.gd town_look) can end its pan this far above the town's own look, and the lean takes up
+## from there without a move.
+func lean_at_rest() -> float:
+	var box: Dictionary = Layout.area().get("lean", {}) if Layout.v2() else {}
+	if box.is_empty() or team.is_empty():
+		return 0.0
+	var lead: Dictionary = team[0]
+	if not (box["rect"] as Rect2i).has_point(lead["pos"]) or not String(lead["facing"]) in box.get("facing", ["n"]):
+		return 0.0
+	var half := Vector2(VIEW) * 0.5
+	var stand: Vector2 = _px(lead["pos"])
+	var head := headroom()
+	var focus: Vector2 = (stand + Vector2(0, -12)).clamp(half - Vector2(0, head), Vector2(Layout.size()) * T - half)
+	return minf(float(BuildingTemplate.TP.CAMERA_LEAN), _lean_room(focus, half.y - _lean_head(head), stand.y))
 
 
 ## Townsfolk idle (Claude, 2026-10-22, GS-14): every 4 to 8 s a creature that is not on the team takes one
@@ -2616,15 +2973,16 @@ func _draw_hud() -> void:
 	# The place and "Next:" panels step aside while a panel is open: the board sits where "Next:" does
 	# (Claude, 2026-10-22, LP-23). The walk keys go too; every panel shows its own.
 	if panel.is_empty():
-		UI.panel(h, Rect2(6, 6, 330, 54))
-		UI.text(h, Vector2(28, 43), "Highbank", 26, UI.EDGE_LIGHT)
+		var tuck := hud_tuck()
+		UI.panel(h, Rect2(6, 6 - tuck, 330, 54))
+		UI.text(h, Vector2(28, 43 - tuck), "Highbank", 26, UI.EDGE_LIGHT)
 		var here: Dictionary = Layout.place_at(team[0]["pos"]) if not team.is_empty() else {}
 		if not here.is_empty():
-			UI.text(h, Vector2(28, 43), String(here["name"]), 16, UI.TEXT, 282, HORIZONTAL_ALIGNMENT_RIGHT)
+			UI.text(h, Vector2(28, 43 - tuck), String(here["name"]), 16, UI.TEXT, 282, HORIZONTAL_ALIGNMENT_RIGHT)
 		# What to do next, always on screen (Preston, 2026-10-11: "objective tab so players know where to go").
 		var goal: Dictionary = Objective.current(TeamState.data.get("story", {}), TeamState.data.get("beaten", []))
-		UI.panel(h, Rect2(6, 64, 600, 34), 0.9)
-		UI.text(h, Vector2(26, 87), "Next:  " + String(goal["short"]), 16, UI.TEXT, 570)
+		UI.panel(h, Rect2(6, 64 - tuck, 600, 34), 0.9)
+		UI.text(h, Vector2(26, 87 - tuck), "Next:  " + String(goal["short"]), 16, UI.TEXT, 570)
 		if talk.is_empty():
 			_draw_key_strip(h)
 	if not talk.is_empty():

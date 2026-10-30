@@ -1,0 +1,21 @@
+{
+  "user_correction": "Natural branching willows at both edges, replacing puff-ball crowns",
+  "source_middle860columns_byte_exact": true,
+  "native_middle197columns_exact_to_common_prepared_baseline": true,
+  "framing_bands_native": [
+    [
+      0,
+      103
+    ],
+    [
+      301,
+      383
+    ]
+  ],
+  "house_lamp_anchors_unlit": true,
+  "central_giants_and_original_cable_retained": true,
+  "beacon": [
+    286,
+    11
+  ]
+}

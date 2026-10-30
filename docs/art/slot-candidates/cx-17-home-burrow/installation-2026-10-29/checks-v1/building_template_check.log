@@ -1,0 +1,104 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+cottage: geometry at 1.0 is the class table ((132, 144) [P: (55, 94), S: (22, 48)]) -> ok
+cottage: canvas (132, 144) is the base (5, 2) plus eaves wide -> ok
+cottage: anchor (66, 143) is the canvas's bottom centre -> ok
+cottage: door [P: (55, 94), S: (22, 48)] centred over its 1 door tile(s), sill 2 px above the foot row -> ok
+cottage: door 22x48 clears its pass creature sparkjab (22x45) -> ok
+cottage: at 1.25 the canvas grows on the same base -> ok
+cottage: canvas() and door_px() follow BUILDING_SCALE 1.00 -> ok
+shop: geometry at 1.0 is the class table ((156, 144) [P: (55, 94), S: (22, 48)]) -> ok
+shop: canvas (156, 144) is the base (6, 2) plus eaves wide -> ok
+shop: anchor (78, 143) is the canvas's bottom centre -> ok
+shop: door [P: (55, 94), S: (22, 48)] centred over its 1 door tile(s), sill 2 px above the foot row -> ok
+shop: door 22x48 clears its pass creature sparkjab (22x45) -> ok
+shop: at 1.25 the canvas grows on the same base -> ok
+shop: canvas() and door_px() follow BUILDING_SCALE 1.00 -> ok
+stall: geometry at 1.0 is the class table ((108, 120) [P: (0, 0), S: (0, 0)]) -> ok
+stall: canvas (108, 120) is the base (4, 2) plus eaves wide -> ok
+stall: anchor (54, 119) is the canvas's bottom centre -> ok
+stall: at 1.25 the canvas grows on the same base -> ok
+stall: canvas() and door_px() follow BUILDING_SCALE 1.00 -> ok
+hall: geometry at 1.0 is the class table ((300, 192) [P: (126, 126), S: (48, 64)]) -> ok
+hall: canvas (300, 192) is the base (12, 3) plus eaves wide -> ok
+hall: anchor (150, 191) is the canvas's bottom centre -> ok
+hall: door [P: (126, 126), S: (48, 64)] centred over its 2 door tile(s), sill 2 px above the foot row -> ok
+hall: door 48x64 clears its pass creature galeshear (63x62) -> ok
+hall: at 1.25 the canvas grows on the same base -> ok
+hall: canvas() and door_px() follow BUILDING_SCALE 1.00 -> ok
+trading_post: geometry at 1.0 is the class table ((204, 192) [P: (79, 142), S: (22, 48)]) -> ok
+trading_post: canvas (204, 192) is the base (8, 3) plus eaves wide -> ok
+trading_post: anchor (102, 191) is the canvas's bottom centre -> ok
+trading_post: door [P: (79, 142), S: (22, 48)] centred over its 1 door tile(s), sill 2 px above the foot row -> ok
+trading_post: door 22x48 clears its pass creature sparkjab (22x45) -> ok
+trading_post: roof first, 67% of the height over a 64 px front; the door 25% of the height -> ok
+trading_post: at 1.25 the canvas grows on the same base -> ok
+trading_post: canvas() and door_px() follow BUILDING_SCALE 1.00 -> ok
+burrow: geometry at 1.0 is the class table ((132, 192) [P: (55, 142), S: (22, 48)]) -> ok
+burrow: canvas (132, 192) is the base (5, 3) plus eaves wide -> ok
+burrow: anchor (66, 191) is the canvas's bottom centre -> ok
+burrow: door [P: (55, 142), S: (22, 48)] centred over its 1 door tile(s), sill 2 px above the foot row -> ok
+burrow: door 22x48 clears its pass creature sparkjab (22x45) -> ok
+burrow: roof first, 71% of the height over a 56 px front; the door 25% of the height -> ok
+burrow: at 1.25 the canvas grows on the same base -> ok
+burrow: canvas() and door_px() follow BUILDING_SCALE 1.00 -> ok
+Tower depot: hall canvas (300, 192) is TOWER_DEPOT 300 x 192 -> ok
+Tower depot: the Hall's 12 x 3 base and its double door [P: (126, 126), S: (48, 64)] over base columns 5 and 6 -> ok
+Tower depot: its slot town.building.hall is the depot canvas, door and foot, at frame (66, 528) -> ok
+Tower depot: its beacon and apex anchors (150, -410) (117, -527) are the frame's, in the depot's px -> ok
+Tower: the depot's door lands on the frame's door [P: (192, 654), S: (48, 64)] -> ok
+TowerParts: 21 parts in order 1 to 21, the body drawn as the design lists it -> ok
+TowerParts: assembled (432, 720), standing 719 px tall (at least 540) from row 1 to the foot row -> ok
+TowerParts: the Waiting Lamp burns round the beacon (216, 118) (70 of 81 px lit) -> ok
+TowerParts: the beacon is on the door axis -> ok
+tower_points on Tower Rise: origin (96, -504), door (312.0, 182.0) up to the beacon (312.0, -386.0) is 568 px (a pan of 2.63 screens) -> ok
+Tower depot at 1.25 is 300x222, a stretched stand-in -> ok
+town.building.hall placeholder (300, 192), 29 colours of 32, edges clear -> ok
+town.building.hall paints with its own hook, not the shared kind painter (res://scripts/town/tower_parts.gd:paint_slot) -> ok
+town.building.home placeholder (132, 192), 23 colours of 32, edges clear -> ok
+town.building.home paints with its own hook, not the shared kind painter (res://scripts/town/building_template.gd:paint_slot) -> ok
+town.building.lot_before_shop placeholder (156, 144), 10 colours of 32, edges clear -> ok
+town.building.lot_before_shop paints with its own hook, not the shared kind painter (res://scripts/town/building_template.gd:paint_slot) -> ok
+town.building.lot_before_stall placeholder (108, 120), 7 colours of 32, edges clear -> ok
+town.building.lot_before_stall paints with its own hook, not the shared kind painter (res://scripts/town/building_template.gd:paint_slot) -> ok
+town.building.scrolls placeholder (156, 144), 12 colours of 32, edges clear -> ok
+town.building.scrolls paints with its own hook, not the shared kind painter (res://scripts/town/building_template.gd:paint_slot) -> ok
+town.building.shop placeholder (204, 192), 21 colours of 32, edges clear -> ok
+town.building.shop paints with its own hook, not the shared kind painter (res://scripts/town/building_template.gd:paint_slot) -> ok
+town.building.storage placeholder (156, 144), 10 colours of 32, edges clear -> ok
+town.building.storage paints with its own hook, not the shared kind painter (res://scripts/town/building_template.gd:paint_slot) -> ok
+town.landmark.lot_before_plot placeholder (144, 96), 7 colours of 32, edges clear -> ok
+town.landmark.lot_before_plot paints with its own hook, not the shared kind painter (res://scripts/town/building_template.gd:paint_plot) -> ok
+town.prop.shut_boards placeholder (26, 50), 5 colours of 24, edges clear -> ok
+town.prop.shut_boards paints with its own hook, not the shared kind painter (res://scripts/town/building_exteriors.gd:slot_shut_boards) -> ok
+town.prop.shut_chain placeholder (28, 36), 4 colours of 24, edges clear -> ok
+town.prop.shut_chain paints with its own hook, not the shared kind painter (res://scripts/town/building_exteriors.gd:slot_shut_chain) -> ok
+town.prop.shut_rope placeholder (30, 20), 6 colours of 24, edges clear -> ok
+town.prop.shut_rope paints with its own hook, not the shared kind painter (res://scripts/town/building_exteriors.gd:slot_shut_rope) -> ok
+town.prop.sign_hall placeholder (24, 24), 4 colours of 24, edges clear -> ok
+town.prop.sign_hall paints with its own hook, not the shared kind painter (res://scripts/town/building_exteriors.gd:slot_sign) -> ok
+town.prop.sign_scrolls placeholder (24, 24), 5 colours of 24, edges clear -> ok
+town.prop.sign_scrolls paints with its own hook, not the shared kind painter (res://scripts/town/building_exteriors.gd:slot_sign) -> ok
+town.prop.sign_shop placeholder (24, 24), 5 colours of 24, edges clear -> ok
+town.prop.sign_shop paints with its own hook, not the shared kind painter (res://scripts/town/building_exteriors.gd:slot_sign) -> ok
+town.prop.sign_storage placeholder (24, 24), 4 colours of 24, edges clear -> ok
+town.prop.sign_storage paints with its own hook, not the shared kind painter (res://scripts/town/building_exteriors.gd:slot_sign) -> ok
+town.prop.sign_yard placeholder (24, 24), 4 colours of 24, edges clear -> ok
+town.prop.sign_yard paints with its own hook, not the shared kind painter (res://scripts/town/building_exteriors.gd:slot_sign) -> ok
+lane B has 16 new slots (16) -> ok
+shut_chain placeholder is today's chain -> ok
+shut_rope placeholder is today's rope -> ok
+town.prop.sign_shop: the sign slot's board is the v1 board, pixel for pixel -> ok
+town.prop.sign_storage: the sign slot's board is the v1 board, pixel for pixel -> ok
+town.prop.sign_hall: the sign slot's board is the v1 board, pixel for pixel -> ok
+town.prop.sign_scrolls: the sign slot's board is the v1 board, pixel for pixel -> ok
+place() v1 call: the depot stands at its canvas origin, sorted at its door row ((162.0, 24.0)) -> ok
+place() v1 call: its picture is the depot slot (placeholder), its sign the waymark slot -> ok
+place(): three door frames, closed to open (cover [1.0, 0.5, 0.09]) -> ok
+place(): a lot before it opens shows its tarp slot -> ok
+place(): a plot lot lies flat at its base -> ok
+v1: place_entry() is each PLACES row itself -> ok
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+v1: buildings drawn from their PNGs at rect x 24 (home ok, shop ok, storage ok, scrolls ok, hall ok) -> ok
+v1: open-air places drawn (13) -> ok
+RESULT: the template, the Tower and v1 hold

@@ -18,6 +18,7 @@ const Painter := preload("res://scripts/town/room_painter.gd")
 const UI := preload("res://scripts/ui/ui_style.gd")
 const SceneKit := preload("res://scripts/town/scene_kit.gd")
 const GuildScene := preload("res://scripts/town/guild_scene.gd")
+const Music := preload("res://scripts/audio/music.gd")
 const T := 24
 const VIEW := Vector2i(384, 216)
 const SCALE := 3.0
@@ -228,6 +229,18 @@ func _ready() -> void:
 	_world.add_child(dark)
 	var map := Sprite2D.new()
 	map.centered = false
+	_world.add_child(map)
+	# Not made yet (Claude, 2026-10-27, pass 9 R2 / A9-12): the street's warm-up had not reached this room, or it is one the
+	# warm-up never makes. Painting it here held one frame 0.3 s at the Hall's door and 0.9 to 1.75 s on the stairs, on
+	# black. It is painted on a worker instead, behind the room's own black curtain, and the rest of the room is built when
+	# the picture is in (_paint_behind), every frame short meanwhile.
+	# The mail call's cast, not all read yet (R2): the call spawned its eight creatures in one frame that waited for their
+	# 582 pictures, 1.4 to 1.9 s on the stairs with the picture made. The curtain holds until GuildCrew.read_cast has them.
+	if room_id == "hall_low" and works_behind() and GuildCrew.pending(self) and not GuildCrew.cast_kept(GuildCrew.cast_of(room_id)):
+		_cast_wait = GuildCrew.cast_of(room_id)
+	if room_id != "storage" and ((not prepared(room_id) and paints_on_worker(room_id)) or not _cast_wait.is_empty()):
+		_paint_behind(map, began)
+		return
 	if room_id == "storage":
 		map.texture = StorageArt.shell()   # a loaded picture, not painted: the resource cache keeps it
 	elif _pictures.has(room_id):
@@ -236,8 +249,14 @@ func _ready() -> void:
 	else:
 		_paint_picture(room_id, map)
 		_pictures[room_id] = [map.texture, map.material]
-	_world.add_child(map)
 	_lap("picture")
+	_build_rest(map, began)
+
+
+## The rest of the room once its picture is on `map`: furniture, team, HUD, menus, crew and scenes. In _ready, or after
+## the worker painted the picture (_paint_behind).
+func _build_rest(map: Sprite2D, began: int) -> void:
+	var r := room()
 	if room_id == "storage":
 		StorageArt.finish(_world, map)
 	if room_id == "hall":
@@ -296,6 +315,178 @@ func _ready() -> void:
 		GuildCrew.place(self)   # the crew at their posts
 	_lap("menus and crew")
 	ready_ms["total"] = (Time.get_ticks_usec() - began) / 1000.0
+	# The rooms through this one's stairs and inner doors, made on a worker while the team is here (pass 9 R2), as the
+	# street makes the Hall's two floors and the Home: the lower floor was painted at the stairs, 0.9 to 1.75 s of black.
+	var next: Array = []
+	for l in r.get("links", []):
+		if _link_ok(l):
+			next.append(String(l["to"]))
+	_paint_next(next)
+	if room_id == "hall" and works_behind() and GuildCrew.call_waits(_record()):
+		_hold_quit(get_tree())
+		GuildCrew.read_cast(GuildCrew.cast_of("hall_low"))   # the mail call's cast too, a creature a frame (R2)
+
+
+## Which rooms a worker may paint (R2): the ones whose painting already runs on the street's warm-up thread (the Hall's two
+## floors and the Home) and the chamber and runners' room, which go through the same painter and floors finish. The shop
+## and the cellar read Grok's slots as they paint and stay on the main thread; the Storage is loaded art.
+const WORKER_ROOMS := ["hall", "hall_low", "home", "chamber", "runners"]
+## 1: always paint a room that is not made yet on a worker; 0: never; -1: in a window only, so a headless check builds a
+## room in one frame as before unless it asks (town_room_check sets 1 to test this way).
+static var paint_on_worker := -1
+const CURTAIN_LAYER := 109   # under UI's fade (110), over the pause menu (80) and the HUD
+const CURTAIN_LIFT := 0.2    # seconds, the curtain's fade once the room is built (UI.fade_in's own)
+var curtain: CanvasLayer = null   # the black over a room still being painted (the checks read it)
+
+
+static func paints_on_worker(id: String) -> bool:
+	if not id in WORKER_ROOMS or not works_behind():
+		return false
+	return art_off_main()   # the art read off the main thread is the PNGs on disk; an exported game paints here
+
+
+## Whether rooms read and paint ahead, behind their curtain: in a window, or in a check that set paint_on_worker to 1.
+static func works_behind() -> bool:
+	return paint_on_worker == 1 or (paint_on_worker < 0 and DisplayServer.get_name() != "headless")
+
+
+## The room's picture painted on a worker behind a black curtain the room holds itself, so the door's or the stairs' fade
+## lifts onto black, not onto an empty room; then the rest of the room is built, and the curtain fades. No steps, no menu
+## and no _process until then. prepared_parts is the street warm-up's own worker half (pass 7 T2), so the picture, the
+## furniture shapes and the Hall's desk come out exactly as an entry after the warm-up would find them.
+func _paint_behind(map: Sprite2D, began: int) -> void:
+	busy = true
+	set_process(false)
+	curtain = CanvasLayer.new()
+	curtain.name = "Curtain"
+	curtain.layer = CURTAIN_LAYER
+	var black := ColorRect.new()
+	black.color = Color.BLACK
+	black.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	black.set_anchors_preset(Control.PRESET_FULL_RECT)
+	curtain.add_child(black)
+	add_child(curtain)
+	_paint_map = map
+	_paint_began = began
+	paint_ahead(room_id)   # or joins the one already painting it (a stair or door used just after this room's own)
+	_lap("picture asked of a worker")
+	if not _cast_wait.is_empty():
+		_hold_quit(get_tree())
+		GuildCrew.read_cast(_cast_wait)   # or joins the Hall's reading
+		_lap("cast asked for")
+	get_tree().process_frame.connect(_paint_poll)
+
+
+var _paint_map: Sprite2D = null
+var _paint_began := 0
+var _cast_wait: Array = []   # the mail call's creatures this room waits for behind its curtain (R2), or []
+static var _painting := {}   # room id -> true while a worker paints it (R2)
+
+
+## Paint room `id` on a worker and keep it (Claude, 2026-10-27, pass 9 R2): the warm-up's halves, prepared_parts on the
+## worker and keep_prepared here, as hub_town.gd's _rooms_ahead runs them. Static, on the tree's frames, so no room owns
+## the task: a room left meanwhile leaves the painting to finish and be kept. One paint a room at a time. The main thread
+## never blocks on the worker before it has finished (the paint makes textures; a main thread stopped waiting for it
+## deadlocked in a check). Nothing happens in a headless check unless it set paint_on_worker.
+static func paint_ahead(id: String) -> void:
+	if _painting.has(id) or prepared(id) or not paints_on_worker(id) or Music.closing:
+		return
+	var tree := Engine.get_main_loop() as SceneTree
+	_hold_quit(tree)
+	_painting[id] = true
+	var made := {}
+	var task := WorkerThreadPool.add_task(func() -> void: made["parts"] = prepared_parts(id), false, "Room " + id)
+	_tasks[id] = task
+	while _tasks.has(id) and not WorkerThreadPool.is_task_completed(task):
+		await tree.process_frame
+	if _tasks.has(id):   # else a quit has waited for it already (_work_left), and nothing is kept
+		_tasks.erase(id)
+		WorkerThreadPool.wait_for_task_completion(task)   # finished already: this only lets the pool forget it
+		keep_prepared(id, made.get("parts", []))
+	_painting.erase(id)
+
+
+## The game's close waits for this script's thread work (Claude, 2026-10-27, pass 9 R2, on the T lane's T1 hook in
+## music.gd): a worker still painting a room, and the mail call's pictures still being read (GuildCrew.read_cast), as
+## hub_town.gd's _work_left does for the street's. Without it a quit in the Hall's first second cut a worker off.
+static var _tasks := {}   # room id -> its worker task, while it paints
+static var _quit_held := false
+
+
+static func _hold_quit(tree: SceneTree) -> void:
+	if not _quit_held:
+		_quit_held = true
+		# The static method itself, as music.gd's keep_for asks (pass 9 integration): a lambda kept in Music can outlive
+		# this script, the way hub_town.gd's did (exit 139 on a quit from a dungeon, T1).
+		Music.keep_for(tree, _work_left)
+
+
+## Whether a room painting or a cast read still runs; with `finish`, wait for each here (up to 5 s in all, the renderer's
+## queue run meanwhile, since a worker making a texture waits on it) and let the results go, then answer false.
+static func _work_left(finish: bool) -> bool:
+	var until := Time.get_ticks_msec() + 5000
+	var running := false
+	for id: String in _tasks.keys():
+		var task: int = _tasks[id]
+		while finish and not WorkerThreadPool.is_task_completed(task) and Time.get_ticks_msec() < until:
+			RenderingServer.force_sync()
+			OS.delay_msec(2)
+		if not WorkerThreadPool.is_task_completed(task):
+			running = true
+		elif finish:
+			_tasks.erase(id)
+			WorkerThreadPool.wait_for_task_completion(task)
+	for path: String in GuildCrew._reading.keys():
+		var state := ResourceLoader.load_threaded_get_status(path)
+		while finish and state == ResourceLoader.THREAD_LOAD_IN_PROGRESS and Time.get_ticks_msec() < until:
+			RenderingServer.force_sync()
+			OS.delay_msec(2)
+			state = ResourceLoader.load_threaded_get_status(path)
+		if state == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+			running = true
+		elif finish:
+			if state == ResourceLoader.THREAD_LOAD_LOADED:
+				ResourceLoader.load_threaded_get(path)   # taken and let go, so the loader holds nothing at exit
+			GuildCrew._reading.erase(path)
+	return running
+
+
+## Whether a worker is painting a room now (for a quit, which should let it finish first, as the street's warm-up).
+static func painting() -> bool:
+	return not _painting.is_empty()
+
+
+## The rooms this room's stairs and inner doors lead to, painted one after another while the team is here, so the next
+## room is made before the team gets there (the stairs down from the Hall are one tile from its door).
+static func _paint_next(ids: Array) -> void:
+	for id: String in ids:
+		await paint_ahead(id)
+
+
+## Once a frame until the picture is kept; then the room is built and the curtain fades.
+func _paint_poll() -> void:
+	if not is_inside_tree() or _painting.has(room_id) or not (_cast_wait.is_empty() or GuildCrew.cast_kept(_cast_wait)):
+		return
+	get_tree().process_frame.disconnect(_paint_poll)
+	var id := room_id
+	var map := _paint_map
+	_lap("painted on a worker" if _cast_wait.is_empty() else "painted and the cast read")
+	if _pictures.has(id):
+		map.texture = _pictures[id][0]
+		map.material = _pictures[id][1]
+	else:   # the worker made nothing (no art on disk after all): paint here, as before
+		_paint_picture(id, map)
+		_pictures[id] = [map.texture, map.material]
+	_lap("picture")
+	_build_rest(map, _paint_began)
+	busy = false
+	set_process(true)
+	var black := curtain.get_child(0) as ColorRect
+	var lift := create_tween()
+	lift.tween_property(black, "color:a", 0.0, UI.motion_secs(CURTAIN_LIFT))
+	lift.tween_callback(func() -> void:
+		curtain.queue_free()
+		curtain = null)
 
 
 ## Where the team stands on arrival (Claude, 2026-10-22, LP-18). Each member gets its own open tile that is not
@@ -994,7 +1185,9 @@ static func _lift(tree: SceneTree) -> void:
 func _chat(n: Dictionary) -> void:
 	cutscene = true
 	SceneKit.face(self, n, team[0])
+	talk_box = talk_box_for([team[0], n])   # clear of both of them, for the whole word (pass 9 R1)
 	await SceneKit.say(self, n["lines"])
+	talk_box = TALK_BOX
 	cutscene = false
 
 
@@ -1108,8 +1301,8 @@ func _draw_hud() -> void:
 		if not talk.is_empty():
 			var sl: Array = talk[0]
 			var sf: String = String(sl[2]) if sl.size() > 2 else ""
-			_solid_under(h, TALK_BOX)
-			UI.dialogue(h, TALK_BOX, String(sl[0]), String(sl[1]), UI.dialogue_portrait(sf) if sf != "" else null, Time.get_ticks_msec() / 1000.0, 20, sf.get_slice(":", 1) if ":" in sf else "normal")
+			_solid_under(h, talk_box)
+			UI.dialogue(h, talk_box, String(sl[0]), String(sl[1]), UI.dialogue_portrait(sf) if sf != "" else null, Time.get_ticks_msec() / 1000.0, 20, sf.get_slice(":", 1) if ":" in sf else "normal")
 		return
 	# The place and "Next:" panels and the key strip step aside while a panel is open, as on Highbank's street when
 	# the Job Board is up (Claude, 2026-10-24, pass 5 RM3 / LV-03): the Storage list showed the Next line through it.
@@ -1147,6 +1340,30 @@ func _draw_hud() -> void:
 ## The scene lines' box, as UI.dialogue draws it.
 const TALK_BOX := Rect2(196, 452, 760, 116)
 const SOLID_IN := 9.0   # the frame's brass is opaque 12 px in from its edge; the backing starts under it
+# The same box at the top of the screen (Claude, 2026-10-27, pass 9 R1 / A9-05), for a word with someone who stands low
+# on the screen: in the Hall the camera stops at the room's foot, so Grubbit's feet met the bottom box's top edge. UI.dialogue
+# draws the portrait 34 px above the box, so the top box sits 44 px down and its portrait 10 px from the screen's edge.
+const TALK_BOX_TOP := Rect2(196, 44, 760, 116)
+const TALK_REACH := 34.0   # how far above the box its portrait (and name tab) reach
+var talk_box := TALK_BOX   # where a crew member's lines go now (_chat); the scenes keep the bottom box
+
+
+## On screen, in the HUD's pixels: the box round creature `e`'s picture (its opaque part) where it stands now.
+func screen_box(e: Dictionary) -> Rect2:
+	var ext := _extent_of((e["sprite"] as Sprite2D).texture)
+	var at: Vector2 = (e["node"] as Node2D).position + ext.position + _world.position
+	return Rect2(at * SCALE, ext.size * SCALE)
+
+
+## The box a word with `who` goes in (R1): the bottom one unless it, its portrait or its name tab would cover any of them,
+## then the top one if that keeps them all clear, else the bottom one as before.
+func talk_box_for(who: Array) -> Rect2:
+	var boxes: Array = who.map(func(e: Dictionary) -> Rect2: return screen_box(e))
+	for box: Rect2 in [TALK_BOX, TALK_BOX_TOP]:
+		var reach := Rect2(box.position - Vector2(0, TALK_REACH), box.size + Vector2(0, TALK_REACH))
+		if boxes.all(func(b: Rect2) -> bool: return not reach.intersects(b)):
+			return box
+	return TALK_BOX
 
 
 ## An opaque floor under a talk box or a spot's panel (Claude, 2026-10-26, pass 8 R2 / L02): the panel's woven fill is
@@ -1206,7 +1423,10 @@ func _draw_hints(h: Node2D) -> void:
 	var where := String(room().get("hint", "The door leads back out"))
 	var keys := keys_hint()
 	var lay := hint_now()
-	var col := Color(UI.MUTED, 0.85)
+	# MUTED at full strength (Claude, 2026-10-27, pass 9 R3 / A9-13): at 0.85 it blended to #b5ad98 and read 4.46 to
+	# 4.78 against the strip over the stone floor, under body text's 4.5. The strip keeps its see-through 0.85, and the
+	# shared MUTED token is untouched (shrine_info.gd reads it too); only this strip's words change.
+	var col := UI.MUTED
 	UI.panel(h, lay["strip"], 0.85)
 	UI.say(h, lay["keys"], keys, "label", col, lay["width"], HORIZONTAL_ALIGNMENT_RIGHT)
 	UI.say(h, lay["where"], where, lay["where_role"], col, lay["width"], HORIZONTAL_ALIGNMENT_RIGHT)

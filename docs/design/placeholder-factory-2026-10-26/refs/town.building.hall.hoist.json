@@ -1,0 +1,68 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "town",
+	"brief": "Part of the Wayline Tower: read TOWER_DESIGN.md and the key (town.building.hall.key) first. Paint exactly this cell, lit from the upper left, from the wayline_tower palette only, with no outer outline (the game rims the tower). The hoist jib out of the drum's right flank: a root-wood stub, a timber arm with iron straps, a diagonal brace and the brass pulley block at its end. Two frames turn the pulley's sheave while the rope runs (the rope and basket are coded).",
+	"census": "WT02",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/town/building/hall_hoist.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frame_at": [
+		304,
+		460
+	],
+	"frames": 2,
+	"id": "town.building.hall.hoist",
+	"kind": "building",
+	"lane": "T",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "order 3; the rope hangs from TowerParts.PULLEY (batch cx-13)",
+	"outline": "runtime_rim",
+	"owner": "codex",
+	"palette": {
+		"family": "wayline_tower",
+		"lock": true,
+		"max": 32,
+		"source": "res://assets/slots/palettes/wayline_tower.png"
+	},
+	"placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		176,
+		56
+	],
+	"size": [
+		88,
+		56
+	],
+	"slot_file": "town_tower",
+	"states": {
+		"turn": [
+			2,
+			4
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

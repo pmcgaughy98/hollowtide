@@ -331,13 +331,16 @@ const DUNGEONS := {
 	# Four floors (Preston, 2026-10-11: "a couple more dungeon floors to go through before escaping").
 	"mouth": {"name": "Hollow Mouth", "floors": 4,
 		"spawns": {1: [[7, 0], [103, 0]], 2: [[7, 0], [103, 0]], 3: [[7, 0], [10, 0], [103, 0]], 4: [[7, 0], [10, 0], [103, 0]]},   # Listener and Skimlet; + Troughspine
-		"looks": {1: "ruin", 2: "ruin", 3: "ruin", 4: "ruin"},
+		"looks": {1: "ruin", 2: "ruin", 3: "ruin", 4: "ruin", 5: "ruin"},
+		# The Warden's pond garden is the Mouth's way out (Preston, 2026-10-28: "add the pond garden where warden is
+		# ... because its also room where exit is"). One floor past the last, no wilds, no fight; its stairs clear it.
+		"garden": true,
 		"boss": {}},
 	# The first dungeon's name is Claude's pick (Preston, 2026-10-10: "you choose name for dungeon 1"):
 	# tunnels dug through a river bank, roots in the walls, where the crew holes up.
 	"first": {"name": "Rootbank Warren", "floors": FLOORS, "spawns": FLOOR_SPAWNS, "looks": {1: "riverbank", 2: "riverbank", 3: "riverbank", 4: "riverbank"},
 		"boss": {"line": [100, 0], "minions": [[101, 0]], "hp": 1.5, "intro": false, "scene": "crew", "arena": Vector2i(13, 10), "talk": CREW_TALK}},
-	"hollow": {"name": "The Hollow", "floors": 2,
+	"hollow": {"name": "The Hollow", "floors": 4,
 		# The Warden's dungeon leans Tide, stocked the Explorers of Sky way: the place's essence plus what
 		# lives at the water (Preston, 2026-10-10: Troughspine belongs here). Listener and Troughspine;
 		# the Gale fliers moved out; Rimefin too (a starter's line is not met here, Preston, same day).
@@ -346,8 +349,11 @@ const DUNGEONS := {
 		# Tide line (about 6 into the Ember leader's 40 HP) and Seep was healing that hit back. Seed 99
 		# lost the leader there with one wild downed. B2F is Ozbender, Valvekin and Troughspine, without
 		# Listener, so the floor before the Warden is not two Tide shots at once.
-		"spawns": {1: [[7, 0], [103, 0]], 2: [[104, 0], [105, 0], [10, 0]]},
-		"looks": {1: "valley", 2: "ruin", 3: "ruin"},
+		# Four floors before the garden (Preston, 2026-10-28: "when they go back on the mission where they actually fight
+		# him there will be more floors to get there"; docs/design/mouth-garden-2026-10-28). B3F and B4F reuse B2F's set
+		# until Grok sets their own (the brief is in that folder).
+		"spawns": {1: [[7, 0], [103, 0]], 2: [[104, 0], [105, 0], [10, 0]], 3: [[104, 0], [105, 0], [10, 0]], 4: [[104, 0], [105, 0], [10, 0]]},
+		"looks": {1: "valley", 2: "ruin", 3: "ruin", 4: "ruin", 5: "ruin"},
 		"boss": {"line": BOSS, "minions": BOSS_MINIONS, "hp": BOSS_HP, "intro": true, "arena": BOSS_ARENA, "talk": BOSS_TALK, "stone": true}},
 }
 const DIRS := [Vector2i(1, 0), Vector2i(1, 1), Vector2i(0, 1), Vector2i(-1, 1), Vector2i(-1, 0), Vector2i(-1, -1), Vector2i(0, -1), Vector2i(1, -1)]
@@ -355,6 +361,13 @@ const DIRS := [Vector2i(1, 0), Vector2i(1, 1), Vector2i(0, 1), Vector2i(-1, 1), 
 var party: Array = [[0, 0], [1, 0]]     # your team, [line, stage]; the first one leads
 var floor_n := 1
 var floor_seed := 0
+## The run's own random generator (Grok task 9, 2026-10-26; pass 9 D3): the damage roll, both recruit rolls, the warp
+## room and every next floor_seed draw from it, so a changed frame count, a longer floor card or a new puff never moves
+## the next hit or the next floor. Camera shake and particles stay on Godot's generator. _build_floor seeds it from
+## floor_seed + RUN_SEED_OFFSET, so a floor entered at the same seed with the same actions takes the same rolls. The
+## floor plan keeps floor_seed + 7, the nest floor_seed + 99, the rain its seed 77, and jobs.gd its own streams.
+const RUN_SEED_OFFSET := 4513
+var _run_rng := RandomNumberGenerator.new()
 var autopilot := false
 ## Only a check sets this (L6-01, D1, Claude, 2026-10-24): its autopilot still reads the lines and welcomes a creature
 ## that asks to join, so the headless chains play to the end. The player's Tab never answers: a line or a question
@@ -401,6 +414,11 @@ var story := {}                           # the pilot's story state: "stone" is 
 
 func floors() -> int:
 	return int(DUNGEONS[dungeon]["floors"])
+
+
+## The dungeon ends in the pond garden, a quiet floor past its last (the Hollow Mouth; docs/design/mouth-garden-2026-10-28).
+func has_garden() -> bool:
+	return DUNGEONS[dungeon].get("garden", false)
 
 
 func boss_cfg() -> Dictionary:
@@ -504,8 +522,9 @@ var _fade: ColorRect
 
 func _ready() -> void:
 	UI.forget_taps()   # a fresh slate, as the old per-scene _keys_was was (Claude, 2026-10-23)
-	if floor_seed == 0:
-		floor_seed = randi()
+	if floor_seed == 0:   # a check or a resume that set the seed keeps it
+		_run_rng.randomize()
+		floor_seed = _run_rng.randi()
 	_party_at_start = party.duplicate(true)
 	_roster_at_start = roster.duplicate(true)
 	_view = SubViewport.new()
@@ -744,6 +763,7 @@ func _draw_water() -> void:
 
 func _build_floor(fresh_team: bool) -> void:
 	var t0 := Time.get_ticks_usec()
+	_run_rng.seed = floor_seed + RUN_SEED_OFFSET   # this floor's gameplay rolls (D3)
 	build_steps.clear()
 	var keep: Array = []
 	if not fresh_team:
@@ -765,8 +785,8 @@ func _build_floor(fresh_team: bool) -> void:
 	cutscene = false
 	cam_focus = null
 	data = Gen.generate(floor_seed, RECIPE) if floor_kind() == "normal" else _fixed_floor(floor_kind())
-	if floor_kind() == "boss" and intro_here():
-		pond = BossIntro.pond_rect(data["stairs"])
+	if (floor_kind() == "boss" and intro_here()) or floor_kind() == "garden":
+		pond = BossIntro.pond_rect(data["stairs"])   # the garden is drawn by boss_intro.gd, with or without its Warden
 	var look: String = DUNGEONS[dungeon]["looks"].get(floor_n, "bank")
 	_map.texture = _floor_picture(painter_for(look), look)
 	_trap_ink = trap_ink(look)   # a sprung trap is painted in this floor's colours (pass 3 D4)
@@ -856,6 +876,11 @@ func _build_floor(fresh_team: bool) -> void:
 			if line.size() > 2:
 				form += ":" + String(line[2])   # the line's face
 			talk.append([String(line[0]).replace("{partner}", partner).replace("{boss}", ents[boss]["name"]), line[1], form])
+	_sweep_from = -1
+	if dungeon == "mouth" and floor_n == SWEEP_FLOOR and not story.get("swept", false):
+		_sweep_field = Gen.distances(_walk_tiles(), data["w"], data["h"], data["stairs"])
+		_sweep_from = _sweep_field[data["start"].y * data["w"] + data["start"].x]
+		_sweep_turn0 = turn
 	_take_unread_art()   # pictures asked ahead for a wild kind the floor did not place (LF7-01)
 	# The Menu button is hidden from the first frame under the card or a scene (LF7-03, Claude, 2026-10-26): made with
 	# the menu above, it showed "MENU [P]" on the arrival card until _process had counted two frames of hiding.
@@ -880,6 +905,9 @@ func _build_mark(step: String, t0: int) -> void:
 ## so the first blow of a floor is not a 40 ms stall reading 16 frames and a sound from disk. _fx_frames keeps the
 ## sheets for this run, _streams keeps the sounds for the session.
 const HIT_SOUNDS := ["swing", "throw", "miss", "hit_light", "hit_heavy", "hit_super", "wake", "faint", "party_down", "shove", "slam", "part_break"]
+## hit_heavy's level on a hit; hit_light and hit_super play at -4.0 (pass 9 D5, A9-14). Measured with the audit's
+## wavs.py: loudest 50 ms light -14.7, heavy -9.3, super -11.6 dBFS, so -7.5 here gives -18.7 < -16.8 < -15.6.
+const HIT_HEAVY_DB := -7.5
 
 
 func _warm_hits() -> void:
@@ -975,7 +1003,11 @@ func _prepare_floor() -> void:
 		var form := form_of(int(w[0]), int(w[1]))
 		for set_want in (["dungeon"] if String(w[2]) == "dungeon" else ["dungeon", String(w[2])]):   # _make reads the plain set before _size_up
 			var ck: String = form + "/" + String(set_want)
-			if seen.has(ck) or seen.size() >= ART_CACHE_MAX or _art_cache.has(ck):
+			if _art_cache.has(ck) and not seen.has(ck):
+				_touch_art(ck)   # kept: the sets read below must not push out one this floor makes (D2)
+				seen[ck] = true
+				continue
+			if seen.has(ck) or seen.size() >= ART_CACHE_MAX:
 				continue   # never more than the cache holds, or the first would be dropped before the build reads it
 			seen[ck] = true
 			for p in _art_paths(form, _art_set(form, String(set_want))):
@@ -1386,13 +1418,26 @@ func _cheb(a: Vector2i, b: Vector2i) -> int:
 ## had already sprung, was carried to another room, walked back the same way and stepped on it again, forever (the
 ## pilot chain's Warren replay, Claude, 2026-10-21). Not cached, so a trap counts the moment it is seen.
 func _field_round_traps(goal: Vector2i, from: Vector2i) -> PackedInt32Array:
-	var tiles: PackedByteArray = data["tiles"].duplicate()
+	var tiles: PackedByteArray = _walk_tiles().duplicate()   # round the pond as well (_walk_tiles)
 	for trap in traps:
 		if trap["seen"] and trap["pos"] != from and trap["pos"] != goal:
 			tiles[trap["pos"].y * data["w"] + trap["pos"].x] = Gen.WALL
 	for c in clients:
 		tiles[c["pos"].y * data["w"] + c["pos"].x] = Gen.WALL   # a Job Board client never steps aside (can_step): one in the straight line to the goal left no shorter step, and the autopilot rested for good (Claude, 2026-10-21)
 	return Gen.distances(tiles, data["w"], data["h"], goal)
+
+
+## The floor as the walkers see it: the pond is floor in the map but nobody walks on it (_floor_at), so the distance
+## fields go round it. Without this the autopilot and the partners stood at the near shore of the Mouth's garden, the
+## field pointing straight across the water (pilot chain, 2026-10-28).
+func _walk_tiles() -> PackedByteArray:
+	if pond.size == Vector2i.ZERO:
+		return data["tiles"]
+	var t: PackedByteArray = data["tiles"].duplicate()
+	for y in range(pond.position.y, pond.end.y):
+		for x in range(pond.position.x, pond.end.x):
+			t[y * data["w"] + x] = Gen.WALL
+	return t
 
 
 ## One step toward `goal` around the walls, not onto anyone; ZERO when there is none.
@@ -1408,7 +1453,7 @@ func _step_toward(i: int, goal: Vector2i, through_team := false, round_traps := 
 	if not _fields.has(key):
 		if _fields.size() > 32:
 			_fields.clear()
-		_fields[key] = Gen.distances(data["tiles"], data["w"], data["h"], goal)
+		_fields[key] = Gen.distances(_walk_tiles(), data["w"], data["h"], goal)
 	var field: PackedInt32Array = _fields[key]
 	if round_traps and (not clients.is_empty() or traps.any(func(trap: Dictionary) -> bool: return trap["seen"])):
 		var safe := _field_round_traps(goal, from)
@@ -1501,7 +1546,7 @@ const FOOT_FIX := {"troughspine/dungeon": {"n": 31, "nw": 31, "ne": 31}}   # the
 ## Troughspine "needs shadow", then "looks like it's standing on hind legs" with the shadow only at its
 ## feet). A lizard lying flat shades the ground under all of it, so the oval is sized from the pose's
 ## outline and centred a little in front of the body's middle.
-const FOOTPRINT_SHADOW := ["troughspine"]
+const FOOTPRINT_SHADOW := ["troughspine", "archroot"]   # Archroot, its next stage, too (Preston, 2026-10-28: "needs the shadow fix")
 var _shadow_fit := {}
 
 
@@ -1519,6 +1564,7 @@ static var _art_cache_keys: Array = []
 func _load_art(folder: String, want := "dungeon") -> Dictionary:
 	var key := folder + "/" + want
 	if _art_cache.has(key):
+		_touch_art(key)
 		return _art_cache[key]
 	var art := _read_art(folder, want)
 	_art_cache[key] = art
@@ -1526,6 +1572,15 @@ func _load_art(folder: String, want := "dungeon") -> Dictionary:
 	while _art_cache_keys.size() > ART_CACHE_MAX:
 		_art_cache.erase(_art_cache_keys.pop_front())
 	return art
+
+
+## A form read again goes to the back of the line, so the cache drops the form used longest ago, not the one read
+## first (pass 9 D2, Claude, 2026-10-27). On The Hollow's last stairs the Warden's and its Listeners' four sets were
+## read ahead under the card and pushed the team's three sets out, so the build read the team from disk again: 715 ms
+## of a 726 ms boss-floor build.
+func _touch_art(key: String) -> void:
+	_art_cache_keys.erase(key)
+	_art_cache_keys.append(key)
 
 
 func _read_art(folder: String, want: String) -> Dictionary:
@@ -1928,7 +1983,7 @@ func damage(i: int, j: int, m: String) -> int:
 	for d in ents[j]["essences"]:
 		mult *= Arena.ARENA_CHART.get([ess, d], 1.0)
 	var base: float = Arena.MOVES[m]["damage"] * (1.0 + Arena.STAGE_POWER * e["stage"]) * DMG_SCALE * mult * ((BOSS_DMG if e.get("boss", false) else WILD_DMG) if e["team"] == 1 else 1.0)
-	return maxi(1, int(round(base * randf_range(0.9, 1.1))))
+	return maxi(1, int(round(base * _run_rng.randf_range(0.9, 1.1))))
 
 
 func _mult(i: int, j: int, m: String) -> float:
@@ -2136,7 +2191,10 @@ func _hit(i: int, j: int, m: String) -> void:
 	# (L09, D1, Claude, 2026-10-26: "It bites deep!" sat beside the number on every hit and judged it).
 	_matchup_line(i, j, m, mult)
 	_say("%s took %d damage.%s" % [o["name"], dmg, why], o)
-	_sfx("hit_super" if mult > 1.0 else ("hit_heavy" if not tags.is_empty() else "hit_light"), -4.0)
+	# hit_heavy's wav is the loudest of the three (its loudest 50 ms is 2.3 dB over hit_super's, pass 9 audit A9-14),
+	# so it plays 3.5 dB under the others: light < heavy < super by that window, and the wav stays as it is (D5).
+	var hit_sfx: String = "hit_super" if mult > 1.0 else ("hit_heavy" if not tags.is_empty() else "hit_light")
+	_sfx(hit_sfx, HIT_HEAVY_DB if hit_sfx == "hit_heavy" else -4.0)
 	var ess_sfx: String = ESSENCE_SFX.get(_ess_name(m, ents[i]), "")
 	if ess_sfx != "" and MOVE_FX.get(m, {}).get("hit", "") != "light_slash":   # a plain claw or pounce is only the body's thump
 		_sfx(ess_sfx, -8.0)
@@ -2434,7 +2492,7 @@ func _wound(i: int, j: int, dmg: int, col: Color) -> void:
 				_gain_iq(ents[i], IQ_PER_KO)
 			light = minf(LIGHT_MAX, light + LIGHT_ON_KO)   # beating an opponent lights the floor (the Battle Pyramid)
 			# Never the boss or its minions: a crew grunt or a Warden's Listener does not join (Preston, 2026-10-21).
-			if ents[i]["team"] == 0 and asking < 0 and not o.get("boss", false) and not o.get("minion", false) and randf() < (recruit_override if recruit_override >= 0.0 else RECRUIT_RATE.get(o["stage"], 0.05)):
+			if ents[i]["team"] == 0 and asking < 0 and not o.get("boss", false) and not o.get("minion", false) and _run_rng.randf() < (recruit_override if recruit_override >= 0.0 else RECRUIT_RATE.get(o["stage"], 0.05)):
 				# It gets back up and asks to come along.
 				asking = j
 				o["hp"] = 1
@@ -2744,20 +2802,23 @@ func act_stairs() -> void:
 		_say("The stairs are sealed while %s stands." % ents[boss]["name"], ents[boss])
 		_sfx("denied", -4.0)
 		return
-	if dungeon == "mouth" and floor_n == floors() and String(story.get("parcel", "")) == "":
+	if dungeon == "mouth" and floor_kind() == "garden" and String(story.get("parcel", "")) == "":
 		await _mouth_exit()
 	busy = true
 	_sfx("stairs", -2.0)
 	var tw := create_tween()
 	tw.tween_property(_fade, "color:a", 1.0, 0.3)
 	await tw.finished
+	if floor_kind() == "garden" and not story.get("garden_eyes", false):
+		await _garden_eyes()
 	floor_n += 1
 	for e in ents:
 		if e["team"] == 0 and e["hp"] > 0:
 			_grow(e, "floors", 1)
 			_gain_iq(e, IQ_PER_FLOOR)
-	if boss_cfg().is_empty() and floor_n > floors():
-		# A dungeon with no boss (the Hollow Mouth): its last stairs are the way out, a clear like a boss's.
+	if boss_cfg().is_empty() and floor_n > floors() + (1 if has_garden() else 0):
+		# A dungeon with no boss (the Hollow Mouth): its last stairs are the way out, a clear like a boss's. With a
+		# garden those are the garden's stairs.
 		floor_n = floors()
 		busy = false
 		_finish_after_boss()
@@ -2769,12 +2830,18 @@ func act_stairs() -> void:
 		_party_at_start = party.duplicate(true)   # the run's recruits are yours now
 		_roster_at_start = roster.duplicate(true)
 		_say("%s is cleared! The bag and the new partners are kept." % DUNGEONS[dungeon]["name"])
+	await _arrive()
+
+
+## The next floor comes up: the card on the black, the build under it, the card down. `washed`: the flood brought the
+## team here (_flood_sweep), so they arrive dazed and come to in their own scene.
+func _arrive(washed := false) -> void:
 	# The card goes up on the black and is drawn before the build holds the main thread (FEEL-10).
 	_card_up()
 	if is_inside_tree():
 		await get_tree().process_frame
 		await get_tree().process_frame
-	floor_seed = randi()
+	floor_seed = _run_rng.randi()   # the next floor's seed, from this floor's run generator (D3)
 	if is_inside_tree():
 		_ask_art_ahead()   # the next floor's creatures load on threads while the map is painted (LF7-02, Claude, 2026-10-26)
 		await get_tree().process_frame
@@ -2784,10 +2851,17 @@ func act_stairs() -> void:
 			await _prepare_floor()   # a player watching: what the build loads, a slice a frame (D11, Claude, 2026-10-26)
 			await get_tree().process_frame
 	_build_floor(floor_n == 1)   # Preston, 2026-10-09: health carries between floors; only a new run starts fresh (this read "!=" before, so every floor healed)
+	if washed:
+		intro["dazed"] = true   # stars round the team as the card lifts (boss_intro.gd draw_over)
+		cutscene = true
 	if floor_kind() != "boss":
 		await _card_hold()   # a boss floor's scene starts at once, as before
 	await _card_down()
 	busy = false
+	if floor_kind() == "garden" and not story.get("garden_found", false):
+		await _garden_found()
+	if washed:
+		await _washed_up()
 
 
 ## The Mouth's first floor teaches three things through the partner (GS-07, Claude, 2026-10-22). Each line is said
@@ -2882,10 +2956,198 @@ func _draw_lesson_chip(h: CanvasItem, box: Rect2) -> void:
 
 ## The Hollow Mouth's way out (Preston, 2026-10-10: the partner shows the parcel after the first dungeon;
 ## a presence below foreshadows the Warden). The lines are Claude's drafts for Preston.
+## The team comes down into the pond garden for the first time (Preston, 2026-10-28: "a scene with them finding it").
+## The camera rests on the pond, then the partner walks up and reacts before it says where to go. The words are
+## Claude's proposals for Preston to rewrite. The flag keeps a replay from playing it again.
+func _garden_found() -> void:
+	story["garden_found"] = true
+	var mate: Dictionary = ents[1] if ents.size() > 1 and ents[1]["team"] == 0 and ents[1]["hp"] > 0 else ents[0]
+	var who := String(mate["name"])
+	var f := String(mate["form"])
+	cutscene = true
+	cam_focus = _tile_px(pond.position).lerp(_tile_px(pond.end - Vector2i.ONE), 0.5)   # the middle of the pond
+	talk = [["", "The tunnel opens out. Grass underfoot, fireflies, and a pond as still as glass."]]
+	while not talk.is_empty() and is_inside_tree():
+		await get_tree().process_frame
+	if not is_inside_tree():
+		return
+	if mate != ents[0]:
+		await _walk_beside_leader(1)
+		if not is_inside_tree():
+			return
+	cam_focus = _pair_focus(ents[0], mate)
+	talk = [
+		[who, "...Well. Would you look at that. Who keeps a garden down a hole?", f + ":joyous"],
+		[who, "All day that water's been after us, and down here it just sits there. Real polite.", f + ":worried"],
+		[who, "See the old steps past the pond? Bet those go up. Let's get on outta here.", f + ":determined"],
+	]
+	while not talk.is_empty() and is_inside_tree():
+		await get_tree().process_frame
+	cutscene = false
+	cam_focus = null
+
+
+## The flood catches up on the Mouth's B2F (Preston, 2026-10-28: "a scene with them somehow end up on lowers floors
+## closer to exit floor where warden is. whether its because the flood or whatever makes most sense"). Halfway across
+## (or after SWEEP_TURNS turns) a roar builds, the partner hears it, the water bursts through the wall and the soaked
+## floor gives way: the team is washed down to B4F, past B3F. Once (story.swept); a later run walks every floor.
+## The lines are Claude's proposals for Preston to rewrite.
+const SWEEP_FLOOR := 2     # the Mouth floor where the flood catches up
+const SWEEP_TO := 4        # where it washes the team up
+const SWEEP_TURNS := 40    # it catches them after this many turns on the floor even if they never get halfway
+var _sweep_from := -1      # the start's walking distance to the stairs on the sweep floor; -1 when there is no sweep
+var _sweep_field := PackedInt32Array()
+var _sweep_turn0 := 0
+var _sweeping := false
+
+
+func _sweep_due() -> bool:
+	if _sweep_from < 0 or _sweeping or floor_n != SWEEP_FLOOR or story.get("swept", false) or _finishing or ents.is_empty() or ents[0]["hp"] <= 0:
+		return false
+	var here: int = _sweep_field[ents[0]["pos"].y * data["w"] + ents[0]["pos"].x]
+	return (here >= 0 and here * 2 <= _sweep_from) or turn - _sweep_turn0 >= SWEEP_TURNS
+
+
+func _flood_sweep() -> void:
+	while is_inside_tree() and (busy or cutscene or not talk.is_empty() or asking >= 0):
+		await get_tree().process_frame
+	if not is_inside_tree() or ents.is_empty() or ents[0]["hp"] <= 0 or _finishing or floor_n != SWEEP_FLOOR:
+		_sweeping = false
+		return
+	story["swept"] = true
+	var mate: Dictionary = ents[1] if ents.size() > 1 and ents[1]["team"] == 0 and ents[1]["hp"] > 0 else ents[0]
+	var who := String(mate["name"])
+	var f := String(mate["form"])
+	cutscene = true
+	_shake = 4.0
+	_sfx("pond_rumble", -2.0)
+	talk = [["", "A low roar builds behind you. Water beads on the walls and starts to run."]]
+	while not talk.is_empty() and is_inside_tree():
+		await get_tree().process_frame
+	if mate != ents[0] and is_inside_tree():
+		await _walk_beside_leader(1)
+	if not is_inside_tree():
+		return
+	cam_focus = _pair_focus(ents[0], mate)
+	talk = [
+		[who, "...Hear that? Tell me that's not what I think it is.", f + ":worried"],
+		[who, "Oh no. It found us. Hold onto somethin'!", f + ":worried"],
+	]
+	while not talk.is_empty() and is_inside_tree():
+		await get_tree().process_frame
+	if not is_inside_tree():
+		return
+	busy = true
+	_shake = 12.0
+	_sfx("pond_burst", 0.0)
+	_say("The water bursts through the wall, and the soaked floor gives way!")
+	_fade.color = Color(0.16, 0.36, 0.5, 0.0)   # the flood fills the view, then the dark
+	var tw := create_tween()
+	tw.tween_property(_fade, "color:a", 1.0, 0.35)
+	await tw.finished
+	_sfx("fall_whoosh", -2.0)
+	tw = create_tween()
+	tw.tween_property(_fade, "color", Color(0, 0, 0, 1), 0.6)
+	await tw.finished
+	cam_focus = null
+	for e in ents:
+		if e["team"] == 0 and e["hp"] > 0:
+			_grow(e, "floors", SWEEP_TO - SWEEP_FLOOR)
+			_gain_iq(e, IQ_PER_FLOOR * (SWEEP_TO - SWEEP_FLOOR))
+	floor_n = SWEEP_TO
+	_sweeping = false
+	await _arrive(true)
+
+
+## Washed up on B4F: stars round the team, they come to, the partner reacts, then the run goes on.
+func _washed_up() -> void:
+	var mate: Dictionary = ents[1] if ents.size() > 1 and ents[1]["team"] == 0 and ents[1]["hp"] > 0 else ents[0]
+	var who := String(mate["name"])
+	var f := String(mate["form"])
+	cutscene = true
+	intro["dazed"] = true
+	_sfx("heavy_land", -4.0)
+	_sfx("dizzy", -6.0)
+	talk = [["", "The water drains off through the cracks. The team comes to, soaked through, a long way down."]]
+	while not talk.is_empty() and is_inside_tree():
+		await get_tree().process_frame
+	if not is_inside_tree():
+		return
+	intro = {}   # the stars stop
+	if mate != ents[0]:
+		await _walk_beside_leader(1)
+		if not is_inside_tree():
+			return
+	cam_focus = _pair_focus(ents[0], mate)
+	talk = [
+		[who, "Ow... okay. Everybody still got all their legs?", f + ":worried"],
+		[who, "That old floor just quit on us. We gotta be way deeper than we meant to go.", f + ":worried"],
+		[who, "Well, down's down. Whatever's at the bottom, we'll find it. Come on.", f + ":determined"],
+	]
+	while not talk.is_empty() and is_inside_tree():
+		await get_tree().process_frame
+	cutscene = false
+	cam_focus = null
+
+
+## After the team climbs out of the garden the camera stays behind (Preston, 2026-10-28: "after they leave wardens
+## shadow appears on pond surface with its menacing eyes showing hinting at the monster below"). The fireflies go out
+## one by one, the pond goes still, a shadow rises under it, two eyes open, narrow, and sink back. Once
+## (story.garden_eyes), on the black after the stairs and before the clear. boss_intro.gd draws it.
+func _garden_eyes() -> void:
+	story["garden_eyes"] = true
+	cutscene = true
+	for e in ents:
+		if e["team"] == 0:
+			e["node"].modulate.a = 0.0   # they have gone up the steps
+	cam_focus = _tile_px(pond.position).lerp(_tile_px(pond.end - Vector2i.ONE), 0.5)
+	Music.play(get_tree(), "")
+	var set_shadow := func(v: float) -> void: intro["pond_shadow"] = v
+	var set_eyes := func(v: float) -> void: intro["eyes"] = v
+	var steps: Array = [
+		["fade", 0.0, 0.8], ["wait", 1.0], ["lights", 0], ["wait", BossIntro.FIREFLIES * BossIntro.FIREFLY_OUT + 0.6],
+		["still", 0], ["wait", 0.8], ["rise", 0.85, 2.4], ["wait", 0.4], ["eyes", 1.0, 0.35], ["wait", 1.3],
+		["narrow", 1.0, 0.25], ["wait", 1.0], ["sink", 0.0, 1.6], ["wait", 0.9], ["fade", 1.0, 0.8],
+	]
+	for st in steps:
+		if not is_inside_tree():
+			return
+		var kind := String(st[0])
+		if kind == "wait":
+			await get_tree().create_timer(st[1], false).timeout
+			continue
+		if kind == "lights":
+			intro["lights_out_at"] = Time.get_ticks_msec()
+			continue
+		if kind == "still":
+			intro["still"] = true
+			continue
+		var tw := create_tween().set_parallel()
+		match kind:
+			"fade":
+				tw.tween_property(_fade, "color:a", st[1], st[2])
+			"rise":
+				_sfx("pond_rumble", -8.0)
+				tw.tween_method(set_shadow, 0.0, st[1], st[2])
+			"eyes":
+				_sfx("presence_swell", -6.0)
+				tw.tween_method(set_eyes, 0.0, st[1], st[2])
+			"narrow":
+				tw.tween_method(func(v: float) -> void: intro["narrow"] = v, 0.0, st[1], st[2])
+			"sink":
+				_sfx("ripple", -10.0)
+				tw.tween_method(set_shadow, float(intro.get("pond_shadow", 0.85)), st[1], st[2])
+				tw.tween_method(set_eyes, float(intro.get("eyes", 1.0)), 0.0, st[2])
+		await tw.finished
+	cutscene = false
+	cam_focus = null
+
+
 func _mouth_exit() -> void:
 	story["parcel"] = "saved"   # the board scene in Highbank is where it is stolen (board_scene.gd)
 	_shake = 6.0
 	_sfx("pond_rumble", -4.0)
+	intro["ripple_at"] = Time.get_ticks_msec()   # the pond answers the rumble with a ring (boss_intro.gd draw_floor)
 	var mate: Dictionary = ents[1] if ents.size() > 1 and ents[1]["team"] == 0 and ents[1]["hp"] > 0 else ents[0]
 	var who := String(mate["name"])
 	var f := String(mate["form"])
@@ -2898,7 +3160,7 @@ func _mouth_exit() -> void:
 			return
 	cam_focus = _pair_focus(ents[0], mate)
 	talk = [
-		["", "Far below, something shifts. The whole ruin hums, then goes still."],
+		["", "Under the pond, something shifts. The water shivers, then goes still."],
 		[who, "...Okay, you felt that too, right? I'm not crazy?", f + ":worried"],
 		[who, "Let's not stick around and find out what that was.", f + ":worried"],
 		[who, "Oh! Look at this. Still dry. All that water and not one drop got on it.", f + ":joyous"],
@@ -3053,7 +3315,11 @@ func _end_battle(winner: int) -> void:
 	# A beaten wild creature may get up and ask to join.
 	if winner == 0 and asking < 0:
 		for k in downed:
-			if randf() < (recruit_override if recruit_override >= 0.0 else RECRUIT_RATE.get(ents[k]["stage"], 0.05)):
+			# Never the boss or its minions, the same guard as the turn path in _attack (Preston, 2026-10-21;
+			# this path missed it until pass 9 D6, H9-37).
+			if ents[k].get("boss", false) or ents[k].get("minion", false):
+				continue
+			if _run_rng.randf() < (recruit_override if recruit_override >= 0.0 else RECRUIT_RATE.get(ents[k]["stage"], 0.05)):
 				asking = k
 				ents[k]["hp"] = 1
 				ents[k]["awake"] = false
@@ -3366,7 +3632,7 @@ func recipe() -> Dictionary:
 
 func floor_kind() -> String:
 	if floor_n == floors() + 1:
-		return "boss"
+		return "garden" if has_garden() else "boss"
 	if floor_n == rest_floor:
 		return "rest"
 	return "normal"
@@ -3375,7 +3641,7 @@ func floor_kind() -> String:
 ## A fixed floor: one hand-set room that is the whole floor (the boss's arena, or a rest floor),
 ## the team arriving at the bottom and the stairs at the top.
 func _fixed_floor(kind: String) -> Dictionary:
-	var size: Vector2i = boss_cfg()["arena"] if kind == "boss" else REST_ROOM
+	var size: Vector2i = boss_cfg()["arena"] if kind == "boss" else (BOSS_ARENA if kind == "garden" else REST_ROOM)
 	var w: int = size.x + 6
 	var h: int = size.y + 6
 	var tiles := PackedByteArray()
@@ -3541,6 +3807,8 @@ func _go_to_town(news: String) -> void:
 func music_track() -> String:
 	if floor_kind() == "boss":
 		return "" if boss >= 0 and boss_met and not boss_alive() else ("guardian" if boss_met else "boss_scene")
+	if floor_kind() == "garden":
+		return "pond_garden"   # the Warden's entrance plays it in the same garden
 	if floor_kind() == "rest":
 		return "rest_floor"
 	# A sprung Monster House keeps the floor's own music for now (Preston, 2026-10-11: "just remove monster house
@@ -3663,7 +3931,7 @@ func _finish_after_boss() -> void:
 	if return_to_town:
 		_go_to_town("cleared")
 		return
-	floor_seed = randi()
+	floor_seed = _run_rng.randi()   # the next floor's seed, from this floor's run generator (D3)
 	_card_up()   # the run starts again at B1F under the same card as every floor (pass 3 D5)
 	_build_floor(true)
 	_say("%s is cleared! The bag and the new partners are kept." % DUNGEONS[dungeon]["name"])
@@ -4391,6 +4659,9 @@ func _end_turn() -> void:
 	_pick_up()
 	_spring_traps()
 	_monster_house()
+	if _sweep_due():
+		_sweeping = true
+		_flood_sweep.call_deferred()   # once this turn has played out
 	if monster_sprung and not house_cleared and ents.any(func(e: Dictionary) -> bool: return e.get("house", false)) and ents.filter(func(e: Dictionary) -> bool: return e.get("house", false) and e["hp"] > 0).is_empty():
 		house_cleared = true
 		light = minf(LIGHT_MAX, light + MONSTER_HOUSE_LIGHT)
@@ -4435,7 +4706,7 @@ func _end_turn() -> void:
 		Music.play(get_tree(), "")
 		Music.jingle(get_tree(), "fainted")
 		floor_n = 1
-		floor_seed = randi()
+		floor_seed = _run_rng.randi()   # the next floor's seed, from this floor's run generator (D3)
 		fell_to = ""
 		downed = 0
 		if is_inside_tree() and get_tree().current_scene == self:
@@ -4569,7 +4840,7 @@ func _spring_traps() -> void:
 				"warp":
 					var rooms: Array = data["rooms"]
 					for tries in 30:
-						var room: Rect2i = rooms[randi() % rooms.size()]
+						var room: Rect2i = rooms[_run_rng.randi() % rooms.size()]
 						var p := room.get_center()
 						if not room.grow(1).has_point(e["pos"]) and _occupant(p) < 0 and _floor_at(p):
 							e["pos"] = p
@@ -4840,10 +5111,15 @@ func _cam_offset_at(focus: Vector2) -> Vector2:
 ## leans toward the boss's head as far as the leader stays framed: its feet no lower than BOSS_LEAD_LOW and no
 ## higher than BOSS_LEAD_HIGH in the view (world px from its top), and no nearer a side than BOSS_LEAD_SIDE.
 ## cam_offset still holds the result inside the map.
-const BOSS_LEAD_LOW := 168.0    # screen 504: above the move cards (580); the message box fades between turns
+## The leader's frame is applied last, so it wins over the head rule (pass 9 D1, A9-10, measured with
+## docs/team/sweep-2026-10-20/pass9-dungeon/method/d1_warden_probe.gd): the map's edge never moved the aim on the
+## Warden's floor. The Warden is 77 world px from crest to feet and the view is 216 tall, so with the leader's feet at
+## BOSS_LEAD_LOW the whole Warden clears the bar's gap only up to 3 tiles back; from 4 tiles its crest goes under the
+## bar, and from 5 tiles the two cannot share the screen at all (the leader would leave the bottom). The leader stays.
+const BOSS_LEAD_LOW := 176.0    # screen 528: the leader's feet just above a one-line message box (530) and the move cards (580); was 168 (504) until pass 9 D1
 const BOSS_LEAD_HIGH := 60.0
 const BOSS_LEAD_SIDE := 48.0
-const BOSS_BAR_FOOT := 26.0     # world px: the boss bar's foot (screen 56) and a 22 px gap
+const BOSS_BAR_FOOT := 26.0     # world px = screen 78: the boss bar's panel ends at screen 56 (Rect2(396, 10, 360, 46) in _draw_hud), so a 22 screen px gap (about 7 world px) over the crest
 
 
 func boss_focus(lead_at: Vector2, b: Dictionary) -> Vector2:

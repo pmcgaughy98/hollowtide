@@ -1,0 +1,38 @@
+{
+ "batch": "gb-03-parts",
+ "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+ "slots": {
+  "town.prop.sign_hall": {
+   "answer": "yes",
+   "date": "2026-10-27"
+  },
+  "town.prop.sign_shop": {
+   "answer": "yes",
+   "date": "2026-10-27"
+  },
+  "town.prop.sign_storage": {
+   "answer": "yes",
+   "date": "2026-10-27"
+  },
+  "town.prop.sign_scrolls": {
+   "answer": "yes",
+   "date": "2026-10-27"
+  },
+  "town.prop.sign_yard": {
+   "answer": "yes",
+   "date": "2026-10-27"
+  },
+  "town.prop.shut_boards": {
+   "answer": "yes",
+   "date": "2026-10-27"
+  },
+  "town.prop.shut_chain": {
+   "answer": "yes",
+   "date": "2026-10-27"
+  },
+  "town.prop.shut_rope": {
+   "answer": "yes",
+   "date": "2026-10-27"
+  }
+ }
+}

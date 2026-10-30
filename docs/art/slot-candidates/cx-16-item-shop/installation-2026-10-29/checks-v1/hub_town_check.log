@@ -1,0 +1,32 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Layout: 13 places, building overlaps [], doors not reachable from Home [], the ferry reachable true
+Layout: no building overlaps another [] -> ok
+Layout: every door is reachable from Home (not reached []) -> ok
+Layout: the ferry (28, 27) is reachable from Home -> ok
+Layout: the street paints (an image true) -> ok
+Layout picture written to C:/Users/pmcga/dev/hollowtide/docs/art/slot-candidates/cx-16-item-shop/installation-2026-10-29/checks-v1/layout_full.png
+Walk: the leader went (5, 8) -> (9, 8); the partner follows at (8, 8) (1 apart)
+Walk: four steps east take the leader from (5, 8) to (9, 8) -> ok
+Walk: the partner follows one tile behind (1 apart) -> ok
+Places: 12 of 12 answered E from their door -> ok
+Shut doors: 2 shut buildings, each door tile solid, a step at it stays in front, E there reads the sign -> ok
+The Mouth of the Hollow: stepping on it started a run (true) -> ok
+Rest, a new day, by Home: the team on [(5, 8), (4, 9), (3, 9), (2, 8)], apart and off every footprint and facade row -> ok
+Rest, home from a run: the team on [(24, 8), (23, 8), (22, 8), (20, 8)], apart and off every footprint and facade row -> ok
+Rest, out of the Hall: the team on [(24, 7), (23, 7), (22, 8), (20, 8)], apart and off every footprint and facade row -> ok
+Rest, out of Home: the team on [(5, 8), (4, 9), (3, 9), (2, 8)], apart and off every footprint and facade row -> ok
+Rest, out of the Storage: the team on [(40, 8), (39, 9), (38, 9), (37, 8)], apart and off every footprint and facade row -> ok
+Rest, back from the Hollow's walkway: the team on [(33, 29), (32, 29), (31, 29), (30, 28)], apart and off every footprint and facade row -> ok
+Rest, after a scene: partners left on the Hall's door, the leader's tile and the foundation's row settle to [(24, 8), (24, 7), (23, 8), (22, 8)] -> ok
+At the Hall's door: the leader on (24, 6), the line on [(24, 6), (24, 7), (23, 8), (22, 9)], apart and off the footprint -> ok
+At Home's door: the leader on (5, 7), the line on [(5, 7), (5, 8), (4, 9), (3, 10)], apart and off the footprint -> ok
+Signs: 5 texts at the story role's 37 px, each inside its box above the key hint -> ok
+Menu chip: shown on the street true, hidden while the board is open true -> ok
+Run line 'The Mouth of the Hollow starts a run' names the gate 'Mouth of the Hollow'; the use keys ["WASD walk   E use", "Stick walk   X use"] match Use / stairs -> ok
+Key strip [P: (716.0, 516.0), S: (430.0, 62.0)] on screen and below the Next line -> ok
+Board: 300 boards, a lost item named twice 0 times, one the job also pays 0 times (where there was another) -> ok
+Objective: Mouth 'Find the stairs. The way out is below.', bank 'Escape the flood through the Hollow Mouth', ready 'Kithflare is ready to grow at the Growth Shrine.', job 'Canvaswing waits for a parcel on Rootbank Warren B1F.', none 'New requests on the Job Board.'
+Objective: the Mouth has its own line, and after the end card the line reads ready, then jobs, then the board -> ok
+Door kept on the root: in the tree true, on bus SFX, playing true -> ok

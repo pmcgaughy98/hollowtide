@@ -1,0 +1,21 @@
+{
+  "current_reference_alpha_exact": true,
+  "lower190_rows_byte_exact": true,
+  "hook_local_88_72_exact": true,
+  "lashings_reference_brass_pixels": {
+    "222deg": 71,
+    "312deg": 52
+  },
+  "knots_local": [
+    [
+      40,
+      30
+    ],
+    [
+      84,
+      47
+    ]
+  ],
+  "new_taper": "Exact current target alpha; source curl_w goes24px to13px.",
+  "optional_trailing_rootlets_added": false
+}

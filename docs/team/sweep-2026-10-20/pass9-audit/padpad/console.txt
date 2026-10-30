@@ -1,0 +1,82 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+[00000    0.0s w    2383] phase pad, pad, window (1152, 648), out C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/padpad/
+[00000    0.0s w    2385] CLOCK real time, max fps 30
+[00000    0.0s w    2420] save C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/saves/s7_post.save -> C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/padpad/slot.save
+[00001    0.0s w    2902] SCENE  -> none after 0.0 s game, 2.9 s wall in 
+[00002    0.1s w    3724] HITCH 822 ms for one frame in creature_opening.tscn (after start)
+[00002    0.1s w    3727] SCENE none -> creature_opening.tscn after 0.0 s game, 0.8 s wall in none
+[00089    3.0s w    5222] SHOT P01_title_boot scene creature_opening.tscn
+[00089    3.0s w    5258] SHOT P02_title_continue_focused scene creature_opening.tscn
+[00158    5.3s w    6497] SCENE creature_opening.tscn -> hub_town.tscn after 5.2 s game, 2.8 s wall in creature_opening.tscn
+[00452   15.1s w   11659] HITCH 273 ms for one frame in hub_town.tscn (after ui_accept(A))
+[00453   15.1s w   12378] HITCH 719 ms for one frame in hub_town.tscn (after ui_accept(A))
+[00473   15.8s w   12955] SHOT P03_arrive_pad scene hub_town.tscn
+[00473   15.8s w   12957] TEAM P03_arrive_pad area highbank_v1: sparkwick@(5, 8), tallowroot@(4, 9), listener@(3, 9), skimlet@(2, 8)
+[00586   19.5s w   15680] PANEL board|Job Board|
+[00613   20.4s w   16191] SHOT P04_board_pad scene hub_town.tscn
+[00613   20.4s w   16193] TEAM P04_board_pad area highbank_v1: sparkwick@(26, 8), tallowroot@(25, 8), listener@(24, 8), skimlet@(23, 8)
+[00622   20.7s w   16356] SHOT P05_board_pad_down scene hub_town.tscn
+[00622   20.7s w   16359] TEAM P05_board_pad_down area highbank_v1: sparkwick@(26, 8), tallowroot@(25, 8), listener@(24, 8), skimlet@(23, 8)
+[00641   21.4s w   16694] SHOT P06_board_pad_pick scene hub_town.tscn
+[00641   21.4s w   16696] TEAM P06_board_pad_pick area highbank_v1: sparkwick@(26, 8), tallowroot@(25, 8), listener@(24, 8), skimlet@(23, 8)
+[00684   22.8s w   17617] SHOT P07_pause_town_pad scene hub_town.tscn
+[00684   22.8s w   17619] TEAM P07_pause_town_pad area highbank_v1: sparkwick@(26, 8), tallowroot@(25, 8), listener@(24, 8), skimlet@(23, 8)
+[01012   33.7s w   25716] PANEL way_pick|The way down|Where to?
+[01032   34.4s w   26116] SHOT P08_way_pick_pad scene hub_town.tscn
+[01032   34.4s w   26118] TEAM P08_way_pick_pad area highbank_v1: sparkwick@(33, 28), tallowroot@(32, 29), listener@(30, 29), skimlet@(28, 29)
+[01040   34.7s w   26331] SCENE hub_town.tscn -> none after 29.4 s game, 19.8 s wall in hub_town.tscn
+[01041   34.7s w   26349] SCENE none -> dungeon.tscn after 0.0 s game, 0.0 s wall in none
+[01084   36.1s w   27694] LOG Hollow Mouth, B1F.
+[01124   37.5s w   28331] LOG Sparkwick wants to learn Wick Bolt, but it knows four moves.
+[01144   38.1s w   28726] SHOT P09_b1f_pad scene dungeon.tscn
+[01144   38.1s w   28771] SHOT P10_teach_panel scene dungeon.tscn
+[01191   39.7s w   29502] LOG Sparkwick forgot Rake and learned Wick Bolt!
+[01470   49.0s w   34205] SHOT P11_bag_pad scene dungeon.tscn
+[01472   49.1s w   34228] LOG The lantern burns brighter.
+[01499   50.0s w   34704] SHOT P12_bag_used_pad scene dungeon.tscn
+[01523   50.8s w   35108] SHOT P13_pause_dungeon_pad scene dungeon.tscn
+[01549   51.6s w   35482] LOG Autopilot on.
+[01573   52.4s w   35884] LOG Sparkwick used Ember Shot!
+[01576   52.5s w   35933] LOG Tide shrugs off Ember.
+[01576   52.5s w   35938] LOG Cutbank Listener took 5 damage.
+[01578   52.6s w   35965] LOG Tallowroot used Seed Pod!
+[01582   52.7s w   36032] LOG Cutbank Listener took 10 damage.
+[01588   52.9s w   36132] LOG Cutbank Listener used Echo Tap!
+[01592   53.1s w   36199] LOG Cutbank Listener took 5 damage.
+[01594   53.1s w   36237] LOG Cutbank Listener used Echo Tap!
+[01598   53.3s w   36303] LOG Sparkwick took 5 damage.
+[01609   53.6s w   36482] LOG Sparkwick used Ember Shot!
+[01612   53.7s w   36535] LOG Cutbank Listener took 6 damage.
+[01614   53.8s w   36566] LOG Tallowroot used Seed Pod!
+[01618   53.9s w   36633] LOG Bloom is strong against Tide!
+[01618   53.9s w   36635] LOG Cutbank Listener took 10 damage.
+[01618   53.9s w   36636] LOG Cutbank Listener took 12 damage.
+[01618   53.9s w   36637] LOG Cutbank Listener went down!
+[01629   54.3s w   36815] LOG Sparkwick used Ember Shot!
+[01632   54.4s w   36865] LOG Cutbank Listener took 5 damage.
+[01634   54.5s w   36899] LOG Tallowroot used Seed Pod!
+[01638   54.6s w   36966] LOG Cutbank Listener took 10 damage.
+[01644   54.8s w   37065] LOG Cutbank Listener used Echo Tap!
+[01648   54.9s w   37137] LOG Cutbank Listener took 5 damage.
+[01648   54.9s w   37143] LOG Cutbank Listener went down!
+[01648   54.9s w   37144] LOG Tallowroot reached Lv 7!
+[01648   54.9s w   37145] LOG Cutbank Listener's Sense grew. Quiet Steps: does not wake sleeping creatures.
+[01650   55.0s w   37165] LOG Cutbank Listener used Echo Tap!
+[01654   55.1s w   37234] LOG Sparkwick took 5 damage.
+[01661   55.4s w   37350] LOG Sparkwick used Ember Shot!
+[01664   55.5s w   37401] LOG Tide shrugs off Ember.
+[01664   55.5s w   37403] LOG Cutbank Listener took 6 damage.
+[01666   55.5s w   37432] LOG Tallowroot used Root Snare!
+[01670   55.7s w   37501] LOG Cutbank Listener took 3 damage.
+[01676   55.9s w   37599] LOG Cutbank Listener used Echo Tap!
+[01680   56.0s w   37668] LOG Sparkwick took 4 damage.
+[01687   56.2s w   37782] LOG Sparkwick used Ember Shot!
+[01942   64.7s w   42081] SHOT P14_stairs_pad scene dungeon.tscn
+[01982   66.1s w   42784] SHOT P15_b2f_pad scene dungeon.tscn
+[01982   66.1s w   42786] MARKS []
+[01982   66.1s w   42787] DONE phase pad in 66.1 s game, 42.8 s wall
+WARNING: 25 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)

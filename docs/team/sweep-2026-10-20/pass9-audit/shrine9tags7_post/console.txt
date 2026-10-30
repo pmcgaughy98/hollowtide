@@ -1,0 +1,32 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+[00000    0.0s w    2345] phase shrine9, keyboard, window (1152, 648), out C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/shrine9tags7_post/
+[00000    0.0s w    2347] CLOCK real time, max fps 30
+[00000    0.0s w    2350] save C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/saves/s7_post.save -> C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/shrine9tags7_post/slot.save
+[00001    0.0s w    2848] SCENE  -> none after 0.0 s game, 2.8 s wall in 
+[00002    0.1s w    3656] HITCH 808 ms for one frame in creature_opening.tscn (after start)
+[00002    0.1s w    3662] SCENE none -> creature_opening.tscn after 0.0 s game, 0.8 s wall in none
+[00089    3.0s w    5195] SHOT G01_title_boot scene creature_opening.tscn
+[00089    3.0s w    5230] SHOT G02_title_continue_focused scene creature_opening.tscn
+[00158    5.3s w    6471] SCENE creature_opening.tscn -> hub_town.tscn after 5.2 s game, 2.8 s wall in creature_opening.tscn
+[00417   13.9s w   11029] HITCH 253 ms for one frame in hub_town.tscn (after ui_accept(Enter))
+[00418   13.9s w   11754] HITCH 725 ms for one frame in hub_town.tscn (after ui_accept(Enter))
+[00505   16.8s w   14436] HITCH 648 ms for one frame in hub_town.tscn (after shrine_first)
+[00505   16.8s w   14439] PANEL evolve_ask|Growth Shrine|Tallowroot is ready to grow. Let it grow here?
+[00519   17.3s w   14719] TIMED shrine_first: shown 659 ms after the press, worst frame 641 ms
+[00529   17.6s w   14941] SHOT G03_shrine_first scene hub_town.tscn
+[00529   17.6s w   14942] TEAM G03_shrine_first area highbank_v1: sparkwick@(7, 12), tallowroot@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[00529   17.6s w   14944] SHRINE panel { "name": "Growth Shrine", "what": "Tallowroot is ready to grow. Let it grow here?", "service": "evolve_ask", "k": 1 }
+[00560   18.7s w   16246] HITCH 624 ms for one frame in hub_town.tscn (after shrine_second)
+[00560   18.7s w   16249] PANEL evolve_ask|Growth Shrine|Tallowroot is ready to grow. Let it grow here?
+[00574   19.1s w   16520] TIMED shrine_second: shown 635 ms after the press, worst frame 619 ms
+[00584   19.5s w   16739] SHOT G04_shrine_second scene hub_town.tscn
+[00584   19.5s w   16740] TEAM G04_shrine_second area highbank_v1: sparkwick@(7, 12), tallowroot@(6, 11), listener@(5, 10), skimlet@(5, 9)
+[00613   20.4s w   17403] MARKS []
+[00613   20.4s w   17406] DONE phase shrine9 in 20.4 s game, 17.4 s wall
+WARNING: 27 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

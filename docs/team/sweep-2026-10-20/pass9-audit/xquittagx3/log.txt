@@ -1,0 +1,13 @@
+[00000    0.0s w    2417] phase xquit, keyboard, window (1152, 648), out C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/xquittagx3/
+[00000    0.0s w    2418] CLOCK real time, max fps 30
+[00000    0.0s w    2420] save C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/saves/s5_runner.save -> C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/xquittagx3/slot.save
+[00001    0.0s w    2910] SCENE  -> none after 0.0 s game, 2.9 s wall in 
+[00002    0.1s w    3717] HITCH 807 ms for one frame in creature_opening.tscn (after start)
+[00002    0.1s w    3721] SCENE none -> creature_opening.tscn after 0.0 s game, 0.8 s wall in none
+[00089    3.0s w    5248] SHOT Q01_title_boot scene creature_opening.tscn
+[00089    3.0s w    5284] SHOT Q02_title_continue_focused scene creature_opening.tscn
+[00159    5.3s w    6541] SCENE creature_opening.tscn -> hub_town.tscn after 5.2 s game, 2.8 s wall in creature_opening.tscn
+[00429   14.3s w   11283] HITCH 253 ms for one frame in hub_town.tscn (after ui_accept(Enter))
+[00442   14.7s w   11597] SHOT Q03_town_at_close scene hub_town.tscn
+[00442   14.7s w   11599] TEAM Q03_town_at_close area highbank_v1: kithflare@(5, 8), tallowroot@(4, 9), listener@(3, 9), skimlet@(2, 8)
+[00442   14.7s w   11601] XQUIT close request at w11601

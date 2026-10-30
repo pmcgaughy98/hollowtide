@@ -1,0 +1,12 @@
+C1   size          PASS  144x96, slot sheet 144x96
+C2   colours       PASS  20 colours (worst cell 20), budget 32
+C3   alpha         PASS  0 partial-alpha pixels
+C4   edges         PASS  clear
+C5   palette       PASS  0 colours over 20 from the palette; mean distance 0.0
+C9   specks        PASS  40 orphan pixels (0.33%), 2 light specks
+C12  light side    WARN  upper-left edge 22, lower-right edge 73
+R1   review        -     no text, letters, numbers or signage lettering anywhere
+R2   review        -     nothing that reads as another game or franchise
+R3   review        -     no creature, animal or person unless the slot asks for one
+R4   review        -     sits in the scene: placeholder, candidate and in-game capture side by side
+PASS: every scripted check passed

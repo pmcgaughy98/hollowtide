@@ -1,0 +1,31 @@
+[00000    0.0s w    2344] phase warden, keyboard, window (1152, 648), out C:/Users/pmcga/AppData/Local/Temp/claude/C--Users-pmcga-dev-hollowtide/3708decc-a9ed-4fb1-9ffb-c06cd75193c6/scratchpad/p9/runs/warden/
+[00000    0.0s w    2346] CLOCK real time, max fps 30
+[00001    0.0s w    6061] SCENE  -> dungeon.tscn after 0.0 s game, 6.1 s wall in 
+[00001    0.0s w    6063] LOG The Hollow, B1F.
+[00011    0.4s w    7650] HITCH 1394 ms for one frame in dungeon.tscn (after start)
+[00141    4.7s w    9841] LINE [Tallowroot] C'mon, let's go sit by the water a minute. My feet are killing me.
+[00362   12.1s w   13537] QUIET 1.83 s wall (3.67 s game) before this line (cutscene true)
+[00419   14.0s w   14488] QUIET 0.93 s wall (1.87 s game) before this line (cutscene true)
+[00438   14.6s w   14804] QUIET 0.30 s wall (0.60 s game) before this line (cutscene true)
+[00439   14.6s w   14822] LINE [???] They drink. They sleep by the water. They forget to leave.
+[00537   17.9s w   16456] LINE [Tallowroot] Okay, who said that? That's not funny.
+[00602   20.1s w   17538] LINE [???] You are standing in my garden. Mind your noise.
+[00968   32.3s w   23636] QUIET 4.76 s wall (9.53 s game) before this line (cutscene true)
+[00969   32.3s w   23669] LINE [Quietwater Warden] Listeners. Hold them where they stand.
+[01035   34.5s w   24770] LINE [Tallowroot] Sparkwick... yeah, no. We are not resting here. Come on!
+[01131   37.7s w   26374] LINE [Quietwater Warden] Rest, then. The pond will keep you.
+[01213   40.4s w   27744] WARDEN entrance over at frame 1213, cutscene false
+[01213   40.4s w   27825] SHOT W01_warden_fight_start scene dungeon.tscn
+[01213   40.4s w   27827] WARDEN Quietwater Warden at (15, 12)
+[01333   44.4s w   29833] SHOT W02_warden_dy3 scene dungeon.tscn
+[01333   44.4s w   29836] WARDEN dy 3: leader at (15, 15), Warden sprite top 20.2 px (bottom 350.2), leader top 371.2 bottom 536.2, screen h 648
+[01453   48.4s w   31831] SHOT W03_warden_dy4 scene dungeon.tscn
+[01453   48.4s w   31834] WARDEN dy 4: leader at (15, 16), Warden sprite top -51.8 px (bottom 278.2), leader top 371.2 bottom 536.2, screen h 648
+[01573   52.4s w   33829] SHOT W04_warden_dy5 scene dungeon.tscn
+[01573   52.4s w   33832] WARDEN dy 5: leader at (15, 17), Warden sprite top -123.8 px (bottom 206.2), leader top 371.2 bottom 536.2, screen h 648
+[01693   56.4s w   35837] SHOT W05_warden_dy6 scene dungeon.tscn
+[01693   56.4s w   35839] WARDEN dy 6: leader at (15, 18), Warden sprite top -195.8 px (bottom 134.2), leader top 371.2 bottom 536.2, screen h 648
+[01813   60.4s w   37846] SHOT W06_warden_dy7 scene dungeon.tscn
+[01813   60.4s w   37852] WARDEN dy 7: leader at (15, 19), Warden sprite top -267.8 px (bottom 62.2), leader top 371.2 bottom 536.2, screen h 648
+[01813   60.4s w   37854] MARKS []
+[01813   60.4s w   37854] DONE phase warden in 60.4 s game, 37.9 s wall

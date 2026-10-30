@@ -1,0 +1,17 @@
+{
+  "raw_untouched": true,
+  "authorized_cleanup": true,
+  "protected_old_pixels_exact": 36980,
+  "protected_regions": "left tree x<80; menu21,108..129,200; houses86..279,y144..181; river/road from182down",
+  "tree_mask": "current source silhouette clipped behind far forest at126",
+  "old_small_tower_removed": "whole right region x284..383,y0..181 rebuilt",
+  "root_geometry": "current grounded source planes and two short ground grips",
+  "door_anchor": [
+    333,
+    160
+  ],
+  "old_lamp_anchor_removed": true,
+  "source_palette": "real PALETTE47 copied without source edits",
+  "shared_palette": "34exported colours conflict with preserved art",
+  "colour_joins": 1920
+}

@@ -53,6 +53,9 @@
 		216
 	],
 	"slot_file": "route",
+	"state_order": [
+		"static"
+	],
 	"states": {
 		"static": [
 			1,

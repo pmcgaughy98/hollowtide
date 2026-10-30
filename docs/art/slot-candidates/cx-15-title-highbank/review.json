@@ -1,0 +1,13 @@
+{
+ "batch": "cx-15-title-highbank",
+ "note": "Preston's answers: yes, redo (one line why) or keep the placeholder. install_slot.py installs only a yes.",
+ "slots": {
+  "title.backdrop.highbank": {
+   "answer": "yes",
+   "date": "2026-10-29",
+   "candidate": "patch-repaint/candidate.png",
+   "sha256": "603395e2f50080df0a2acd43c98adb92d72499960797f4c6dd56333959681d24",
+   "why": "Preston on Codex's woods and wire-area repaint (patch-repaint/candidate.png): \"codex finished result looks great. Ok lets keep going\" (2026-10-29). Earlier yeses are kept in patch-repaint/review-before.json."
+  }
+ }
+}

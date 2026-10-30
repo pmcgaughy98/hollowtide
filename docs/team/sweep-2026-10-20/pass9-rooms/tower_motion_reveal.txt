@@ -1,0 +1,125 @@
+E05_reveal_001.png: 0 moving cells, boxes 
+E101_reveal_097.png: 37 moving cells, boxes (784,488)-(840,512)x21, (512,72)-(552,104)x15
+E102_reveal_098.png: 39 moving cells, boxes (384,528)-(456,552)x26, (512,72)-(552,104)x13
+E103_reveal_099.png: 36 moving cells, boxes (456,520)-(504,552)x20, (512,72)-(552,104)x16
+E104_reveal_100.png: 27 moving cells, boxes (512,72)-(552,104)x15, (504,528)-(544,552)x12
+E105_reveal_101.png: 32 moving cells, boxes (544,520)-(592,552)x18, (512,72)-(552,104)x13
+E106_reveal_102.png: 103 moving cells, boxes (568,296)-(624,424)x45, (536,328)-(560,424)x21, (584,520)-(640,552)x20, (512,72)-(552,104)x13, (584,416)-(592,432)x2, (568,416)-(576,432)x2
+E107_reveal_103.png: 29 moving cells, boxes (512,72)-(552,104)x15, (640,528)-(680,552)x14
+E108_reveal_104.png: 32 moving cells, boxes (680,528)-(736,552)x16, (512,72)-(552,104)x16
+E109_reveal_105.png: 114 moving cells, boxes (568,328)-(616,424)x39, (536,296)-(584,424)x32, (728,528)-(776,552)x16, (512,72)-(552,104)x13, (560,416)-(592,432)x7, (904,528)-(936,544)x7
+E111_reveal_107.png: 1462 moving cells, boxes (328,0)-(680,648)x1455, (408,240)-(424,256)x3, (408,280)-(424,296)x2
+E112_reveal_108.png: 1676 moving cells, boxes (328,0)-(704,648)x1656, (96,624)-(152,648)x15, (408,224)-(424,256)x5
+E132_reveal_128.png: 14 moving cells, boxes (384,480)-(424,512)x14
+E133_reveal_129.png: 17 moving cells, boxes (416,488)-(464,512)x17
+E134_reveal_130.png: 20 moving cells, boxes (464,480)-(520,512)x20
+E135_reveal_131.png: 24 moving cells, boxes (520,480)-(576,512)x21, (784,568)-(808,576)x3
+E136_reveal_132.png: 15 moving cells, boxes (568,480)-(616,512)x15
+E137_reveal_133.png: 17 moving cells, boxes (608,488)-(664,512)x17
+E138_reveal_134.png: 20 moving cells, boxes (656,488)-(712,512)x20
+E139_reveal_135.png: 20 moving cells, boxes (704,488)-(760,512)x20
+E141_reveal_137.png: 192 moving cells, boxes (384,480)-(832,512)x167, (24,152)-(64,208)x22, (784,568)-(808,576)x3
+E142_reveal_138.png: 47 moving cells, boxes (16,152)-(64,232)x34, (464,480)-(496,512)x13
+E143_reveal_139.png: 57 moving cells, boxes (8,176)-(56,248)x34, (496,488)-(552,512)x20, (784,568)-(808,576)x3
+E144_reveal_140.png: 54 moving cells, boxes (0,200)-(40,272)x36, (552,480)-(600,512)x18
+E145_reveal_141.png: 56 moving cells, boxes (0,216)-(32,296)x34, (600,488)-(664,512)x22
+E146_reveal_142.png: 46 moving cells, boxes (0,240)-(24,312)x24, (656,488)-(720,512)x22
+E147_reveal_143.png: 28 moving cells, boxes (712,480)-(760,512)x15, (0,264)-(16,336)x13
+E148_reveal_144.png: 30 moving cells, boxes (752,480)-(808,512)x21, (0,288)-(8,336)x6, (784,568)-(808,576)x3
+E149_reveal_145.png: 16 moving cells, boxes (808,480)-(856,512)x16
+E151_reveal_147.png: 20 moving cells, boxes (384,528)-(440,552)x20
+E152_reveal_148.png: 32 moving cells, boxes (440,520)-(520,552)x32
+E153_reveal_149.png: 24 moving cells, boxes (520,520)-(576,552)x21, (784,568)-(808,576)x3
+E154_reveal_150.png: 20 moving cells, boxes (568,520)-(616,552)x20
+E155_reveal_151.png: 14 moving cells, boxes (616,528)-(640,552)x8, (648,528)-(664,552)x6
+E156_reveal_152.png: 26 moving cells, boxes (656,520)-(728,552)x26
+E157_reveal_153.png: 358 moving cells, boxes (440,480)-(896,512)x166, (384,520)-(640,552)x98, (648,520)-(728,552)x29, (264,464)-(360,512)x22, (384,480)-(432,512)x18, (272,440)-(336,472)x17
+E158_reveal_154.png: 30 moving cells, boxes (448,480)-(528,512)x30
+E159_reveal_155.png: 19 moving cells, boxes (520,488)-(576,512)x19
+E161_reveal_157.png: 23 moving cells, boxes (632,480)-(688,512)x23
+E162_reveal_158.png: 12 moving cells, boxes (680,488)-(728,512)x12
+E163_reveal_159.png: 14 moving cells, boxes (720,488)-(760,512)x14
+E164_reveal_160.png: 26 moving cells, boxes (760,480)-(832,512)x26
+E165_reveal_161.png: 20 moving cells, boxes (824,480)-(872,512)x17, (784,568)-(808,576)x3
+E166_reveal_162.png: 9 moving cells, boxes (872,480)-(896,512)x9
+E167_reveal_163.png: 20 moving cells, boxes (384,520)-(440,552)x20
+E168_reveal_164.png: 27 moving cells, boxes (440,520)-(520,552)x27
+E169_reveal_165.png: 20 moving cells, boxes (520,528)-(560,552)x14, (784,568)-(808,576)x3, (912,536)-(928,552)x3
+E171_reveal_167.png: 52 moving cells, boxes (0,200)-(40,272)x36, (448,488)-(472,512)x8, (480,480)-(496,512)x8
+E172_reveal_168.png: 56 moving cells, boxes (0,216)-(32,296)x34, (496,480)-(544,512)x19, (784,568)-(808,576)x3
+E173_reveal_169.png: 46 moving cells, boxes (0,240)-(24,312)x24, (552,480)-(616,512)x22
+E174_reveal_170.png: 38 moving cells, boxes (608,480)-(672,512)x25, (0,264)-(16,336)x13
+E175_reveal_171.png: 23 moving cells, boxes (680,488)-(728,512)x17, (0,288)-(8,336)x6
+E176_reveal_172.png: 21 moving cells, boxes (728,480)-(784,512)x21
+E177_reveal_173.png: 25 moving cells, boxes (776,480)-(832,512)x22, (784,568)-(808,576)x3
+E178_reveal_174.png: 19 moving cells, boxes (384,520)-(432,552)x17, (824,504)-(840,512)x2
+E179_reveal_175.png: 19 moving cells, boxes (448,528)-(480,552)x12, (424,520)-(440,552)x7
+E19_reveal_015.png: 114 moving cells, boxes (1056,0)-(1152,72)x78, (688,488)-(752,512)x20, (1112,128)-(1144,144)x8, (1040,128)-(1072,144)x8
+E20_reveal_016.png: 214 moving cells, boxes (424,304)-(512,416)x105, (1056,16)-(1104,88)x42, (1120,8)-(1152,96)x29, (752,480)-(808,512)x22, (1112,128)-(1144,144)x8, (1040,128)-(1072,144)x8
+E21_reveal_017.png: 179 moving cells, boxes (648,320)-(728,432)x94, (800,480)-(864,512)x24, (1056,32)-(1104,64)x17, (1056,72)-(1104,96)x16, (1136,40)-(1152,96)x12, (1112,128)-(1144,144)x8
+E22_reveal_018.png: 66 moving cells, boxes (1056,40)-(1104,96)x32, (384,520)-(432,552)x18, (1112,128)-(1144,144)x8, (1040,128)-(1072,144)x8
+E23_reveal_019.png: 20 moving cells, boxes (424,528)-(464,552)x13, (1064,56)-(1096,72)x7
+E24_reveal_020.png: 130 moving cells, boxes (424,304)-(512,416)x105, (472,520)-(536,552)x25
+E25_reveal_021.png: 109 moving cells, boxes (648,320)-(728,432)x94, (536,528)-(584,552)x15
+E26_reveal_022.png: 19 moving cells, boxes (584,520)-(632,552)x19
+E27_reveal_023.png: 20 moving cells, boxes (640,520)-(696,552)x20
+E28_reveal_024.png: 19 moving cells, boxes (688,528)-(744,552)x19
+E29_reveal_025.png: 178 moving cells, boxes (424,304)-(512,416)x105, (1056,40)-(1104,96)x33, (736,520)-(808,552)x24, (1112,128)-(1144,144)x8, (1040,128)-(1072,144)x8
+E43_reveal_039.png: 179 moving cells, boxes (64,216)-(152,424)x99, (840,376)-(888,456)x39, (840,480)-(896,512)x22, (800,488)-(832,512)x11, (136,264)-(160,296)x8
+E45_reveal_041.png: 48 moving cells, boxes (512,480)-(576,512)x23, (512,72)-(552,104)x15, (472,488)-(504,512)x10
+E46_reveal_042.png: 69 moving cells, boxes (568,480)-(720,512)x54, (512,72)-(552,104)x15
+E47_reveal_043.png: 113 moving cells, boxes (568,328)-(616,424)x39, (536,296)-(584,424)x32, (720,480)-(776,512)x22, (512,72)-(552,104)x13, (560,416)-(592,432)x7
+E48_reveal_044.png: 29 moving cells, boxes (512,72)-(552,104)x16, (768,488)-(816,512)x13
+E49_reveal_045.png: 38 moving cells, boxes (808,480)-(864,512)x22, (512,72)-(552,104)x15
+E50_reveal_046.png: 28 moving cells, boxes (384,528)-(424,552)x14, (512,72)-(552,104)x13
+E51_reveal_047.png: 30 moving cells, boxes (416,528)-(464,552)x17, (512,72)-(552,104)x13
+E52_reveal_048.png: 41 moving cells, boxes (464,520)-(536,552)x26, (512,72)-(552,104)x15
+E53_reveal_049.png: 112 moving cells, boxes (568,328)-(616,424)x39, (536,296)-(584,424)x32, (528,520)-(576,552)x18, (512,72)-(552,104)x16, (560,416)-(592,432)x7
+E54_reveal_050.png: 32 moving cells, boxes (568,528)-(624,552)x19, (512,72)-(552,104)x13
+E55_reveal_051.png: 27 moving cells, boxes (512,72)-(552,104)x15, (624,528)-(664,552)x12
+E56_reveal_052.png: 103 moving cells, boxes (568,296)-(624,424)x45, (536,328)-(560,424)x21, (656,528)-(712,552)x18, (512,72)-(552,104)x15, (584,416)-(592,432)x2, (568,416)-(576,432)x2
+E57_reveal_053.png: 31 moving cells, boxes (712,520)-(760,552)x18, (512,72)-(552,104)x13
+E58_reveal_054.png: 32 moving cells, boxes (760,520)-(800,552)x16, (512,72)-(552,104)x16
+E59_reveal_055.png: 37 moving cells, boxes (792,520)-(848,552)x21, (512,72)-(552,104)x15
+E60_reveal_056.png: 356 moving cells, boxes (384,520)-(848,552)x170, (512,480)-(864,512)x130, (384,480)-(504,512)x43, (512,72)-(552,104)x13
+E61_reveal_057.png: 30 moving cells, boxes (456,480)-(504,512)x16, (512,72)-(552,104)x13
+E62_reveal_058.png: 33 moving cells, boxes (504,480)-(560,512)x18, (512,72)-(552,104)x15
+E63_reveal_059.png: 31 moving cells, boxes (560,488)-(608,512)x16, (512,72)-(552,104)x15
+E64_reveal_060.png: 227 moving cells, boxes (232,416)-(360,544)x139, (384,480)-(608,512)x72, (512,72)-(552,104)x13
+E65_reveal_061.png: 29 moving cells, boxes (456,480)-(496,512)x15, (512,72)-(552,104)x13
+E66_reveal_062.png: 102 moving cells, boxes (568,296)-(624,424)x45, (536,328)-(560,424)x21, (496,488)-(552,512)x17, (512,72)-(552,104)x15, (584,416)-(592,432)x2, (568,416)-(576,432)x2
+E67_reveal_063.png: 29 moving cells, boxes (512,72)-(552,104)x15, (544,480)-(584,512)x14
+E68_reveal_064.png: 24 moving cells, boxes (584,480)-(648,512)x24
+E69_reveal_065.png: 112 moving cells, boxes (568,328)-(616,424)x39, (536,296)-(584,424)x32, (648,480)-(704,512)x19, (512,72)-(552,104)x15, (560,416)-(592,432)x7
+E70_reveal_066.png: 34 moving cells, boxes (696,488)-(744,512)x18, (512,72)-(552,104)x15
+E71_reveal_067.png: 36 moving cells, boxes (736,480)-(800,512)x23, (512,72)-(552,104)x13
+E72_reveal_068.png: 26 moving cells, boxes (792,488)-(832,512)x13, (512,72)-(552,104)x13
+E73_reveal_069.png: 19 moving cells, boxes (840,480)-(888,512)x19
+E74_reveal_070.png: 39 moving cells, boxes (384,520)-(432,552)x17, (512,72)-(552,104)x13, (880,488)-(904,512)x8
+E75_reveal_071.png: 105 moving cells, boxes (568,328)-(616,424)x39, (536,296)-(584,424)x32, (424,528)-(464,552)x14, (512,72)-(552,104)x13, (560,416)-(592,432)x7
+E76_reveal_072.png: 36 moving cells, boxes (464,528)-(528,552)x21, (512,72)-(552,104)x15
+E77_reveal_073.png: 30 moving cells, boxes (520,520)-(560,552)x15, (512,72)-(552,104)x15
+E78_reveal_074.png: 86 moving cells, boxes (568,296)-(624,424)x45, (536,328)-(560,424)x21, (560,520)-(608,552)x16, (584,416)-(592,432)x2, (568,416)-(576,432)x2
+E79_reveal_075.png: 35 moving cells, boxes (600,520)-(656,552)x19, (512,72)-(552,104)x15
+E80_reveal_076.png: 30 moving cells, boxes (512,72)-(552,104)x15, (648,528)-(672,552)x8, (680,528)-(696,552)x6
+E81_reveal_077.png: 31 moving cells, boxes (688,520)-(736,552)x18, (512,72)-(552,104)x13
+E82_reveal_078.png: 25 moving cells, boxes (512,72)-(552,104)x13, (728,528)-(760,552)x12
+E83_reveal_079.png: 15 moving cells, boxes (768,520)-(816,552)x15
+E84_reveal_080.png: 105 moving cells, boxes (568,296)-(624,424)x45, (808,520)-(872,552)x22, (536,328)-(560,424)x21, (512,72)-(552,104)x13, (584,416)-(592,432)x2, (568,416)-(576,432)x2
+E85_reveal_081.png: 33 moving cells, boxes (872,528)-(936,552)x20, (512,72)-(552,104)x13
+E86_reveal_082.png: 1633 moving cells, boxes (192,400)-(960,568)x1618, (512,72)-(552,104)x15
+E87_reveal_083.png: 15 moving cells, boxes (512,72)-(552,104)x15
+E88_reveal_084.png: 91 moving cells, boxes (568,328)-(616,424)x39, (536,296)-(584,424)x32, (512,72)-(552,104)x13, (560,416)-(592,432)x7
+E89_reveal_085.png: 16 moving cells, boxes (512,72)-(552,104)x16
+E90_reveal_086.png: 16 moving cells, boxes (512,72)-(552,104)x15
+E91_reveal_087.png: 14 moving cells, boxes (512,72)-(552,104)x13
+E92_reveal_088.png: 1629 moving cells, boxes (192,400)-(960,568)x1616, (512,72)-(552,104)x13
+E93_reveal_089.png: 387 moving cells, boxes (600,480)-(912,512)x113, (384,520)-(600,552)x77, (288,432)-(360,544)x61, (608,520)-(720,552)x41, (496,480)-(592,512)x35, (408,480)-(488,512)x29
+E94_reveal_090.png: 36 moving cells, boxes (480,488)-(544,512)x21, (512,72)-(552,104)x15
+E95_reveal_091.png: 23 moving cells, boxes (512,72)-(552,104)x13, (544,480)-(568,512)x9
+E96_reveal_092.png: 31 moving cells, boxes (568,480)-(616,512)x17, (512,72)-(552,104)x13
+E97_reveal_093.png: 109 moving cells, boxes (568,328)-(616,424)x39, (536,296)-(584,424)x32, (512,72)-(552,104)x15, (624,488)-(656,512)x12, (560,416)-(592,432)x7, (608,480)-(616,512)x4
+E98_reveal_094.png: 27 moving cells, boxes (512,72)-(552,104)x16, (656,488)-(688,512)x11
+E99_reveal_095.png: 37 moving cells, boxes (688,480)-(752,512)x24, (512,72)-(552,104)x13
+176 pairs, 53 camera moves skipped, 123 compared
+sheet docs/team/sweep-2026-10-20/pass9-rooms/shots/tower_reveal_motion.png

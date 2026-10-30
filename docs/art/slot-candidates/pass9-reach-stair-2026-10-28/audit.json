@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-28",
+  "registry_sha256": "ee9c03563b1c2a8bd6adc2abe1df32d2d1a993bdcba109f1d7e9d2c5d060489c",
+  "passing_slots": 2,
+  "check_lines": [
+    "town.building.hall.reach: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C8 PASS, C9 PASS, C12 PASS",
+    "town.prop.hall.rise_stair: PASS; C1 PASS, C2 PASS, C3 PASS, C4 PASS, C5 PASS, C7 PASS, C8 PASS, C9 PASS, C12 PASS"
+  ],
+  "other52_images_exact": true,
+  "original_review_answers_preserved": true,
+  "new_answers": "pending",
+  "installed": false,
+  "source_issues": [
+    "Both built-in outputs were larger than native dimensions. Untouched raw, exact prompts, input snapshots and cleanup receipts retained.",
+    "Reach: only upper110rows repainted, with reference-registered bands/knot patches. Lower190rows, loft rootlets, three shaft bands and lamp hook remain exact. Alpha matches current reference. No optional trailing roots added.",
+    "Stair: generation had uneven tread heights and misplaced roots. Native recutting produces eight12px bands; misplaced roots removed, current reference root planes and crack lips applied at46/70 and44/68. Side ink stays drawn; source glyph is retained as a small branching inlay.",
+    "State_order is now exported for all185slots. Existing lamp layout remains lit/dark; no animation frames or other PNGs were changed in this slice.",
+    "No live captures, Finish-shader or gameplay seam approval. Static assembly only; new candidates await Preston.",
+    "cx-15 title houses/clouds wait for the great-tree answer under Pass9 H9-08/H9-09. Its existing candidate is retained. cx-10 remains held pending crown approval/current re-brief.",
+    "Earlier root redo records are preserved and root R2 remains pending separately. No installs or edits outside candidate folders."
+  ]
+}

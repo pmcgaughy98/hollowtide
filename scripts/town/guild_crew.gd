@@ -13,11 +13,17 @@ extends RefCounted
 ## (docs/design/dialogue-voice-guide.md). Rinsepaw the cook keeps the kitchen hatch (sprites made 2026-10-11).
 
 const SceneKit := preload("res://scripts/town/scene_kit.gd")
+const Music := preload("res://scripts/audio/music.gd")
 const TeamState := preload("res://scripts/town/team_state.gd")
 
 # Where each one works, by room: [form, tile, facing].
+# Grubbit sorts the undeliverable parcels (Claude, 2026-10-27, pass 9 R1 / A9-05): one row down, on the room's foot beside
+# the parcels (18 and 19, 12), facing west along it. On (17, 11) the open tile under him was where a leader walking along
+# the foot stopped, and its picture, drawn in front, hid 0.56 of his (town_room_check). One tile east, (18, 11), a winged
+# leader on the diagonal below still hid 0.28. On the foot nobody can stand below him: a leader coming along it stops
+# beside him, and from above or level it draws behind him. The room's talk box goes to the top for him (town_room.gd).
 const POSTS := {
-	"hall": [["grubbit", Vector2i(17, 11), "w"], ["wayling", Vector2i(14, 5), "s"]],
+	"hall": [["grubbit", Vector2i(17, 12), "w"], ["wayling", Vector2i(14, 5), "s"]],
 	"hall_low": [["stillwade", Vector2i(4, 3), "s"], ["wickglow", Vector2i(11, 3), "s"],
 		["muskin", Vector2i(6, 11), "s"], ["slipjaw", Vector2i(2, 7), "e"], ["rinsepaw", Vector2i(2, 10), "s"]],
 }
@@ -104,11 +110,74 @@ const STARWARD_AT := Vector2i(15, 5)
 static func pending(room) -> bool:
 	if room.room_id != "hall_low":
 		return false
-	var rec: Dictionary = room._record()
+	return call_waits(room._record())
+
+
+## Whether the mail call waits for the team in hall_low, by the story alone (the Hall asks this to read the call's cast
+## ahead, pass 9 R2).
+static func call_waits(rec: Dictionary) -> bool:
 	var story: Dictionary = rec.get("story", {})
 	if not story.get("guild_trial", false):
 		return false
 	return String(story.get("mail_call", "")) != stage_of(rec)
+
+
+## The mail call's cast read ahead (Claude, 2026-10-27, pass 9 R2 / A9-12). Its eight creatures are 582 pictures. Asked
+## for on the stairs' fade alone (SceneKit.read_ahead in go_room) they were not read when the call spawned them, and the
+## spawn waited for them in one frame: 1.4 to 1.9 s on the stairs, measured in a window, with the lower floor's picture
+## already made. Asked for all in one frame they cost 150 to 175 ms; read on threads they take about 0.4 s.
+## So this asks for one creature's pictures a frame, then takes each finished picture into SceneKit's keep, so a spawn
+## finds it there (7 ms for all eight, measured). The Hall starts it as it is built; hall_low holds its curtain until
+## cast_kept() says it is done (town_room.gd). A coroutine on the tree's frames; a second call joins the first.
+static var _reading := {}   # path -> true, asked for and not yet taken
+
+
+static func read_cast(forms: Array) -> void:
+	var tree := Engine.get_main_loop() as SceneTree
+	# Headless (a check), the dummy renderer makes textures on one thread only: a thread's read raced the main thread
+	# ("Initializing already initialized RID"). There each creature is read here, one a frame, as SceneKit.read_ahead
+	# also stays off threads in a check.
+	var threads := DisplayServer.get_name() != "headless"
+	for form in forms:
+		if Music.closing:
+			return   # the game is closing: nothing new (music.gd, T1); town_room.gd's _work_left waits for what is asked
+		for path: String in _pictures_of(String(form)):
+			if SceneKit._sprites.has(path) or _reading.has(path):
+				continue
+			if not threads or not ResourceLoader.exists(path):
+				SceneKit._sprite(path)   # read now (a missing picture is kept as null, as a spawn would)
+				continue
+			if ResourceLoader.load_threaded_get_status(path) == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+				ResourceLoader.load_threaded_request(path)
+			_reading[path] = true
+		await tree.process_frame
+	while not _reading.is_empty():
+		for path: String in _reading.keys():
+			if ResourceLoader.load_threaded_get_status(path) != ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+				SceneKit._sprite(path)   # finished (or taken already by a spawn): into the keep, without a wait
+				_reading.erase(path)
+		if not _reading.is_empty():
+			await tree.process_frame
+
+
+## Whether every picture of these creatures is in SceneKit's keep, so spawning them reads nothing.
+static func cast_kept(forms: Array) -> bool:
+	for form in forms:
+		for path: String in _pictures_of(String(form)):
+			if not SceneKit._sprites.has(path):
+				return false
+	return true
+
+
+## The pictures SceneKit.spawn reads for one creature (the list SceneKit.read_ahead asks for).
+static func _pictures_of(form: String) -> Array:
+	var dir := SceneKit._sprite_dir(form)
+	var out: Array = [dir + "idle_s.png"]
+	for f in SceneKit.Arena.FACINGS:
+		out.append(dir + f + ".png")
+		for k in 8:
+			out.append(dir + "walk_%s_f%d.png" % [f, k])
+	return out
 
 
 ## The story stage, as the mail call reads it: the parcel's state, whether the team are runners, whether the Hollow's

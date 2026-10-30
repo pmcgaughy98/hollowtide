@@ -1,0 +1,64 @@
+{
+  "alpha": "binary",
+  "anchor": [
+    24,
+    95
+  ],
+  "anchor_mode": "foot",
+  "area": "town",
+  "brief": "The painted stair up Tower Rise's south cliff, two tiles wide and four tall: eight worn stone steps, roots through two risers and the three-route mark inlaid in the top step as a shape. Replaces the coded steps at tile (12, 9). wayline_tower palette.",
+  "census": "WT17",
+  "checks": [
+    "C1",
+    "C12",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C7",
+    "C8",
+    "C9"
+  ],
+  "drawn_at": 3,
+  "edges": "all",
+  "file": "res://assets/slots/town/prop/hall_rise_stair.png",
+  "forbid": [
+    "text",
+    "creature",
+    "franchise"
+  ],
+  "frames": 1,
+  "id": "town.prop.hall.rise_stair",
+  "kind": "prop",
+  "lane": "T",
+  "legacy": "",
+  "light": "upper_left",
+  "notes": "order 18 (batch cx-12)",
+  "outline": "drawn",
+  "owner": "codex",
+  "palette": {
+    "family": "wayline_tower",
+    "lock": true,
+    "max": 32,
+    "source": "res://assets/slots/palettes/wayline_tower.png"
+  },
+  "placeholder": "res://scripts/town/tower_parts.gd:paint_slot",
+  "rows": 1,
+  "sheet_size": [
+    48,
+    96
+  ],
+  "size": [
+    48,
+    96
+  ],
+  "slot_file": "town_tower",
+  "states": {
+    "static": [
+      1,
+      0
+    ]
+  },
+  "status": "placeholder",
+  "tiling": "none"
+}

@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-29",
+  "batch": "cx-17-home-burrow",
+  "slot": "town.building.home",
+  "building_class": "burrow",
+  "tool": "image_gen.imagegen (built-in)",
+  "generation_count": 1,
+  "generation_authorization": "Preston explicitly approved one generation in the latest request.",
+  "cost": null,
+  "cost_note": "Built-in tool did not expose a monetary or credit cost. No external generator called.",
+  "references": [
+    "docs/design/placeholder-factory-2026-10-26/refs/town.building.home.png",
+    "docs/design/placeholder-factory-2026-10-26/refs/town.building.home_card.png"
+  ],
+  "source_generated_path": "C:/Users/pmcga/.codex/generated_images/01a12b4b-7982-7b32-b405-2a584762f412/exec-765b29cb-94f4-475c-9a8e-fd72937a2cdb.png",
+  "raw_untouched": true,
+  "raw_size": [
+    1040,
+    1512
+  ],
+  "native_size": [
+    132,
+    192
+  ],
+  "door_px": [
+    55,
+    142,
+    22,
+    48
+  ],
+  "foot_row": 191,
+  "colours": 31,
+  "registry_sha256": "f8a00825c6056cc20446753fbbaf7fdf5eefc6fd7575ddbebf9b75e92f30cd32",
+  "native_cleanup_authorization": "Preston approved Python pixel cleanup earlier in this session.",
+  "native_preparation": "prepare_native.py -> native-input.png; unchanged prepare_slot.py and validate_slot.py. Existing clear_orphans keep=40, palette snap, binary alpha and exact door/foot registration.",
+  "runtime": "Actual Highbank v2, candidate only in ArtSlots process cache; isolated preview save and in-memory preference configs, inspection camera with main HUD hidden, verified Sparkjab at scale, production finish/footing/closed-open door frames. No install or manual door interaction.",
+  "approval": "yes",
+  "installed": true,
+  "hashes": {
+    "raw.png": "78517b99493a74b4324269b68f18908fca3b592ababa7107fee06d358fab9df6",
+    "prompt.txt": "21cf709371f4af8fa8e8556483e08bdc10f70cfd8f99ca5c852e1a1ce4f71b4a",
+    "native-input.png": "d02e2935540ffd2346f553b198254fedc75dd8fd8213ebcf2080b53f4d4f6ef4",
+    "pixel-cleanup.json": "99b99ed38ee961a796d0a08c9e5286865fd70d7e442cad5104f486da2a3ea62b",
+    "prepared.png": "d02e2935540ffd2346f553b198254fedc75dd8fd8213ebcf2080b53f4d4f6ef4",
+    "prepared.png.check.json": "56bea525eb308cd223d4fa8b53217635369b81fed887d3d86a5ff358d8ee5bf8",
+    "capture.png": "f09d6acc653b4244ccb38610ff822294d6c4e323a3483098b7517cf6fd24a4ea",
+    "capture-open.png": "ee75681ad5abf9927917e20a525fc0922500f9f3421447af32ee5ccd89c32753"
+  },
+  "approval_note": "Preston replied go directly to this cx-17 visual review on 2026-10-29.",
+  "installation": {
+    "date": "2026-10-29",
+    "file": "assets/slots/town/building/home.png",
+    "sha256": "d02e2935540ffd2346f553b198254fedc75dd8fd8213ebcf2080b53f4d4f6ef4",
+    "registry_after": "19fe5c2bff04900937c586b404bbe6042258f5630b79f36ad98ee7d0a1529390",
+    "post_install_checks": {
+      "v1": {
+        "art_slots": "PASS",
+        "building_template": "PASS",
+        "hub_town": "PASS"
+      },
+      "v2": {
+        "art_slots": "PASS",
+        "building_template": "PASS",
+        "hub_town": "PASS"
+      }
+    },
+    "fixed_fps": 30,
+    "receipt": "installation-2026-10-29/installation-result.json"
+  }
+}

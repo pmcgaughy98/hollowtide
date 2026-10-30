@@ -76,10 +76,10 @@ func _run() -> void:
 	_ok("Drain Bite: leader %d -> %d, Whinet %d -> %d" % [before, lead["hp"], whp, w["hp"]], lead["hp"] < before and w["hp"] > whp)
 	dg.queue_free()
 	await _frames(2)
-	# 3. The Hollow: the valley, then the stone, then the Warden.
+	# 3. The Hollow: the valley, then three floors of stone (four floors since 2026-10-28), then the Warden.
 	var hg := await _dungeon("hollow")
 	var looks: Array = []
-	for f in [1, 2]:
+	for f in range(1, hg.floors() + 1):
 		hg.floor_n = f
 		hg._build_floor(true)
 		await _frames(2)
@@ -88,7 +88,7 @@ func _run() -> void:
 	hg._build_floor(true)
 	await _frames(4)
 	_ok("The Hollow: floors %s; boss %s; pond %s; scene %s" % [str(looks), hg.ents[hg.boss]["name"], str(hg.pond), str(hg.cutscene)],
-		looks == ["valley", "ruin"] and hg.ents[hg.boss]["form"] == "warden" and hg.pond.size != Vector2i.ZERO and hg.cutscene)
+		looks == ["valley", "ruin", "ruin", "ruin"] and hg.ents[hg.boss]["form"] == "warden" and hg.pond.size != Vector2i.ZERO and hg.cutscene)
 	hg.queue_free()
 	await _frames(2)
 	# 4. The town picks the dungeon.

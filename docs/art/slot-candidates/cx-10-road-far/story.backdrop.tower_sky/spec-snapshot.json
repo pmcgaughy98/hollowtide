@@ -1,0 +1,74 @@
+{
+  "alpha": "opaque",
+  "anchor": [
+    0,
+    0
+  ],
+  "anchor_mode": "top_left",
+  "anchors": {
+    "beacon": [
+      192,
+      127
+    ]
+  },
+  "area": "story",
+  "brief": "The sky behind the Wayline Tower's top while the Tower scene's camera holds there, as docs/design/vast-scale-2026-10-27/VAST_SCALE_DESIGN.md lays it out (the target is this slot's placeholder, the vast-scale mock final/slot_tower_sky.png there; final/hold_1x.png shows it with Codex's crown and the lamp's glow over it). First light, seen from the Waiting Lamp 475 tiles up. Flat dawn bands from a deep blue at the top through slate to a pale grey-blue haze at the horizon (y 146). The Waiting Lamp's glass hangs at the beacon anchor: keep the sky in a 17 px box round it a calm cool blue, no cloud or leaf in it, so the amber stands out. Below the horizon a flat sea of cloud fills the bottom: the cloud layer's top (360 tiles), lit warm cream from the east by the low sun, its lumps growing toward the bottom edge. On the left the great tree's crown cap breaks the sea, the same tree as the title's (scripts/art/placeholders/title_giants.gd): one even dome centred on its trunk at x 100, its top at y 156, about 180 px wide where it meets the cloud at y 188, leaf clusters each with a lit top arc, in the morning's greens, lit from the east (the right), hazed a little toward the sky; cloud laps round its foot. No building and no town: the town is under the clouds and nothing stands by the Tower. Sky only, no tower or lamp painted in: the scene draws the Tower, the lamp and its glow over it. It does not scroll.",
+  "census": "new",
+  "checks": [
+    "C1",
+    "C2",
+    "C3",
+    "C5",
+    "C9"
+  ],
+  "drawn_at": 3,
+  "edges": "all",
+  "file": "res://assets/slots/story/backdrop/tower_sky.png",
+  "forbid": [
+    "text",
+    "creature",
+    "franchise"
+  ],
+  "frames": 1,
+  "id": "story.backdrop.tower_sky",
+  "kind": "backdrop",
+  "lane": "S",
+  "legacy": "",
+  "light": "right",
+  "notes": "shown only during the Tower scene, behind the town's world, above the area's top edge (the whole view from the second leg of the climb to the hold); the placeholder is the vast-scale mock (final_mocks.py hold_backdrop, exported to assets/placeholders/tower_sky.png); the climb still runs up TowerParts' 30-tile tower, so the cloud sea shows behind its drum and Reel Deck until the town's Tower is redesigned and the reveal retimed; names are working labels",
+  "outline": "none",
+  "owner": "codex",
+  "palette": {
+    "exact": true,
+    "family": "vast_sky",
+    "lock": false,
+    "max": 32,
+    "source": "res://assets/slots/palettes/vast_sky.png"
+  },
+  "place_at": [
+    0,
+    0
+  ],
+  "placeholder": "res://scripts/story/tower_reveal.gd:paint_sky",
+  "rows": 1,
+  "sheet_size": [
+    384,
+    216
+  ],
+  "size": [
+    384,
+    216
+  ],
+  "slot_file": "route",
+  "state_order": [
+    "static"
+  ],
+  "states": {
+    "static": [
+      1,
+      0
+    ]
+  },
+  "status": "placeholder",
+  "tiling": "none"
+}

@@ -1,0 +1,55 @@
+{
+  "all_five_alpha_masks_exact": true,
+  "depot_door": [
+    126,
+    126,
+    48,
+    64
+  ],
+  "gable_peg_centres": [
+    [
+      42,
+      34
+    ],
+    [
+      36,
+      29
+    ],
+    [
+      51,
+      34
+    ],
+    [
+      51,
+      28
+    ],
+    [
+      51,
+      24
+    ],
+    [
+      60,
+      34
+    ],
+    [
+      68,
+      30
+    ],
+    [
+      51,
+      40
+    ]
+  ],
+  "gable_sockets": 8,
+  "stair_treads": 8,
+  "stair_tread_height": 12,
+  "yard_changed_pixels": 32,
+  "yard_difference_bbox": [
+    12,
+    46,
+    45,
+    48
+  ],
+  "yard_other_pixels_exact": true,
+  "in_game_verified": false
+}

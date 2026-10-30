@@ -1,13 +1,22 @@
 extends SceneTree
-## The building template and the Wayline Tower (Claude, 2026-10-26, placeholder factory lane B; build plan section 2.2).
-## Canvases, doors and anchors per class; the Tower's size, doors and stages; lane B's placeholders (exact size, binary
-## alpha, colour budget, clear edges); place() standing a building and a lot on a grid; the sign and shut overlay
-## placeholders matching today's code; and v1 still drawn at rect x 24, so the town does not change with v2 off.
+## The building template and the Wayline Tower (Claude, 2026-10-26, placeholder factory lane B; build plan section 2.2;
+## the tower rebuilt in parts 2026-10-27, docs/design/wayline-tower-2026-10-27/TOWER_DESIGN.md). Canvases, doors and
+## anchors per class; the hall's depot and the tower standing on it (TowerParts' order, the assembled height, the lamp
+## lit on the door axis); lane B's placeholders (exact size, binary alpha, colour budget, clear edges); place()
+## standing the hall and a lot on a grid (the whole tower when Highbank v2 is on, the depot alone when it is off); the
+## sign and shut overlay placeholders matching today's code; and v1 still drawn at rect x 24, so the town does not change
+## with v2 off. tools/debug/tower_parts_check.gd checks the parts themselves.
 ##   Godot --headless --path . --script res://tools/debug/building_template_check.gd
 const BT := preload("res://scripts/town/building_template.gd")
+const TP := preload("res://scripts/town/tower_parts.gd")
 const BE := preload("res://scripts/town/building_exteriors.gd")
 const Layout := preload("res://scripts/town/town_layout.gd")
 const T := 24
+## The tower's body, drawn in this order (TOWER_DESIGN.md section 5), the route lanterns hung at their place.
+const BODY := ["town.building.hall", "town.building.hall.drum", "town.building.hall.hoist", "town.building.hall.galleries",
+	"town.building.hall.root_vein", "town.building.hall.chute", "town.building.hall.gable", "town.building.hall.reel_back",
+	"town.building.hall.reach", "town.building.hall.ring_front", "town.building.hall.route_lantern", "town.building.hall.bell",
+	"town.building.hall.lamp", "town.building.hall.vane"]
 
 var problems := 0
 
@@ -47,6 +56,21 @@ func _touches(img: Image, allowed: Array) -> String:
 	return ""
 
 
+## How much of a door frame the leaves cover, inside the jambs and above the sill: drawn pixels that are not the dark
+## doorway behind them (the template's frames leave the doorway clear, the tower's paint it TowerParts' doorway brown).
+func _cover(frame: Texture2D, size: Vector2i) -> float:
+	var fi: Image = frame.get_image()
+	var dark := TP.TIMB.dk.to_rgba32()
+	var n := 0
+	var all := 0
+	for y in range(2, size.y - 2):
+		for x in range(2, size.x - 2):
+			all += 1
+			var c := fi.get_pixel(x, y)
+			n += 1 if c.a > 0.0 and c.to_rgba32() != dark else 0
+	return snappedf(float(n) / float(maxi(1, all)), 0.01)
+
+
 func _initialize() -> void:
 	# 1. Classes: the table, at 1.0, door on its tiles, sill on the step, anchor bottom centre.
 	for cls in BT.CLASSES:
@@ -67,47 +91,57 @@ func _initialize() -> void:
 			var body := _content(form)
 			_ok("%s: door %dx%d clears its pass creature %s (%dx%d)" % [cls, door.size.x, door.size.y, form, body.x, body.y],
 				body != Vector2i.ZERO and door.size.y >= body.y and door.size.x >= 0.75 * body.x)
+			if c.has("eave"):
+				# Roof first (TOWN_SYNTHESIS.md, measured from Explorers of Sky's town): the roof at least 60% of the
+				# height, the door at most about a quarter, the front tall enough for the door and its lintel.
+				var roof_share := 1.0 - float(int(c["eave"])) / float(size.y)
+				var door_share := float(door.size.y) / float(size.y)
+				_ok("%s: roof first, %d%% of the height over a %d px front; the door %d%% of the height" % [cls, roundi(roof_share * 100.0), int(c["eave"]), roundi(door_share * 100.0)],
+					roof_share >= 0.6 and door_share <= 0.26 and int(c["eave"]) >= door.size.y + 8)
 		var big := BT.geometry(cls, 1.25)
 		_ok("%s: at 1.25 the canvas grows on the same base" % cls, big["canvas"].x == size.x and big["canvas"].y > size.y and big["door_px"].size.y >= door.size.y)
 		_ok("%s: canvas() and door_px() follow BUILDING_SCALE %.2f" % [cls, BT.BUILDING_SCALE], BT.canvas(cls) == BT.geometry(cls)["canvas"] and BT.door_px(cls) == BT.geometry(cls)["door_px"])
 
-	# 2. The Wayline Tower: the Hall's base and doors, at least 2.5 screens tall, a beacon at the top.
+	# 2. The Wayline Tower: the hall class is its depot (the Hall's base and doors, 300 x 192); the tower stands on it.
 	var hall: Dictionary = BT.CLASSES[BT.TOWER_CLASS]
-	_ok("Tower: canvas %s, %.2f screens of the 216 px view (at least 540 px)" % [str(BT.TOWER_CANVAS), BT.TOWER_CANVAS.y / 216.0], BT.TOWER_CANVAS.y >= 540 and BT.TOWER_CANVAS == hall["canvas"])
-	_ok("Tower: the Hall's 12 x 3 base and its double door over base columns 5 and 6", hall["base"] == Vector2i(12, 3) and BT.TOWER_DOOR == hall["door_px"]
-		and BT.TOWER_DOOR.position.x == BT.EAVE + 5 * T and BT.TOWER_DOOR.size.x == 2 * T and BT.TOWER_DOOR_COLS == [5, 6])
+	_ok("Tower depot: hall canvas %s is TOWER_DEPOT 300 x 192" % str(hall["canvas"]), hall["canvas"] == Vector2i(300, 192) and BT.TOWER_DEPOT == hall["canvas"] and BT.canvas("hall") == BT.TOWER_DEPOT)
+	_ok("Tower depot: the Hall's 12 x 3 base and its double door %s over base columns 5 and 6" % str(BT.TOWER_DOOR), hall["base"] == Vector2i(12, 3)
+		and BT.TOWER_DOOR == hall["door_px"] and BT.TOWER_DOOR == Rect2i(126, 126, 48, 64) and BT.TOWER_DOOR.position.x == BT.EAVE + 5 * T
+		and BT.TOWER_DOOR.size.x == 2 * T and BT.TOWER_DOOR_COLS == [5, 6] and BT.door_px("hall") == BT.TOWER_DOOR)
 	var spec := ArtSlots.spec(BT.TOWER_SLOT)
-	_ok("Tower: its slot %s is the tower canvas, door and beacon" % BT.TOWER_SLOT, spec.get("size") == BT.TOWER_CANVAS and spec.get("door_px") == BT.TOWER_DOOR
-		and spec.get("anchor") == BT.TOWER_FOOT and spec.get("anchors", {}).get("beacon") == BT.TOWER_TOP and String(spec.get("building_class", "")) == BT.TOWER_CLASS)
-	var order := ["mast", "cap", "lantern", "gallery", "shaft", "base"]
-	var stacked := true
-	for i in order.size():
-		var r: Rect2i = BT.TOWER_STAGES[order[i]]
-		stacked = stacked and Rect2i(Vector2i.ZERO, BT.TOWER_CANVAS).encloses(r)
-		if i > 0:
-			stacked = stacked and r.position.y >= BT.TOWER_STAGES[order[i - 1]].position.y
-	_ok("Tower: stages mast, cap, lantern, gallery, shaft, base inside the canvas, top to bottom", stacked)
-	var tower := PlaceholderPainter.paint(BT.TOWER_SLOT, spec)
-	var used := tower.get_used_rect()
-	var beacon := tower.get_pixelv(BT.TOWER_TOP)
-	_ok("Tower placeholder rises the full canvas (opaque from row %d)" % used.position.y, used.position.y <= 10 and used.end.y == BT.TOWER_CANVAS.y)
-	_ok("Tower placeholder: the signal light burns at TOWER_TOP %s" % str(BT.TOWER_TOP), beacon.a > 0.0 and beacon.r > 0.85 and beacon.g > 0.6 and beacon.b < 0.6, beacon.to_html(false))
-	var lan: Rect2i = BT.TOWER_STAGES["lantern"]
-	var lantern_px := 0
-	for y in range(lan.position.y, lan.end.y):
-		for x in range(lan.position.x, lan.end.x):
-			var c := tower.get_pixel(x, y)
-			if c.r > 0.85 and c.g > 0.6 and c.b < 0.5:
-				lantern_px += 1
-	_ok("Tower placeholder: the lantern room is lit (%d of %d px)" % [lantern_px, lan.get_area()], lantern_px * 2 > lan.get_area())
-	var d := BT.TOWER_DOOR.grow(-3)
-	var dark := tower.get_pixelv(d.get_center())
-	_ok("Tower placeholder: the doorway is dark where the leaves go", dark.get_luminance() < 0.3, dark.to_html(false))
-	var pts := BT.tower_points(Rect2i(19, 4, 12, 3))
-	_ok("tower_points: door %s up to the beacon %s is %d px (a pan of %.2f screens)" % [str(pts["door"]), str(pts["top"]), int(pts["door"].y - pts["top"].y), (pts["door"].y - pts["top"].y) / 216.0],
-		pts["door"].y - pts["top"].y >= 500 and pts["origin"] == Vector2i(19 * T - BT.EAVE, 7 * T - BT.TOWER_CANVAS.y) and pts["top"].x == pts["door"].x)
+	var anchors: Dictionary = spec.get("anchors", {})
+	_ok("Tower depot: its slot %s is the depot canvas, door and foot, at frame %s" % [BT.TOWER_SLOT, str(spec.get("frame_at"))],
+		spec.get("size") == BT.TOWER_DEPOT and spec.get("door_px") == BT.TOWER_DOOR and spec.get("anchor") == BT.TOWER_FOOT
+		and String(spec.get("building_class", "")) == BT.TOWER_CLASS and spec.get("frame_at") == BT.TOWER_DEPOT_AT
+		and String(spec.get("placeholder", "")) == TP.PLACEHOLDER_HOOK)
+	_ok("Tower depot: its beacon and apex anchors %s %s are the frame's, in the depot's px" % [str(anchors.get("beacon")), str(anchors.get("apex"))],
+		anchors.get("beacon") == BT.TOWER_BEACON - BT.TOWER_DEPOT_AT and anchors.get("apex") == BT.TOWER_APEX - BT.TOWER_DEPOT_AT)
+	_ok("Tower: the depot's door lands on the frame's door %s" % str(TP.DOOR), Rect2i(BT.TOWER_DEPOT_AT + BT.TOWER_DOOR.position, BT.TOWER_DOOR.size) == TP.DOOR
+		and TP.DEPOT_DOOR == BT.TOWER_DOOR and BT.TOWER_PARTS == TP.PARTS and BT.TOWER_FRAME == Vector2i(432, 720))
+	var orders: Array = []
+	for p in TP.PARTS:
+		orders.append(int(p["order"]))
+	var sorted := orders.duplicate()
+	sorted.sort()
+	_ok("TowerParts: %d parts in order 1 to %d, the body drawn %s" % [TP.PARTS.size(), orders.size(), "as the design lists it" if Array(TP.body_order()) == BODY else "OUT OF ORDER"],
+		orders == sorted and orders == range(1, TP.PARTS.size() + 1) and Array(TP.body_order()) == BODY and TP.ids("ground").size() == 2 and TP.ids("prop").size() == 6)
+	var whole := TP.assembled_image()
+	var used := whole.get_used_rect()
+	_ok("TowerParts: assembled %s, standing %d px tall (at least 540) from row %d to the foot row" % [str(whole.get_size()), used.size.y, used.position.y],
+		whole.get_size() == BT.TOWER_FRAME and used.size.y >= 540 and used.position.y <= 2 and used.end.y == BT.TOWER_FRAME.y)
+	var lit := 0
+	for y in range(BT.TOWER_BEACON.y - 4, BT.TOWER_BEACON.y + 5):
+		for x in range(BT.TOWER_BEACON.x - 4, BT.TOWER_BEACON.x + 5):
+			var c := whole.get_pixel(x, y)
+			lit += 1 if c.a > 0.0 and c.r > 0.85 and c.g > 0.6 and c.b < 0.6 else 0
+	_ok("TowerParts: the Waiting Lamp burns round the beacon %s (%d of 81 px lit)" % [str(BT.TOWER_BEACON), lit], lit > 40)
+	_ok("TowerParts: the beacon is on the door axis", BT.TOWER_BEACON.x == TP.DOOR.get_center().x)
+	var pts := BT.tower_points(Rect2i(7, 6, 12, 3))
+	_ok("tower_points on Tower Rise: origin %s, door %s up to the beacon %s is %d px (a pan of %.2f screens)" % [str(pts["origin"]), str(pts["door"]), str(pts["top"]), int(pts["door"].y - pts["top"].y), (pts["door"].y - pts["top"].y) / 216.0],
+		pts["origin"] == Vector2i(96, -504) and pts["door"] == Vector2(312, 182) and pts["top"] == Vector2(312, -386) and pts["apex"] == Vector2(279, -503)
+		and pts["depot_origin"] == Vector2i(162, 24) and pts["canvas"] == BT.TOWER_FRAME)
 	var tall := BT.template_image("hall", "hall", 1.25)
-	_ok("Tower at 1.25 is %dx%d with its beacon still inside the canvas" % [tall.get_width(), tall.get_height()], tall.get_size() == BT.geometry("hall", 1.25)["canvas"] and tall.get_used_rect().position.y > 0)
+	_ok("Tower depot at 1.25 is %dx%d, a stretched stand-in" % [tall.get_width(), tall.get_height()], tall.get_size() == BT.geometry("hall", 1.25)["canvas"] and tall.get_used_rect().size.y > 0)
 
 	# 3. Lane B's placeholders: exact sheet, binary alpha, colour budget, clear of forbidden edges (C1, C3, C4, C2).
 	var lane_b := 0
@@ -131,6 +165,10 @@ func _initialize() -> void:
 	for pair in [["shop", "town.prop.sign_shop", Vector2i(31, -6), Vector2i(19, 16)], ["storage", "town.prop.sign_storage", Vector2i(31, -6), Vector2i(19, 17)],
 			["hall", "town.prop.sign_hall", Vector2i(34, -25), Vector2i(19, 19)], ["scrolls", "town.prop.sign_scrolls", Vector2i(-25, 1), Vector2i(19, 17)]]:
 		var place: Dictionary = BT.place_entry(pair[0])
+		if pair[0] == "hall" and String(place.get("tower", "")) == "foot":
+			for p in Layout.Areas.V1.AREA["places"]:   # Tower Rise's hall is the Stack's one-row foot (2026-10-29): v1's board
+				if p["id"] == "hall":
+					place = p
 		var r: Rect2i = place["rect"]
 		var entrance: Vector2i = place["door"]
 		for tile in Layout.door_tiles(place):
@@ -144,7 +182,7 @@ func _initialize() -> void:
 		var slot := ArtSlots.image(pair[1])
 		_ok("%s: the sign slot's board is the v1 board, pixel for pixel" % pair[1], slot.get_region(Rect2i(Vector2i(2, 1), pair[3])).get_data() == v1.get_region(board).get_data())
 
-	# 5. place(): the Tower and a lot on a grid, as v2 stands them.
+	# 5. place(): the hall and a lot on a grid, as v2 stands them (the whole tower) or, off v2, the depot alone.
 	var holder := Node2D.new()
 	root.add_child(holder)
 	var b := {"id": "hall", "class": "hall", "base": Rect2i(7, 6, 12, 3), "door": [Vector2i(12, 8), Vector2i(13, 8)]}
@@ -152,20 +190,24 @@ func _initialize() -> void:
 	var ext: Sprite2D = node.get_node_or_null("Exterior") if node != null else null
 	var leaves: Sprite2D = node.get_node_or_null("Door") if node != null else null
 	var frames: Array = node.get_meta("frames", []) if node != null else []
-	_ok("place(): the Tower stands at its canvas origin, sorted at its door row", node != null and node.position == Vector2(7 * T - BT.EAVE, 9 * T - BT.TOWER_CANVAS.y) and node.z_index == 8 * T, str(node.position) if node != null else "null")
-	_ok("place(): its picture is the slot (%s), its sign the waymark slot" % ArtSlots.source(BT.TOWER_SLOT), ext != null and ext.texture.get_size() == Vector2(BT.TOWER_CANVAS)
-		and node.get_node_or_null("Sign") != null and node.get_node("Sign").texture == ArtSlots.texture("town.prop.sign_hall"))
+	var door_px: Rect2i = node.get_meta("door_px", Rect2i()) if node != null else Rect2i()
+	if Layout.v2():
+		_ok("place() v2: the hall is the whole tower, its frame at %s, sorted at its door row" % (str(node.position) if node != null else "null"),
+			node != null and node.position == Vector2(96, -504) and node.z_index == 8 * T and node.get_node_or_null("Reach") != null
+			and node.get_node_or_null("Lamp") != null and (node.get_node_or_null("RouteLanterns") as Node) != null and node.get_node("RouteLanterns").get_child_count() == 7)
+		_ok("place() v2: its depot is the slot (%s) at the frame's depot place, no Sign or Details" % ArtSlots.source(BT.TOWER_SLOT), ext != null
+			and ext.position == Vector2(BT.TOWER_DEPOT_AT) and ext.texture.get_size() == Vector2(BT.TOWER_DEPOT)
+			and node.get_node_or_null("Sign") == null and node.get_node_or_null("Details") == null)
+		_ok("place() v2: door_px %s in the tower's px puts the doors at world %s" % [str(door_px), str(node.position + Vector2(door_px.position)) if node != null else "?"],
+			node != null and door_px == TP.DOOR and node.position + Vector2(door_px.position) == Vector2(288, 150) and leaves != null and leaves.position == Vector2(TP.DOOR.position))
+	else:
+		_ok("place() v1 call: the depot stands at its canvas origin, sorted at its door row", node != null and node.position == Vector2(7 * T - BT.EAVE, 9 * T - BT.TOWER_DEPOT.y) and node.z_index == 8 * T, str(node.position) if node != null else "null")
+		_ok("place() v1 call: its picture is the depot slot (%s), its sign the waymark slot" % ArtSlots.source(BT.TOWER_SLOT), ext != null and ext.texture.get_size() == Vector2(BT.TOWER_DEPOT)
+			and node.get_node_or_null("Sign") != null and node.get_node("Sign").texture == ArtSlots.texture("town.prop.sign_hall") and door_px == BT.TOWER_DOOR)
 	var cover := []
 	for f in frames:
-		var fi: Image = f.get_image()
-		var n := 0
-		var inside := BT.TOWER_DOOR.size - Vector2i(4, 2)
-		for y in range(2, BT.TOWER_DOOR.size.y):
-			for x in range(2, BT.TOWER_DOOR.size.x - 2):
-				n += 1 if fi.get_pixel(x, y).a > 0.0 else 0
-		cover.append(snappedf(float(n) / float(inside.x * inside.y), 0.01))
-	_ok("place(): three door frames from door_px, closed to open (cover %s)" % str(cover), leaves != null and frames.size() == 3 and leaves.position == Vector2(BT.TOWER_DOOR.position)
-		and cover[0] > 0.95 and cover[1] < 0.6 and cover[2] < 0.15)
+		cover.append(_cover(f, door_px.size))
+	_ok("place(): three door frames, closed to open (cover %s)" % str(cover), leaves != null and frames.size() == 3 and cover[0] > 0.95 and cover[1] < 0.6 and cover[2] < 0.15)
 	var lot: Node2D = BT.place({"id": "lot_a", "class": "stall", "base": Rect2i(36, 5, 4, 2), "before": "tarp", "opens": {"beaten": "first"}}, holder)
 	_ok("place(): a lot before it opens shows its tarp slot", lot != null and String(lot.get_meta("slot", "")) == "town.building.lot_before_stall" and lot.get_node("Exterior").texture.get_size() == Vector2(108, 120))
 	var plot: Node2D = BT.place({"id": "lot_b", "class": "stall", "base": Rect2i(30, 3, 6, 4), "before": "plot", "opens": {"flag": "x"}}, holder)
@@ -202,4 +244,4 @@ func _initialize() -> void:
 	else:
 		print("v1 checks skipped: Highbank v2 is on")
 	print("RESULT: %s" % ("the template, the Tower and v1 hold" if problems == 0 else "%d problems" % problems))
-	quit()
+	quit(1 if problems else 0)

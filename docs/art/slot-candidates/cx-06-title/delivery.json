@@ -1,0 +1,27 @@
+{
+  "batch": "cx-06-title",
+  "slots": [
+    "title.backdrop.launch"
+  ],
+  "check_lines": [
+    "title.backdrop.launch: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS"
+  ],
+  "source_issues": [
+    "title.backdrop.launch: image_gen returned [1672, 941] raw; requested native [384, 216]. Untouched raw preserved; provided prepare_slot produced exact-size candidate.",
+    "Candidate only: opening_flow.gd still uses its coded launch fill; wire ArtSlots file only after approval. Registry note names old #161f1b while current launch ink is #18172c, already noted in the task list.",
+    "In-game capture absent: no candidate installed or runtime wiring changed; R4 remains pending Preston/Claude review."
+  ],
+  "installed": false,
+  "tower_status": "Preston says new Tower ready; Claude still exporting slot contracts. Do not reuse old Tower slot dimensions.",
+  "registry_sha256": "235abb6156b1fc9c5faadb37e1fb7a95f5a5ab0e913149dd3f5d282b342ca01b",
+  "latest_check": "candidate-only real export, freshness guard enabled",
+  "LATEST_REVISION": {
+    "slot": "title.backdrop.launch",
+    "revision": "launch-road-refresh-2026-10-27",
+    "registry_sha256": "ee9c03563b1c2a8bd6adc2abe1df32d2d1a993bdcba109f1d7e9d2c5d060489c",
+    "check_line": "title.backdrop.launch: PASS; C1 PASS, C2 PASS, C3 PASS, C5 PASS, C9 PASS",
+    "prepared_sha256": "0b9ad9a29ec1fcc164f1cd54a5dffbd28251d01addce84e7a54d6e077de7a36c",
+    "review_packet": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\launch-road-refresh-2026-10-27\\launch-road-review",
+    "answer": "pending"
+  }
+}

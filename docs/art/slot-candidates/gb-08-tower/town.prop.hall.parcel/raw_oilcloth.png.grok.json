@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.hall.parcel_card.png",
+ "out": "docs/art/slot-candidates/gb-08-tower/town.prop.hall.parcel/raw_oilcloth.png",
+ "cost_usd": 0.08756836,
+ "turns": 6,
+ "text": "I'll read the style reference and the Imagine skill first, then generate the parcel once and save it as `raw_oilcloth.png`.The style sheet is chunky pixel art: a three-quarter crate, a sage-and-tan parcel, and a warm strip of cream, tan, olive, moss, teal, and wood brown. Generating the oilcloth parcel once in that palette.The generator saved a JPEG. I\u2019ll convert it to `raw_oilcloth.png` in this folder and check the pixel size.`C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_19z0k5sx\\raw_oilcloth.png`\n\nIt shows one moss-green oilcloth parcel tied with twine, in a three-quarter top-down view, with no text and no creatures, at 1152\u00d7864 (4:3). The background is not pure #FF00FF (corners sample about #EF2AC2 to #F72AC3), the parcel does not fill the frame, and the shading is dithered and soft rat",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_19z0k5sx"
+}

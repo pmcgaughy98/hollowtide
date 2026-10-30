@@ -1,0 +1,137 @@
+### board T15
+C:\Users\pmcga\AppData\Local\Temp\claude\C--Users-pmcga-dev-hollowtide\3708decc-a9ed-4fb1-9ffb-c06cd75193c6\scratchpad\p9\contrast.py:30: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  px = list(im.crop((x0, y0, x1, y1)).getdata())
+board sub-line (plain row): panel #c9bfa9 (26% of the box)
+    #283025    391 px  contrast  7.47
+    #2e332a    208 px  contrast  7.09
+    #111411    168 px  contrast 10.17
+    #121411    100 px  contrast 10.15
+    #2d3229     82 px  contrast  7.19
+    #2f342b     70 px  contrast  6.99
+    highest-contrast common colour: 10.17
+board rank line: panel #e4ca8e (25% of the box)
+    #212923    434 px  contrast  9.34
+    #2a3027    385 px  contrast  8.47
+    #111411    127 px  contrast 11.61
+    #101310    126 px  contrast 11.70
+    #1c221d    121 px  contrast 10.14
+    #283029    103 px  contrast  8.50
+    highest-contrast common colour: 11.70
+board key strip: panel #c9bfa9 (14% of the box)
+    #2e332a    382 px  contrast  7.09
+    #121411    313 px  contrast 10.15
+    #262c24    308 px  contrast  7.84
+    #282e25    232 px  contrast  7.63
+    #2d3229    218 px  contrast  7.19
+    #2f342a    176 px  contrast  6.99
+    highest-contrast common colour: 10.15
+board sub-line (picked row): panel #3f5140 (61% of the box)
+    #c9bfa9   1609 px  contrast  4.67
+    #141915    759 px  contrast  2.09
+    highest-contrast common colour: 4.67
+board client line: panel #fff4e8 (34% of the box)
+    #283025    291 px  contrast 12.57
+    #111411    217 px  contrast 17.10
+    #2e332a    102 px  contrast 11.93
+    #121411     70 px  contrast 17.07
+    #121511     70 px  contrast 16.96
+    #212923     65 px  contrast 13.77
+    highest-contrast common colour: 17.10
+### storage T28
+C:\Users\pmcga\AppData\Local\Temp\claude\C--Users-pmcga-dev-hollowtide\3708decc-a9ed-4fb1-9ffb-c06cd75193c6\scratchpad\p9\contrast.py:30: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  px = list(im.crop((x0, y0, x1, y1)).getdata())
+storage header: panel #232b24 (40% of the box)
+    #c9bfa9   1663 px  contrast  7.98
+    #101310    505 px  contrast  1.28
+    #111411    126 px  contrast  1.27
+    #0f1210    125 px  contrast  1.29
+    highest-contrast common colour: 7.98
+storage row: panel #3f5140 (90% of the box)
+    #141915    311 px  contrast  2.09
+    #e4ca8e    254 px  contrast  5.34
+    #c9bfa9    232 px  contrast  4.67
+    #fff4e8    213 px  contrast  7.86
+    highest-contrast common colour: 7.86
+storage key strip: panel #232b24 (49% of the box)
+    #c9bfa9   1436 px  contrast  7.98
+    #101310    773 px  contrast  1.28
+    #111411    202 px  contrast  1.27
+    #0f1210    173 px  contrast  1.29
+    highest-contrast common colour: 7.98
+### shrine T18
+C:\Users\pmcga\AppData\Local\Temp\claude\C--Users-pmcga-dev-hollowtide\3708decc-a9ed-4fb1-9ffb-c06cd75193c6\scratchpad\p9\contrast.py:30: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  px = list(im.crop((x0, y0, x1, y1)).getdata())
+shrine count labels: panel #283025 (8% of the box)
+    highest-contrast common colour: 1.54
+shrine counts: panel #293126 (29% of the box)
+    highest-contrast common colour: 1.56
+shrine purple note: panel #c9a3ff (24% of the box)
+    #212923    589 px  contrast  7.23
+    #30362d    403 px  contrast  6.01
+    #2f352c    313 px  contrast  6.10
+    #2f352d    284 px  contrast  6.09
+    #293126    279 px  contrast  6.51
+    #363d33    197 px  contrast  5.43
+    highest-contrast common colour: 7.23
+shrine key strip: panel #c9bfa9 (15% of the box)
+    #293126    750 px  contrast  7.37
+    #283025    359 px  contrast  7.47
+    #212923    327 px  contrast  8.18
+    #30362d    300 px  contrast  6.80
+    #2f352c    276 px  contrast  6.91
+    #2f382c    218 px  contrast  6.68
+    highest-contrast common colour: 8.18
+### evolution T35, T38
+C:\Users\pmcga\AppData\Local\Temp\claude\C--Users-pmcga-dev-hollowtide\3708decc-a9ed-4fb1-9ffb-c06cd75193c6\scratchpad\p9\contrast.py:30: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  px = list(im.crop((x0, y0, x1, y1)).getdata())
+evo box text: panel #e4ca8e (28% of the box)
+    #222a23   3115 px  contrast  9.23
+    #101310   1204 px  contrast 11.70
+    #222a24   1105 px  contrast  9.22
+    #232a24   1079 px  contrast  9.20
+    #232b25    858 px  contrast  9.10
+    #283129    805 px  contrast  8.41
+    highest-contrast common colour: 11.70
+C:\Users\pmcga\AppData\Local\Temp\claude\C--Users-pmcga-dev-hollowtide\3708decc-a9ed-4fb1-9ffb-c06cd75193c6\scratchpad\p9\contrast.py:30: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  px = list(im.crop((x0, y0, x1, y1)).getdata())
+evo result text: panel #e4ca8e (26% of the box)
+    #222a23   2983 px  contrast  9.23
+    #222a24   1655 px  contrast  9.22
+    #232a24   1420 px  contrast  9.20
+    #101310   1266 px  contrast 11.70
+    #1c231d    741 px  contrast 10.05
+    #283129    717 px  contrast  8.41
+    highest-contrast common colour: 11.70
+evo continue: panel #1f2125 (64% of the box)
+    #121714    692 px  contrast  1.12
+    #1a1410     80 px  contrast  1.13
+    #80623a     33 px  contrast  2.86
+    #be9c62      6 px  contrast  6.23
+    highest-contrast common colour: 6.23
+### HUD T03
+C:\Users\pmcga\AppData\Local\Temp\claude\C--Users-pmcga-dev-hollowtide\3708decc-a9ed-4fb1-9ffb-c06cd75193c6\scratchpad\p9\contrast.py:30: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  px = list(im.crop((x0, y0, x1, y1)).getdata())
+hud place: panel #e4ca8e (14% of the box)
+    #293126    286 px  contrast  8.41
+    #283025    238 px  contrast  8.53
+    #283026    120 px  contrast  8.53
+    #2a3226    117 px  contrast  8.30
+    #232a20     91 px  contrast  9.23
+    #2f382c     87 px  contrast  7.63
+    highest-contrast common colour: 9.23
+hud next: panel #be9c62 (28% of the box)
+    #1a1410   1878 px  contrast  7.05
+    #f0d696   1715 px  contrast  1.82
+    #80623a   1002 px  contrast  2.18
+    #2c2218    288 px  contrast  6.02
+    #0b0f11     84 px  contrast  7.45
+    #0c0f11     84 px  contrast  7.44
+    highest-contrast common colour: 7.45
+town key strip: panel #232b24 (40% of the box)
+    #c9bfa9   1704 px  contrast  7.98
+    #171c18   1182 px  contrast  1.19
+    #101310    908 px  contrast  1.28
+    #101210    260 px  contrast  1.29
+    #111411    208 px  contrast  1.27
+    #be9c62    110 px  contrast  5.63
+    highest-contrast common colour: 7.98

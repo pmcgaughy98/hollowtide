@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-27",
+  "authorized": "Preston explicitly permitted Python native pixel cleanup",
+  "source": "scripts/town/tower_parts.gd PALETTE",
+  "source_sha256": "d1d9c2e45cca19976c0bc80204670c6290c2ff6414a0f307564a1ac2414b8d58",
+  "palette_colors": 36,
+  "candidate_colors": 29,
+  "remapped": [
+    {
+      "from": [
+        147,
+        131,
+        96
+      ],
+      "to": [
+        142,
+        127,
+        94
+      ],
+      "pixels": 207
+    },
+    {
+      "from": [
+        155,
+        138,
+        105
+      ],
+      "to": [
+        156,
+        140,
+        104
+      ],
+      "pixels": 1311
+    }
+  ],
+  "alpha_exact": true,
+  "canvas": [
+    216,
+    360
+  ],
+  "raw_untouched": true,
+  "native_sha256": "9d403cc003bcf245fe5850e082834688955e92259cdf3212e3d0298b5bc62c46",
+  "status": "runtime palette reconciliation only; official export/check still required"
+}

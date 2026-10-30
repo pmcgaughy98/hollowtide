@@ -1,0 +1,68 @@
+{
+ "slot": "town.prop.scrolls_cellar.table",
+ "candidate": "docs\\art\\slot-candidates\\gb-04-furniture\\town.prop.scrolls_cellar.table\\prepared.png",
+ "registry_sha256": "cb33c871f11f80980785e47e73ece64acf9e85ff607dc083c7a18639031a0434",
+ "pass": false,
+ "results": [
+  {
+   "id": "C1",
+   "name": "size",
+   "result": "PASS",
+   "detail": "48x40, slot sheet 48x40"
+  },
+  {
+   "id": "C2",
+   "name": "colours",
+   "result": "PASS",
+   "detail": "22 colours (worst cell 22), budget 24"
+  },
+  {
+   "id": "C3",
+   "name": "alpha",
+   "result": "PASS",
+   "detail": "0 partial-alpha pixels"
+  },
+  {
+   "id": "C4",
+   "name": "edges",
+   "result": "PASS",
+   "detail": "clear"
+  },
+  {
+   "id": "C5",
+   "name": "palette",
+   "result": "PASS",
+   "detail": "0 colours over 20 from the palette; mean distance 0.0"
+  },
+  {
+   "id": "C7",
+   "name": "foot row",
+   "result": "PASS",
+   "detail": "lowest rows [39], foot row 39"
+  },
+  {
+   "id": "C8",
+   "name": "frame health",
+   "result": "FAIL",
+   "detail": "opaque per cell [1564]; largest one-colour block 52% of a cell"
+  },
+  {
+   "id": "C9",
+   "name": "specks",
+   "result": "FAIL",
+   "detail": "275 orphan pixels (17.58%), 0 light specks"
+  },
+  {
+   "id": "C12",
+   "name": "light side",
+   "result": "PASS",
+   "detail": "upper-left edge 150, lower-right edge 150"
+  }
+ ],
+ "review": {
+  "R1": "no text, letters, numbers or signage lettering anywhere",
+  "R2": "nothing that reads as another game or franchise",
+  "R3": "no creature, animal or person unless the slot asks for one",
+  "R4": "sits in the scene: placeholder, candidate and in-game capture side by side"
+ }
+}

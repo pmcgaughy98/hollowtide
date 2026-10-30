@@ -1,0 +1,26 @@
+{
+  "protected_pixels_exact": 36980,
+  "menu_box_exact": true,
+  "houses_exact": true,
+  "left_tree_exact": true,
+  "river_road_exact_from182": true,
+  "new_tree_axis_source": 209,
+  "new_tree_crown_extent_source": [
+    130,
+    287,
+    6
+  ],
+  "door_anchor": [
+    333,
+    160
+  ],
+  "door_pixel": [
+    251,
+    212,
+    144
+  ],
+  "wordmark_colours": 4,
+  "old_lamp_anchor_retired": true,
+  "static_shader_preview_only": true,
+  "other56images_exact": true
+}

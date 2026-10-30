@@ -1,0 +1,8 @@
+{
+ "style_ref": "docs/design/placeholder-factory-2026-10-26/refs/town.prop.fence_corner_card.png",
+ "out": "docs/art/slot-candidates/gb-02-fences/town.prop.fence_corner/raw.png",
+ "cost_usd": 0.09228892,
+ "turns": 5,
+ "text": "I'll look at the style reference first, then generate the fence post once and save it as `raw.png`.The reference is warm timber pixel art: chocolate outlines, oak midtones, pale tan highlights, three-quarter top-down, hard edges. Generating the corner post once in that palette.The generator saved a JPEG. I'll convert it to `raw.png` in this folder.`C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_lsrx5v9x\\raw.png`\n\nIt is a 1024\u00d71024 timber fence corner post, a left-right rail span meeting a front-back span, in the reference's warm brown pixel-art palette on magenta. I did not reopen the pixels after generation, and the tool first wrote a JPEG, so I cannot confirm pure #FF00FF, hard pixel edges, or the absence of a ground shadow and lettering.",
+ "work": "C:\\Users\\pmcga\\AppData\\Local\\Temp\\grok_image_lsrx5v9x"
+}

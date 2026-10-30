@@ -1,0 +1,31 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-28 America/Chicago",
+  "source_file": "C:\\Users\\pmcga\\.codex\\generated_images\\01a12b4b-7982-7b32-b405-2a584762f412\\exec-6366886d-931c-458d-890f-f6bd32741609.png",
+  "raw_sha256": "6139df680be930e1086adf154698bda44f831230a0844b92ff9ffb9d926aca34",
+  "raw_is_untouched": true,
+  "cost": "not exposed; no paid alternate generator",
+  "references": [
+    {
+      "tool_path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\pass9-reach-stair-2026-10-28\\town.prop.hall.rise_stair\\input-before.png",
+      "snapshot": "references\\input-1.png",
+      "sha256": "9b36a28c53d2b174c11870120fc46a8602fbf7437dc4e0104c5b1fcf119a4444"
+    },
+    {
+      "tool_path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\pass9-reach-stair-2026-10-28\\town.prop.hall.rise_stair\\references\\target.png",
+      "snapshot": "references\\input-2.png",
+      "sha256": "dacfae469ba8c370eefb9d688b48d98ca33fab258c23a140feb7a40ca060629a"
+    },
+    {
+      "tool_path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\pass9-reach-stair-2026-10-28\\town.prop.hall.rise_stair\\references\\approved-key.png",
+      "snapshot": "references\\input-3.png",
+      "sha256": "08933cee846f3257a32558276d23bd999577ff4891b33fed611b2c5f50b129e4"
+    },
+    {
+      "tool_path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\slot-candidates\\pass9-reach-stair-2026-10-28\\town.prop.hall.rise_stair\\references\\palette.png",
+      "snapshot": "references\\input-4.png",
+      "sha256": "49dc8d51f946892a79fbdb613f8a58a155ea6fa161e4cd7129aa4f5c267e499e"
+    }
+  ],
+  "pixel_cleanup": "explicit Preston approval retained"
+}

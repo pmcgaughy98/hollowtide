@@ -2,12 +2,12 @@
 	"alpha": "binary",
 	"anchor": [
 		66,
-		143
+		191
 	],
 	"anchor_mode": "foot",
 	"area": "town",
-	"brief": "The team's home: a low river-stone cottage with a moss roof, a framed door with warm lamplight inside and a step in front.",
-	"building_class": "cottage",
+	"brief": "The team's home, dug into the river bluff: a broad grass bank is the roof (the top two thirds of the picture), lit on its crown, a stovepipe standing out of the turf right of centre. Under the turf's hanging lip, a short face of river stone between the bank's grassy flanks: a round lit window either side, the arched doorway under a thick stone ring that cuts up into the turf, a lantern hung by the door, a tied parcel waiting under the right window (a courier team lives here), a flat stone step. Seen from above and in front like the trading post; no cottage walls, no tiled roof.",
+	"building_class": "burrow",
 	"census": "B02",
 	"checks": [
 		"C1",
@@ -24,7 +24,7 @@
 	],
 	"door_px": [
 		55,
-		94,
+		142,
 		22,
 		48
 	],
@@ -48,7 +48,7 @@
 		120
 	],
 	"light": "upper_left",
-	"notes": "open frames come from door_px when absent; legacy_v1 is the v1 picture",
+	"notes": "Claude, 2026-10-29: the burrow class (5x3 base, 132x192, door Rect2i(55, 142, 22, 48)), Home dug into the bluff per docs/design/town-map-2026-10-28/TOWN_MAP.md; it replaces the cottage brief (132x144), so Codex's cx-01 home candidate is superseded. The doorway stays dark inside door_px (the game draws the leaves); open frames come from door_px when absent; legacy_v1 is the v1 picture.",
 	"optional_states": {
 		"open": [
 			3,
@@ -68,13 +68,16 @@
 	"rows": 1,
 	"sheet_size": [
 		132,
-		144
+		192
 	],
 	"size": [
 		132,
-		144
+		192
 	],
 	"slot_file": "town_buildings",
+	"state_order": [
+		"closed"
+	],
 	"states": {
 		"closed": [
 			1,
